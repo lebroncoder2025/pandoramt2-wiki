@@ -21,7 +21,7 @@ export default function MapsPage() {
             <div className="flex flex-col lg:flex-row lg:items-start gap-3.5">
               <div className="lg:w-1/3">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 rounded-lg bg-pandora-gold/8 flex items-center justify-center font-display text-sm font-bold text-pandora-gold/70">
+                  <div className="w-8 h-8 rounded-lg bg-pandora-gold/8 flex items-center justify-center font-display text-sm font-bold text-pandora-gold/80">
                     {i + 1}
                   </div>
                   <div>
@@ -31,7 +31,7 @@ export default function MapsPage() {
                     </Badge>
                   </div>
                 </div>
-                <p className="text-[13px] text-pandora-muted/55 leading-relaxed">{m.description}</p>
+                <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{m.description}</p>
               </div>
 
               <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-2">

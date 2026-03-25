@@ -44,7 +44,7 @@ export default function SoulStonesPage() {
                     <Badge color="purple">{s.type}</Badge>
                   </div>
                   <div className="sm:w-2/3">
-                    <p className="text-[13px] text-pandora-text/70">{s.bonus}</p>
+                    <p className="text-[13px] text-pandora-text/85">{s.bonus}</p>
                   </div>
                 </div>
               </div>

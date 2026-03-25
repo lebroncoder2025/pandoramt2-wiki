@@ -72,7 +72,7 @@ export default function HomePage() {
             <Download className="w-4 h-4" /> Pobierz Grę
           </a>
           <a href="https://pandoramt2.pl/auth/register" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-pandora-card/60 border border-pandora-border/40 text-pandora-text/70 font-medium text-sm rounded-lg hover:border-pandora-border/60 hover:text-pandora-text/85 transition-all">
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-pandora-card/60 border border-pandora-border/40 text-pandora-text/85 font-medium text-sm rounded-lg hover:border-pandora-border/60 hover:text-pandora-text/85 transition-all">
             Zarejestruj się
           </a>
         </div>
@@ -118,7 +118,7 @@ export default function HomePage() {
           {highlights.map(item => (
             <div key={item.title} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 hover:border-pandora-border/50 transition-colors">
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-1.5">{item.title}</h3>
-              <p className="text-[13px] text-pandora-muted/70 leading-relaxed">{item.desc}</p>
+              <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -143,7 +143,7 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-        <Link to="/events" className="inline-flex items-center gap-1.5 text-[13px] text-pandora-gold/70 hover:text-pandora-gold transition-colors">
+        <Link to="/events" className="inline-flex items-center gap-1.5 text-[13px] text-pandora-gold/80 hover:text-pandora-gold transition-colors">
           Zobacz wszystkie 18 eventów <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </section>
@@ -163,7 +163,7 @@ export default function HomePage() {
                 to={f.path}
                 className="group flex items-center gap-3.5 bg-pandora-card/40 border border-pandora-border/25 rounded-lg px-4 py-3.5 hover:border-pandora-border/50 hover:bg-pandora-card/60 transition-all"
               >
-                <Icon className="w-4 h-4 text-pandora-muted/50 group-hover:text-pandora-gold/70 shrink-0 transition-colors" strokeWidth={1.5} />
+                <Icon className="w-4 h-4 text-pandora-muted/50 group-hover:text-pandora-gold/80 shrink-0 transition-colors" strokeWidth={1.5} />
                 <div className="min-w-0">
                   <div className="text-sm font-medium text-pandora-text/85 group-hover:text-pandora-text transition-colors">{f.title}</div>
                   <div className="text-[11px] text-pandora-muted/60">{f.desc}</div>
@@ -176,7 +176,7 @@ export default function HomePage() {
       </section>
 
       {/* Download */}
-      <section className="bg-pandora-card/40 border border-pandora-border/25 rounded-xl p-6">
+      <section className="bg-pandora-card/40 border border-pandora-border/30 rounded-xl p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Klient gry</h3>
@@ -215,8 +215,8 @@ export default function HomePage() {
 
       {/* Source */}
       <p className="text-[11px] text-pandora-muted/35 leading-relaxed border-t border-pandora-border/20 pt-6">
-        Dane pochodzą z oficjalnej <a href="https://forum.pandoramt2.pl/topic/31300-s2-prezentacja-serwera/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold/50 hover:text-pandora-gold/70">Prezentacji Serwera</a> oraz{' '}
-        <a href="https://forum.pandoramt2.pl/topic/484-spis-event%C3%B3w/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold/50 hover:text-pandora-gold/70">Spisu Eventów</a> na forum PandoraMT2.
+        Dane pochodzą z oficjalnej <a href="https://forum.pandoramt2.pl/topic/31300-s2-prezentacja-serwera/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold/50 hover:text-pandora-gold/80">Prezentacji Serwera</a> oraz{' '}
+        <a href="https://forum.pandoramt2.pl/topic/484-spis-event%C3%B3w/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold/50 hover:text-pandora-gold/80">Spisu Eventów</a> na forum PandoraMT2.
       </p>
     </div>
   )

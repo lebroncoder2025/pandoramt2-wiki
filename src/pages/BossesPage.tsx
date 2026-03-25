@@ -26,12 +26,12 @@ export default function BossesPage() {
                 </div>
               </div>
               <div className="sm:w-[22%]">
-                <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest">Lokacja</p>
-                <p className="text-[13px] text-pandora-text/70">{b.map}</p>
+                <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest">Lokacja</p>
+                <p className="text-[13px] text-pandora-text/85">{b.map}</p>
               </div>
               <div className="sm:w-[50%]">
-                <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest">Nagroda</p>
-                <p className="text-[13px] text-pandora-gold/70">{b.reward}</p>
+                <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest">Nagroda</p>
+                <p className="text-[13px] text-pandora-gold/80">{b.reward}</p>
               </div>
             </div>
           </div>

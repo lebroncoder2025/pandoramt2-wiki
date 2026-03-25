@@ -59,10 +59,10 @@ export default function DungeonsPage() {
       <Card className="mt-6">
         <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Tworzenie przepustek</h3>
         <div className="space-y-2 text-[13px] text-pandora-muted/60">
-          <div className="bg-pandora-dark/25 rounded-lg p-3 border border-pandora-border/20">
+          <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
             <span className="text-pandora-gold/80 font-medium">Klejnot Ochrony Duszy</span> (Świątynia Andun) = 10x Skamieniała Łza + 10x Kręty Klucz + 10x Mityczny Klucz
           </div>
-          <div className="bg-pandora-dark/25 rounded-lg p-3 border border-pandora-border/20">
+          <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
             <span className="text-pandora-gold/80 font-medium">Bransoleta Sułtana</span> (Grota Dżinna) = Złota Czaszka Demona (Wędrowca Ham) LUB 10x Złoty Pył
           </div>
         </div>
