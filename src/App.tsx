@@ -16,6 +16,7 @@ import SkillsPage from './pages/SkillsPage.tsx'
 import ClassesPage from './pages/ClassesPage.tsx'
 import TipsPage from './pages/TipsPage.tsx'
 import CalculatorPage from './pages/CalculatorPage.tsx'
+import EventsPage from './pages/EventsPage.tsx'
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="skills" element={<SkillsPage />} />
         <Route path="tips" element={<TipsPage />} />
         <Route path="calculator" element={<CalculatorPage />} />
+        <Route path="events" element={<EventsPage />} />
       </Route>
     </Routes>
   )

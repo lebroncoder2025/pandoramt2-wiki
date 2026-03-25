@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { Menu, X, Sword, Map, Castle, Skull, Shield, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, BookOpen, Lightbulb, Calculator, ChevronDown, ExternalLink, Info } from 'lucide-react'
+import { Menu, X, Sword, Map, Castle, Skull, Shield, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, BookOpen, Lightbulb, Calculator, ChevronDown, ExternalLink, Info, Calendar } from 'lucide-react'
 
 const navGroups = [
   {
@@ -9,6 +9,7 @@ const navGroups = [
       { path: '/server-info', label: 'Informacje o Serwerze', icon: Info },
       { path: '/classes', label: 'Klasy Postaci', icon: Sword },
       { path: '/tips', label: 'Porady & Skróty', icon: Lightbulb },
+      { path: '/events', label: 'Eventy', icon: Calendar },
     ]
   },
   {
