@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { Menu, X, Sword, Map, Castle, Skull, Shield, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, BookOpen, Lightbulb, Calculator, ChevronDown, ExternalLink, Info } from 'lucide-react'
 
@@ -50,11 +50,6 @@ export default function Layout() {
   const [expandedGroups, setExpandedGroups] = useState<string[]>(navGroups.map(g => g.label))
   const location = useLocation()
 
-  // Close sidebar on route change (mobile)
-  useEffect(() => {
-    setSidebarOpen(false)
-  }, [location.pathname])
-
   const toggleGroup = (label: string) => {
     setExpandedGroups(prev =>
       prev.includes(label) ? prev.filter(g => g !== label) : [...prev, label]
@@ -62,50 +57,43 @@ export default function Layout() {
   }
 
   return (
-    <div className="relative min-h-screen bg-pandora-darker">
+    <div className="flex min-h-screen">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/60 lg:hidden"
+          className="fixed inset-0 bg-black/60 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
-      {/* Sidebar — always fixed */}
-      <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-pandora-border bg-pandora-dark transition-transform duration-300 ease-in-out ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        }`}
-      >
-        {/* Sidebar header */}
-        <div className="flex items-center justify-between border-b border-pandora-border px-5 py-4">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-pandora-gold to-yellow-600">
-              <BookOpen className="h-5 w-5 text-pandora-dark" />
+      {/* Sidebar */}
+      <aside className={`
+        fixed lg:sticky top-0 left-0 z-50 h-screen w-72
+        bg-pandora-dark border-r border-pandora-border
+        overflow-y-auto transition-transform duration-300
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}>
+        <div className="p-5 border-b border-pandora-border">
+          <Link to="/" className="flex items-center gap-3" onClick={() => setSidebarOpen(false)}>
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pandora-gold to-yellow-600 flex items-center justify-center">
+              <BookOpen className="w-5 h-5 text-pandora-dark" />
             </div>
             <div>
-              <h1 className="font-display text-lg font-bold gold-gradient-text">PandoraMT2</h1>
+              <h1 className="font-display text-lg font-bold gold-gradient">PandoraMT2</h1>
               <p className="text-xs text-pandora-muted">Kompletny Przewodnik</p>
             </div>
           </Link>
-          <button
-            onClick={() => setSidebarOpen(false)}
-            className="rounded-lg p-1.5 text-pandora-muted hover:bg-pandora-card hover:text-pandora-text lg:hidden"
-          >
-            <X className="h-5 w-5" />
-          </button>
         </div>
 
-        {/* Sidebar nav — scrollable */}
-        <nav className="sidebar-scroll flex-1 overflow-y-auto p-3">
+        <nav className="p-3">
           {navGroups.map((group) => (
             <div key={group.label} className="mb-1">
               <button
                 onClick={() => toggleGroup(group.label)}
-                className="flex w-full items-center justify-between px-3 py-2 text-xs font-semibold uppercase tracking-wider text-pandora-muted transition-colors hover:text-pandora-gold"
+                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold uppercase tracking-wider text-pandora-muted hover:text-pandora-gold transition-colors"
               >
                 {group.label}
-                <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${expandedGroups.includes(group.label) ? '' : '-rotate-90'}`} />
+                <ChevronDown className={`w-3 h-3 transition-transform ${expandedGroups.includes(group.label) ? '' : '-rotate-90'}`} />
               </button>
               {expandedGroups.includes(group.label) && (
                 <div className="space-y-0.5">
@@ -116,14 +104,17 @@ export default function Layout() {
                       <Link
                         key={item.path}
                         to={item.path}
-                        className={`flex items-center gap-3 rounded-lg border px-3 py-2.5 text-sm transition-all ${
-                          isActive
-                            ? 'border-pandora-gold/20 bg-pandora-gold/10 text-pandora-gold'
-                            : 'border-transparent text-pandora-text hover:bg-pandora-card hover:text-pandora-gold-light'
-                        }`}
+                        onClick={() => setSidebarOpen(false)}
+                        className={`
+                          flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all
+                          ${isActive
+                            ? 'bg-pandora-gold/10 text-pandora-gold border border-pandora-gold/20'
+                            : 'text-pandora-text hover:bg-pandora-card hover:text-pandora-gold-light border border-transparent'
+                          }
+                        `}
                       >
-                        <Icon className="h-4 w-4 shrink-0" />
-                        <span className="truncate">{item.label}</span>
+                        <Icon className="w-4 h-4 shrink-0" />
+                        {item.label}
                       </Link>
                     )
                   })}
@@ -133,56 +124,52 @@ export default function Layout() {
           ))}
         </nav>
 
-        {/* Sidebar footer — links */}
-        <div className="border-t border-pandora-border p-4">
-          <p className="mb-2 text-xs text-pandora-muted">Oficjalne linki</p>
+        <div className="p-4 m-3 mt-4 rounded-lg bg-gradient-to-br from-pandora-gold/10 to-pandora-purple/10 border border-pandora-gold/20">
+          <p className="text-xs text-pandora-muted mb-2">Oficjalne linki</p>
           <div className="space-y-1.5">
-            {[
-              { label: 'Strona główna', url: 'https://pandoramt2.pl' },
-              { label: 'Pobierz grę', url: 'https://pandoramt2.pl/main/download' },
-              { label: 'Forum', url: 'https://forum.pandoramt2.pl' },
-              { label: 'Discord', url: 'https://discord.pandoramt2.pl' },
-            ].map(link => (
-              <a
-                key={link.url}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs text-pandora-gold transition-colors hover:text-pandora-gold-light"
-              >
-                <ExternalLink className="h-3 w-3 shrink-0" />
-                {link.label}
-              </a>
-            ))}
+            <a href="https://pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-pandora-gold hover:text-pandora-gold-light transition-colors">
+              <ExternalLink className="w-3 h-3" /> Strona główna
+            </a>
+            <a href="https://pandoramt2.pl/main/download" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-pandora-gold hover:text-pandora-gold-light transition-colors">
+              <ExternalLink className="w-3 h-3" /> Pobierz grę
+            </a>
+            <a href="https://forum.pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-pandora-gold hover:text-pandora-gold-light transition-colors">
+              <ExternalLink className="w-3 h-3" /> Forum
+            </a>
+            <a href="https://discord.pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-pandora-gold hover:text-pandora-gold-light transition-colors">
+              <ExternalLink className="w-3 h-3" /> Discord
+            </a>
           </div>
         </div>
       </aside>
 
-      {/* Main content area — offset by sidebar width on lg */}
-      <div className="flex min-h-screen flex-col lg:ml-72">
+      {/* Main content */}
+      <div className="flex-1 flex flex-col min-h-screen">
         {/* Top bar */}
-        <header className="sticky top-0 z-30 border-b border-pandora-border bg-pandora-darker/90 backdrop-blur-lg">
+        <header className="sticky top-0 z-30 bg-pandora-darker/80 backdrop-blur-xl border-b border-pandora-border">
           <div className="flex items-center justify-between px-4 py-3">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="rounded-lg p-2 text-pandora-muted transition-colors hover:bg-pandora-card hover:text-pandora-text lg:hidden"
+              className="lg:hidden p-2 rounded-lg hover:bg-pandora-card transition-colors"
             >
-              <Menu className="h-5 w-5" />
+              {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
             <div className="hidden lg:block" />
-            <a
-              href="https://pandoramt2.pl/auth/register"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg bg-gradient-to-r from-pandora-gold to-yellow-600 px-4 py-2 text-sm font-semibold text-pandora-dark transition-all hover:shadow-lg hover:shadow-pandora-gold/20"
-            >
-              Zagraj Teraz
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://pandoramt2.pl/auth/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-gradient-to-r from-pandora-gold to-yellow-600 text-pandora-dark font-semibold text-sm rounded-lg hover:shadow-lg hover:shadow-pandora-gold/20 transition-all"
+              >
+                Zagraj Teraz
+              </a>
+            </div>
           </div>
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-x-hidden p-4 lg:p-8">
+        <main className="flex-1 p-4 lg:p-8">
           <Outlet />
         </main>
 

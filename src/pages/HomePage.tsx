@@ -26,37 +26,37 @@ const quickStats = [
 
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-7xl">
+    <div className="max-w-7xl mx-auto">
       {/* Hero Section */}
-      <section className="relative mb-12 overflow-hidden rounded-2xl border border-pandora-border bg-hero-pattern">
+      <section className="relative rounded-2xl overflow-hidden mb-12 bg-hero-pattern border border-pandora-border">
         <div className="absolute inset-0 bg-gradient-to-br from-pandora-gold/5 via-transparent to-pandora-purple/5" />
-        <div className="relative px-6 py-16 text-center lg:px-12 lg:py-24">
-          <h1 className="font-display text-4xl font-black mb-4 lg:text-6xl">
-            <span className="gold-gradient-text">PandoraMT2</span>
+        <div className="relative px-6 py-16 lg:px-12 lg:py-24 text-center">
+          <h1 className="font-display text-4xl lg:text-6xl font-black mb-4">
+            <span className="gold-gradient">PandoraMT2</span>
           </h1>
-          <p className="mb-2 font-display text-xl text-pandora-muted lg:text-2xl">
+          <p className="text-xl lg:text-2xl text-pandora-muted mb-2 font-display">
             Jedyna poprawnie odwzorowana legenda Metin2
           </p>
-          <p className="mx-auto mb-8 max-w-2xl text-pandora-muted">
+          <p className="text-pandora-muted max-w-2xl mx-auto mb-8">
             Kompletny przewodnik po serwerze — mapy, dungeony, bossy, ekwipunek, systemy rozgrywki i porady 
             dla nowych i doświadczonych graczy.
           </p>
 
-          <div className="mb-10 flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
             <a href="https://pandoramt2.pl/main/download" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-pandora-gold to-yellow-600 px-6 py-3 font-bold text-pandora-dark transition-all hover:shadow-xl hover:shadow-pandora-gold/20">
-              <Download className="h-5 w-5" /> Pobierz Grę
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pandora-gold to-yellow-600 text-pandora-dark font-bold rounded-xl hover:shadow-xl hover:shadow-pandora-gold/20 transition-all">
+              <Download className="w-5 h-5" /> Pobierz Grę
             </a>
             <a href="https://pandoramt2.pl/auth/register" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-pandora-gold px-6 py-3 font-bold text-pandora-gold transition-all hover:bg-pandora-gold/10">
-              <Users className="h-5 w-5" /> Zarejestruj się
+              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-pandora-gold text-pandora-gold font-bold rounded-xl hover:bg-pandora-gold/10 transition-all">
+              <Users className="w-5 h-5" /> Zarejestruj się
             </a>
           </div>
 
           {/* Quick Stats */}
-          <div className="mx-auto grid max-w-xl grid-cols-2 gap-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-xl mx-auto">
             {quickStats.map(s => (
-              <div key={s.label} className="glass-card p-3">
+              <div key={s.label} className="glass-card rounded-xl p-3">
                 <div className="text-xs text-pandora-muted">{s.label}</div>
                 <div className="text-lg font-bold text-pandora-gold">{s.value}</div>
               </div>
@@ -67,16 +67,16 @@ export default function HomePage() {
 
       {/* Starting Equipment */}
       <section className="mb-12">
-        <h2 className="mb-6 font-display text-2xl font-bold gold-gradient-text">🎒 Ekwipunek Startowy</h2>
-        <div className="glass-card p-6">
-          <p className="mb-4 text-pandora-muted">Jako gracz Pandory nie rozpoczniesz przygody z pustymi rękoma. Oto co otrzymujesz na start:</p>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <h2 className="font-display text-2xl font-bold gold-gradient mb-6">🎒 Ekwipunek Startowy</h2>
+        <div className="glass-card rounded-xl p-6">
+          <p className="text-pandora-muted mb-4">Jako gracz Pandory nie rozpoczniesz przygody z pustymi rękoma. Oto co otrzymujesz na start:</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               'Buty Wiatru', 'Pierścień Teleportacji (TAB)', '200x Peleryna Męstwa', 'Koń 21 poziomu',
               'Podstawowy EQ +9', '10 Ziel. + Fiol. Mikstur', 'Wszystkie języki na M1', '100% szansa na konia'
             ].map(item => (
-              <div key={item} className="flex items-center gap-2 rounded-lg border border-pandora-border/50 bg-pandora-dark/50 p-3">
-                <div className="h-2 w-2 shrink-0 rounded-full bg-pandora-gold" />
+              <div key={item} className="flex items-center gap-2 bg-pandora-dark/50 rounded-lg p-3 border border-pandora-border/50">
+                <div className="w-2 h-2 rounded-full bg-pandora-gold shrink-0" />
                 <span className="text-sm">{item}</span>
               </div>
             ))}
@@ -86,26 +86,26 @@ export default function HomePage() {
 
       {/* Features Grid */}
       <section className="mb-12">
-        <h2 className="mb-6 font-display text-2xl font-bold gold-gradient-text">📖 Przewodnik po Serwerze</h2>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <h2 className="font-display text-2xl font-bold gold-gradient mb-6">📖 Przewodnik po Serwerze</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {features.map(f => {
             const Icon = f.icon
             return (
               <Link
                 key={f.path}
                 to={f.path}
-                className="group rounded-xl border border-pandora-border bg-pandora-card p-5 transition-all duration-300 hover:border-pandora-gold/40 hover:bg-pandora-card-hover"
+                className="group bg-pandora-card border border-pandora-border rounded-xl p-5 hover:border-pandora-gold/40 hover:bg-pandora-card-hover transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-pandora-gold/10 transition-colors group-hover:bg-pandora-gold/20">
-                    <Icon className="h-5 w-5 text-pandora-gold" />
+                  <div className="w-10 h-10 rounded-lg bg-pandora-gold/10 flex items-center justify-center shrink-0 group-hover:bg-pandora-gold/20 transition-colors">
+                    <Icon className="w-5 h-5 text-pandora-gold" />
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="flex items-center gap-2 font-semibold text-pandora-text transition-colors group-hover:text-pandora-gold">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-pandora-text group-hover:text-pandora-gold transition-colors flex items-center gap-2">
                       {f.title}
-                      <ArrowRight className="h-4 w-4 -translate-x-2 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+                      <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     </h3>
-                    <p className="mt-1 text-sm text-pandora-muted">{f.desc}</p>
+                    <p className="text-sm text-pandora-muted mt-1">{f.desc}</p>
                   </div>
                 </div>
               </Link>
@@ -115,14 +115,14 @@ export default function HomePage() {
       </section>
 
       {/* Server Links */}
-      <section className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         {[
           { label: 'Strona Główna', url: serverInfo.website, desc: 'Oficjalna strona serwera' },
           { label: 'Forum', url: serverInfo.forum, desc: 'Społeczność i dyskusje' },
           { label: 'Discord', url: serverInfo.discord, desc: 'Czat głosowy i tekstowy' },
         ].map(link => (
           <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
-            className="glass-card p-5 transition-all hover:border-pandora-gold/40 group">
+            className="glass-card rounded-xl p-5 hover:border-pandora-gold/40 transition-all group">
             <h3 className="font-semibold text-pandora-gold group-hover:text-pandora-gold-light">{link.label}</h3>
             <p className="text-sm text-pandora-muted">{link.desc}</p>
           </a>
