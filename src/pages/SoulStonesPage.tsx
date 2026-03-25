@@ -1,0 +1,87 @@
+import { useState } from 'react'
+import { Gem } from 'lucide-react'
+import { PageHeader, DataTable, SectionTitle, InfoBox, Card, TabGroup, Badge } from '../components/UI.tsx'
+import { soulStones, legendarySoulStones } from '../data/serverData.ts'
+
+export default function SoulStonesPage() {
+  const [tab, setTab] = useState(0)
+
+  return (
+    <div className="max-w-5xl mx-auto">
+      <PageHeader
+        title="Kamienie Dusz"
+        description="Zwykłe i Legendarne Kamienie Dusz — bonusy, tworzenie i ulepszanie."
+        icon={<Gem className="w-8 h-8" />}
+      />
+
+      <TabGroup tabs={['Zwykłe Kamienie', 'Legendarne Kamienie', 'Ołtarz Dusz']} activeTab={tab} onTabChange={setTab} />
+
+      {tab === 0 && (
+        <>
+          <InfoBox type="info">
+            <p className="text-sm">Kamienie Dusz kupujemy u <strong>Handlarki Różności</strong> za <strong>25.000.000 Yang</strong>. Niektóre po zyskać ze Sakwy Szczęścia.</p>
+          </InfoBox>
+          <DataTable
+            headers={['Nazwa', 'Slot', 'Bonus na +5']}
+            rows={soulStones.map(s => [s.name, s.type, s.bonus])}
+            highlightFirst
+          />
+        </>
+      )}
+
+      {tab === 1 && (
+        <>
+          <InfoBox type="warning">
+            <p className="text-sm">Legendarne KD mają <strong>kilka bonusów</strong> i są znacznie silniejsze. Tworzysz je w <strong>Ołtarzu Dusz</strong>. Mogą <strong>pęknąć</strong> podczas wkładania!</p>
+          </InfoBox>
+
+          <div className="space-y-3 mb-6">
+            {legendarySoulStones.map(s => (
+              <Card key={s.name}>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                  <div className="sm:w-1/3">
+                    <h3 className="font-semibold text-pandora-gold">{s.name}</h3>
+                    <Badge color="purple">{s.type}</Badge>
+                  </div>
+                  <div className="sm:w-2/3">
+                    <p className="text-sm text-pandora-text">{s.bonus}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <InfoBox type="info">
+            <p className="text-sm">Wytworzony kamień zaczyna na +0 i można go ulepszać do +5. Nie ma osobnego slotu — wchodzi w standardowy slot KD w przedmiocie.</p>
+          </InfoBox>
+        </>
+      )}
+
+      {tab === 2 && (
+        <>
+          <SectionTitle>Ołtarz Dusz</SectionTitle>
+          <p className="text-pandora-muted mb-4">Ołtarz Dusz znajduje się w każdym M1. Oferuje trzy główne funkcje:</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <Card>
+              <h3 className="font-semibold text-pandora-gold mb-2">🔥 Przepalanie</h3>
+              <p className="text-sm text-pandora-muted">Wymiana zbędnych Kamieni Dusz na Odłamki Kamienia Duszy. Kamienie automatycznie wskakują do okna.</p>
+            </Card>
+            <Card>
+              <h3 className="font-semibold text-pandora-gold mb-2">🔄 Wymiana</h3>
+              <p className="text-sm text-pandora-muted">Za Odłamki możesz kupić różne przedmioty, w tym Legendarny Kamień potrzebny do tworzenia LKD.</p>
+            </Card>
+            <Card>
+              <h3 className="font-semibold text-pandora-gold mb-2">⚒️ Wytwarzanie</h3>
+              <p className="text-sm text-pandora-muted">Tworzenie Legendarnych Kamieni Dusz z materiałów. Wytworzony kamień to +0; ulepszaj do +5.</p>
+            </Card>
+          </div>
+
+          <InfoBox type="warning">
+            <p className="text-sm"><strong>Uwaga!</strong> Legendarny Kamień Dusz może pęknąć podczas wkładania do przedmiotu. Nie ma osobnego slotu — zajmuje standardowy.</p>
+          </InfoBox>
+        </>
+      )}
+    </div>
+  )
+}

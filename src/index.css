@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pandora-gold: #d4a843;
+  --color-pandora-gold-light: #f0d68a;
+  --color-pandora-dark: #0a0a0f;
+  --color-pandora-darker: #060609;
+  --color-pandora-card: #12121a;
+  --color-pandora-card-hover: #1a1a25;
+  --color-pandora-border: #2a2a3a;
+  --color-pandora-text: #e0e0e8;
+  --color-pandora-muted: #888899;
+  --color-pandora-red: #e74c3c;
+  --color-pandora-green: #2ecc71;
+  --color-pandora-blue: #3498db;
+  --color-pandora-purple: #9b59b6;
+  --color-pandora-orange: #e67e22;
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-pandora-darker);
+  color: var(--color-pandora-text);
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-pandora-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-pandora-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pandora-gold);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 5px rgba(212, 168, 67, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(212, 168, 67, 0.6); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+.glass-card {
+  background: rgba(18, 18, 26, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 168, 67, 0.15);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #d4a843, #f0d68a, #d4a843);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-hero-pattern {
+  background-image: 
+    radial-gradient(ellipse at 20% 50%, rgba(212, 168, 67, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(155, 89, 182, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(52, 152, 219, 0.05) 0%, transparent 50%);
+}
