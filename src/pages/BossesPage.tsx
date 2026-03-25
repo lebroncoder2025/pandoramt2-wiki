@@ -14,7 +14,7 @@ export default function BossesPage() {
       <SectionTitle>Bossy na Mapach</SectionTitle>
       <div className="space-y-2 mb-8">
         {bosses.map(b => (
-          <div key={b.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/50 transition-colors group">
+          <div key={b.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors group">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
               <div className="sm:w-[28%] flex items-center gap-2.5">
                 <div className={`w-2 h-2 rounded-full shrink-0 ${

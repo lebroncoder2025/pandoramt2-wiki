@@ -85,8 +85,11 @@ export default function Layout() {
 
   return (
     <div className="bg-pandora-darker text-pandora-text font-body">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-pandora-gold focus:text-pandora-darker focus:rounded-lg focus:text-sm focus:font-semibold">
+        Przejdź do treści
+      </a>
       {sidebarOpen && !isDesktop && (
-        <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} aria-label="Zamknij menu" role="button" tabIndex={0} onKeyDown={e => e.key === 'Escape' && setSidebarOpen(false)} />
+        <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} aria-label="Zamknij menu" role="presentation" />
       )}
 
       {/* Sidebar */}
@@ -124,13 +127,14 @@ export default function Layout() {
               <div key={group.label}>
                 <button
                   onClick={() => toggleGroup(group.label)}
+                  aria-expanded={expandedGroups.includes(group.label)}
                   className="w-full flex items-center gap-1.5 px-2 mb-1 text-[10px] font-bold uppercase tracking-[0.15em] text-pandora-muted/50 hover:text-pandora-muted/70 transition-colors"
                 >
                   <ChevronRight className={`w-3 h-3 transition-transform duration-200 ${expandedGroups.includes(group.label) ? 'rotate-90' : ''}`} />
                   {group.label}
                 </button>
                 
-                <div className={`space-y-0.5 overflow-hidden transition-all duration-250 ${expandedGroups.includes(group.label) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className={`space-y-0.5 overflow-hidden transition-all duration-200 ${expandedGroups.includes(group.label) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                   {group.items.map((item) => {
                     const isActive = location.pathname === item.path
                     const Icon = item.icon
@@ -139,6 +143,7 @@ export default function Layout() {
                         key={item.path}
                         to={item.path}
                         onClick={() => setSidebarOpen(false)}
+                        aria-current={isActive ? 'page' : undefined}
                         className={`
                           flex items-center gap-2.5 px-3 py-[7px] rounded-lg text-[13px] transition-all duration-150 relative
                           ${isActive
@@ -231,7 +236,7 @@ export default function Layout() {
         </header>
 
         {/* Content */}
-        <main className="flex-1 px-4 py-6 sm:px-5 sm:py-8 md:px-8 md:py-10 lg:px-12">
+        <main id="main-content" className="flex-1 px-4 py-6 sm:px-5 sm:py-8 md:px-8 md:py-10 lg:px-12">
           <div key={location.pathname} className="max-w-5xl mx-auto animate-fade-in">
             <Outlet />
           </div>

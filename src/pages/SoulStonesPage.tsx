@@ -37,7 +37,7 @@ export default function SoulStonesPage() {
 
           <div className="space-y-2 mb-6">
             {legendarySoulStones.map(s => (
-              <div key={s.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/50 transition-colors">
+              <div key={s.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2.5">
                   <div className="sm:w-1/3">
                     <h3 className="text-sm font-semibold text-pandora-text/85">{s.name}</h3>

@@ -75,13 +75,7 @@ body {
   50% { background-size: 200% 200%; background-position: right center; }
 }
 
-@keyframes glow-border {
-  0%, 100% { border-color: rgba(200, 164, 78, 0.15); }
-  50% { border-color: rgba(200, 164, 78, 0.35); }
-}
-
 .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
-.animate-fade-in-slow { animation: fadeInSlow 0.6s ease-out forwards; }
 .animate-shimmer {
   background: linear-gradient(90deg, transparent, rgba(200, 164, 78, 0.06), transparent);
   background-size: 200% 100%;
@@ -91,25 +85,11 @@ body {
 .animate-gradient-x { animation: gradient-x 4s ease infinite; }
 
 /* ===== UTILITY CLASSES ===== */
-.glass {
-  background: rgba(12, 12, 22, 0.75);
-  backdrop-filter: blur(20px) saturate(1.2);
-  border: 1px solid rgba(200, 164, 78, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.02);
-}
-
 .gold-text {
   background: linear-gradient(135deg, #b8923a 0%, #e8d089 45%, #c8a44e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.bg-noise {
-  background-image: 
-    radial-gradient(ellipse at 15% 50%, rgba(200, 164, 78, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse at 85% 15%, rgba(192, 132, 252, 0.03) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 90%, rgba(96, 165, 250, 0.02) 0%, transparent 60%);
 }
 
 /* ===== LAYOUT ===== */

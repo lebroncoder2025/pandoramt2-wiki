@@ -17,7 +17,7 @@ export default function MapsPage() {
 
       <div className="space-y-3">
         {maps.map((m, i) => (
-          <div key={m.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/50 transition-colors">
+          <div key={m.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
             <div className="flex flex-col lg:flex-row lg:items-start gap-3.5">
               <div className="lg:w-1/3">
                 <div className="flex items-center gap-3 mb-2">

@@ -62,17 +62,17 @@ export default function HomePage() {
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold gold-text mb-4 tracking-tight leading-[1.1]">
             PandoraMT2
           </h1>
-          <p className="text-pandora-muted text-base md:text-lg max-w-xl leading-relaxed mb-8">
+          <p className="text-pandora-muted/60 text-base md:text-lg max-w-xl leading-relaxed mb-8">
             Kompletny przewodnik po serwerze — mapy, dungeony, bossy, systemy rozgrywki i porady dla nowych oraz doświadczonych graczy.
           </p>
 
-        <div className="flex flex-wrap gap-3 mb-10">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-10">
           <a href="https://pandoramt2.pl/main/download" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-pandora-gold/10 border border-pandora-gold/20 text-pandora-gold font-semibold text-sm rounded-lg hover:bg-pandora-gold/15 hover:border-pandora-gold/30 transition-all">
             <Download className="w-4 h-4" /> Pobierz Grę
           </a>
           <a href="https://pandoramt2.pl/auth/register" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-pandora-card/60 border border-pandora-border/40 text-pandora-text/85 font-medium text-sm rounded-lg hover:border-pandora-border/60 hover:text-pandora-text/85 transition-all">
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-pandora-card/60 border border-pandora-border/40 text-pandora-text/85 font-medium text-sm rounded-lg hover:border-pandora-border/60 hover:bg-pandora-card-hover/80 transition-all">
             Zarejestruj się
           </a>
         </div>
@@ -80,7 +80,7 @@ export default function HomePage() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {stats.map(s => (
-            <div key={s.label} className="bg-pandora-card/60 rounded-lg p-4 border border-pandora-border/40">
+            <div key={s.label} className="bg-pandora-card/60 rounded-lg p-4 border border-pandora-border/40 hover:border-pandora-border/60 transition-colors">
               <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-pandora-muted/60 mb-1">{s.label}</div>
               <div className="text-xl font-display font-bold text-pandora-gold">{s.value}</div>
             </div>
@@ -97,7 +97,7 @@ export default function HomePage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
           {startingItems.map(item => (
-            <div key={item.text} className="flex items-center gap-3 bg-pandora-card/60 rounded-lg px-4 py-3 border border-pandora-border/40 hover:border-pandora-border/50 transition-colors">
+            <div key={item.text} className="flex items-center gap-3 bg-pandora-card/60 rounded-lg px-4 py-3 border border-pandora-border/40 hover:border-pandora-border/60 transition-colors">
               <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/50 shrink-0" />
               <div>
                 <span className="text-sm text-pandora-text/85 font-medium">{item.text}</span>
@@ -116,7 +116,7 @@ export default function HomePage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {highlights.map(item => (
-            <div key={item.title} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 hover:border-pandora-border/50 transition-colors">
+            <div key={item.title} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 hover:border-pandora-border/60 transition-colors">
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-1.5">{item.title}</h3>
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{item.desc}</p>
             </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
             { name: 'Deszcz Metinów / Zuo', type: 'Losowy', color: 'text-pandora-orange', desc: 'Metiny i Bossy na mapie' },
             { name: 'Kosmiczna Inwazja', type: 'Community', color: 'text-pandora-purple', desc: '100K przedmiotów = raty' },
           ].map(e => (
-            <div key={e.name} className="bg-pandora-card/60 rounded-lg p-4 border border-pandora-border/40">
+            <div key={e.name} className="bg-pandora-card/60 rounded-lg p-4 border border-pandora-border/40 hover:border-pandora-border/60 transition-colors">
               <div className={`text-[10px] font-bold uppercase tracking-widest ${e.color} mb-2`}>{e.type}</div>
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-1">{e.name}</h3>
               <p className="text-[12px] text-pandora-muted/60">{e.desc}</p>
@@ -161,7 +161,7 @@ export default function HomePage() {
               <Link
                 key={f.path}
                 to={f.path}
-                className="group flex items-center gap-3.5 bg-pandora-card/40 border border-pandora-border/25 rounded-lg px-4 py-3.5 hover:border-pandora-border/50 hover:bg-pandora-card/60 transition-all"
+                className="group flex items-center gap-3.5 bg-pandora-card/40 border border-pandora-border/25 rounded-lg px-4 py-3.5 hover:border-pandora-border/60 hover:bg-pandora-card/60 transition-all"
               >
                 <Icon className="w-4 h-4 text-pandora-muted/50 group-hover:text-pandora-gold/80 shrink-0 transition-colors" strokeWidth={1.5} />
                 <div className="min-w-0">

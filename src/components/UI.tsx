@@ -11,7 +11,7 @@ export function PageHeader({ title, description, icon }: { title: string; descri
         )}
         <h1 className="font-display text-2xl md:text-3xl font-bold gold-text tracking-tight">{title}</h1>
       </div>
-      <p className="text-pandora-muted text-sm md:text-base max-w-2xl leading-relaxed">{description}</p>
+      <p className="text-pandora-muted/60 text-sm md:text-base max-w-2xl leading-relaxed">{description}</p>
     </div>
   )
 }

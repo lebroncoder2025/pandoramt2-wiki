@@ -17,7 +17,7 @@ export default function DungeonsPage() {
 
       <div className="space-y-3">
         {dungeons.map(d => (
-          <div key={d.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 hover:border-pandora-border/50 transition-colors">
+          <div key={d.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 hover:border-pandora-border/60 transition-colors">
             <div className="flex flex-col gap-3.5">
               <div className="flex flex-wrap items-center gap-2.5">
                 <h3 className="text-base font-bold text-pandora-text/85">{d.name}</h3>

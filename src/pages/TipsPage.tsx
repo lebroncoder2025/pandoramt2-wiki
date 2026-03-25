@@ -90,7 +90,7 @@ export default function TipsPage() {
       <SectionTitle>Skróty Klawiszowe</SectionTitle>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-8">
         {shortcuts.map(s => (
-          <div key={s.key} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-3.5 hover:border-pandora-border/50 transition-colors">
+          <div key={s.key} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-3.5 hover:border-pandora-border/60 transition-colors">
             <kbd className="inline-block px-2 py-0.5 bg-pandora-dark/60 rounded text-pandora-gold/80 font-mono text-[12px] mb-1.5 border border-pandora-gold/15">
               {s.key}
             </kbd>
