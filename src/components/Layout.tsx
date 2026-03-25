@@ -167,6 +167,9 @@ export default function Layout() {
                 </a>
               ))}
             </div>
+            <div className="mt-3 px-2 text-[10px] text-pandora-muted/25">
+              Sezon 2026/2027 · Klient v1.0.2
+            </div>
           </div>
         </div>
       </aside>
@@ -221,7 +224,7 @@ export default function Layout() {
         </header>
 
         {/* Content */}
-        <main className="flex-1 px-5 py-8 md:px-8 md:py-10 lg:px-12">
+        <main className="flex-1 px-4 py-6 sm:px-5 sm:py-8 md:px-8 md:py-10 lg:px-12">
           <div key={location.pathname} className="max-w-5xl mx-auto animate-fade-in">
             <Outlet />
           </div>

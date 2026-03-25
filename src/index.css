@@ -44,7 +44,7 @@ body {
 }
 
 /* ===== SCROLLBAR ===== */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--color-pandora-border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-pandora-gold); }
@@ -140,6 +140,7 @@ a, button {
 }
 .card-hover:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(200, 164, 78, 0.05);
+  transform: translateY(-1px);
 }
 
 /* ===== TABLES ===== */
@@ -153,6 +154,13 @@ table tbody tr:hover { background: rgba(200, 164, 78, 0.03); }
 /* ===== MISC ===== */
 ::selection { background: rgba(200, 164, 78, 0.25); color: #e8d089; }
 kbd { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace; }
+
+/* Smooth content links */
+main a:not([class]) {
+  color: var(--color-pandora-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
 
 .line-clamp-2 {
   display: -webkit-box;
