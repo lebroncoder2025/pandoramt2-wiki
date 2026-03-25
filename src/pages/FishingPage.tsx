@@ -12,14 +12,14 @@ export default function FishingPage() {
       />
 
       <SectionTitle>Podstawy łowienia</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
         <Card>
-          <h3 className="font-semibold text-pandora-gold mb-2">🎣 Wędka</h3>
-          <p className="text-sm text-pandora-muted">Startowa wędka +0. Za każde wyłowienie zdobywasz 1 Punkt Wędki. Na maks. punktach — ulepsz u Rybaka. Max poziom: <strong>+9</strong>. Każdy szlach zwiększa różnorodność połowów.</p>
+          <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Wędka</h3>
+          <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Startowa wędka +0. Za każde wyłowienie zdobywasz 1 Punkt Wędki. Na maks. punktach — ulepsz u Rybaka. Max poziom: <strong className="text-pandora-text/75">+9</strong>. Każdy szlach zwiększa różnorodność połowów.</p>
         </Card>
         <Card>
-          <h3 className="font-semibold text-pandora-gold mb-2">📦 Skrzynia Rybaka</h3>
-          <p className="text-sm text-pandora-muted">Bonusowy drop podczas łowienia. Szansa rośnie z każdym poziomem wędki. Zawiera ciekawe przedmioty.</p>
+          <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Skrzynia Rybaka</h3>
+          <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Bonusowy drop podczas łowienia. Szansa rośnie z każdym poziomem wędki. Zawiera ciekawe przedmioty.</p>
         </Card>
       </div>
 
@@ -46,19 +46,19 @@ export default function FishingPage() {
       />
 
       <SectionTitle>Żetony Rybackie</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
         <Card>
-          <h3 className="font-semibold text-pandora-gold mb-2">Wymiana na Żetony</h3>
-          <div className="space-y-1 text-sm text-pandora-muted">
-            <p>🐟 Pospolite Ryby → 1x Żeton Rybacki</p>
-            <p>🐠 Rzadkie Ryby → 2x Żeton Rybacki</p>
-            <p>🐡 Najrzadsze Ryby → 3x Żeton Rybacki</p>
+          <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Wymiana na Żetony</h3>
+          <div className="space-y-1.5 text-[13px] text-pandora-muted/60">
+            <p>Pospolite Ryby → 1x Żeton Rybacki</p>
+            <p>Rzadkie Ryby → 2x Żeton Rybacki</p>
+            <p>Najrzadsze Ryby → 3x Żeton Rybacki</p>
           </div>
-          <p className="text-xs text-pandora-muted mt-2">Przeciągnij rybę na Rybaka aby wymienić.</p>
+          <p className="text-[11px] text-pandora-muted/40 mt-2">Przeciągnij rybę na Rybaka aby wymienić.</p>
         </Card>
         <Card>
-          <h3 className="font-semibold text-pandora-gold mb-2">Sklep Żetonów</h3>
-          <p className="text-sm text-pandora-muted">Za Żetony kupisz Nakładkę na Wędkę, Skrzynie Rybaka i inne wartościowe przedmioty u Rybaka.</p>
+          <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Sklep Żetonów</h3>
+          <p className="text-[13px] text-pandora-muted/60">Za Żetony kupisz Nakładkę na Wędkę, Skrzynie Rybaka i inne wartościowe przedmioty u Rybaka.</p>
         </Card>
       </div>
 

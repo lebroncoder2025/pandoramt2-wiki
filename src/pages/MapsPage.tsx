@@ -1,5 +1,5 @@
 import { Map } from 'lucide-react'
-import { PageHeader, Card, Badge, InfoBox } from '../components/UI.tsx'
+import { PageHeader, Badge, InfoBox } from '../components/UI.tsx'
 import { maps } from '../data/serverData.ts'
 
 export default function MapsPage() {
@@ -15,41 +15,41 @@ export default function MapsPage() {
         <p className="text-sm"><strong>Drop Sztabek Złota:</strong> Na mapach od Pustyni Wygnańców dropią najcenniejsze Sztabki (10KK). Wymagana max. 15 lvl różnicy do potwora. Od Doliny Śmierci różnica ta nie obowiązuje. VIP, Medal Szczęścia i Zwierzak zwiększają szansę.</p>
       </InfoBox>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {maps.map((m, i) => (
-          <Card key={m.name}>
-            <div className="flex flex-col lg:flex-row lg:items-start gap-4">
+          <div key={m.name} className="bg-pandora-card/50 border border-pandora-border/30 rounded-lg p-4 hover:border-pandora-border/50 transition-colors">
+            <div className="flex flex-col lg:flex-row lg:items-start gap-3.5">
               <div className="lg:w-1/3">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-12 h-12 rounded-xl bg-pandora-gold/10 flex items-center justify-center font-display font-bold text-pandora-gold text-lg">
+                  <div className="w-8 h-8 rounded-lg bg-pandora-gold/8 flex items-center justify-center font-display text-sm font-bold text-pandora-gold/70">
                     {i + 1}
                   </div>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-pandora-gold">{m.name}</h3>
+                    <h3 className="text-sm font-bold text-pandora-text/90">{m.name}</h3>
                     <Badge color={m.level >= 200 ? 'red' : m.level >= 110 ? 'orange' : 'green'}>
                       Poziom {m.level}+
                     </Badge>
                   </div>
                 </div>
-                <p className="text-sm text-pandora-muted">{m.description}</p>
+                <p className="text-[13px] text-pandora-muted/55 leading-relaxed">{m.description}</p>
               </div>
 
-              <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="bg-pandora-dark/50 rounded-lg p-3 border border-pandora-border/50">
-                  <p className="text-xs text-pandora-muted mb-1">Działający bonus</p>
-                  <p className="text-sm font-medium text-pandora-blue">{m.bonus}</p>
+              <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/15">
+                  <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest mb-0.5">Bonus</p>
+                  <p className="text-[13px] font-medium text-pandora-blue/80">{m.bonus}</p>
                 </div>
-                <div className="bg-pandora-dark/50 rounded-lg p-3 border border-pandora-border/50">
-                  <p className="text-xs text-pandora-muted mb-1">Bossy</p>
-                  <p className="text-sm font-medium text-pandora-red">{m.bosses}</p>
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/15">
+                  <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest mb-0.5">Bossy</p>
+                  <p className="text-[13px] font-medium text-pandora-red/80">{m.bosses}</p>
                 </div>
-                <div className="bg-pandora-dark/50 rounded-lg p-3 border border-pandora-border/50">
-                  <p className="text-xs text-pandora-muted mb-1">Metiny</p>
-                  <p className="text-sm font-medium text-pandora-purple">{m.metins}</p>
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/15">
+                  <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest mb-0.5">Metiny</p>
+                  <p className="text-[13px] font-medium text-pandora-purple/80">{m.metins}</p>
                 </div>
               </div>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </div>

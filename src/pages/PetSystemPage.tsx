@@ -23,18 +23,18 @@ export default function PetSystemPage() {
       />
 
       <SectionTitle>Szkolenie Umiejętności</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
         <Card>
-          <h3 className="font-semibold text-pandora-gold mb-2">📜 Zwoje Tresury</h3>
-          <p className="text-sm text-pandora-muted">Od M1 szkolenie wymaga Zwojów. Szansa na wbicie: <strong>50%</strong>. Zwoje losowe ze Skrzynki Tresury.</p>
+          <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Zwoje Tresury</h3>
+          <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Od M1 szkolenie wymaga Zwojów. Szansa na wbicie: <strong className="text-pandora-text/75">50%</strong>. Zwoje losowe ze Skrzynki Tresury.</p>
         </Card>
         <Card>
-          <h3 className="font-semibold text-pandora-gold mb-2">💎 Kamień Zwierzaka</h3>
-          <p className="text-sm text-pandora-muted">Od G1 potrzebny Kamień Zwierzaka (z Dungeonów) + Zwoje Tresury. Wytwarza się u Podstarzałego Tresera. Szansa: <strong>50%</strong>.</p>
+          <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Kamień Zwierzaka</h3>
+          <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Od G1 potrzebny Kamień Zwierzaka (z Dungeonów) + Zwoje Tresury. Wytwarza się u Podstarzałego Tresera. Szansa: <strong className="text-pandora-text/75">50%</strong>.</p>
         </Card>
         <Card>
-          <h3 className="font-semibold text-pandora-gold mb-2">🌟 Poziom P+</h3>
-          <p className="text-sm text-pandora-muted">Zwierzak musi być na 50 lvl. Wymaga Kamienia Zwierzaka+. Szansa: <strong>tylko 10%</strong>!</p>
+          <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Poziom P+</h3>
+          <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Zwierzak musi być na 50 lvl. Wymaga Kamienia Zwierzaka+. Szansa: <strong className="text-pandora-text/75">tylko 10%</strong>!</p>
         </Card>
       </div>
 

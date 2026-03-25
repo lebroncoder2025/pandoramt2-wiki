@@ -19,7 +19,7 @@ export default function SoulStonesPage() {
       {tab === 0 && (
         <>
           <InfoBox type="info">
-            <p className="text-sm">Kamienie Dusz kupujemy u <strong>Handlarki Różności</strong> za <strong>25.000.000 Yang</strong>. Niektóre po zyskać ze Sakwy Szczęścia.</p>
+            <p className="text-sm">Kamienie Dusz kupujemy u <strong>Handlarki Różności</strong> za <strong>25.000.000 Yang</strong>. Niektóre można pozyskać ze Sakwy Szczęścia.</p>
           </InfoBox>
           <DataTable
             headers={['Nazwa', 'Slot', 'Bonus na +5']}
@@ -35,19 +35,19 @@ export default function SoulStonesPage() {
             <p className="text-sm">Legendarne KD mają <strong>kilka bonusów</strong> i są znacznie silniejsze. Tworzysz je w <strong>Ołtarzu Dusz</strong>. Mogą <strong>pęknąć</strong> podczas wkładania!</p>
           </InfoBox>
 
-          <div className="space-y-3 mb-6">
+          <div className="space-y-2 mb-6">
             {legendarySoulStones.map(s => (
-              <Card key={s.name}>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <div key={s.name} className="bg-pandora-card/50 border border-pandora-border/30 rounded-lg p-4 hover:border-pandora-border/50 transition-colors">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2.5">
                   <div className="sm:w-1/3">
-                    <h3 className="font-semibold text-pandora-gold">{s.name}</h3>
+                    <h3 className="text-sm font-semibold text-pandora-text/85">{s.name}</h3>
                     <Badge color="purple">{s.type}</Badge>
                   </div>
                   <div className="sm:w-2/3">
-                    <p className="text-sm text-pandora-text">{s.bonus}</p>
+                    <p className="text-[13px] text-pandora-text/70">{s.bonus}</p>
                   </div>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
 
@@ -60,20 +60,20 @@ export default function SoulStonesPage() {
       {tab === 2 && (
         <>
           <SectionTitle>Ołtarz Dusz</SectionTitle>
-          <p className="text-pandora-muted mb-4">Ołtarz Dusz znajduje się w każdym M1. Oferuje trzy główne funkcje:</p>
+          <p className="text-[13px] text-pandora-muted/60 mb-4">Ołtarz Dusz znajduje się w każdym M1. Oferuje trzy główne funkcje:</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
             <Card>
-              <h3 className="font-semibold text-pandora-gold mb-2">🔥 Przepalanie</h3>
-              <p className="text-sm text-pandora-muted">Wymiana zbędnych Kamieni Dusz na Odłamki Kamienia Duszy. Kamienie automatycznie wskakują do okna.</p>
+              <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Przepalanie</h3>
+              <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Wymiana zbędnych Kamieni Dusz na Odłamki Kamienia Duszy. Kamienie automatycznie wskakują do okna.</p>
             </Card>
             <Card>
-              <h3 className="font-semibold text-pandora-gold mb-2">🔄 Wymiana</h3>
-              <p className="text-sm text-pandora-muted">Za Odłamki możesz kupić różne przedmioty, w tym Legendarny Kamień potrzebny do tworzenia LKD.</p>
+              <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Wymiana</h3>
+              <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Za Odłamki możesz kupić różne przedmioty, w tym Legendarny Kamień potrzebny do tworzenia LKD.</p>
             </Card>
             <Card>
-              <h3 className="font-semibold text-pandora-gold mb-2">⚒️ Wytwarzanie</h3>
-              <p className="text-sm text-pandora-muted">Tworzenie Legendarnych Kamieni Dusz z materiałów. Wytworzony kamień to +0; ulepszaj do +5.</p>
+              <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Wytwarzanie</h3>
+              <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Tworzenie Legendarnych Kamieni Dusz z materiałów. Wytworzony kamień to +0; ulepszaj do +5.</p>
             </Card>
           </div>
 

@@ -219,23 +219,18 @@ export default function EventsPage() {
       </InfoBox>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-pandora-card border border-pandora-border rounded-2xl p-5 text-center">
-          <div className="text-3xl font-display font-black text-pandora-gold">{events.length}</div>
-          <div className="text-xs text-pandora-muted uppercase tracking-wider mt-1 font-semibold">Eventów</div>
-        </div>
-        <div className="bg-pandora-card border border-pandora-border rounded-2xl p-5 text-center">
-          <div className="text-3xl font-display font-black text-pandora-green">{events.filter(e => e.type === 'Stały').length}</div>
-          <div className="text-xs text-pandora-muted uppercase tracking-wider mt-1 font-semibold">Stałych</div>
-        </div>
-        <div className="bg-pandora-card border border-pandora-border rounded-2xl p-5 text-center">
-          <div className="text-3xl font-display font-black text-pandora-orange">{events.filter(e => e.type === 'Losowy').length}</div>
-          <div className="text-xs text-pandora-muted uppercase tracking-wider mt-1 font-semibold">Losowych</div>
-        </div>
-        <div className="bg-pandora-card border border-pandora-border rounded-2xl p-5 text-center">
-          <div className="text-3xl font-display font-black text-pandora-blue">{events.filter(e => e.type === 'Królestwo').length}</div>
-          <div className="text-xs text-pandora-muted uppercase tracking-wider mt-1 font-semibold">Królestwa</div>
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {[
+          { value: events.length, label: 'Eventów', color: 'text-pandora-gold' },
+          { value: events.filter(e => e.type === 'Stały').length, label: 'Stałych', color: 'text-pandora-green' },
+          { value: events.filter(e => e.type === 'Losowy').length, label: 'Losowych', color: 'text-pandora-orange' },
+          { value: events.filter(e => e.type === 'Królestwo').length, label: 'Królestwa', color: 'text-pandora-blue' },
+        ].map(s => (
+          <div key={s.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 text-center">
+            <div className={`text-2xl font-display font-bold ${s.color}`}>{s.value}</div>
+            <div className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mt-1 font-medium">{s.label}</div>
+          </div>
+        ))}
       </div>
 
       {/* Category Filter */}
@@ -251,19 +246,19 @@ export default function EventsPage() {
           const isExpanded = expandedEvent === event.name
           return (
             <Card key={event.name} className="cursor-pointer group" onClick={() => setExpandedEvent(isExpanded ? null : event.name)}>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-pandora-dark border border-pandora-border flex items-center justify-center text-2xl shrink-0 group-hover:border-pandora-gold/40 transition-all">
+              <div className="flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-lg bg-pandora-dark/60 border border-pandora-border/40 flex items-center justify-center text-xl shrink-0 group-hover:border-pandora-gold/30 transition-all">
                   {event.icon}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-3 flex-wrap mb-1">
-                    <h3 className="font-display text-lg font-bold text-pandora-text group-hover:text-pandora-gold transition-colors">{event.name}</h3>
+                  <div className="flex items-center gap-2.5 flex-wrap mb-1">
+                    <h3 className="font-display text-base font-bold text-pandora-text/90 group-hover:text-pandora-gold transition-colors">{event.name}</h3>
                     <Badge color={typeColors[event.type]}>{event.type}</Badge>
                     <Badge color={event.timeLimited ? 'gold' : 'purple'}>
                       {event.timeLimited ? 'Ograniczony czasowo' : 'Bez limitu czasu'}
                     </Badge>
                   </div>
-                  <p className="text-sm text-pandora-muted leading-relaxed line-clamp-2">{event.description}</p>
+                  <p className="text-[13px] text-pandora-muted/70 leading-relaxed line-clamp-2">{event.description}</p>
                 </div>
                 <ChevronDown className={`w-5 h-5 text-pandora-muted shrink-0 mt-1 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
               </div>
@@ -272,12 +267,12 @@ export default function EventsPage() {
               <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-[500px] opacity-100 mt-5' : 'max-h-0 opacity-0'}`}>
                 <div className="border-t border-pandora-border/50 pt-5 space-y-4">
                   <div>
-                    <h4 className="text-xs font-bold text-pandora-gold uppercase tracking-wider mb-2">Komunikat w grze</h4>
-                    <p className="text-sm text-pandora-muted/80 bg-pandora-dark/40 rounded-xl p-4 border border-pandora-border/30 italic leading-relaxed">{event.trigger}</p>
+                    <h4 className="text-[10px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-2">Komunikat w grze</h4>
+                    <p className="text-[13px] text-pandora-muted/70 bg-pandora-dark/30 rounded-lg p-3.5 border border-pandora-border/20 italic leading-relaxed">{event.trigger}</p>
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-pandora-gold uppercase tracking-wider mb-2">Opis</h4>
-                    <p className="text-sm text-pandora-text/90 leading-relaxed">{event.description}</p>
+                    <h4 className="text-[10px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-2">Opis</h4>
+                    <p className="text-[13px] text-pandora-text/85 leading-relaxed">{event.description}</p>
                   </div>
                 </div>
               </div>
@@ -288,16 +283,16 @@ export default function EventsPage() {
 
       {/* Legend */}
       <Card>
-        <h3 className="font-display text-lg font-bold text-pandora-gold mb-5">Legenda Typów Eventów</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <h3 className="text-sm font-semibold text-pandora-text/80 mb-4">Legenda Typów Eventów</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
             { type: 'Stały', color: 'green' as const, desc: 'Aktywowane regularnie przez administrację' },
             { type: 'Losowy', color: 'orange' as const, desc: 'Aktywowane losowo, ogłaszane na czacie' },
             { type: 'Królestwo', color: 'blue' as const, desc: 'Aktywowane przez graczy królestwa' },
           ].map(item => (
-            <div key={item.type} className="flex items-center gap-3 p-3 rounded-xl bg-pandora-dark/40">
+            <div key={item.type} className="flex items-center gap-2.5 p-3 rounded-lg bg-pandora-dark/30 border border-pandora-border/20">
               <Badge color={item.color}>{item.type}</Badge>
-              <span className="text-xs text-pandora-muted">{item.desc}</span>
+              <span className="text-[12px] text-pandora-muted/60">{item.desc}</span>
             </div>
           ))}
         </div>

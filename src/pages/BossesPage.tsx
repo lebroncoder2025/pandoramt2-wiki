@@ -1,5 +1,5 @@
 import { Skull } from 'lucide-react'
-import { PageHeader, Card, SectionTitle, Badge, InfoBox } from '../components/UI.tsx'
+import { PageHeader, SectionTitle, Badge, InfoBox } from '../components/UI.tsx'
 import { bosses } from '../data/serverData.ts'
 
 export default function BossesPage() {
@@ -12,26 +12,26 @@ export default function BossesPage() {
       />
 
       <SectionTitle>Bossy na Mapach</SectionTitle>
-      <div className="space-y-3 mb-8">
+      <div className="space-y-2 mb-8">
         {bosses.map(b => (
-          <Card key={b.name}>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+          <div key={b.name} className="bg-pandora-card/50 border border-pandora-border/30 rounded-lg p-4 hover:border-pandora-border/50 transition-colors">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="sm:w-1/4">
-                <h3 className="font-display font-bold text-pandora-gold">{b.name}</h3>
+                <h3 className="text-sm font-semibold text-pandora-text/90">{b.name}</h3>
                 <Badge color={b.respawn.includes('48') ? 'red' : b.respawn.includes('12') ? 'orange' : b.respawn.includes('60') ? 'purple' : 'green'}>
-                  Respawn: {b.respawn}
+                  {b.respawn}
                 </Badge>
               </div>
               <div className="sm:w-1/4">
-                <p className="text-xs text-pandora-muted">Lokacja</p>
-                <p className="text-sm font-medium">{b.map}</p>
+                <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest">Lokacja</p>
+                <p className="text-[13px] text-pandora-text/75 font-medium">{b.map}</p>
               </div>
               <div className="sm:w-2/4">
-                <p className="text-xs text-pandora-muted">Nagroda</p>
-                <p className="text-sm font-medium text-pandora-gold">{b.reward}</p>
+                <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest">Nagroda</p>
+                <p className="text-[13px] text-pandora-gold/80 font-medium">{b.reward}</p>
               </div>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
 

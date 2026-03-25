@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { Menu, X, Sword, Map, Castle, Skull, Shield, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, BookOpen, Lightbulb, Calculator, ChevronDown, ExternalLink, Info, Calendar } from 'lucide-react'
+import { Menu, X, Sword, Map, Castle, Skull, Shield, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, ChevronRight, ExternalLink, Info, Calendar } from 'lucide-react'
 
 const navGroups = [
   {
@@ -17,7 +17,7 @@ const navGroups = [
     items: [
       { path: '/maps', label: 'Mapy', icon: Map },
       { path: '/dungeons', label: 'Dungeony', icon: Castle },
-      { path: '/bosses', label: 'Bossy & Questy', icon: Skull },
+      { path: '/bosses', label: 'Bossy', icon: Skull },
     ]
   },
   {
@@ -25,7 +25,7 @@ const navGroups = [
     items: [
       { path: '/equipment', label: 'Ekwipunek & Bonusy', icon: Shield },
       { path: '/soul-stones', label: 'Kamienie Dusz', icon: Gem },
-      { path: '/pet-system', label: 'System Zwierzaków', icon: Dog },
+      { path: '/pet-system', label: 'Zwierzaki', icon: Dog },
       { path: '/skills', label: 'Umiejętności', icon: Zap },
     ]
   },
@@ -46,7 +46,7 @@ const navGroups = [
   },
 ]
 
-const SIDEBAR_WIDTH = 288 // px = w-72 = 18rem
+const SIDEBAR_WIDTH = 272
 
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -54,9 +54,7 @@ export default function Layout() {
   const [expandedGroups, setExpandedGroups] = useState<string[]>(navGroups.map(g => g.label))
   const location = useLocation()
 
-  useEffect(() => {
-    setSidebarOpen(false)
-  }, [location.pathname])
+  useEffect(() => { setSidebarOpen(false) }, [location.pathname])
 
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 1024)
@@ -73,15 +71,11 @@ export default function Layout() {
 
   return (
     <div className="bg-pandora-darker text-pandora-text font-body">
-      {/* Mobile overlay */}
       {sidebarOpen && !isDesktop && (
-        <div
-          className="sidebar-overlay"
-          onClick={() => setSidebarOpen(false)}
-        />
+        <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />
       )}
 
-      {/* Sidebar — inline styles guarantee positioning */}
+      {/* Sidebar */}
       <aside
         style={{
           position: 'fixed',
@@ -91,128 +85,141 @@ export default function Layout() {
           height: '100dvh',
           width: SIDEBAR_WIDTH,
           transform: (sidebarOpen || isDesktop) ? 'translateX(0)' : 'translateX(-100%)',
-          transition: 'transform 0.3s ease',
+          transition: 'transform 0.25s ease',
           overflow: 'hidden',
         }}
-        className="bg-pandora-dark border-r border-pandora-border/40 shadow-[4px_0_24px_rgba(0,0,0,0.3)]"
+        className="bg-pandora-dark border-r border-pandora-border/30"
       >
-        <div className="h-full overflow-y-auto">
-        <div className="p-6 border-b border-pandora-border/40 sticky top-0 bg-pandora-dark/95 backdrop-blur-sm z-10">
-          <Link to="/" className="flex items-center gap-4 group" onClick={() => setSidebarOpen(false)}>
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pandora-gold to-yellow-600 flex items-center justify-center shadow-lg shadow-pandora-gold/25 group-hover:shadow-pandora-gold/40 transition-all group-hover:scale-105">
-              <Sword className="w-6 h-6 text-pandora-dark" />
-            </div>
-            <div>
-              <h1 className="font-display text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pandora-gold to-pandora-gold-light">PandoraMT2</h1>
-              <p className="text-xs text-pandora-muted font-medium tracking-wide">Kompletny Przewodnik</p>
-            </div>
-          </Link>
-        </div>
-
-        <nav className="p-4 space-y-6">
-          {navGroups.map((group) => (
-            <div key={group.label} className="space-y-2">
-              <button
-                onClick={() => toggleGroup(group.label)}
-                className="w-full flex items-center justify-between px-2 text-xs font-bold uppercase tracking-widest text-pandora-muted hover:text-pandora-gold transition-colors"
-              >
-                {group.label}
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${expandedGroups.includes(group.label) ? '' : '-rotate-90'}`} />
-              </button>
-              
-              <div className={`space-y-1 overflow-hidden transition-all duration-300 ${expandedGroups.includes(group.label) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                {group.items.map((item) => {
-                  const isActive = location.pathname === item.path
-                  const Icon = item.icon
-                  return (
-                    <Link
-                      key={item.path}
-                      to={item.path}
-                      onClick={() => setSidebarOpen(false)}
-                      className={`
-                        flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
-                        ${isActive
-                          ? 'bg-pandora-gold/10 text-pandora-gold border-l-2 border-pandora-gold shadow-[0_0_12px_rgba(212,168,67,0.08)]'
-                          : 'text-pandora-text/80 hover:bg-pandora-card/80 hover:text-pandora-text border-l-2 border-transparent hover:border-pandora-border'
-                        }
-                      `}
-                    >
-                      <Icon className={`w-5 h-5 shrink-0 ${isActive ? 'text-pandora-gold' : 'text-pandora-muted'}`} />
-                      {item.label}
-                    </Link>
-                  )
-                })}
+        <div className="h-full overflow-y-auto flex flex-col">
+          {/* Logo */}
+          <div className="px-5 py-5 border-b border-pandora-border/20 sticky top-0 bg-pandora-dark z-10">
+            <Link to="/" className="flex items-center gap-3 group" onClick={() => setSidebarOpen(false)}>
+              <div className="w-9 h-9 rounded-lg bg-pandora-gold/10 border border-pandora-gold/20 flex items-center justify-center group-hover:bg-pandora-gold/15 transition-colors">
+                <Sword className="w-[18px] h-[18px] text-pandora-gold" />
               </div>
-            </div>
-          ))}
-        </nav>
-
-        <div className="p-5 mx-4 mt-8 mb-6 rounded-2xl bg-gradient-to-br from-pandora-card to-pandora-dark relative overflow-hidden border border-pandora-border/50 group hover:border-pandora-gold/30 transition-colors">
-          <div className="absolute inset-0 bg-gradient-to-r from-pandora-gold/5 to-pandora-purple/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-          <p className="text-xs font-bold uppercase tracking-widest text-pandora-muted mb-4">Oficjalne linki</p>
-          <div className="space-y-3 relative z-10">
-            <a href="https://pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-pandora-text hover:text-pandora-gold transition-colors">
-              <ExternalLink className="w-4 h-4 text-pandora-muted" /> Strona główna
-            </a>
-            <a href="https://pandoramt2.pl/main/download" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-pandora-text hover:text-pandora-gold transition-colors">
-              <ExternalLink className="w-4 h-4 text-pandora-muted" /> Pobierz grę
-            </a>
-            <a href="https://forum.pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-pandora-text hover:text-pandora-gold transition-colors">
-              <ExternalLink className="w-4 h-4 text-pandora-muted" /> Forum
-            </a>
-            <a href="https://discord.pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-pandora-text hover:text-pandora-gold transition-colors">
-              <ExternalLink className="w-4 h-4 text-pandora-muted" /> Discord
-            </a>
+              <div>
+                <h1 className="font-display text-base font-bold gold-text leading-tight">PandoraMT2</h1>
+                <p className="text-[10px] text-pandora-muted/60 tracking-wider uppercase">Przewodnik</p>
+              </div>
+            </Link>
           </div>
-        </div>
+
+          {/* Navigation */}
+          <nav className="flex-1 px-3 py-4 space-y-5">
+            {navGroups.map((group) => (
+              <div key={group.label}>
+                <button
+                  onClick={() => toggleGroup(group.label)}
+                  className="w-full flex items-center gap-1.5 px-2 mb-1 text-[10px] font-bold uppercase tracking-[0.15em] text-pandora-muted/50 hover:text-pandora-muted/70 transition-colors"
+                >
+                  <ChevronRight className={`w-3 h-3 transition-transform duration-200 ${expandedGroups.includes(group.label) ? 'rotate-90' : ''}`} />
+                  {group.label}
+                </button>
+                
+                <div className={`space-y-0.5 overflow-hidden transition-all duration-250 ${expandedGroups.includes(group.label) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  {group.items.map((item) => {
+                    const isActive = location.pathname === item.path
+                    const Icon = item.icon
+                    return (
+                      <Link
+                        key={item.path}
+                        to={item.path}
+                        onClick={() => setSidebarOpen(false)}
+                        className={`
+                          flex items-center gap-2.5 px-3 py-[7px] rounded-lg text-[13px] transition-all duration-150 relative
+                          ${isActive
+                            ? 'bg-pandora-gold/8 text-pandora-gold font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[3px] before:h-4 before:rounded-full before:bg-pandora-gold/60'
+                            : 'text-pandora-text/55 hover:text-pandora-text/80 hover:bg-pandora-card/40'
+                          }
+                        `}
+                      >
+                        <Icon className={`w-[15px] h-[15px] shrink-0 ${isActive ? 'text-pandora-gold' : 'text-pandora-muted/40'}`} />
+                        {item.label}
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+            ))}
+          </nav>
+
+          {/* Links */}
+          <div className="px-4 py-4 mt-auto border-t border-pandora-border/15">
+            <div className="space-y-0.5">
+              {[
+                { label: 'pandoramt2.pl', url: 'https://pandoramt2.pl' },
+                { label: 'Pobierz grę', url: 'https://pandoramt2.pl/main/download' },
+                { label: 'Forum', url: 'https://forum.pandoramt2.pl' },
+                { label: 'Discord', url: 'https://discord.pandoramt2.pl' },
+              ].map(link => (
+                <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-2 py-1.5 text-[11px] text-pandora-muted/40 hover:text-pandora-muted/70 transition-colors rounded">
+                  <ExternalLink className="w-3 h-3" />
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </aside>
 
-      {/* Main content — inline styles guarantee the offset */}
+      {/* Main */}
       <div
         style={{
           marginLeft: isDesktop ? SIDEBAR_WIDTH : 0,
           display: 'flex',
           flexDirection: 'column',
           minHeight: '100dvh',
-          transition: 'margin-left 0.3s ease',
+          transition: 'margin-left 0.25s ease',
         }}
       >
-        {/* Top bar */}
-        <header className="sticky top-0 z-30 bg-pandora-darker/85 backdrop-blur-xl border-b border-pandora-border/40 shadow-[0_1px_12px_rgba(0,0,0,0.2)]" style={{ minHeight: 64 }}>
-          <div className="flex items-center justify-between px-6 py-3">
-            {!isDesktop && (
+        {/* Header */}
+        <header className="sticky top-0 z-30 bg-pandora-darker/90 backdrop-blur-lg border-b border-pandora-border/20" style={{ minHeight: 52 }}>
+          <div className="flex items-center justify-between px-5 py-2">
+            {!isDesktop ? (
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="p-2 rounded-xl text-pandora-muted hover:text-white hover:bg-pandora-card transition-colors"
+                className="p-2 -ml-2 rounded-lg text-pandora-muted hover:text-pandora-text transition-colors"
               >
-                {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
+            ) : (
+              <div className="flex items-center gap-2">
+                {(() => {
+                  const currentItem = navGroups.flatMap(g => g.items).find(i => i.path === location.pathname)
+                  if (!currentItem) return null
+                  const Icon = currentItem.icon
+                  return (
+                    <>
+                      <Icon className="w-4 h-4 text-pandora-muted/50" strokeWidth={1.5} />
+                      <span className="text-[13px] text-pandora-muted/60 font-medium">{currentItem.label}</span>
+                    </>
+                  )
+                })()}
+              </div>
             )}
-            {isDesktop && <div />}
             <a
               href="https://pandoramt2.pl/auth/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-gradient-to-r from-pandora-gold to-yellow-600 text-pandora-dark font-bold text-sm rounded-xl hover:shadow-lg hover:shadow-pandora-gold/25 hover:brightness-110 transition-all flex items-center gap-2"
+              className="px-3.5 py-1.5 bg-pandora-gold/8 border border-pandora-gold/15 text-pandora-gold text-[12px] font-semibold rounded-lg hover:bg-pandora-gold/12 hover:border-pandora-gold/25 transition-all"
             >
-              <Zap className="w-4 h-4" /> Zagraj Teraz
+              Zagraj Teraz
             </a>
           </div>
         </header>
 
-        {/* Page content */}
-        <main className="flex-1 p-6 md:p-8 lg:p-10">
-          <div className="max-w-7xl mx-auto animate-fade-in-up">
+        {/* Content */}
+        <main className="flex-1 px-5 py-8 md:px-8 md:py-10 lg:px-12">
+          <div className="max-w-5xl mx-auto animate-fade-in">
             <Outlet />
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="mt-auto border-t border-pandora-border/40 py-8 px-6 text-center bg-pandora-dark/40">
-          <p className="text-sm text-pandora-muted/70 max-w-2xl mx-auto leading-relaxed">
-            Nieoficjalny przewodnik stworzony dla społeczności PandoraMT2.pl © 2020–2026.<br/>
-            Wszystkie prawa do gry Metin2 należą do ich właścicieli.
+        <footer className="mt-auto border-t border-pandora-border/15 py-5 px-5 text-center">
+          <p className="text-[11px] text-pandora-muted/40 leading-relaxed">
+            Nieoficjalny przewodnik PandoraMT2.pl © 2020–2026 · Wszystkie prawa do Metin2 należą do ich właścicieli
           </p>
         </footer>
       </div>

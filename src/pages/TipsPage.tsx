@@ -14,7 +14,7 @@ const shortcuts = [
 
 const tips = [
   {
-    title: '🛍️ Sklepy Offline',
+    title: 'Sklepy Offline',
     items: [
       'Otwieraj Tobołkiem z handlarki różności',
       'Możesz ustawiać dokładną pozycję sklepu',
@@ -22,7 +22,7 @@ const tips = [
     ]
   },
   {
-    title: '🔎 Wyszukiwarka Sklepów',
+    title: 'Wyszukiwarka Sklepów',
     items: [
       'Na górze klienta (przyklejona)',
       'Nad sklepami ze znalezionymi przedmiotami pojawiają się niebieskie strzałki',
@@ -30,7 +30,7 @@ const tips = [
     ]
   },
   {
-    title: '⚔️ Drop z potworów',
+    title: 'Drop z potworów',
     items: [
       'Max 15 poziomów różnicy do potwora (oprócz map od Doliny Śmierci)',
       'VIP, Medal Szczęścia i Zwierzak zwiększają szansę',
@@ -38,7 +38,7 @@ const tips = [
     ]
   },
   {
-    title: '🔄 Bonus Switcher',
+    title: 'Bonus Switcher',
     items: [
       'Przycisk w Menu Gracza',
       'Zapis szablonów bonusów',
@@ -46,14 +46,14 @@ const tips = [
     ]
   },
   {
-    title: '📺 Zmiana kanałów',
+    title: 'Zmiana kanałów',
     items: [
       'Przyciski na obramowaniu Minimapy',
       '5 kanałów aktywnych',
     ]
   },
   {
-    title: '🏰 Dungeony — porady',
+    title: 'Dungeony — porady',
     items: [
       'Jeśli wyrzuci cię z dungeonu — kliknij na NPC i wróć',
       'Musisz być na tym samym channelu',
@@ -61,7 +61,7 @@ const tips = [
     ]
   },
   {
-    title: '💍 Małżeństwo',
+    title: 'Małżeństwo',
     items: [
       'Proces jak na global. Obrączki = teleportacja do partnera',
       'Teleportacja działa gdy spełniasz wymagania mapy',
@@ -69,7 +69,7 @@ const tips = [
     ]
   },
   {
-    title: '🎰 Koło Losu',
+    title: 'Koło Losu',
     items: [
       'Na stronie pandoramt2.pl',
       'Losuj drogocenne przedmioty',
@@ -88,26 +88,26 @@ export default function TipsPage() {
       />
 
       <SectionTitle>Skróty Klawiszowe</SectionTitle>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-8">
         {shortcuts.map(s => (
-          <div key={s.key} className="bg-pandora-card border border-pandora-border rounded-xl p-4 hover:border-pandora-gold/30 transition-all">
-            <kbd className="inline-block px-2 py-1 bg-pandora-dark rounded text-pandora-gold font-mono text-sm mb-2 border border-pandora-gold/30">
+          <div key={s.key} className="bg-pandora-card/50 border border-pandora-border/30 rounded-lg p-3.5 hover:border-pandora-border/50 transition-colors">
+            <kbd className="inline-block px-2 py-0.5 bg-pandora-dark/60 rounded text-pandora-gold/80 font-mono text-[12px] mb-1.5 border border-pandora-gold/15">
               {s.key}
             </kbd>
-            <p className="text-sm text-pandora-muted">{s.desc}</p>
+            <p className="text-[13px] text-pandora-muted/60">{s.desc}</p>
           </div>
         ))}
       </div>
 
       <SectionTitle>Porady</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
         {tips.map(t => (
           <Card key={t.title}>
-            <h3 className="font-semibold text-pandora-text mb-3">{t.title}</h3>
+            <h3 className="text-sm font-semibold text-pandora-text/80 mb-2.5">{t.title}</h3>
             <ul className="space-y-1.5">
               {t.items.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-pandora-muted">
-                  <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold mt-1.5 shrink-0" />
+                <li key={i} className="flex items-start gap-2 text-[13px] text-pandora-muted/60">
+                  <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/30 mt-1.5 shrink-0" />
                   {item}
                 </li>
               ))}

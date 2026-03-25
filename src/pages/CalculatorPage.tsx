@@ -15,23 +15,23 @@ function RankCalculator() {
 
   return (
     <Card>
-      <h3 className="font-semibold text-pandora-gold mb-4">Kalkulator Rang</h3>
+      <h3 className="text-sm font-semibold text-pandora-text/80 mb-4">Kalkulator Rang</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div>
-          <label className="block text-sm text-pandora-muted mb-1">Aktualne punkty rangi</label>
+          <label className="block text-[12px] text-pandora-muted/60 mb-1">Aktualne punkty rangi</label>
           <input
             type="number"
             value={currentPoints}
             onChange={e => setCurrentPoints(Math.max(0, parseInt(e.target.value) || 0))}
-            className="w-full px-4 py-2 bg-pandora-dark border border-pandora-border rounded-lg text-pandora-text focus:border-pandora-gold focus:outline-none"
+            className="w-full px-3.5 py-2 bg-pandora-dark/60 border border-pandora-border/40 rounded-lg text-sm text-pandora-text focus:border-pandora-gold/40 focus:outline-none transition-colors"
           />
         </div>
         <div>
-          <label className="block text-sm text-pandora-muted mb-1">Docelowa ranga</label>
+          <label className="block text-[12px] text-pandora-muted/60 mb-1">Docelowa ranga</label>
           <select
             value={targetRank}
             onChange={e => setTargetRank(e.target.value)}
-            className="w-full px-4 py-2 bg-pandora-dark border border-pandora-border rounded-lg text-pandora-text focus:border-pandora-gold focus:outline-none"
+            className="w-full px-3.5 py-2 bg-pandora-dark/60 border border-pandora-border/40 rounded-lg text-sm text-pandora-text focus:border-pandora-gold/40 focus:outline-none transition-colors"
           >
             {ranks.filter(r => r.bonusHP !== '—').map(r => (
               <option key={r.name} value={r.name}>{r.name}</option>
@@ -40,18 +40,18 @@ function RankCalculator() {
         </div>
       </div>
 
-      <div className="bg-pandora-dark/50 rounded-xl p-4 border border-pandora-border/50 mb-4">
-        <p className="text-sm text-pandora-muted mb-1">Potrzebne punkty</p>
-        <p className="text-2xl font-bold text-pandora-gold">{needed.toLocaleString('pl-PL')}</p>
+      <div className="bg-pandora-dark/30 rounded-lg p-4 border border-pandora-border/20 mb-4">
+        <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-1">Potrzebne punkty</p>
+        <p className="text-xl font-bold text-pandora-gold font-display">{needed.toLocaleString('pl-PL')}</p>
       </div>
 
       {needed > 0 && (
         <div className="space-y-2 text-sm">
-          <p className="text-pandora-muted font-medium">Ile Owoców Życia potrzebujesz:</p>
+          <p className="text-[13px] text-pandora-muted/60 font-medium mb-2">Ile Owoców Życia potrzebujesz:</p>
           {lifefruits.map(f => (
-            <div key={f.name} className="flex justify-between py-1 border-b border-pandora-border/30">
-              <span className="text-pandora-text">{f.name} ({f.points} pkt)</span>
-              <span className="text-pandora-gold font-medium">{Math.ceil(needed / f.points)}x</span>
+            <div key={f.name} className="flex justify-between py-1.5 border-b border-pandora-border/15">
+              <span className="text-[13px] text-pandora-text/75">{f.name} ({f.points} pkt)</span>
+              <span className="text-[13px] text-pandora-gold font-medium">{Math.ceil(needed / f.points)}x</span>
             </div>
           ))}
         </div>
@@ -81,14 +81,14 @@ function UpgradeCalculator() {
 
   return (
     <Card>
-      <h3 className="font-semibold text-pandora-gold mb-4">Kalkulator Ulepszeń</h3>
+      <h3 className="text-sm font-semibold text-pandora-text/80 mb-4">Kalkulator Ulepszeń</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <div>
-          <label className="block text-sm text-pandora-muted mb-1">Aktualny poziom</label>
+          <label className="block text-[12px] text-pandora-muted/60 mb-1">Aktualny poziom</label>
           <select
             value={currentLevel}
             onChange={e => setCurrentLevel(parseInt(e.target.value))}
-            className="w-full px-4 py-2 bg-pandora-dark border border-pandora-border rounded-lg text-pandora-text focus:border-pandora-gold focus:outline-none"
+            className="w-full px-3.5 py-2 bg-pandora-dark/60 border border-pandora-border/40 rounded-lg text-sm text-pandora-text focus:border-pandora-gold/40 focus:outline-none transition-colors"
           >
             {[0,1,2,3,4,5,6,7,8].map(l => (
               <option key={l} value={l}>+{l}</option>
@@ -96,11 +96,11 @@ function UpgradeCalculator() {
           </select>
         </div>
         <div>
-          <label className="block text-sm text-pandora-muted mb-1">Docelowy poziom</label>
+          <label className="block text-[12px] text-pandora-muted/60 mb-1">Docelowy poziom</label>
           <select
             value={targetLevel}
             onChange={e => setTargetLevel(parseInt(e.target.value))}
-            className="w-full px-4 py-2 bg-pandora-dark border border-pandora-border rounded-lg text-pandora-text focus:border-pandora-gold focus:outline-none"
+            className="w-full px-3.5 py-2 bg-pandora-dark/60 border border-pandora-border/40 rounded-lg text-sm text-pandora-text focus:border-pandora-gold/40 focus:outline-none transition-colors"
           >
             {[1,2,3,4,5,6,7,8,9].filter(l => l > currentLevel).map(l => (
               <option key={l} value={l}>+{l}</option>
@@ -115,29 +115,29 @@ function UpgradeCalculator() {
               onChange={e => setMetalPlus(e.target.checked)}
               className="w-4 h-4 accent-amber-500"
             />
-            <span className="text-sm text-pandora-muted">Magiczny Metal+ (+10%)</span>
+            <span className="text-[13px] text-pandora-muted/60">Magiczny Metal+ (+10%)</span>
           </label>
         </div>
       </div>
 
-      <p className="text-xs text-pandora-muted mb-3 italic">*Szanse są szacunkowe. Rzeczywiste wartości mogą się różnić.</p>
+      <p className="text-[11px] text-pandora-muted/40 mb-3 italic">*Szanse są szacunkowe. Rzeczywiste wartości mogą się różnić.</p>
 
       {results.length > 0 && (
-        <div className="overflow-x-auto rounded-xl border border-pandora-border">
+        <div className="overflow-x-auto rounded-lg border border-pandora-border/40">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-pandora-card">
-                <th className="px-4 py-2 text-left text-pandora-gold">Poziom</th>
-                <th className="px-4 py-2 text-left text-pandora-gold">Szansa</th>
-                <th className="px-4 py-2 text-left text-pandora-gold">Śr. prób</th>
+              <tr className="bg-pandora-dark/60">
+                <th className="px-4 py-2.5 text-left text-pandora-gold/80 text-[11px] uppercase tracking-widest font-semibold">Poziom</th>
+                <th className="px-4 py-2.5 text-left text-pandora-gold/80 text-[11px] uppercase tracking-widest font-semibold">Szansa</th>
+                <th className="px-4 py-2.5 text-left text-pandora-gold/80 text-[11px] uppercase tracking-widest font-semibold">Śr. prób</th>
               </tr>
             </thead>
             <tbody>
               {results.map(r => (
-                <tr key={r.level} className="border-b border-pandora-border/50">
-                  <td className="px-4 py-2 text-pandora-gold font-medium">{r.level}</td>
-                  <td className="px-4 py-2">{r.chance}</td>
-                  <td className="px-4 py-2">{r.avgAttempts}</td>
+                <tr key={r.level} className="border-b border-pandora-border/20 last:border-0">
+                  <td className="px-4 py-2.5 text-pandora-gold/80 font-medium text-[13px]">{r.level}</td>
+                  <td className="px-4 py-2.5 text-[13px] text-pandora-text/75">{r.chance}</td>
+                  <td className="px-4 py-2.5 text-[13px] text-pandora-text/75">{r.avgAttempts}</td>
                 </tr>
               ))}
             </tbody>
@@ -145,9 +145,9 @@ function UpgradeCalculator() {
         </div>
       )}
 
-      <div className="mt-4 bg-pandora-dark/50 rounded-xl p-4 border border-pandora-border/50">
-        <p className="text-sm text-pandora-muted">Łączna średnia prób od +{currentLevel} do +{targetLevel}:</p>
-        <p className="text-xl font-bold text-pandora-gold">{totalAvgAttempts.toFixed(1)} prób</p>
+      <div className="mt-4 bg-pandora-dark/30 rounded-lg p-4 border border-pandora-border/20">
+        <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest">Łączna średnia prób od +{currentLevel} do +{targetLevel}:</p>
+        <p className="text-xl font-bold text-pandora-gold font-display">{totalAvgAttempts.toFixed(1)} prób</p>
       </div>
     </Card>
   )
