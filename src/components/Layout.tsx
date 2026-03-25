@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { Menu, X, Sword, Map, Castle, Skull, Shield, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, BookOpen, Lightbulb, Calculator, ChevronDown, ExternalLink, Info } from 'lucide-react'
 
@@ -50,6 +50,10 @@ export default function Layout() {
   const [expandedGroups, setExpandedGroups] = useState<string[]>(navGroups.map(g => g.label))
   const location = useLocation()
 
+  useEffect(() => {
+    setSidebarOpen(false)
+  }, [location.pathname])
+
   const toggleGroup = (label: string) => {
     setExpandedGroups(prev =>
       prev.includes(label) ? prev.filter(g => g !== label) : [...prev, label]
@@ -68,7 +72,7 @@ export default function Layout() {
 
       {/* Sidebar */}
       <aside className={`
-        fixed lg:sticky top-0 left-0 z-50 h-screen w-72
+        fixed top-0 left-0 z-50 h-screen w-72
         bg-pandora-dark border-r border-pandora-border
         overflow-y-auto transition-transform duration-300
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
@@ -144,7 +148,7 @@ export default function Layout() {
       </aside>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col min-h-screen">
+      <div className="flex-1 flex flex-col min-h-screen lg:ml-72">
         {/* Top bar */}
         <header className="sticky top-0 z-30 bg-pandora-darker/80 backdrop-blur-xl border-b border-pandora-border">
           <div className="flex items-center justify-between px-4 py-3">
