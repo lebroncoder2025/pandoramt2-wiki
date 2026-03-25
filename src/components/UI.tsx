@@ -38,7 +38,7 @@ export function StatBox({ label, value, icon }: { label: string; value: string; 
     <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 md:p-5 hover:border-pandora-gold/20 transition-all group">
       <div className="flex items-center gap-2 mb-1.5">
         {icon && <span className="text-pandora-gold/80 group-hover:text-pandora-gold transition-colors">{icon}</span>}
-        <span className="text-[11px] text-pandora-muted uppercase tracking-widest font-medium">{label}</span>
+        <span className="text-[11px] text-pandora-muted/60 uppercase tracking-widest font-medium">{label}</span>
       </div>
       <p className="text-xl md:text-2xl font-bold text-pandora-gold font-display">{value}</p>
     </div>
@@ -108,7 +108,7 @@ export function InfoBox({ children, type = 'info' }: { children: ReactNode; type
     tip: 'text-pandora-green',
   }
   return (
-    <div className={`border-l-2 rounded-lg p-4 my-5 ${styles[type]}`}>
+    <div className={`border-l-2 rounded-lg p-4 my-4 ${styles[type]}`}>
       <span className={`text-[10px] font-bold uppercase tracking-widest ${labelColors[type]} mb-1 block`}>{labels[type]}</span>
       <div className="text-pandora-text/85">{children}</div>
     </div>

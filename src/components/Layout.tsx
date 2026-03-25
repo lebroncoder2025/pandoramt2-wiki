@@ -214,16 +214,24 @@ export default function Layout() {
 
         {/* Content */}
         <main className="flex-1 px-5 py-8 md:px-8 md:py-10 lg:px-12">
-          <div className="max-w-5xl mx-auto animate-fade-in">
+          <div key={location.pathname} className="max-w-5xl mx-auto animate-fade-in">
             <Outlet />
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="mt-auto border-t border-pandora-border/15 py-5 px-5 text-center">
-          <p className="text-[11px] text-pandora-muted/40 leading-relaxed">
-            Nieoficjalny przewodnik PandoraMT2.pl © 2020–2026 · Wszystkie prawa do Metin2 należą do ich właścicieli
-          </p>
+        <footer className="mt-auto border-t border-pandora-border/15 py-5 px-5">
+          <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p className="text-[11px] text-pandora-muted/40 leading-relaxed">
+              Nieoficjalny przewodnik PandoraMT2.pl © 2020–2026
+            </p>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-[11px] text-pandora-muted/30 hover:text-pandora-muted/60 transition-colors"
+            >
+              ↑ Powrót na górę
+            </button>
+          </div>
         </footer>
       </div>
     </div>
