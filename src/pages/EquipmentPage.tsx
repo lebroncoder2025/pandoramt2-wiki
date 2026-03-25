@@ -76,7 +76,7 @@ export default function EquipmentPage() {
           <div className="space-y-1.5 text-[13px] text-pandora-muted/60">
             <p>Możliwość zapisu szablonu</p>
             <p>Ustawienie alternatywnych bonusów</p>
-            <p>Nie działa na kostiummy</p>
+            <p>Nie działa na kostiumy</p>
           </div>
         </div>
       </div>

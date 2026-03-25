@@ -71,6 +71,12 @@ export default function Layout() {
     return () => window.removeEventListener('resize', check)
   }, [])
 
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') setSidebarOpen(false) }
+    document.addEventListener('keydown', handleEsc)
+    return () => document.removeEventListener('keydown', handleEsc)
+  }, [])
+
   const toggleGroup = (label: string) => {
     setExpandedGroups(prev =>
       prev.includes(label) ? prev.filter(g => g !== label) : [...prev, label]
@@ -80,7 +86,7 @@ export default function Layout() {
   return (
     <div className="bg-pandora-darker text-pandora-text font-body">
       {sidebarOpen && !isDesktop && (
-        <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />
+        <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} aria-label="Zamknij menu" role="button" tabIndex={0} onKeyDown={e => e.key === 'Escape' && setSidebarOpen(false)} />
       )}
 
       {/* Sidebar */}
@@ -192,6 +198,7 @@ export default function Layout() {
                 <button
                   onClick={() => setSidebarOpen(!sidebarOpen)}
                   className="p-2 -ml-2 rounded-lg text-pandora-muted hover:text-pandora-text transition-colors"
+                  aria-label={sidebarOpen ? 'Zamknij menu' : 'Otwórz menu'}
                 >
                   {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </button>
