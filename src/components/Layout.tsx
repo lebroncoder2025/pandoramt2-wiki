@@ -45,14 +45,24 @@ const navGroups = [
   },
 ]
 
+const SIDEBAR_WIDTH = 288 // px = w-72 = 18rem
+
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
   const [expandedGroups, setExpandedGroups] = useState<string[]>(navGroups.map(g => g.label))
   const location = useLocation()
 
   useEffect(() => {
     setSidebarOpen(false)
   }, [location.pathname])
+
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 1024)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   const toggleGroup = (label: string) => {
     setExpandedGroups(prev =>
@@ -61,23 +71,32 @@ export default function Layout() {
   }
 
   return (
-    <div className="flex min-h-screen bg-pandora-darker text-pandora-text font-body">
+    <div className="bg-pandora-darker text-pandora-text font-body">
       {/* Mobile overlay */}
-      {sidebarOpen && (
+      {sidebarOpen && !isDesktop && (
         <div
-          className="fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-sm transition-opacity"
+          className="sidebar-overlay"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
-      {/* Sidebar */}
-      <aside className={`
-        fixed top-0 left-0 z-50 h-screen w-72
-        bg-pandora-dark border-r border-pandora-border/50
-        overflow-y-auto transition-transform duration-300 ease-in-out
-        ${sidebarOpen ? 'translate-x-0 shadow-2xl shadow-black/50' : '-translate-x-full lg:translate-x-0'}
-      `}>
-        <div className="p-6 border-b border-pandora-border/50 sticky top-0 bg-pandora-dark/95 backdrop-blur-sm z-10">
+      {/* Sidebar — inline styles guarantee positioning */}
+      <aside
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          zIndex: 50,
+          height: '100dvh',
+          width: SIDEBAR_WIDTH,
+          transform: (sidebarOpen || isDesktop) ? 'translateX(0)' : 'translateX(-100%)',
+          transition: 'transform 0.3s ease',
+          overflow: 'hidden',
+        }}
+        className="bg-pandora-dark border-r border-pandora-border/50"
+      >
+        <div className="h-full overflow-y-auto">
+        <div className="p-6 border-b border-pandora-border/50 sticky top-0 bg-pandora-dark z-10">
           <Link to="/" className="flex items-center gap-4 group" onClick={() => setSidebarOpen(false)}>
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pandora-gold to-yellow-600 flex items-center justify-center shadow-lg shadow-pandora-gold/20 group-hover:shadow-pandora-gold/40 transition-all">
               <Sword className="w-6 h-6 text-pandora-dark" />
@@ -117,7 +136,7 @@ export default function Layout() {
                         }
                       `}
                     >
-                      <Icon className={`w-5 h-5 shrink-0 ${isActive ? 'text-pandora-gold' : 'text-pandora-muted group-hover:text-pandora-gold-light'}`} />
+                      <Icon className={`w-5 h-5 shrink-0 ${isActive ? 'text-pandora-gold' : 'text-pandora-muted'}`} />
                       {item.label}
                     </Link>
                   )
@@ -145,30 +164,36 @@ export default function Layout() {
             </a>
           </div>
         </div>
+        </div>
       </aside>
 
-      {/* Main content wrapper */}
-      <div className="flex-1 flex flex-col min-h-screen lg:ml-72 transition-all duration-300">
+      {/* Main content — inline styles guarantee the offset */}
+      <div
+        style={{
+          marginLeft: isDesktop ? SIDEBAR_WIDTH : 0,
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100dvh',
+          transition: 'margin-left 0.3s ease',
+        }}
+      >
         {/* Top bar */}
-        <header className="sticky top-0 z-40 bg-pandora-darker/80 backdrop-blur-xl border-b border-pandora-border/50 py-4 px-6 md:px-8 flex items-center justify-between min-h-[72px]">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden p-2 -ml-2 rounded-xl text-pandora-muted hover:text-white hover:bg-pandora-card transition-colors focus:outline-none focus:ring-2 focus:ring-pandora-gold/50"
-            >
-              {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-            <div className="hidden lg:block text-sm font-medium text-pandora-muted">
-              {/* Optional breadcrumbs area */}
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-4">
+        <header className="sticky top-0 z-30 bg-pandora-darker/80 backdrop-blur-xl border-b border-pandora-border/50" style={{ minHeight: 64 }}>
+          <div className="flex items-center justify-between px-6 py-3">
+            {!isDesktop && (
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="p-2 rounded-xl text-pandora-muted hover:text-white hover:bg-pandora-card transition-colors"
+              >
+                {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            )}
+            {isDesktop && <div />}
             <a
               href="https://pandoramt2.pl/auth/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-gradient-to-r from-pandora-gold to-yellow-600 text-pandora-dark font-bold text-sm rounded-xl hover:shadow-[0_0_20px_rgba(212,168,67,0.3)] transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
+              className="px-5 py-2.5 bg-gradient-to-r from-pandora-gold to-yellow-600 text-pandora-dark font-bold text-sm rounded-xl hover:shadow-lg hover:shadow-pandora-gold/20 transition-all flex items-center gap-2"
             >
               <Zap className="w-4 h-4" /> Zagraj Teraz
             </a>
@@ -176,8 +201,8 @@ export default function Layout() {
         </header>
 
         {/* Page content */}
-        <main className="flex-1 w-full max-w-7xl mx-auto p-6 md:p-8 lg:p-10">
-          <div className="animate-fade-in-up">
+        <main className="flex-1 p-6 md:p-8 lg:p-10">
+          <div className="max-w-7xl mx-auto animate-fade-in-up">
             <Outlet />
           </div>
         </main>
