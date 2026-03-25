@@ -94,12 +94,12 @@ export default function Layout() {
           transition: 'transform 0.3s ease',
           overflow: 'hidden',
         }}
-        className="bg-pandora-dark border-r border-pandora-border/50"
+        className="bg-pandora-dark border-r border-pandora-border/40 shadow-[4px_0_24px_rgba(0,0,0,0.3)]"
       >
         <div className="h-full overflow-y-auto">
-        <div className="p-6 border-b border-pandora-border/50 sticky top-0 bg-pandora-dark z-10">
+        <div className="p-6 border-b border-pandora-border/40 sticky top-0 bg-pandora-dark/95 backdrop-blur-sm z-10">
           <Link to="/" className="flex items-center gap-4 group" onClick={() => setSidebarOpen(false)}>
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pandora-gold to-yellow-600 flex items-center justify-center shadow-lg shadow-pandora-gold/20 group-hover:shadow-pandora-gold/40 transition-all">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pandora-gold to-yellow-600 flex items-center justify-center shadow-lg shadow-pandora-gold/25 group-hover:shadow-pandora-gold/40 transition-all group-hover:scale-105">
               <Sword className="w-6 h-6 text-pandora-dark" />
             </div>
             <div>
@@ -132,8 +132,8 @@ export default function Layout() {
                       className={`
                         flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
                         ${isActive
-                          ? 'bg-gradient-to-r from-pandora-gold/10 to-transparent text-pandora-gold border-l-2 border-pandora-gold shadow-sm'
-                          : 'text-pandora-text hover:bg-pandora-card hover:text-white border-l-2 border-transparent hover:border-pandora-border'
+                          ? 'bg-pandora-gold/10 text-pandora-gold border-l-2 border-pandora-gold shadow-[0_0_12px_rgba(212,168,67,0.08)]'
+                          : 'text-pandora-text/80 hover:bg-pandora-card/80 hover:text-pandora-text border-l-2 border-transparent hover:border-pandora-border'
                         }
                       `}
                     >
@@ -179,7 +179,7 @@ export default function Layout() {
         }}
       >
         {/* Top bar */}
-        <header className="sticky top-0 z-30 bg-pandora-darker/80 backdrop-blur-xl border-b border-pandora-border/50" style={{ minHeight: 64 }}>
+        <header className="sticky top-0 z-30 bg-pandora-darker/85 backdrop-blur-xl border-b border-pandora-border/40 shadow-[0_1px_12px_rgba(0,0,0,0.2)]" style={{ minHeight: 64 }}>
           <div className="flex items-center justify-between px-6 py-3">
             {!isDesktop && (
               <button
@@ -194,7 +194,7 @@ export default function Layout() {
               href="https://pandoramt2.pl/auth/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-gradient-to-r from-pandora-gold to-yellow-600 text-pandora-dark font-bold text-sm rounded-xl hover:shadow-lg hover:shadow-pandora-gold/20 transition-all flex items-center gap-2"
+              className="px-5 py-2.5 bg-gradient-to-r from-pandora-gold to-yellow-600 text-pandora-dark font-bold text-sm rounded-xl hover:shadow-lg hover:shadow-pandora-gold/25 hover:brightness-110 transition-all flex items-center gap-2"
             >
               <Zap className="w-4 h-4" /> Zagraj Teraz
             </a>
@@ -209,8 +209,8 @@ export default function Layout() {
         </main>
 
         {/* Footer */}
-        <footer className="mt-auto border-t border-pandora-border/50 py-8 px-6 text-center bg-pandora-dark/50">
-          <p className="text-sm text-pandora-muted/80 max-w-2xl mx-auto leading-relaxed">
+        <footer className="mt-auto border-t border-pandora-border/40 py-8 px-6 text-center bg-pandora-dark/40">
+          <p className="text-sm text-pandora-muted/70 max-w-2xl mx-auto leading-relaxed">
             Nieoficjalny przewodnik stworzony dla społeczności PandoraMT2.pl © 2020–2026.<br/>
             Wszystkie prawa do gry Metin2 należą do ich właścicieli.
           </p>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Sword, Map, Castle, Skull, Shield, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, Users, Download, ArrowRight, Star, Calendar, Monitor, HardDrive, Cpu, MemoryStick } from 'lucide-react'
+import { Sword, Map, Castle, Skull, Shield, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, Users, Download, ArrowRight, Calendar } from 'lucide-react'
 import { serverInfo } from '../data/serverData.ts'
 
 const features = [
@@ -27,25 +27,17 @@ const quickStats = [
 ]
 
 const systemRequirements = [
-  { label: 'Procesor', value: '1 GHz+', icon: Cpu },
-  { label: 'RAM', value: '512 MB', icon: MemoryStick },
-  { label: 'Dysk', value: '2 GB wolnego', icon: HardDrive },
-  { label: 'Grafika', value: '32 MB VRAM', icon: Monitor },
+  { label: 'Klient', value: '~3.56 GB' },
+  { label: 'System', value: 'Windows 8.1+' },
 ]
 
-const vipBenefits = [
-  'Zwiększone raty doświadczenia',
-  'Wyższy drop przedmiotów',
-  'Dodatkowe Yang za potwory',
-  'Ekskluzywne efekty wizualne',
-  'Dostęp do VIP sklepu',
-  'Darmowa kostka/teleport codzienny',
-]
-
-const upcomingEvents = [
-  { name: 'Raty Serwerowe', type: 'Stały', desc: 'Exp, Drop, Yang — regularnie zwiększane' },
-  { name: 'Deszcz Metinów', type: 'Losowy', desc: 'Niezliczone metiny pojawiają się na mapie' },
-  { name: 'Kosmiczna Inwazja', type: 'Community', desc: '100 000 przedmiotów = raty dla wszystkich' },
+const serverHighlights = [
+  { icon: '🏰', title: 'Old School Metin2', desc: 'Wierne odwzorowanie klasycznego Metin2. Projekt urozmaicony o kilka dodatków by umilić czas w grze.' },
+  { icon: '⚔️', title: 'PvP Zbalansowane', desc: 'Raty poddano wielu korektom, aby dobrze wyważyć poszczególne etapy rozwoju. Przywrócono znaczenie PvP.' },
+  { icon: '🌍', title: '5 Kanałów, 3 Królestwa', desc: 'Shinsoo, Jinno i Chunjo. Dynamiczna rozgrywka z handlem i gildiami.' },
+  { icon: '🎪', title: '18 Eventów Serwerowych', desc: 'Deszcz Metinów, Zuo, Kosmiczna Inwazja, Loteria Tombola i wiele więcej.' },
+  { icon: '🐉', title: 'Dungeony & Bossy', desc: '7 dungeonów od Wieży Demonów po Świątynię Andun. Bossy mapowe i dwaj Władcy: Infernus i Balathor.' },
+  { icon: '🔄', title: 'Ciągłe Aktualizacje', desc: 'Aktywny zespół developerski. Najnowsza wersja klienta: v1.0.2.' },
 ]
 
 export default function HomePage() {
@@ -136,22 +128,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Server Highlights / Why Pandora */}
+      {/* Server Highlights */}
       <section>
         <div className="flex items-center justify-center gap-3 mb-10">
           <div className="h-[2px] w-16 bg-gradient-to-r from-transparent to-pandora-gold/50 rounded-full" />
-          <h2 className="font-display text-2xl md:text-3xl font-bold gold-gradient text-center">✨ Dlaczego Pandora?</h2>
+          <h2 className="font-display text-2xl md:text-3xl font-bold gold-gradient text-center">✨ Cechy Serwera</h2>
           <div className="h-[2px] w-16 bg-gradient-to-l from-transparent to-pandora-gold/50 rounded-full" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { icon: '🏰', title: 'Old School Metin2', desc: 'Wierne odwzorowanie klasycznego Metin2 z epoki 2008-2012. Bez Pay2Win, bez VIP wymaganych do gry.' },
-            { icon: '⚔️', title: 'PvP & PvM Balanced', desc: 'Zbalansowane klasy i rangi PvP. System Rang od Parobka do Cesarza z unikalnymi bonusami.' },
-            { icon: '🌍', title: '5 Kanałów, 4000+ Graczy', desc: 'Aktywna społeczność z tysiącami graczy online. Dynamiczny handel i gildie.' },
-            { icon: '🐉', title: 'Smocze Monety', desc: 'Unikalny system walutowy. Smocze Monety zdobywane za aktywność — wymieniane w specjalnym sklepie.' },
-            { icon: '🎪', title: 'Regularne Eventy', desc: 'Deszcz Metinów, Kosmiczna Inwazja, Loteria Tombola i wiele więcej. Nagrody za aktywność.' },
-            { icon: '🔄', title: 'Ciągłe Aktualizacje', desc: 'Nowe dungeony, poprawki błędów i balansu. Zespół developerski aktywnie rozwija serwer.' },
-          ].map(item => (
+          {serverHighlights.map(item => (
             <div key={item.title} className="bg-pandora-card/80 border border-pandora-border/60 rounded-2xl p-7 hover:border-pandora-gold/40 hover:bg-pandora-card transition-all group">
               <div className="text-4xl mb-5">{item.icon}</div>
               <h3 className="font-display text-lg font-bold text-pandora-text group-hover:text-pandora-gold transition-colors mb-3">{item.title}</h3>
@@ -161,7 +146,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Upcoming Events Preview */}
+      {/* Events Preview */}
       <section>
         <div className="flex items-center justify-center gap-3 mb-10">
           <div className="h-[2px] w-16 bg-gradient-to-r from-transparent to-pandora-gold/50 rounded-full" />
@@ -170,7 +155,11 @@ export default function HomePage() {
         </div>
         <div className="glass-card rounded-2xl p-6 md:p-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {upcomingEvents.map(e => (
+            {[
+              { name: 'Raty Serwerowe', type: 'Stały', desc: 'Zwiększenie Exp, Drop i Yang o dany procent' },
+              { name: 'Deszcz Metinów / Zuo', type: 'Losowy', desc: 'Metiny, Bossy i Władcy na wybranej mapie' },
+              { name: 'Kosmiczna Inwazja', type: 'Community', desc: 'Zbierz 100 000 przedmiotów = raty dla serwera' },
+            ].map(e => (
               <div key={e.name} className="bg-pandora-dark/60 rounded-xl p-6 border border-pandora-border/50 hover:border-pandora-gold/30 transition-all">
                 <div className="flex items-center gap-3 mb-3">
                   <Calendar className="w-5 h-5 text-pandora-gold" />
@@ -187,7 +176,7 @@ export default function HomePage() {
           </div>
           <div className="text-center">
             <Link to="/events" className="inline-flex items-center gap-2 text-pandora-gold hover:text-pandora-gold-light font-semibold transition-colors">
-              Zobacz wszystkie eventy <ArrowRight className="w-4 h-4" />
+              Zobacz wszystkie 18 eventów <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -228,78 +217,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* VIP System */}
+      {/* Download Info */}
       <section>
         <div className="flex items-center justify-center gap-3 mb-10">
           <div className="h-[2px] w-16 bg-gradient-to-r from-transparent to-pandora-gold/50 rounded-full" />
-          <h2 className="font-display text-2xl md:text-3xl font-bold gold-gradient text-center">👑 System VIP</h2>
+          <h2 className="font-display text-2xl md:text-3xl font-bold gold-gradient text-center">📥 Pobierz i Graj</h2>
           <div className="h-[2px] w-16 bg-gradient-to-l from-transparent to-pandora-gold/50 rounded-full" />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="glass-card rounded-2xl p-6 md:p-8">
-            <h3 className="font-display text-xl font-bold text-pandora-gold mb-6 flex items-center gap-3">
-              <Star className="w-6 h-6" /> Korzyści VIP
-            </h3>
+        <div className="glass-card rounded-2xl p-6 md:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
-              {vipBenefits.map(b => (
-                <div key={b} className="flex items-center gap-4 p-4 bg-pandora-dark/40 rounded-xl border border-pandora-border/30 hover:border-pandora-gold/20 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-pandora-gold/10 border border-pandora-gold/20 flex items-center justify-center shrink-0">
-                    <Star className="w-4 h-4 text-pandora-gold" />
+              <h3 className="font-display text-xl font-bold text-pandora-gold">Informacje o kliencie</h3>
+              <div className="space-y-3">
+                {systemRequirements.map(r => (
+                  <div key={r.label} className="flex items-center justify-between p-4 bg-pandora-dark/40 rounded-xl border border-pandora-border/30">
+                    <span className="text-sm text-pandora-muted">{r.label}</span>
+                    <span className="text-sm font-bold text-pandora-text">{r.value}</span>
                   </div>
-                  <span className="text-sm font-medium text-pandora-text">{b}</span>
+                ))}
+                <div className="flex items-center justify-between p-4 bg-pandora-dark/40 rounded-xl border border-pandora-border/30">
+                  <span className="text-sm text-pandora-muted">Wersja klienta</span>
+                  <span className="text-sm font-bold text-pandora-text">v1.0.2</span>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-          <div className="glass-card rounded-2xl p-6 md:p-8">
-            <h3 className="font-display text-xl font-bold text-pandora-gold mb-6 flex items-center gap-3">
-              <Monitor className="w-6 h-6" /> Wymagania Systemowe
-            </h3>
-            <p className="text-pandora-muted text-sm mb-6 leading-relaxed">
-              Klient gry waży ok. 3.56 GB. Pandora działa na większości komputerów — nawet starszych. Minimalne wymagania:
-            </p>
             <div className="space-y-4">
-              {systemRequirements.map(r => {
-                const Icon = r.icon
-                return (
-                  <div key={r.label} className="flex items-center gap-4 p-4 bg-pandora-dark/40 rounded-xl border border-pandora-border/30 hover:border-pandora-gold/20 transition-colors">
-                    <div className="w-10 h-10 rounded-lg bg-pandora-card border border-pandora-border flex items-center justify-center shrink-0">
-                      <Icon className="w-5 h-5 text-pandora-gold" />
-                    </div>
-                    <div>
-                      <span className="text-xs text-pandora-muted uppercase tracking-wider block">{r.label}</span>
-                      <span className="text-sm font-bold text-pandora-text">{r.value}</span>
-                    </div>
-                  </div>
-                )
-              })}
+              <h3 className="font-display text-xl font-bold text-pandora-gold">Oficjalne linki</h3>
+              <div className="space-y-3">
+                {[
+                  { label: 'Strona główna', url: serverInfo.website, icon: '🌐' },
+                  { label: 'Pobierz grę', url: serverInfo.download, icon: '📥' },
+                  { label: 'Forum', url: serverInfo.forum, icon: '💬' },
+                  { label: 'Discord', url: serverInfo.discord, icon: '🎮' },
+                ].map(link => (
+                  <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 bg-pandora-dark/40 rounded-xl border border-pandora-border/30 hover:border-pandora-gold/30 transition-colors group">
+                    <span className="text-xl">{link.icon}</span>
+                    <span className="text-sm font-semibold text-pandora-text group-hover:text-pandora-gold transition-colors">{link.label}</span>
+                  </a>
+                ))}
+              </div>
             </div>
-            <p className="text-pandora-muted text-xs mt-5">System operacyjny: Windows 8.1 lub nowszy</p>
           </div>
         </div>
       </section>
 
-      {/* Server Links */}
-      <section className="relative border-t border-pandora-border/50 pt-14">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 bg-pandora-darker text-xs font-bold tracking-widest uppercase text-pandora-muted">Przydatne Odnośniki</div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { label: 'Strona Główna', url: serverInfo.website, desc: 'Oficjalna strona serwera', icon: '🌐' },
-            { label: 'Forum', url: serverInfo.forum, desc: 'Społeczność i dyskusje', icon: '💬' },
-            { label: 'Discord', url: serverInfo.discord, desc: 'Czat głosowy i tekstowy', icon: '🎮' },
-          ].map(link => (
-            <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
-              className="glass-card rounded-2xl p-7 hover:border-pandora-gold/40 hover:bg-pandora-card hover:-translate-y-1 transition-all group flex items-center gap-5">
-              <div className="w-14 h-14 rounded-xl bg-pandora-dark border border-pandora-border flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shrink-0">
-                {link.icon}
-              </div>
-              <div>
-                <h3 className="font-bold text-lg text-pandora-gold group-hover:text-pandora-gold-light transition-colors">{link.label}</h3>
-                <p className="text-sm text-pandora-muted mt-1">{link.desc}</p>
-              </div>
-            </a>
-          ))}
-        </div>
+      {/* Footer note */}
+      <section className="relative border-t border-pandora-border/50 pt-10">
+        <p className="text-center text-sm text-pandora-muted/70 leading-relaxed max-w-2xl mx-auto">
+          Dane na tej stronie pochodzą z oficjalnej <a href="https://forum.pandoramt2.pl/topic/31300-s2-prezentacja-serwera/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold hover:underline">Prezentacji Serwera</a> oraz{' '}
+          <a href="https://forum.pandoramt2.pl/topic/484-spis-event%C3%B3w/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold hover:underline">Spisu Eventów</a> na forum PandoraMT2.<br />
+          Wszelkie prawa do gry Metin2 należą do ich właścicieli. © 2020–2026 PandoraMT2.pl
+        </p>
       </section>
     </div>
   )

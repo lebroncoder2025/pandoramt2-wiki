@@ -14,7 +14,7 @@ export function PageHeader({ title, description, icon }: { title: string; descri
 
 export function Card({ children, className = '', glow = false, onClick }: { children: ReactNode; className?: string; glow?: boolean; onClick?: () => void }) {
   return (
-    <div onClick={onClick} className={`bg-pandora-card border border-pandora-border rounded-2xl p-6 md:p-8 hover:border-pandora-gold/30 transition-all duration-300 ${glow ? 'animate-pulse-gold' : ''} ${className}`}>
+    <div onClick={onClick} className={`bg-pandora-card border border-pandora-border rounded-2xl p-6 md:p-8 hover:border-pandora-gold/25 transition-all duration-300 shadow-[0_2px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] ${glow ? 'animate-pulse-gold' : ''} ${className}`}>
       {children}
     </div>
   )
@@ -22,7 +22,7 @@ export function Card({ children, className = '', glow = false, onClick }: { chil
 
 export function StatBox({ label, value, icon }: { label: string; value: string; icon?: ReactNode }) {
   return (
-    <div className="bg-pandora-card border border-pandora-border rounded-2xl p-5 md:p-6 hover:border-pandora-gold/30 transition-all">
+    <div className="bg-pandora-card border border-pandora-border rounded-2xl p-5 md:p-6 hover:border-pandora-gold/25 transition-all shadow-[0_2px_12px_rgba(0,0,0,0.2)] group">
       <div className="flex items-center gap-2.5 mb-2">
         {icon && <span className="text-pandora-gold">{icon}</span>}
         <span className="text-xs text-pandora-muted uppercase tracking-wider font-semibold">{label}</span>
@@ -34,20 +34,20 @@ export function StatBox({ label, value, icon }: { label: string; value: string; 
 
 export function DataTable({ headers, rows, highlightFirst = false }: { headers: string[]; rows: string[][]; highlightFirst?: boolean }) {
   return (
-    <div className="overflow-x-auto rounded-2xl border border-pandora-border">
+    <div className="overflow-x-auto rounded-2xl border border-pandora-border shadow-[0_2px_12px_rgba(0,0,0,0.2)]">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-pandora-card">
+          <tr className="bg-pandora-card border-b border-pandora-border">
             {headers.map((h, i) => (
-              <th key={i} className="px-5 py-4 text-left text-pandora-gold font-semibold text-xs uppercase tracking-wider border-b border-pandora-border">{h}</th>
+              <th key={i} className="px-5 py-4 text-left text-pandora-gold font-semibold text-xs uppercase tracking-wider">{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {rows.map((row, ri) => (
-            <tr key={ri} className="border-b border-pandora-border/50 hover:bg-pandora-card/50 transition-colors">
+            <tr key={ri} className="border-b border-pandora-border/30 transition-colors">
               {row.map((cell, ci) => (
-                <td key={ci} className={`px-5 py-4 ${ci === 0 && highlightFirst ? 'text-pandora-gold font-medium' : ''}`}>{cell}</td>
+                <td key={ci} className={`px-5 py-3.5 ${ci === 0 && highlightFirst ? 'text-pandora-gold font-medium' : 'text-pandora-text/90'}`}>{cell}</td>
               ))}
             </tr>
           ))}
@@ -83,9 +83,9 @@ export function SectionTitle({ children, id }: { children: ReactNode; id?: strin
 
 export function InfoBox({ children, type = 'info' }: { children: ReactNode; type?: 'info' | 'warning' | 'tip' }) {
   const styles = {
-    info: 'border-pandora-blue/30 bg-pandora-blue/5',
-    warning: 'border-pandora-orange/30 bg-pandora-orange/5',
-    tip: 'border-pandora-green/30 bg-pandora-green/5',
+    info: 'border-pandora-blue/25 bg-pandora-blue/5 shadow-[0_0_12px_rgba(59,130,246,0.04)]',
+    warning: 'border-pandora-orange/25 bg-pandora-orange/5 shadow-[0_0_12px_rgba(245,158,11,0.04)]',
+    tip: 'border-pandora-green/25 bg-pandora-green/5 shadow-[0_0_12px_rgba(34,197,94,0.04)]',
   }
   const icons = { info: 'ℹ️', warning: '⚠️', tip: '💡' }
   return (
@@ -98,15 +98,15 @@ export function InfoBox({ children, type = 'info' }: { children: ReactNode; type
 
 export function TabGroup({ tabs, activeTab, onTabChange }: { tabs: string[]; activeTab: number; onTabChange: (i: number) => void }) {
   return (
-    <div className="flex gap-1.5 p-1.5 bg-pandora-card rounded-xl border border-pandora-border mb-8 overflow-x-auto">
+    <div className="flex gap-1 p-1 bg-pandora-dark/80 rounded-xl border border-pandora-border mb-8 overflow-x-auto shadow-[inset_0_1px_3px_rgba(0,0,0,0.3)]">
       {tabs.map((tab, i) => (
         <button
           key={tab}
           onClick={() => onTabChange(i)}
-          className={`px-5 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all ${
+          className={`px-5 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
             i === activeTab
-              ? 'bg-pandora-gold/15 text-pandora-gold shadow-sm'
-              : 'text-pandora-muted hover:text-pandora-text hover:bg-pandora-dark/50'
+              ? 'bg-pandora-gold/15 text-pandora-gold shadow-[0_1px_8px_rgba(212,168,67,0.12)] border border-pandora-gold/20'
+              : 'text-pandora-muted hover:text-pandora-text hover:bg-pandora-card/60 border border-transparent'
           }`}
         >
           {tab}

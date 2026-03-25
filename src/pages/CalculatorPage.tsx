@@ -8,7 +8,9 @@ function RankCalculator() {
   const [targetRank, setTargetRank] = useState('Cesarz')
 
   const targetData = ranks.find(r => r.name === targetRank)
-  const targetPoints = targetData ? parseInt(targetData.range.replace(/[^0-9]/g, '')) : 10000000
+  const targetPoints = targetData
+    ? parseInt((targetData.range.split('–').pop() || targetData.range).replace(/[^0-9]/g, ''))
+    : 10000000
   const needed = Math.max(0, targetPoints - currentPoints)
 
   return (

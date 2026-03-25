@@ -1,18 +1,18 @@
 import { useState } from 'react'
-import { Calendar, Gift } from 'lucide-react'
+import { Calendar, ChevronDown } from 'lucide-react'
 import { PageHeader, Card, Badge, TabGroup, InfoBox } from '../components/UI.tsx'
 
-type EventCategory = 'all' | 'rates' | 'boss' | 'drop' | 'community' | 'special'
+type EventType = 'Stały' | 'Losowy' | 'Królestwo'
+type EventCategory = 'all' | 'rates' | 'boss' | 'drop' | 'community'
 
 interface GameEvent {
   name: string
   icon: string
-  category: EventCategory
-  type: 'Stały' | 'Losowy' | 'Królestwo' | 'Community' | 'Sezonowy'
+  category: Exclude<EventCategory, 'all'>
+  type: EventType
+  timeLimited: boolean
+  trigger: string
   description: string
-  details: string[]
-  rewards?: string[]
-  color: 'gold' | 'green' | 'blue' | 'purple' | 'orange' | 'red'
 }
 
 const events: GameEvent[] = [
@@ -21,278 +21,177 @@ const events: GameEvent[] = [
     icon: '📈',
     category: 'rates',
     type: 'Stały',
-    description: 'Regularne zwiększenie rat doświadczenia, dropu i yang na serwerze. Aktywowane przez administrację.',
-    details: [
-      'Zwiększone raty EXP — szybsze levelowanie',
-      'Zwiększone raty DROP — więcej przedmiotów z potworów',
-      'Zwiększone raty YANG — więcej złota',
-      'Informacja o aktualnych ratach na stronie głównej serwera',
-    ],
-    color: 'green',
+    timeLimited: true,
+    trigger: 'Komunikat po wejściu na mapę: [Rodzaj] wzrosło o [Wartość]%.',
+    description: 'Wartość jednego lub wielu z poniższych: Szansa na drop przedmiotów, Pozyskiwanie Yang oraz Sztabek Złota, Ilość zdobywanego doświadczenia — zostaje zwiększona o dany procent. Przykładowo komunikat "Doświadczenie wzrosło o 50%" oznacza, że wartość wynosi 150% (100+50) standardowej.',
   },
   {
     name: 'Event Rybacki',
     icon: '🐟',
     category: 'community',
     type: 'Królestwo',
-    description: 'Event aktywowany przez królestwo. Łowienie ryb przez 1 godzinę z nagrodą 1000 Pirackich Monet.',
-    details: [
-      'Aktywowany przez królestwo (wymagana aktywacja przez władcę)',
-      'Czas trwania: 1 godzina',
-      'Nagroda: 1000 Pirackich Monet',
-      'Wymaga posiadania wędki i przynęty',
-    ],
-    rewards: ['1000 Pirackich Monet', 'Rzadkie ryby', 'Owoce Morza'],
-    color: 'blue',
+    timeLimited: true,
+    trigger: 'Komunikat po wejściu na mapę: Wydarzenie Rybackie jest aktualnie aktywne! Gdy aktywny przez królestwo: Rybacy z Twojego Królestwa aktywowali prywatne Manwoo, korzystaj póki możesz!',
+    description: 'Możliwy do odpalenia przez królestwo, które uzbiera 1000 sztuk Pirackiej Monety w kufrze przy swoim rybaku na 1 godzinę. Gdy event jest aktywny, szansa na wyłowienie Skrzyni Rybaka zostaje zwiększona.',
   },
   {
     name: 'Event Górniczy',
     icon: '⛏️',
     category: 'community',
     type: 'Królestwo',
-    description: 'Event aktywowany przez królestwo. Wydobywanie rudy przez określony czas z nagrodą 1000 kryształów.',
-    details: [
-      'Aktywowany przez królestwo (wymagana aktywacja przez władcę)',
-      'Nagroda: 1000 Tajemniczych Kryształów',
-      'Wymaga posiadania kilofa',
-      'Zwiększona szansa na rzadkie kamienie',
-    ],
-    rewards: ['1000 Tajemniczych Kryształów', 'Rzadkie rudy', 'Sztabki Złota'],
-    color: 'orange',
+    timeLimited: true,
+    trigger: 'Komunikat po wejściu na mapę: Wydarzenie Górnicze jest aktualnie aktywne! Gdy aktywny przez królestwo: Górnicy z Twojego Królestwa aktywowali prywatne Wydarzenie Górnicze, korzystaj póki możesz!',
+    description: 'Możliwy do odpalenia przez królestwo, które uzbiera 1000 sztuk Tajemniczego Kryształu w ołtarzu w swoim M1 na 1 godzinę. Gdy event jest aktywny, szansa na wydobycie Skrzyni Górnika zostaje zwiększona.',
   },
   {
     name: 'Deszcz Metinów',
     icon: '🌧️',
     category: 'boss',
     type: 'Losowy',
-    description: 'Niezliczone metiny pojawiają się na wybranej mapie. Ogromna ilość dropu i doświadczenia.',
-    details: [
-      'Losowo aktywowany na wybranych mapach',
-      'Duża ilość metinów pojawiających się jednocześnie',
-      'Zwiększony drop z metinów podczas eventu',
-      'Ograniczony czas trwania — kto szybszy, ten lepszy',
-    ],
-    rewards: ['Kamienie Dusz', 'Yang', 'Rzadkie przedmioty z metinów'],
-    color: 'purple',
+    timeLimited: false,
+    trigger: 'Komunikat chwilę przed eventem: Za chwilę na [mapa] spadnie deszcz metinów!',
+    description: 'Gdy event zostanie ogłoszony, na wyznaczonej mapie (najczęściej Pustynia, CH1) pojawiają się Kamienie Metin na różne poziomy. Ich ilość jest uzależniona od liczby graczy na mapie w momencie startu. Najczęściej wydarzenie ma więcej niż jedną falę.',
   },
   {
     name: 'Zuo',
     icon: '👹',
     category: 'boss',
     type: 'Losowy',
-    description: 'Kombinacja eventów — pojawiają się Metiny, Bossy i Władcy jednocześnie.',
-    details: [
-      'Połączenie wielu eventów boss w jeden wielki event',
-      'Metiny + Bossy + Władcy na raz',
-      'Jeden z najbardziej dochodowych eventów',
-      'Wymaga dobrego ekwipunku i drużyny',
-    ],
-    rewards: ['Legendarne przedmioty', 'Kamienie Dusz', 'Ogromne ilości Yang'],
-    color: 'red',
+    timeLimited: false,
+    trigger: 'Komunikat chwilę przed eventem: Za chwilę na [mapa] rozpocznie się Zuo!',
+    description: 'Gdy event zostanie ogłoszony, na wyznaczonej mapie (najczęściej Pustynia, CH1) pojawiają się Kamienie Metin, Bossy oraz Władcy na różne poziomy. Ilość uzależniona od liczby graczy na mapie. Najczęściej więcej niż jedna fala.',
   },
   {
     name: 'Podwójne Bossy',
     icon: '💀',
     category: 'boss',
-    type: 'Losowy',
-    description: '25% szansa na ponowne pojawienie się bossa zaraz po zabiciu. Podwójne nagrody!',
-    details: [
-      '25% szansa na natychmiastowy respawn bossa',
-      'Dotyczy wszystkich bossów na mapach',
-      'Podwójny drop z ponownie zabitego bossa',
-      'Idealny moment na farmienie rzadkich itemów',
-    ],
-    color: 'red',
+    type: 'Stały',
+    timeLimited: true,
+    trigger: 'Komunikat po wejściu na mapę: Wydarzenie odradzających się Bossów jest aktualnie aktywne!',
+    description: 'Gdy event jest aktywny, gracze po zabiciu bossa mają 25% szansę na jego ponowny respawn. Dotyczy tylko bossów nie znajdujących się na dungeonach.',
   },
   {
     name: 'Podwójni Władcy',
     icon: '👑',
     category: 'boss',
-    type: 'Losowy',
-    description: '25% szansa na ponowne pojawienie się bossa dungeonowego po zabiciu.',
-    details: [
-      '25% szansa na natychmiastowy respawn bossa w dungeonie',
-      'Dotyczy wszystkich dungeonów',
-      'Podwójne nagrody z end-bossów',
-      'Stackuje się z innymi bonusami',
-    ],
-    color: 'purple',
+    type: 'Stały',
+    timeLimited: true,
+    trigger: 'Komunikat po wejściu na mapę: Wydarzenie odradzających się Władców jest aktualnie aktywne!',
+    description: 'Gdy event jest aktywny, gracze po zabiciu bossa dungeonu (władcy) mają 25% szansę na jego ponowny respawn. Dotyczy tylko bossów znajdujących się na dungeonach.',
   },
   {
     name: 'Loteria Tombola',
     icon: '🎰',
-    category: 'special',
-    type: 'Sezonowy',
-    description: 'System loterii z trzema poziomami kuponów. Wymień kupony na cenne nagrody.',
-    details: [
-      'Trzy poziomy kuponów (Brązowy, Srebrny, Złoty)',
-      'Kupony zdobywane z potworów i eventów',
-      'Nagrody od mikstur po legendarne przedmioty',
-      'Wymiana u NPC Tomboli w mieście',
-    ],
-    rewards: ['Kupony Brązowe → podstawowe nagrody', 'Kupony Srebrne → średnie nagrody', 'Kupony Złote → najlepsze nagrody'],
-    color: 'gold',
+    category: 'drop',
+    type: 'Stały',
+    timeLimited: true,
+    trigger: 'Komunikat po wejściu na mapę: Drop Kuponów na Tombolę jest aktualnie aktywny!',
+    description: 'Gdy event jest aktywny, gracze mogą uzyskać z Metinów, Bossów oraz Władców dungeonów Kupony na Loterię. Kupon I: Metiny lv. 5–80. Kupon II: Metiny lv. 85–175, Bossy mapowe (poza Królową Pająków), Umarły Rozpruwacz. Kupon III: Minotaur, Władcy (poza Umarłym Rozpruwaczem).',
   },
   {
     name: 'Drop Szkatułek Blasku Księżyca',
     icon: '🌙',
     category: 'drop',
-    type: 'Losowy',
-    description: 'Z potworów zaczynają padać Szkatułki Blasku Księżyca z cennymi przedmiotami.',
-    details: [
-      'Szkatułki dropią z potworów na wybranych mapach',
-      'Zawierają losowe cenne przedmioty',
-      'Ograniczony czas eventu',
-      'Im silniejszy potwór, tym większa szansa na drop',
-    ],
-    color: 'blue',
+    type: 'Stały',
+    timeLimited: true,
+    trigger: 'Komunikat po wejściu na mapę: Drop Szkatułek Blasku Księżyca jest aktualnie aktywny!',
+    description: 'Gracze mogą uzyskać z potworów Szkatułki Blasku Księżyca. Na mapach poniżej 110 poziomu szansa nie działa, gdy różnica poziomu między graczem a potworem przekracza 15. Szkatułki nie dropią na dungeonach.',
   },
   {
-    name: 'Heksagonalne Szkatułki',
+    name: 'Drop Heksagonalnych Szkatułek',
     icon: '📦',
     category: 'drop',
-    type: 'Losowy',
-    description: 'Specjalna odmiana szkatułek z unikalnymi przedmiotami wewnątrz.',
-    details: [
-      'Odmiana szkatułek z lepszym lootem',
-      'Zawierają heksagonalne kamienie i przedmioty',
-      'Trudniejsze do zdobycia niż zwykłe szkatułki',
-    ],
-    color: 'purple',
+    type: 'Stały',
+    timeLimited: true,
+    trigger: 'Komunikat po wejściu na mapę: Drop Heksagonalnych Szkatułek jest aktualnie aktywny!',
+    description: 'Gracze mogą uzyskać z potworów Heksagonalną Szkatułkę. Na mapach poniżej 110 poziomu szansa nie działa, gdy różnica poziomu między graczem a potworem przekracza 15. Szkatułki nie dropią na dungeonach.',
   },
   {
     name: 'Owocowe Szaleństwo',
     icon: '🍎',
     category: 'drop',
-    type: 'Sezonowy',
-    description: 'Owoce Życia pojawiają się w miastach. Zbieraj je, aby uzyskać tymczasowe bonusy.',
-    details: [
-      'Owoce Życia spawnują się w miastach',
-      'Zbieranie daje tymczasowe bonusy (EXP, HP, Siła)',
-      'Każdy owoc daje inny bonus',
-      'Event trwa kilka godzin',
-    ],
-    rewards: ['Owoce Życia', 'Tymczasowe bonusy', 'Specjalne efekty'],
-    color: 'green',
+    type: 'Losowy',
+    timeLimited: true,
+    trigger: 'Komunikat: Wydarzenie Owocowego Szaleństwa zostało właśnie aktywowane! / Komunikat po wejściu na mapę: Wydarzenie Owocowego Szaleństwa jest aktualnie aktywne!',
+    description: 'Gracze mają za zadanie przeszukać wszystkie miasta (M1 i M2) na wszystkich kanałach i odnaleźć ukryte w losowych miejscach Owoce Życia różnego stopnia. Wystarczy podejść i kliknąć. Na czacie globalnym publikowany jest komunikat o zebraniu z dokładnością do kanału i mapy. Owoce odrastają w losowych miejscach.',
   },
   {
     name: 'Mandarynkowy Szał',
     icon: '🍊',
     category: 'drop',
-    type: 'Sezonowy',
-    description: 'Mandarynki z potworów! Zbierz dużo, aby wymienić na specjalne nagrody.',
-    details: [
-      'Mandarynki dropią z potworów',
-      'Wymienialne u specjalnego NPC',
-      'Im więcej zbierzesz, tym lepsze nagrody',
-    ],
-    color: 'orange',
+    type: 'Stały',
+    timeLimited: true,
+    trigger: 'Komunikat po wejściu na mapę: Mandarynkowy Szał jest aktualnie aktywny!',
+    description: 'Gracze mogą uzyskać z potworów Mistyczną Mandarynkę. Na mapach poniżej 110 poziomu szansa nie działa, gdy różnica poziomu przekracza 15. Mandarynki nie dropią na dungeonach.',
   },
   {
     name: 'Złota Żabokalipsa',
     icon: '🐸',
-    category: 'special',
+    category: 'drop',
     type: 'Losowy',
-    description: 'Złote żaby pojawiają się na mapach. Zabij je i zdobądź yang oraz cenne przedmioty!',
-    details: [
-      'Złote żaby spawnują się losowo na mapach',
-      'Dropią duże ilości yang',
-      'Szansa na rzadkie przedmioty',
-      'Ograniczony czas trwania',
-    ],
-    rewards: ['Duże ilości Yang', 'Złote przedmioty', 'Kamienie ulepszenia'],
-    color: 'gold',
+    timeLimited: true,
+    trigger: 'Komunikat: Wydarzenie Złotej Żabokalipsy zostało właśnie aktywowane! / Komunikat po wejściu na mapę: Wydarzenie Złotej Żabokalipsy jest aktualnie aktywne!',
+    description: 'Gracze mają za zadanie przeszukać miasta (M1 i M2) na wszystkich kanałach i zniszczyć Złote Żaby oraz Prawdziwe Złote Żaby respione w losowych miejscach. Na czacie globalnym komunikat o zniszczeniu. Żaby odradzają się w losowych miejscach.',
   },
   {
     name: 'Cesarskie Mandarynki',
-    icon: '👑',
+    icon: '🍊',
     category: 'drop',
-    type: 'Sezonowy',
-    description: 'Ulepszona wersja mandarynkowego eventu z lepszymi nagrodami cesarskimi.',
-    details: [
-      'Cesarskie Mandarynki — ulepszona wersja',
-      'Dropiją z silniejszych potworów',
-      'Wymienialne na cesarskie przedmioty u NPC',
-    ],
-    color: 'gold',
+    type: 'Losowy',
+    timeLimited: true,
+    trigger: 'Komunikat: Wydarzenie Cesarskich Mandarynek zostało właśnie aktywowane! / Komunikat po wejściu na mapę: Wydarzenie Cesarskich Mandarynek jest aktualnie aktywne!',
+    description: 'Gracze mają za zadanie przeszukać wszystkie expowiska (powyżej Atlantydy V1 włącznie) na wszystkich kanałach i zniszczyć Mandarynki w losowych miejscach. Na czacie globalnym komunikat o zniszczeniu. Mandarynki odradzają się.',
   },
   {
     name: 'Skrzynie Expowisk',
-    icon: '📦',
+    icon: '🗝️',
     category: 'drop',
     type: 'Losowy',
-    description: 'Skrzynie pełne bonusów doświadczenia. Otwórz je, aby uzyskać boost EXP.',
-    details: [
-      'Skrzynie z bonusami EXP',
-      'Dropią z potworów podczas eventu',
-      'Różne poziomy boostu doświadczenia',
-      'Stackują się z innymi bonusami',
-    ],
-    rewards: ['EXP Boost x2', 'EXP Boost x3', 'Rzadkie scrolle EXP'],
-    color: 'blue',
+    timeLimited: true,
+    trigger: 'Komunikat: Wydarzenie Skrzyni Expowisk zostało właśnie aktywowane! / Komunikat po wejściu na mapę: Wydarzenie Skrzyni Expowisk jest aktualnie aktywne!',
+    description: 'Gracze otwierają Skrzynie Expowisk na początku każdego expowiska (powyżej Atlantydy V1 włącznie) na wszystkich kanałach za pomocą specjalnego Klucza dropiącego z potworów. Na mapach poniżej 110 poziomu szansa nie działa, gdy różnica poziomów przekracza 15.',
   },
   {
     name: 'Cesarski Pościg',
     icon: '🏃',
-    category: 'special',
+    category: 'drop',
     type: 'Losowy',
-    description: 'Ścigaj NPC Najmena po mapie! Kto go złapie, dostaje cesarską nagrodę.',
-    details: [
-      'NPC Najmen pojawia się i ucieka po mapie',
-      'Gracze muszą go dogonić i "złapać"',
-      'Nagroda dla pierwszego gracza',
-      'Dynamiczny event wymagający szybkości',
-    ],
-    rewards: ['Cesarskie przedmioty', 'Złoto', 'Unikalne nagrody'],
-    color: 'gold',
+    timeLimited: true,
+    trigger: 'Komunikat: Wydarzenie Cesarskiego Pościgu zostało właśnie aktywowane! / Komunikat po wejściu na mapę: Wydarzenie Cesarskiego Pościgu jest aktualnie aktywne!',
+    description: 'Gracze mają za zadanie przeszukać wszystkie expowiska (powyżej Atlantydy V1 włącznie) na wszystkich kanałach i zabijać uciekających w losowych kierunkach Najmanów. Odradzają się w losowych miejscach.',
   },
   {
     name: 'Kosmiczna Inwazja',
-    icon: '🚀',
+    icon: '🛸',
     category: 'community',
-    type: 'Community',
-    description: 'Event społecznościowy — całe serwer zbiera 100 000 przedmiotów, a w zamian wszyscy dostają zwiększone raty.',
-    details: [
-      'Całe serwer wspólnie zbiera przedmioty',
-      'Cel: 100 000 przedmiotów łącznie',
-      'Po osiągnięciu celu — raty dla WSZYSTKICH graczy',
-      'Integruje społeczność we wspólnym celu',
-    ],
-    rewards: ['Zwiększone raty EXP/Drop dla całego serwera', 'Bonusowe nagrody za wkład'],
-    color: 'purple',
+    type: 'Losowy',
+    timeLimited: true,
+    trigger: 'Komunikat: Wydarzenie Kosmicznej Inwazji zostało właśnie aktywowane! / Komunikat po wejściu na mapę: Wydarzenie Kosmicznej Inwazji jest aktualnie aktywne!',
+    description: 'Gracze zabijają Ufoludków na expowiskach (powyżej Atlantydy V1 włącznie) na wszystkich kanałach. Drop oddają Organizatorowi Wydarzeń w M1. Gdy gracze kolektywnie nazbierają 100 000, aktywowane zostają raty na cały dzień.',
   },
   {
     name: 'Kosmiczne Jaja',
     icon: '🥚',
-    category: 'special',
-    type: 'Sezonowy',
-    description: 'Kosmiczne Jaja pojawiają się na mapach. Zbieraj je i otwieraj dla kosmicznych nagród.',
-    details: [
-      'Kosmiczne Jaja spawnują się losowo',
-      'Zbieraj i otwieraj u NPC',
-      'Losowe nagrody — od zwykłych po legendarne',
-      'Powiązane z eventem Kosmiczna Inwazja',
-    ],
-    rewards: ['Kosmiczne przedmioty', 'Kamienie Dusz', 'Kostiumy'],
-    color: 'blue',
+    category: 'community',
+    type: 'Losowy',
+    timeLimited: true,
+    trigger: 'Komunikat: Wydarzenie Kosmicznych Jaj zostało właśnie aktywowane! / Komunikat po wejściu na mapę: Wydarzenie Kosmicznych Jaj jest aktualnie aktywne!',
+    description: 'Gracze zabijają Kosmiczne Jaja na expowiskach (powyżej Atlantydy V1 włącznie) na wszystkich kanałach. Po pokonaniu jaj z ich szczątków wyskakują Kosmiczni Najeźdzcy, których również należy zabić.',
   },
 ]
 
 const categories = [
   { key: 'all' as EventCategory, label: 'Wszystkie' },
   { key: 'rates' as EventCategory, label: 'Raty' },
-  { key: 'boss' as EventCategory, label: 'Bossy' },
-  { key: 'drop' as EventCategory, label: 'Drop' },
+  { key: 'boss' as EventCategory, label: 'Bossy & Metiny' },
+  { key: 'drop' as EventCategory, label: 'Drop & Szkatułki' },
   { key: 'community' as EventCategory, label: 'Społeczność' },
-  { key: 'special' as EventCategory, label: 'Specjalne' },
 ]
 
-const typeColors: Record<string, 'gold' | 'green' | 'blue' | 'purple' | 'orange' | 'red'> = {
+const typeColors: Record<EventType, 'gold' | 'green' | 'blue' | 'purple' | 'orange' | 'red'> = {
   'Stały': 'green',
   'Losowy': 'orange',
   'Królestwo': 'blue',
-  'Community': 'purple',
-  'Sezonowy': 'red',
 }
 
 export default function EventsPage() {
@@ -307,20 +206,20 @@ export default function EventsPage() {
     <div className="space-y-8">
       <PageHeader
         title="Eventy Serwerowe"
-        description="Kompletna lista wszystkich eventów na PandoraMT2 — od stałych rat, przez losowe deszcze metinów po community eventy."
+        description="Oficjalny spis wszystkich eventów na PandoraMT2 — raty, bossy, drop i eventy społecznościowe."
         icon={<Calendar className="w-8 h-8" />}
       />
 
-      <InfoBox type="tip">
+      <InfoBox type="info">
         <p className="text-sm leading-relaxed">
-          <strong>Wskazówka:</strong> Śledź ogłoszenia na <a href="https://forum.pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="text-pandora-gold hover:underline">forum</a> i 
-          <a href="https://discord.pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="text-pandora-gold hover:underline"> Discordzie</a>, 
-          aby nie przegapić żadnego eventu. Większość eventów jest ogłaszana z wyprzedzeniem!
+          Wszystkie informacje pochodzą z oficjalnego <a href="https://forum.pandoramt2.pl/topic/484-spis-event%C3%B3w/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold hover:underline font-semibold">Spisu Eventów</a> na forum PandoraMT2.
+          Śledź ogłoszenia na <a href="https://forum.pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="text-pandora-gold hover:underline">forum</a> i{' '}
+          <a href="https://discord.pandoramt2.pl" target="_blank" rel="noopener noreferrer" className="text-pandora-gold hover:underline">Discordzie</a>, aby nie przegapić żadnego eventu.
         </p>
       </InfoBox>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-pandora-card border border-pandora-border rounded-2xl p-5 text-center">
           <div className="text-3xl font-display font-black text-pandora-gold">{events.length}</div>
           <div className="text-xs text-pandora-muted uppercase tracking-wider mt-1 font-semibold">Eventów</div>
@@ -334,8 +233,8 @@ export default function EventsPage() {
           <div className="text-xs text-pandora-muted uppercase tracking-wider mt-1 font-semibold">Losowych</div>
         </div>
         <div className="bg-pandora-card border border-pandora-border rounded-2xl p-5 text-center">
-          <div className="text-3xl font-display font-black text-pandora-purple">{events.filter(e => e.type === 'Community' || e.type === 'Królestwo').length}</div>
-          <div className="text-xs text-pandora-muted uppercase tracking-wider mt-1 font-semibold">Community</div>
+          <div className="text-3xl font-display font-black text-pandora-blue">{events.filter(e => e.type === 'Królestwo').length}</div>
+          <div className="text-xs text-pandora-muted uppercase tracking-wider mt-1 font-semibold">Królestwa</div>
         </div>
       </div>
 
@@ -346,66 +245,55 @@ export default function EventsPage() {
         onTabChange={(i) => setActiveCategory(categories[i].key)}
       />
 
-      {/* Events Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {filteredEvents.map(event => (
-          <Card key={event.name} className="cursor-pointer group" onClick={() => setExpandedEvent(expandedEvent === event.name ? null : event.name)}>
-            <div className="flex items-start gap-5">
-              <div className="w-14 h-14 rounded-xl bg-pandora-dark border border-pandora-border flex items-center justify-center text-3xl shrink-0 group-hover:border-pandora-gold/40 group-hover:scale-105 transition-all">
-                {event.icon}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 flex-wrap mb-2">
-                  <h3 className="font-display text-lg font-bold text-pandora-text group-hover:text-pandora-gold transition-colors">{event.name}</h3>
-                  <Badge color={typeColors[event.type]}>{event.type}</Badge>
+      {/* Events List */}
+      <div className="space-y-4">
+        {filteredEvents.map(event => {
+          const isExpanded = expandedEvent === event.name
+          return (
+            <Card key={event.name} className="cursor-pointer group" onClick={() => setExpandedEvent(isExpanded ? null : event.name)}>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-pandora-dark border border-pandora-border flex items-center justify-center text-2xl shrink-0 group-hover:border-pandora-gold/40 transition-all">
+                  {event.icon}
                 </div>
-                <p className="text-sm text-pandora-muted leading-relaxed">{event.description}</p>
-              </div>
-            </div>
-            
-            {/* Expandable Details */}
-            <div className={`overflow-hidden transition-all duration-300 ${expandedEvent === event.name ? 'max-h-[600px] opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
-              <div className="border-t border-pandora-border/50 pt-5 space-y-4">
-                <div>
-                  <h4 className="text-sm font-bold text-pandora-gold-light uppercase tracking-wider mb-3">Szczegóły</h4>
-                  <ul className="space-y-2">
-                    {event.details.map((d, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-pandora-muted">
-                        <span className="text-pandora-gold mt-0.5">▸</span>
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                {event.rewards && (
-                  <div>
-                    <h4 className="text-sm font-bold text-pandora-gold-light uppercase tracking-wider mb-3">Nagrody</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {event.rewards.map((r, i) => (
-                        <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-pandora-dark/60 border border-pandora-border/50 text-xs font-medium text-pandora-text">
-                          <Gift className="w-3.5 h-3.5 text-pandora-gold" />
-                          {r}
-                        </span>
-                      ))}
-                    </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-3 flex-wrap mb-1">
+                    <h3 className="font-display text-lg font-bold text-pandora-text group-hover:text-pandora-gold transition-colors">{event.name}</h3>
+                    <Badge color={typeColors[event.type]}>{event.type}</Badge>
+                    <Badge color={event.timeLimited ? 'gold' : 'purple'}>
+                      {event.timeLimited ? 'Ograniczony czasowo' : 'Bez limitu czasu'}
+                    </Badge>
                   </div>
-                )}
+                  <p className="text-sm text-pandora-muted leading-relaxed line-clamp-2">{event.description}</p>
+                </div>
+                <ChevronDown className={`w-5 h-5 text-pandora-muted shrink-0 mt-1 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
               </div>
-            </div>
-          </Card>
-        ))}
+
+              {/* Expanded Details */}
+              <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-[500px] opacity-100 mt-5' : 'max-h-0 opacity-0'}`}>
+                <div className="border-t border-pandora-border/50 pt-5 space-y-4">
+                  <div>
+                    <h4 className="text-xs font-bold text-pandora-gold uppercase tracking-wider mb-2">Komunikat w grze</h4>
+                    <p className="text-sm text-pandora-muted/80 bg-pandora-dark/40 rounded-xl p-4 border border-pandora-border/30 italic leading-relaxed">{event.trigger}</p>
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-pandora-gold uppercase tracking-wider mb-2">Opis</h4>
+                    <p className="text-sm text-pandora-text/90 leading-relaxed">{event.description}</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          )
+        })}
       </div>
 
       {/* Legend */}
       <Card>
         <h3 className="font-display text-lg font-bold text-pandora-gold mb-5">Legenda Typów Eventów</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
-            { type: 'Stały', color: 'green' as const, desc: 'Aktywne regularnie lub cały czas' },
-            { type: 'Losowy', color: 'orange' as const, desc: 'Aktywowane losowo przez administrację' },
-            { type: 'Królestwo', color: 'blue' as const, desc: 'Wymagają aktywacji przez władcę królestwa' },
-            { type: 'Community', color: 'purple' as const, desc: 'Wymagają wspólnego wysiłku społeczności' },
-            { type: 'Sezonowy', color: 'red' as const, desc: 'Dostępne w określonych okresach/sezonach' },
+            { type: 'Stały', color: 'green' as const, desc: 'Aktywowane regularnie przez administrację' },
+            { type: 'Losowy', color: 'orange' as const, desc: 'Aktywowane losowo, ogłaszane na czacie' },
+            { type: 'Królestwo', color: 'blue' as const, desc: 'Aktywowane przez graczy królestwa' },
           ].map(item => (
             <div key={item.type} className="flex items-center gap-3 p-3 rounded-xl bg-pandora-dark/40">
               <Badge color={item.color}>{item.type}</Badge>

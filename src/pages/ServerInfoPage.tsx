@@ -1,5 +1,5 @@
-import { Info, Server, Swords, Crown, Coins, Layers, Star, Gem, Monitor, HardDrive, Cpu, MemoryStick } from 'lucide-react'
-import { PageHeader, StatBox, Card, SectionTitle, DataTable, InfoBox, Badge } from '../components/UI.tsx'
+import { Info, Server, Swords, Crown, Coins, Layers, Monitor, HardDrive, Cpu, MemoryStick } from 'lucide-react'
+import { PageHeader, StatBox, Card, SectionTitle, DataTable, InfoBox } from '../components/UI.tsx'
 import { serverInfo, startingEquipment } from '../data/serverData.ts'
 
 export default function ServerInfoPage() {
@@ -41,63 +41,6 @@ export default function ServerInfoPage() {
         ))}
       </div>
 
-      <SectionTitle>🐉 Smocze Monety</SectionTitle>
-      <Card>
-        <div className="flex items-start gap-5">
-          <div className="w-14 h-14 rounded-xl bg-pandora-gold/10 border border-pandora-gold/20 flex items-center justify-center text-3xl shrink-0">
-            🪙
-          </div>
-          <div className="space-y-3">
-            <h3 className="font-display text-lg font-bold text-pandora-gold">System Smoczych Monet</h3>
-            <p className="text-sm text-pandora-muted leading-relaxed">
-              Smocze Monety to unikalna waluta PandoraMT2 zdobywana za aktywność na serwerze. Można je wydawać w specjalnym Smoczym Sklepie 
-              na ekskluzywne przedmioty, kostiumy, bonusy i ulepszenia niedostępne gdzie indziej.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
-              <div className="bg-pandora-dark/40 rounded-xl p-4 border border-pandora-border/30 text-center">
-                <div className="text-xs text-pandora-muted uppercase tracking-wider mb-1">Źródło</div>
-                <div className="text-sm font-semibold text-pandora-text">Aktywność / Eventy</div>
-              </div>
-              <div className="bg-pandora-dark/40 rounded-xl p-4 border border-pandora-border/30 text-center">
-                <div className="text-xs text-pandora-muted uppercase tracking-wider mb-1">Sklep</div>
-                <div className="text-sm font-semibold text-pandora-text">Smoczy Sklep NPC</div>
-              </div>
-              <div className="bg-pandora-dark/40 rounded-xl p-4 border border-pandora-border/30 text-center">
-                <div className="text-xs text-pandora-muted uppercase tracking-wider mb-1">Zawartość</div>
-                <div className="text-sm font-semibold text-pandora-text">Kostiumy, Bonusy, Itemy</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Card>
-
-      <SectionTitle>👑 System VIP</SectionTitle>
-      <Card>
-        <div className="space-y-4">
-          <p className="text-sm text-pandora-muted leading-relaxed">
-            System VIP na Pandorze daje graczom wymierne korzyści w grze. VIP jest opcjonalny — gra jest w pełni grywalna bez niego.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { label: 'Zwiększone raty EXP', desc: 'Szybsze levelowanie postaci' },
-              { label: 'Zwiększony Drop', desc: 'Więcej przedmiotów z potworów' },
-              { label: 'Więcej Yang', desc: 'Dodatkowe złoto za potwory' },
-              { label: 'Efekty wizualne', desc: 'Ekskluzywne efekty i aury' },
-              { label: 'VIP Sklep', desc: 'Dostęp do specjalnego sklepu' },
-              { label: 'Darmowa kostka/teleport', desc: 'Codzienne darmowe użycia' },
-            ].map(b => (
-              <div key={b.label} className="flex items-start gap-3 p-4 bg-pandora-dark/40 rounded-xl border border-pandora-border/30">
-                <Star className="w-5 h-5 text-pandora-gold shrink-0 mt-0.5" />
-                <div>
-                  <div className="text-sm font-semibold text-pandora-text">{b.label}</div>
-                  <div className="text-xs text-pandora-muted">{b.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Card>
-
       <SectionTitle>Ekwipunek Startowy</SectionTitle>
       <p className="text-pandora-muted mb-5">Każdy nowy gracz rozpoczyna przygodę z następującymi przedmiotami:</p>
       <DataTable
@@ -107,22 +50,27 @@ export default function ServerInfoPage() {
       />
 
       <SectionTitle>Kluczowe Mechaniki</SectionTitle>
+      <InfoBox type="info">
+        <p className="text-sm leading-relaxed">
+          Wszystkie informacje na tej stronie pochodzą z oficjalnej <a href="https://forum.pandoramt2.pl/topic/31300-s2-prezentacja-serwera/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold hover:underline font-semibold">Prezentacji Serwera</a> na forum PandoraMT2.
+        </p>
+      </InfoBox>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <Card>
           <h3 className="font-semibold text-lg text-pandora-gold mb-3">💰 Drop Sztabek Złota</h3>
-          <p className="text-sm text-pandora-muted leading-relaxed">Losowe Sztabki Złota (2KK / 5KK / 10KK) dropią z potworów. Na mapach od Pustyni dropią najcenniejsze. Wymagana max. 15 poziomów różnicy do potwora. VIP, Medal Szczęścia i Zwierzak zwiększają szansę.</p>
+          <p className="text-sm text-pandora-muted leading-relaxed">Losowe Sztabki Złota (2KK / 5KK / 10KK) dropią z potworów. Na mapach od Pustyni Wygnańców dropią tylko najcenniejsze. Wymagana max. 15 poziomów różnicy do potwora (nie dotyczy map od Doliny Śmierci włącznie). Pakiet VIP, Medal Szczęścia i Zwierzak zwiększają szansę.</p>
         </Card>
         <Card>
           <h3 className="font-semibold text-lg text-pandora-gold mb-3">✨ Bonusy 6-7</h3>
-          <p className="text-sm text-pandora-muted leading-relaxed">Przedmioty mogą mieć 5 zwykłych + 2 dodatkowe bonusy (6-7). Maks. wartości wyświetlają się na złoto. Blok Ciosów nie wchodzi jako bonus zwykły — tylko z KD i przedmiotów.</p>
+          <p className="text-sm text-pandora-muted leading-relaxed">Przedmioty mogą mieć maks. 5 bonusów zwykłych + 2 dodatkowe bonusy (6-7) o stałych wartościach. Maks. wartości wyświetlają się na złoty kolor. Bloku Ciosów nie da się wybonować — występuje tylko jako bon wbudowany w przedmioty lub Kamienie Dusz.</p>
         </Card>
         <Card>
           <h3 className="font-semibold text-lg text-pandora-gold mb-3">🔧 Magiczny Metal+</h3>
-          <p className="text-sm text-pandora-muted leading-relaxed">Daje +10% szansy na ulepszenie. Wymaga Kamienia Kowala + Magicznej Rudy Miedzi + 100M Yang. Kamienie z Bossów i Metinów.</p>
+          <p className="text-sm text-pandora-muted leading-relaxed">Daje +10% szansy na ulepszanie. Wymaga: Kamień Kowala + Magiczna Ruda Miedzi + 100.000.000 Yang. Kamienie zdobywane z silniejszych Bossów oraz Kamieni Metin.</p>
         </Card>
         <Card>
-          <h3 className="font-semibold text-lg text-pandora-gold mb-3">🏪 Sklepy Offline</h3>
-          <p className="text-sm text-pandora-muted leading-relaxed">Otwierane Tobołkiem z handlarki. Można ustawiać dokładną pozycję. Wyszukiwarka sklepów na górze klienta z filtrem ulepszenia.</p>
+          <h3 className="font-semibold text-lg text-pandora-gold mb-3">🏪 Sklepy Offline & Wyszukiwarka</h3>
+          <p className="text-sm text-pandora-muted leading-relaxed">Sklepy otwieramy Tobołkiem z handlarki różności. Możemy ustawiać dokładną pozycję sklepu. Wyszukiwarka sklepów na krawędzi klienta z opcją ignorowania stopnia ulepszenia. VIP pozwala na dekorowanie sklepu.</p>
         </Card>
       </div>
 

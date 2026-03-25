@@ -199,15 +199,15 @@ export const ranks = [
 
 export const biologistQuests = [
   { item: 'Ząb Orka', level: 30, count: 10, reward: 'Szybkość Ruchu: +10%' },
-  { item: 'Księga Klątw', level: 40, count: 15, reward: 'Szybkość Ataku: +10%' },
-  { item: 'Pamiątka Po Demonie', level: 50, count: 15, reward: 'Obrona: +150' },
-  { item: 'Matowy Lód', level: 60, count: 20, reward: 'Wartość Ataku: +100' },
-  { item: 'Konar Zelkova', level: 70, count: 25, reward: 'Odporność na Obrażenia: +10%, Szybkość Ruchu: +15%' },
-  { item: 'Certyfikat Tugyisa', level: 80, count: 30, reward: 'Szybkość Ataku: +15%, Wartość Ataku: +10%' },
-  { item: 'Czerwony Konar', level: 130, count: 40, reward: 'Odporność na Ludzi: +10%' },
-  { item: 'Notatka Przywódcy', level: 160, count: 50, reward: 'Silny pko Ludziom: +8%' },
-  { item: 'Klejnot Zawiści', level: 190, count: 10, reward: 'Maks. PŻ: +500, Wart. Mag. Ataku: +50, Wart. Ataku: +50' },
-  { item: 'Klejnot Mądrości', level: 220, count: 10, reward: 'Maks. PŻ: +1100, Wart. Mag. Ataku: +60, Wart. Ataku: +60' },
+  { item: 'Księga Klątw', level: 40, count: 15, reward: 'Szybkość Ataku: +10%, Szkatułka Królowej Pająków' },
+  { item: 'Pamiątka Po Demonie', level: 50, count: 15, reward: 'Obrona: +150, Szkatułka Dziewięciu Ogonów' },
+  { item: 'Matowy Lód', level: 60, count: 20, reward: 'Wartość Ataku: +100, Szkatułka Żółtego Tygrysa' },
+  { item: 'Konar Zelkova', level: 70, count: 25, reward: 'Odporność na Obrażenia: +10%, Szybkość Ruchu: +15%, Szkatułka Ognistego Króla' },
+  { item: 'Certyfikat Tugyisa', level: 80, count: 30, reward: 'Szybkość Ataku: +15%, Wartość Ataku: +10%, Szkatułka Umarłego Rozpruwacza' },
+  { item: 'Czerwony Konar', level: 130, count: 40, reward: 'Odporność na Ludzi: +10%, Szkatułka Minotaura' },
+  { item: 'Notatka Przywódcy', level: 160, count: 50, reward: 'Silny pko Ludziom: +8%, Szkatułka Elit. Olbrz. Żółwia' },
+  { item: 'Klejnot Zawiści', level: 190, count: 10, reward: 'Maks. PŻ: +500, Wart. Mag. Ataku: +50, Wart. Ataku: +50, Szkatułka Berana Setaou' },
+  { item: 'Klejnot Mądrości', level: 220, count: 10, reward: 'Maks. PŻ: +1100, Wart. Mag. Ataku: +60, Wart. Ataku: +60, Szkatułka Azraela' },
 ]
 
 export const fisherBiologist = [

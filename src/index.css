@@ -3,18 +3,18 @@
 @theme {
   --color-pandora-gold: #d4a843;
   --color-pandora-gold-light: #f0d68a;
-  --color-pandora-dark: #0a0a0f;
-  --color-pandora-darker: #060609;
-  --color-pandora-card: #12121a;
-  --color-pandora-card-hover: #1a1a25;
-  --color-pandora-border: #2a2a3a;
-  --color-pandora-text: #e0e0e8;
-  --color-pandora-muted: #888899;
-  --color-pandora-red: #e74c3c;
-  --color-pandora-green: #2ecc71;
-  --color-pandora-blue: #3498db;
-  --color-pandora-purple: #9b59b6;
-  --color-pandora-orange: #e67e22;
+  --color-pandora-dark: #0e0e18;
+  --color-pandora-darker: #08080e;
+  --color-pandora-card: #13131f;
+  --color-pandora-card-hover: #1a1a2a;
+  --color-pandora-border: #22223a;
+  --color-pandora-text: #e0e0ec;
+  --color-pandora-muted: #7a7a96;
+  --color-pandora-red: #ef4444;
+  --color-pandora-green: #22c55e;
+  --color-pandora-blue: #3b82f6;
+  --color-pandora-purple: #a855f7;
+  --color-pandora-orange: #f59e0b;
   --font-display: 'Cinzel', serif;
   --font-body: 'Inter', sans-serif;
 }
@@ -36,6 +36,9 @@ body {
   color: var(--color-pandora-text);
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv11', 'ss01';
 }
 
 ::-webkit-scrollbar {
@@ -106,13 +109,14 @@ body {
 }
 
 .glass-card {
-  background: rgba(18, 18, 26, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 168, 67, 0.15);
+  background: rgba(16, 16, 26, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 168, 67, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #d4a843, #f0d68a, #d4a843);
+  background: linear-gradient(135deg, #c9972e, #f0d68a 50%, #d4a843);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -213,4 +217,38 @@ a, button {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Polished table rows */
+table tbody tr:nth-child(even) {
+  background: rgba(18, 18, 30, 0.5);
+}
+
+table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+table tbody tr:hover {
+  background: rgba(212, 168, 67, 0.04);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(212, 168, 67, 0.3);
+  color: #f0d68a;
+}
+
+/* Card depth system */
+.card-elevated {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+
+/* Subtle gold glow on important elements */
+.glow-gold-sm {
+  box-shadow: 0 0 12px rgba(212, 168, 67, 0.08);
+}
+
+/* Better kbd styling */
+kbd {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
