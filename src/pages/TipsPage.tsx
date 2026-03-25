@@ -84,7 +84,7 @@ export default function TipsPage() {
       <PageHeader
         title="Porady & Skróty"
         description="Przydatne wskazówki, skróty klawiszowe i porady dla nowych i zaawansowanych graczy."
-        icon={<Lightbulb className="w-8 h-8" />}
+        icon={<Lightbulb className="w-5 h-5" />}
       />
 
       <SectionTitle>Skróty Klawiszowe</SectionTitle>

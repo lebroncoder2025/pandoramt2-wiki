@@ -8,7 +8,7 @@ export default function MiningPage() {
       <PageHeader
         title="Górnictwo"
         description="System wydobycia — Kilofy, Sztabki Złota, Tajemnicze Kryształy i Żyły Złota."
-        icon={<Pickaxe className="w-8 h-8" />}
+        icon={<Pickaxe className="w-5 h-5" />}
       />
 
       <SectionTitle>Podstawy Górnictwa</SectionTitle>

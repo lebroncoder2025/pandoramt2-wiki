@@ -8,7 +8,7 @@ export default function ServerInfoPage() {
       <PageHeader
         title="Informacje o Serwerze"
         description="Podstawowe parametry serwera PandoraMT2 — typ, limity, waluty, królestwa i systemy."
-        icon={<Info className="w-8 h-8" />}
+        icon={<Info className="w-5 h-5" />}
       />
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">

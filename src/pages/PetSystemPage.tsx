@@ -8,7 +8,7 @@ export default function PetSystemPage() {
       <PageHeader
         title="System Zwierzaków"
         description="Twój pupil zdobywa poziomy, uczy się umiejętności i wzmacnia twoją postać."
-        icon={<Dog className="w-8 h-8" />}
+        icon={<Dog className="w-5 h-5" />}
       />
 
       <InfoBox type="info">

@@ -11,7 +11,7 @@ export default function SoulStonesPage() {
       <PageHeader
         title="Kamienie Dusz"
         description="Zwykłe i Legendarne Kamienie Dusz — bonusy, tworzenie i ulepszanie."
-        icon={<Gem className="w-8 h-8" />}
+        icon={<Gem className="w-5 h-5" />}
       />
 
       <TabGroup tabs={['Zwykłe Kamienie', 'Legendarne Kamienie', 'Ołtarz Dusz']} activeTab={tab} onTabChange={setTab} />

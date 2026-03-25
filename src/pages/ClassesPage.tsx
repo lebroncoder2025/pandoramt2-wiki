@@ -26,7 +26,7 @@ export default function ClassesPage() {
       <PageHeader
         title="Klasy Postaci"
         description="Na PandoraMT2 dostępne są 4 podstawowe klasy, każda z dwoma podklasami."
-        icon={<Sword className="w-8 h-8" />}
+        icon={<Sword className="w-5 h-5" />}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

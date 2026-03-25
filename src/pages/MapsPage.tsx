@@ -8,7 +8,7 @@ export default function MapsPage() {
       <PageHeader
         title="Mapy"
         description="Przegląd wszystkich unikalnych map na serwerze — wymagane poziomy, bossy, bonusy i Metiny."
-        icon={<Map className="w-8 h-8" />}
+        icon={<Map className="w-5 h-5" />}
       />
 
       <InfoBox type="info">

@@ -8,7 +8,7 @@ export default function FishingPage() {
       <PageHeader
         title="Rybołówstwo"
         description="System wędek, łowienia, Owoców Morza, Żetonów Rybackich i Pirackiej Monety."
-        icon={<Fish className="w-8 h-8" />}
+        icon={<Fish className="w-5 h-5" />}
       />
 
       <SectionTitle>Podstawy łowienia</SectionTitle>

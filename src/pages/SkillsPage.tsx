@@ -11,7 +11,7 @@ export default function SkillsPage() {
       <PageHeader
         title="Umiejętności"
         description="Dowodzenie, Polimorfia, szkolenie umiejętności i księgi."
-        icon={<Zap className="w-8 h-8" />}
+        icon={<Zap className="w-5 h-5" />}
       />
 
       <TabGroup tabs={['Szkolenie Umiejętności', 'Dowodzenie', 'Polimorfia']} activeTab={tab} onTabChange={setTab} />

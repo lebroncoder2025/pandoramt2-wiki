@@ -153,3 +153,13 @@ kbd { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in { animation: none; }
+  .animate-shimmer { animation: none; }
+  .animate-pulse-gold { animation: none; }
+  .animate-gradient-x { animation: none; }
+  a, button { transition: none; }
+  .card-hover { transition: none; }
+}

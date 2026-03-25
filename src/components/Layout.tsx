@@ -177,12 +177,15 @@ export default function Layout() {
         <header className="sticky top-0 z-30 bg-pandora-darker/90 backdrop-blur-lg border-b border-pandora-border/20" style={{ minHeight: 52 }}>
           <div className="flex items-center justify-between px-5 py-2">
             {!isDesktop ? (
-              <button
-                onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="p-2 -ml-2 rounded-lg text-pandora-muted hover:text-pandora-text transition-colors"
-              >
-                {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setSidebarOpen(!sidebarOpen)}
+                  className="p-2 -ml-2 rounded-lg text-pandora-muted hover:text-pandora-text transition-colors"
+                >
+                  {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
+                <Link to="/" className="font-display text-sm font-bold gold-text">PandoraMT2</Link>
+              </div>
             ) : (
               <div className="flex items-center gap-2">
                 {(() => {

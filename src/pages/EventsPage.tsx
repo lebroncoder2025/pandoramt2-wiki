@@ -207,7 +207,7 @@ export default function EventsPage() {
       <PageHeader
         title="Eventy Serwerowe"
         description="Oficjalny spis wszystkich eventów na PandoraMT2 — raty, bossy, drop i eventy społecznościowe."
-        icon={<Calendar className="w-8 h-8" />}
+        icon={<Calendar className="w-5 h-5" />}
       />
 
       <InfoBox type="info">

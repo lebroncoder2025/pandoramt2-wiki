@@ -8,7 +8,7 @@ export default function RankSystemPage() {
       <PageHeader
         title="System Rang"
         description="Od Parobka po Cesarza — zdobywaj punkty rangi i otrzymuj bonusy PvP."
-        icon={<Trophy className="w-8 h-8" />}
+        icon={<Trophy className="w-5 h-5" />}
       />
 
       <InfoBox type="info">

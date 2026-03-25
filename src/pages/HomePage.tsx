@@ -48,7 +48,7 @@ const highlights = [
 
 export default function HomePage() {
   return (
-    <div className="space-y-16">
+    <div className="space-y-14">
       {/* Hero */}
       <section className="py-8 md:py-12 relative">
         {/* Subtle ambient glow */}
@@ -66,13 +66,13 @@ export default function HomePage() {
             Kompletny przewodnik po serwerze — mapy, dungeony, bossy, systemy rozgrywki i porady dla nowych oraz doświadczonych graczy.
           </p>
 
-        <div className="flex flex-wrap gap-3 mb-12">
+        <div className="flex flex-wrap gap-3 mb-10">
           <a href="https://pandoramt2.pl/main/download" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-pandora-gold/10 border border-pandora-gold/20 text-pandora-gold font-semibold text-sm rounded-lg hover:bg-pandora-gold/15 hover:border-pandora-gold/30 transition-all">
             <Download className="w-4 h-4" /> Pobierz Grę
           </a>
           <a href="https://pandoramt2.pl/auth/register" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-pandora-card/80 border border-pandora-border/60 text-pandora-text/80 font-medium text-sm rounded-lg hover:border-pandora-border hover:text-pandora-text transition-all">
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-pandora-card/50 border border-pandora-border/40 text-pandora-text/70 font-medium text-sm rounded-lg hover:border-pandora-border/60 hover:text-pandora-text/90 transition-all">
             Zarejestruj się
           </a>
         </div>
@@ -91,7 +91,7 @@ export default function HomePage() {
 
       {/* Starting Equipment */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-5 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-4 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Ekwipunek Startowy
         </h2>
@@ -110,7 +110,7 @@ export default function HomePage() {
 
       {/* Server Highlights */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-5 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-4 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           O Serwerze
         </h2>
@@ -126,7 +126,7 @@ export default function HomePage() {
 
       {/* Events Preview */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-5 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-4 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Eventy Serwerowe
         </h2>
@@ -150,7 +150,7 @@ export default function HomePage() {
 
       {/* Guide Navigation */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-5 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-4 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Przewodnik
         </h2>

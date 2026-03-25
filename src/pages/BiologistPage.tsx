@@ -11,7 +11,7 @@ export default function BiologistPage() {
       <PageHeader
         title="Biolog & Kolekcjoner"
         description="Badania Biologa, Badania Rybaka i system Kolekcjonera — wszystkie misje i nagrody."
-        icon={<FlaskConical className="w-8 h-8" />}
+        icon={<FlaskConical className="w-5 h-5" />}
       />
 
       <TabGroup tabs={['Badania Biologa', 'Badania Rybaka', 'Kolekcjoner']} activeTab={tab} onTabChange={setTab} />

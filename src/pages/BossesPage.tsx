@@ -8,7 +8,7 @@ export default function BossesPage() {
       <PageHeader
         title="Bossy & Questy"
         description="Wszyscy bossy z lokacjami, czasami respawnu i nagrodami."
-        icon={<Skull className="w-8 h-8" />}
+        icon={<Skull className="w-5 h-5" />}
       />
 
       <SectionTitle>Bossy na Mapach</SectionTitle>

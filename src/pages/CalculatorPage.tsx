@@ -161,7 +161,7 @@ export default function CalculatorPage() {
       <PageHeader
         title="Kalkulator"
         description="Kalkulator rang, ulepszeń i potrzebnych materiałów."
-        icon={<Calculator className="w-8 h-8" />}
+        icon={<Calculator className="w-5 h-5" />}
       />
 
       <TabGroup tabs={['Kalkulator Rang', 'Kalkulator Ulepszeń']} activeTab={tab} onTabChange={setTab} />

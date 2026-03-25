@@ -8,7 +8,7 @@ export default function DungeonsPage() {
       <PageHeader
         title="Dungeony"
         description="Wszystkie instancje — wymagania wejścia, bonusy, nagrody i przepustki."
-        icon={<Castle className="w-8 h-8" />}
+        icon={<Castle className="w-5 h-5" />}
       />
 
       <InfoBox type="tip">

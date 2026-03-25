@@ -11,7 +11,7 @@ export default function EquipmentPage() {
       <PageHeader
         title="Ekwipunek & Bonusy"
         description="Pełna tabela bonusów na przedmiotach, bonusy 6-7 oraz system kostiumów."
-        icon={<Shield className="w-8 h-8" />}
+        icon={<Shield className="w-5 h-5" />}
       />
 
       <TabGroup tabs={['Bonusy Zwykłe', 'Bonusy 6-7', 'Bonusy Kostiumów']} activeTab={tab} onTabChange={setTab} />
