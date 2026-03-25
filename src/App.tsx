@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout.tsx'
 import HomePage from './pages/HomePage.tsx'
 import ServerInfoPage from './pages/ServerInfoPage.tsx'
@@ -39,6 +39,7 @@ export default function App() {
         <Route path="tips" element={<TipsPage />} />
         <Route path="calculator" element={<CalculatorPage />} />
         <Route path="events" element={<EventsPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   )

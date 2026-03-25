@@ -57,6 +57,14 @@ export default function Layout() {
   useEffect(() => { setSidebarOpen(false) }, [location.pathname])
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+    const currentItem = navGroups.flatMap(g => g.items).find(i => i.path === location.pathname)
+    document.title = currentItem
+      ? `${currentItem.label} — PandoraMT2 Wiki`
+      : 'PandoraMT2 Wiki — Przewodnik'
+  }, [location.pathname])
+
+  useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 1024)
     check()
     window.addEventListener('resize', check)
