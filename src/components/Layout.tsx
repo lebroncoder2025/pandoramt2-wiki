@@ -61,7 +61,7 @@ export default function Layout() {
   }
 
   return (
-    <div className="min-h-screen bg-pandora-darker text-pandora-text font-body">
+    <div className="flex min-h-screen bg-pandora-darker text-pandora-text font-body">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -148,7 +148,7 @@ export default function Layout() {
       </aside>
 
       {/* Main content wrapper */}
-      <div className="lg:pl-72 flex flex-col min-h-screen transition-all duration-300">
+      <div className="flex-1 flex flex-col min-h-screen lg:ml-72 transition-all duration-300">
         {/* Top bar */}
         <header className="sticky top-0 z-40 bg-pandora-darker/80 backdrop-blur-xl border-b border-pandora-border/50 py-4 px-6 md:px-8 flex items-center justify-between min-h-[72px]">
           <div className="flex items-center gap-4">
