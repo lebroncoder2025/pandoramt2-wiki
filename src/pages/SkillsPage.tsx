@@ -34,7 +34,7 @@ export default function SkillsPage() {
           </InfoBox>
 
           <Card className="mt-4">
-            <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">Przełączanie umiejętności ciągłych</h3>
+            <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Przełączanie umiejętności ciągłych</h3>
             <p className="text-[13px] text-pandora-muted/60">Umiejętności aktywne można włączać/wyłączać jak np. Ognisty Duch. Nie wyłączają się po przelogowaniu!</p>
           </Card>
         </>
@@ -92,8 +92,8 @@ export default function SkillsPage() {
 
           <SectionTitle>Wymiana Marmurów</SectionTitle>
           <Card>
-            <p className="text-[13px] text-pandora-muted/60 mb-2">U <strong className="text-pandora-text/75">Uriela</strong> (każde M1) możesz wymienić:</p>
-            <p className="text-[13px] text-pandora-text/75"><strong>5x dowolny Marmur Polimorfii + 50M Yang</strong> → Marmur Dzikiego Sługi, Czarnego Orka lub Młodego Pająka</p>
+            <p className="text-[13px] text-pandora-muted/60 mb-2">U <strong className="text-pandora-text/85">Uriela</strong> (każde M1) możesz wymienić:</p>
+            <p className="text-[13px] text-pandora-text/85"><strong>5x dowolny Marmur Polimorfii + 50M Yang</strong> → Marmur Dzikiego Sługi, Czarnego Orka lub Młodego Pająka</p>
           </Card>
 
           <InfoBox type="info">

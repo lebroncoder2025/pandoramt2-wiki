@@ -27,13 +27,13 @@ export default function ServerInfoPage() {
         {serverInfo.kingdoms.map((k, i) => (
           <div key={k} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 flex items-center gap-3.5 hover:border-pandora-border/60 transition-colors">
             <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-base font-bold font-display ${
-              i === 0 ? 'bg-red-500/8 text-red-400/80' : i === 1 ? 'bg-blue-500/8 text-blue-400/80' : 'bg-yellow-500/8 text-yellow-400/80'
+              i === 0 ? 'bg-pandora-red/8 text-pandora-red/80' : i === 1 ? 'bg-pandora-blue/8 text-pandora-blue/80' : 'bg-pandora-gold/8 text-pandora-gold/80'
             }`}>
               {k[0]}
             </div>
             <div>
               <h3 className="text-sm font-semibold text-pandora-text/85">{k}</h3>
-              <p className="text-[11px] text-pandora-muted/50">Królestwo #{i + 1}</p>
+              <p className="text-[11px] text-pandora-muted/60">Królestwo #{i + 1}</p>
             </div>
           </div>
         ))}
@@ -60,8 +60,8 @@ export default function ServerInfoPage() {
           { title: 'Magiczny Metal+', desc: 'Daje +10% szansy na ulepszanie. Wymaga: Kamień Kowala + Magiczna Ruda Miedzi + 100.000.000 Yang. Kamienie zdobywane z silniejszych Bossów oraz Kamieni Metin.' },
           { title: 'Sklepy Offline & Wyszukiwarka', desc: 'Sklepy otwieramy Tobołkiem z handlarki różności. Możemy ustawiać dokładną pozycję sklepu. Wyszukiwarka sklepów na krawędzi klienta z opcją ignorowania stopnia ulepszenia. VIP pozwala na dekorowanie sklepu.' },
         ].map(m => (
-          <div key={m.title} className="bg-pandora-card/50 border border-pandora-border/30 rounded-lg p-4">
-            <h3 className="text-sm font-semibold text-pandora-text/80 mb-2">{m.title}</h3>
+          <div key={m.title} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
+            <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">{m.title}</h3>
             <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{m.desc}</p>
           </div>
         ))}
@@ -80,10 +80,10 @@ export default function ServerInfoPage() {
         ].map(r => {
           const Icon = r.icon
           return (
-            <div key={r.label} className="bg-pandora-card/50 border border-pandora-border/30 rounded-lg p-4 text-center">
+            <div key={r.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 text-center hover:border-pandora-border/60 transition-colors">
               <Icon className="w-5 h-5 text-pandora-gold/60 mx-auto mb-2" />
-              <div className="text-[10px] text-pandora-muted/50 uppercase tracking-widest mb-1">{r.label}</div>
-              <div className="text-sm font-bold text-pandora-text/80">{r.value}</div>
+              <div className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-1">{r.label}</div>
+              <div className="text-sm font-bold text-pandora-text/85">{r.value}</div>
             </div>
           )
         })}
@@ -100,10 +100,10 @@ export default function ServerInfoPage() {
           { label: 'Instagram', url: serverInfo.instagram },
         ].map(link => (
           <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
-            className="group flex items-center gap-3 bg-pandora-card/40 border border-pandora-border/25 rounded-lg px-4 py-3 hover:border-pandora-border/50 transition-colors">
+            className="group flex items-center gap-3 bg-pandora-card/60 border border-pandora-border/40 rounded-lg px-4 py-3 hover:border-pandora-border/60 transition-colors">
             <div>
-              <div className="text-sm font-medium text-pandora-text/75 group-hover:text-pandora-gold transition-colors">{link.label}</div>
-              <div className="text-[11px] text-pandora-muted/40 truncate max-w-[200px]">{link.url}</div>
+              <div className="text-sm font-medium text-pandora-text/85 group-hover:text-pandora-gold transition-colors">{link.label}</div>
+              <div className="text-[11px] text-pandora-muted/60 truncate max-w-[200px]">{link.url}</div>
             </div>
           </a>
         ))}

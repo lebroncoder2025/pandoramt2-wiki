@@ -14,23 +14,23 @@ export default function BossesPage() {
       <SectionTitle>Bossy na Mapach</SectionTitle>
       <div className="space-y-2 mb-8">
         {bosses.map(b => (
-          <div key={b.name} className="bg-pandora-card/50 border border-pandora-border/30 rounded-lg p-4 hover:border-pandora-border/50 transition-colors group">
+          <div key={b.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/50 transition-colors group">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
               <div className="sm:w-[28%] flex items-center gap-2.5">
                 <div className={`w-2 h-2 rounded-full shrink-0 ${
                   b.respawn.includes('48') ? 'bg-pandora-red/60' : b.respawn.includes('12') ? 'bg-pandora-orange/60' : b.respawn.includes('60') ? 'bg-pandora-purple/60' : 'bg-pandora-green/60'
                 }`} />
                 <div>
-                  <h3 className="text-sm font-semibold text-pandora-text/90 group-hover:text-pandora-gold/80 transition-colors">{b.name}</h3>
-                  <span className="text-[11px] text-pandora-muted/50">{b.respawn}</span>
+                  <h3 className="text-sm font-semibold text-pandora-text/85 group-hover:text-pandora-gold/80 transition-colors">{b.name}</h3>
+                  <span className="text-[11px] text-pandora-muted/60">{b.respawn}</span>
                 </div>
               </div>
               <div className="sm:w-[22%]">
-                <p className="text-[10px] text-pandora-muted/40 uppercase tracking-widest">Lokacja</p>
+                <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest">Lokacja</p>
                 <p className="text-[13px] text-pandora-text/70">{b.map}</p>
               </div>
               <div className="sm:w-[50%]">
-                <p className="text-[10px] text-pandora-muted/40 uppercase tracking-widest">Nagroda</p>
+                <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest">Nagroda</p>
                 <p className="text-[13px] text-pandora-gold/70">{b.reward}</p>
               </div>
             </div>

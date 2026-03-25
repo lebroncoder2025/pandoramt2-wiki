@@ -203,7 +203,7 @@ export default function EventsPage() {
     : events.filter(e => e.category === activeCategory)
 
   return (
-    <div className="space-y-8">
+    <div className="max-w-5xl mx-auto space-y-8">
       <PageHeader
         title="Eventy Serwerowe"
         description="Oficjalny spis wszystkich eventów na PandoraMT2 — raty, bossy, drop i eventy społecznościowe."
@@ -226,7 +226,7 @@ export default function EventsPage() {
           { value: events.filter(e => e.type === 'Losowy').length, label: 'Losowych', color: 'text-pandora-orange' },
           { value: events.filter(e => e.type === 'Królestwo').length, label: 'Królestwa', color: 'text-pandora-blue' },
         ].map(s => (
-          <div key={s.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 text-center">
+          <div key={s.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 text-center hover:border-pandora-border/60 transition-colors">
             <div className={`text-2xl font-display font-bold ${s.color}`}>{s.value}</div>
             <div className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mt-1 font-medium">{s.label}</div>
           </div>
@@ -252,23 +252,23 @@ export default function EventsPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2.5 flex-wrap mb-1">
-                    <h3 className="font-display text-base font-bold text-pandora-text/90 group-hover:text-pandora-gold transition-colors">{event.name}</h3>
+                    <h3 className="font-display text-base font-bold text-pandora-text/85 group-hover:text-pandora-gold transition-colors">{event.name}</h3>
                     <Badge color={typeColors[event.type]}>{event.type}</Badge>
                     <Badge color={event.timeLimited ? 'gold' : 'purple'}>
                       {event.timeLimited ? 'Ograniczony czasowo' : 'Bez limitu czasu'}
                     </Badge>
                   </div>
-                  <p className="text-[13px] text-pandora-muted/70 leading-relaxed line-clamp-2">{event.description}</p>
+                  <p className="text-[13px] text-pandora-muted/60 leading-relaxed line-clamp-2">{event.description}</p>
                 </div>
                 <ChevronDown className={`w-5 h-5 text-pandora-muted shrink-0 mt-1 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
               </div>
 
               {/* Expanded Details */}
               <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-[500px] opacity-100 mt-5' : 'max-h-0 opacity-0'}`}>
-                <div className="border-t border-pandora-border/50 pt-5 space-y-4">
+                <div className="border-t border-pandora-border/40 pt-5 space-y-4">
                   <div>
                     <h4 className="text-[10px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-2">Komunikat w grze</h4>
-                    <p className="text-[13px] text-pandora-muted/70 bg-pandora-dark/30 rounded-lg p-3.5 border border-pandora-border/20 italic leading-relaxed">{event.trigger}</p>
+                    <p className="text-[13px] text-pandora-muted/60 bg-pandora-dark/30 rounded-lg p-3.5 border border-pandora-border/20 italic leading-relaxed">{event.trigger}</p>
                   </div>
                   <div>
                     <h4 className="text-[10px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-2">Opis</h4>
@@ -283,7 +283,7 @@ export default function EventsPage() {
 
       {/* Legend */}
       <Card>
-        <h3 className="text-sm font-semibold text-pandora-text/80 mb-4">Legenda Typów Eventów</h3>
+        <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Legenda Typów Eventów</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
             { type: 'Stały', color: 'green' as const, desc: 'Aktywowane regularnie przez administrację' },
@@ -292,7 +292,7 @@ export default function EventsPage() {
           ].map(item => (
             <div key={item.type} className="flex items-center gap-2.5 p-3 rounded-lg bg-pandora-dark/30 border border-pandora-border/20">
               <Badge color={item.color}>{item.type}</Badge>
-              <span className="text-[12px] text-pandora-muted/60">{item.desc}</span>
+              <span className="text-[13px] text-pandora-muted/60">{item.desc}</span>
             </div>
           ))}
         </div>

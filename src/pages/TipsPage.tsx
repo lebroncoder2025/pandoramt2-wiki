@@ -90,7 +90,7 @@ export default function TipsPage() {
       <SectionTitle>Skróty Klawiszowe</SectionTitle>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-8">
         {shortcuts.map(s => (
-          <div key={s.key} className="bg-pandora-card/50 border border-pandora-border/30 rounded-lg p-3.5 hover:border-pandora-border/50 transition-colors">
+          <div key={s.key} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-3.5 hover:border-pandora-border/50 transition-colors">
             <kbd className="inline-block px-2 py-0.5 bg-pandora-dark/60 rounded text-pandora-gold/80 font-mono text-[12px] mb-1.5 border border-pandora-gold/15">
               {s.key}
             </kbd>
@@ -103,7 +103,7 @@ export default function TipsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
         {tips.map(t => (
           <Card key={t.title}>
-            <h3 className="text-sm font-semibold text-pandora-text/80 mb-2.5">{t.title}</h3>
+            <h3 className="text-sm font-semibold text-pandora-text/85 mb-2.5">{t.title}</h3>
             <ul className="space-y-1.5">
               {t.items.map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-[13px] text-pandora-muted/60">

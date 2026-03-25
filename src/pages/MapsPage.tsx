@@ -17,7 +17,7 @@ export default function MapsPage() {
 
       <div className="space-y-3">
         {maps.map((m, i) => (
-          <div key={m.name} className="bg-pandora-card/50 border border-pandora-border/30 rounded-lg p-4 hover:border-pandora-border/50 transition-colors">
+          <div key={m.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/50 transition-colors">
             <div className="flex flex-col lg:flex-row lg:items-start gap-3.5">
               <div className="lg:w-1/3">
                 <div className="flex items-center gap-3 mb-2">
@@ -25,7 +25,7 @@ export default function MapsPage() {
                     {i + 1}
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-pandora-text/90">{m.name}</h3>
+                    <h3 className="text-sm font-bold text-pandora-text/85">{m.name}</h3>
                     <Badge color={m.level >= 200 ? 'red' : m.level >= 110 ? 'orange' : 'green'}>
                       Poziom {m.level}+
                     </Badge>
@@ -35,16 +35,16 @@ export default function MapsPage() {
               </div>
 
               <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-2">
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/15">
-                  <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest mb-0.5">Bonus</p>
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                  <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Bonus</p>
                   <p className="text-[13px] font-medium text-pandora-blue/80">{m.bonus}</p>
                 </div>
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/15">
-                  <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest mb-0.5">Bossy</p>
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                  <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Bossy</p>
                   <p className="text-[13px] font-medium text-pandora-red/80">{m.bosses}</p>
                 </div>
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/15">
-                  <p className="text-[10px] text-pandora-muted/50 uppercase tracking-widest mb-0.5">Metiny</p>
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                  <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Metiny</p>
                   <p className="text-[13px] font-medium text-pandora-purple/80">{m.metins}</p>
                 </div>
               </div>

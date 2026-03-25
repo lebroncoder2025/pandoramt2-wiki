@@ -15,7 +15,7 @@ function RankCalculator() {
 
   return (
     <Card>
-      <h3 className="text-sm font-semibold text-pandora-text/80 mb-4">Kalkulator Rang</h3>
+      <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Kalkulator Rang</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div>
           <label className="block text-[12px] text-pandora-muted/60 mb-1">Aktualne punkty rangi</label>
@@ -49,8 +49,8 @@ function RankCalculator() {
         <div className="space-y-2 text-sm">
           <p className="text-[13px] text-pandora-muted/60 font-medium mb-2">Ile Owoców Życia potrzebujesz:</p>
           {lifefruits.map(f => (
-            <div key={f.name} className="flex justify-between py-1.5 border-b border-pandora-border/15">
-              <span className="text-[13px] text-pandora-text/75">{f.name} ({f.points} pkt)</span>
+            <div key={f.name} className="flex justify-between py-1.5 border-b border-pandora-border/20">
+              <span className="text-[13px] text-pandora-text/85">{f.name} ({f.points} pkt)</span>
               <span className="text-[13px] text-pandora-gold font-medium">{Math.ceil(needed / f.points)}x</span>
             </div>
           ))}
@@ -81,7 +81,7 @@ function UpgradeCalculator() {
 
   return (
     <Card>
-      <h3 className="text-sm font-semibold text-pandora-text/80 mb-4">Kalkulator Ulepszeń</h3>
+      <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Kalkulator Ulepszeń</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <div>
           <label className="block text-[12px] text-pandora-muted/60 mb-1">Aktualny poziom</label>
@@ -113,31 +113,31 @@ function UpgradeCalculator() {
               type="checkbox"
               checked={metalPlus}
               onChange={e => setMetalPlus(e.target.checked)}
-              className="w-4 h-4 accent-amber-500"
+              className="w-4 h-4 accent-[#c8a44e]"
             />
             <span className="text-[13px] text-pandora-muted/60">Magiczny Metal+ (+10%)</span>
           </label>
         </div>
       </div>
 
-      <p className="text-[11px] text-pandora-muted/40 mb-3 italic">*Szanse są szacunkowe. Rzeczywiste wartości mogą się różnić.</p>
+      <p className="text-[11px] text-pandora-muted/50 mb-3 italic">*Szanse są szacunkowe. Rzeczywiste wartości mogą się różnić.</p>
 
       {results.length > 0 && (
         <div className="overflow-x-auto rounded-lg border border-pandora-border/40">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-pandora-dark/60">
-                <th className="px-4 py-2.5 text-left text-pandora-gold/80 text-[11px] uppercase tracking-widest font-semibold">Poziom</th>
-                <th className="px-4 py-2.5 text-left text-pandora-gold/80 text-[11px] uppercase tracking-widest font-semibold">Szansa</th>
-                <th className="px-4 py-2.5 text-left text-pandora-gold/80 text-[11px] uppercase tracking-widest font-semibold">Śr. prób</th>
+                <th className="px-4 py-3 text-left text-pandora-gold/90 text-[11px] uppercase tracking-widest font-semibold border-b border-pandora-border/40">Poziom</th>
+                <th className="px-4 py-3 text-left text-pandora-gold/90 text-[11px] uppercase tracking-widest font-semibold border-b border-pandora-border/40">Szansa</th>
+                <th className="px-4 py-3 text-left text-pandora-gold/90 text-[11px] uppercase tracking-widest font-semibold border-b border-pandora-border/40">Śr. prób</th>
               </tr>
             </thead>
             <tbody>
               {results.map(r => (
                 <tr key={r.level} className="border-b border-pandora-border/20 last:border-0">
                   <td className="px-4 py-2.5 text-pandora-gold/80 font-medium text-[13px]">{r.level}</td>
-                  <td className="px-4 py-2.5 text-[13px] text-pandora-text/75">{r.chance}</td>
-                  <td className="px-4 py-2.5 text-[13px] text-pandora-text/75">{r.avgAttempts}</td>
+                  <td className="px-4 py-2.5 text-[13px] text-pandora-text/85">{r.chance}</td>
+                  <td className="px-4 py-2.5 text-[13px] text-pandora-text/85">{r.avgAttempts}</td>
                 </tr>
               ))}
             </tbody>
