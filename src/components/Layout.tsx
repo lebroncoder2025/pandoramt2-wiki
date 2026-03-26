@@ -237,15 +237,15 @@ export default function Layout() {
         </header>
 
         {/* Content */}
-        <main id="main-content" className="flex-1 px-6 py-12 sm:px-8 sm:py-14 md:px-12 md:py-16 lg:px-16">
-          <div key={location.pathname} className="max-w-5xl mx-auto animate-fade-in">
+        <main id="main-content" className="flex-1 px-6 py-10 sm:px-8 sm:py-12 md:px-10 lg:px-14">
+          <div key={location.pathname} className="animate-fade-in">
             <Outlet />
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="mt-auto border-t border-pandora-border/15 py-12 px-5">
-          <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+        <footer className="mt-auto border-t border-pandora-border/15 py-10 px-6 md:px-10 lg:px-14">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-[11px] text-pandora-muted/40 leading-relaxed">
               Nieoficjalny przewodnik PandoraMT2.pl © 2020–2026
             </p>
