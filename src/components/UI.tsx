@@ -135,17 +135,17 @@ export function InfoBox({ children, type = 'info' }: { children: ReactNode; type
 
 export function TabGroup({ tabs, activeTab, onTabChange }: { tabs: string[]; activeTab: number; onTabChange: (i: number) => void }) {
   return (
-    <div role="tablist" className="flex border-b border-pandora-border/40 mb-10 overflow-x-auto scrollbar-none gap-0.5">
+    <div role="tablist" className="flex bg-pandora-card border border-pandora-border/70 rounded-xl p-1.5 gap-1.5 mb-8 overflow-x-auto scrollbar-none">
       {tabs.map((tab, i) => (
         <button
           key={tab}
           role="tab"
           aria-selected={i === activeTab}
           onClick={() => onTabChange(i)}
-          className={`px-5 py-3 text-sm font-medium whitespace-nowrap transition-all duration-200 border-b-2 -mb-px rounded-t-md ${
+          className={`px-5 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200 ${
             i === activeTab
-              ? 'border-pandora-gold text-pandora-gold bg-pandora-gold/6'
-              : 'border-transparent text-pandora-muted hover:text-pandora-text/80 hover:bg-pandora-card/30 hover:border-pandora-border/50'
+              ? 'bg-pandora-gold text-pandora-dark font-semibold shadow-sm'
+              : 'text-pandora-muted hover:text-pandora-text hover:bg-pandora-card-hover'
           }`}
         >
           {tab}
