@@ -126,15 +126,6 @@ const events: GameEvent[] = [
     description: 'Gracze mają za zadanie przeszukać wszystkie expowiska (powyżej Atlantydy V1 włącznie) na wszystkich kanałach i zniszczyć Mandarynki w losowych miejscach. Na czacie globalnym komunikat o zniszczeniu. Mandarynki odradzają się.',
   },
   {
-    name: 'Skrzynie Expowisk',
-    icon: '🗝️',
-    category: 'drop',
-    type: 'Losowy',
-    timeLimited: true,
-    trigger: 'Komunikat: Wydarzenie Skrzyni Expowisk zostało właśnie aktywowane! / Komunikat po wejściu na mapę: Wydarzenie Skrzyni Expowisk jest aktualnie aktywne!',
-    description: 'Gracze otwierają Skrzynie Expowisk na początku każdego expowiska (powyżej Atlantydy V1 włącznie) na wszystkich kanałach za pomocą specjalnego Klucza dropiącego z potworów. Na mapach poniżej 110 poziomu szansa nie działa, gdy różnica poziomów przekracza 15.',
-  },
-  {
     name: 'Cesarski Pościg',
     icon: '🏃',
     category: 'drop',
