@@ -393,7 +393,7 @@ function MatchRow({ m }: { m: Match }) {
         {m.winner}
       </td>
       {m.note && (
-        <td className="px-3 py-2.5 text-[10px] text-pandora-orange/80 italic max-w-[140px]">{m.note}</td>
+        <td className="px-3 py-2.5 text-[10px] text-pandora-orange/80 italic break-words">{m.note}</td>
       )}
     </tr>
   )

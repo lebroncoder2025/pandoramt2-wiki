@@ -267,7 +267,7 @@ export default function EventsPage() {
       {/* Legend */}
       <Card>
         <h3 className="text-sm font-semibold text-pandora-text/85 mb-6">Legenda Typów Eventów</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
             { type: 'Stały', color: 'green' as const, desc: 'Aktywowane regularnie przez administrację' },
             { type: 'Losowy', color: 'orange' as const, desc: 'Aktywowane losowo, ogłaszane na czacie' },

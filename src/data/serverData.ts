@@ -80,7 +80,7 @@ export const dungeons = [
   {
     name: 'Grota Dżinna', level: 150, ticket: 'Bransoleta Sułtana',
     type: 'Solo, Grupowy', bonus: 'Silny przeciwko Mistykom',
-    cooldown: '4 godziny',
+    cooldown: '4 godz.',
     description: 'Egzotyczna grota z Mistykami. Wytwórz Bransoletkę Sułtana u Wędrowca Ham.',
     reward: 'Skrzynia Dżinna'
   },
@@ -92,7 +92,7 @@ export const dungeons = [
   {
     name: 'Świątynia Andun', level: 200, ticket: '1x Klejnot Ochrony Duszy',
     type: 'Solo, Grupowy', bonus: 'Silny przeciwko Nieumarłym',
-    cooldown: '6 godzin',
+    cooldown: '6 godz.',
     description: 'Najtrudniejszy dungeon w grze. Klejnot tworzy się z 10x Skamieniała Łza + 10x Kręty Klucz + 10x Mityczny Klucz.',
     reward: 'Skrzynia Cesarza'
   },
@@ -106,8 +106,8 @@ export const bosses = [
   { name: 'Dziewięć Ogonów', map: 'Góra Sohan', respawn: '30 min', reward: '80M Yang + Dodanie 6/7 Bon + Owoc Życia III', killCount: 1 },
   { name: 'Zjawa Żółtego Tygrysa', map: 'Świątynia Hwang', respawn: '30 min', reward: '80M Yang + Tęczowy Kamień + Owoc Życia III', killCount: 1 },
   { name: 'Minotaur', map: 'Dolina Śmierci', respawn: '60 min', reward: '100M Yang + Bryłka Złota + Owoc Życia IV', killCount: 1 },
-  { name: 'Infernus', map: 'Arena Infernusa', respawn: '12 godzin', reward: 'Legendarny drop (pancerze, bronie, kamienie)', killCount: 1 },
-  { name: 'Balathor', map: 'Grota Balathora', respawn: '48 godzin', reward: 'Najlepszy drop w grze', killCount: 1 },
+  { name: 'Infernus', map: 'Arena Infernusa', respawn: '12 godz.', reward: 'Legendarny drop (pancerze, bronie, kamienie)', killCount: 1 },
+  { name: 'Balathor', map: 'Grota Balathora', respawn: '48 godz.', reward: 'Najlepszy drop w grze', killCount: 1 },
 ]
 
 export const bonusTable = [
@@ -167,8 +167,8 @@ export const soulStones = [
 ]
 
 export const legendarySoulStones = [
-  { name: 'Kamień Duszy Wojny+5', type: 'Broń', bonus: 'Silny pko Ludziom: +15%, Obrażenia Umiejętności: +15%' },
-  { name: 'Kamień Duszy Zniszczenia+5', type: 'Broń', bonus: 'Silny pko Bossom: +15%, Silny pko Metinom: +15%' },
+  { name: 'Kamień Duszy Wojny+5', type: 'Broń', bonus: 'Silny przeciwko Ludziom: +15%, Obrażenia Umiejętności: +15%' },
+  { name: 'Kamień Duszy Zniszczenia+5', type: 'Broń', bonus: 'Silny przeciwko Bossom: +15%, Silny przeciwko Metinom: +15%' },
   { name: 'Kamień Duszy Mocy+5', type: 'Zbroja', bonus: 'Odporność na Obrażenia: +15%, Odporność na Obraż. Umiejętności: +15%' },
 ]
 
@@ -176,8 +176,8 @@ export const petSkills = [
   { name: 'Kamienna Skóra', bonus: 'Maks. PŻ', perLevel: '+50', m1: '+500', g1: '+1000', p: '+1500', pPlus: '+3000' },
   { name: 'Smocza Fortuna', bonus: 'Szansa na drop Sztabek', perLevel: '0.5%', m1: '5%', g1: '10%', p: '15%', pPlus: '20%' },
   { name: 'Instynkt Przetrwania', bonus: 'Odporność na Potwory', perLevel: '0.5%', m1: '5%', g1: '10%', p: '15%', pPlus: '25%' },
-  { name: 'Instynkt Drapieżcy', bonus: 'Silny pko Potworom', perLevel: '0.5%', m1: '5%', g1: '10%', p: '15%', pPlus: '25%' },
-  { name: 'Łowca Dusz', bonus: 'Silny pko Ludziom', perLevel: '0.5%', m1: '5%', g1: '10%', p: '15%', pPlus: '25%' },
+  { name: 'Instynkt Drapieżcy', bonus: 'Silny przeciwko Potworom', perLevel: '0.5%', m1: '5%', g1: '10%', p: '15%', pPlus: '25%' },
+  { name: 'Łowca Dusz', bonus: 'Silny przeciwko Ludziom', perLevel: '0.5%', m1: '5%', g1: '10%', p: '15%', pPlus: '25%' },
 ]
 
 export const ranks = [
@@ -205,18 +205,18 @@ export const biologistQuests = [
   { item: 'Konar Zelkova', level: 70, count: 25, reward: 'Odporność na Obrażenia: +10%, Szybkość Ruchu: +15%, Szkatułka Ognistego Króla' },
   { item: 'Certyfikat Tugyisa', level: 80, count: 30, reward: 'Szybkość Ataku: +15%, Wartość Ataku: +10%, Szkatułka Umarłego Rozpruwacza' },
   { item: 'Czerwony Konar', level: 130, count: 40, reward: 'Odporność na Ludzi: +10%, Szkatułka Minotaura' },
-  { item: 'Notatka Przywódcy', level: 160, count: 50, reward: 'Silny pko Ludziom: +8%, Szkatułka Elit. Olbrz. Żółwia' },
+  { item: 'Notatka Przywódcy', level: 160, count: 50, reward: 'Silny przeciwko Ludziom: +8%, Szkatułka Elit. Olbrz. Żółwia' },
   { item: 'Klejnot Zawiści', level: 190, count: 10, reward: 'Maks. PŻ: +500, Wart. Mag. Ataku: +50, Wart. Ataku: +50, Szkatułka Berana Setaou' },
   { item: 'Klejnot Mądrości', level: 220, count: 10, reward: 'Maks. PŻ: +1100, Wart. Mag. Ataku: +60, Wart. Ataku: +60, Szkatułka Azraela' },
 ]
 
 export const fisherBiologist = [
   { item: 'Karaś', level: 100, count: 20, reward: 'Odporność na Potwory: +5%' },
-  { item: 'Ryba Mandaryna', level: 130, count: 20, reward: 'Silny pko Potworom: +5%' },
+  { item: 'Ryba Mandaryna', level: 130, count: 20, reward: 'Silny przeciwko Potworom: +5%' },
   { item: 'Duży Karaś', level: 160, count: 10, reward: 'Maks. PŻ: +500' },
   { item: 'Karp', level: 190, count: 10, reward: 'Wartość Ataku: +50' },
   { item: 'Łosoś', level: 220, count: 10, reward: 'Odporność na wszystkie obrażenia: +5%' },
-  { item: 'Amur', level: 250, count: 10, reward: 'Silny pko Ludziom: +5%' },
+  { item: 'Amur', level: 250, count: 10, reward: 'Silny przeciwko Ludziom: +5%' },
 ]
 
 export const seafood = [
@@ -265,8 +265,8 @@ export const costumeBonus = [
   { name: 'Szybkość Zaklęcia', slots: 'Nakładka', perLevel: '2', max: '10' },
   { name: 'Regeneracja PŻ/PE', slots: 'Wszystkie', perLevel: '2', max: '10' },
   { name: 'Szansa na cios Krytyczny/Przeszywający', slots: 'Nakładka', perLevel: '1', max: '5' },
-  { name: 'Silny pko Ludziom', slots: 'Wszystkie', perLevel: '1', max: '5' },
-  { name: 'Silny pko Rasom', slots: 'Wszystkie', perLevel: '2', max: '10' },
+  { name: 'Silny przeciwko Ludziom', slots: 'Wszystkie', perLevel: '1', max: '5' },
+  { name: 'Silny przeciwko Rasom', slots: 'Wszystkie', perLevel: '2', max: '10' },
   { name: 'Odporność na Żywioły', slots: 'Kostium, Fryzura', perLevel: '1', max: '5' },
   { name: 'Odporność na Magię', slots: 'Kostium, Fryzura', perLevel: '1', max: '5' },
   { name: 'Odporność na Obrażenia', slots: 'Kostium, Fryzura', perLevel: '1', max: '5' },
@@ -590,12 +590,12 @@ export const legendarySoulStoneProgression = [
     type: 'Broń',
     icon: '⚔️',
     levels: [
-      { level: '+0', b1: 'Silny pko Ludziom: +3%', b2: 'Obrażenia Umiejętności: +3%' },
-      { level: '+1', b1: 'Silny pko Ludziom: +6%', b2: 'Obrażenia Umiejętności: +6%' },
-      { level: '+2', b1: 'Silny pko Ludziom: +9%', b2: 'Obrażenia Umiejętności: +9%' },
-      { level: '+3', b1: 'Silny pko Ludziom: +12%', b2: 'Obrażenia Umiejętności: +12%' },
-      { level: '+4', b1: 'Silny pko Ludziom: +14%', b2: 'Obrażenia Umiejętności: +14%' },
-      { level: '+5', b1: 'Silny pko Ludziom: +15%', b2: 'Obrażenia Umiejętności: +15%' },
+      { level: '+0', b1: 'Silny przeciwko Ludziom: +3%', b2: 'Obrażenia Umiejętności: +3%' },
+      { level: '+1', b1: 'Silny przeciwko Ludziom: +6%', b2: 'Obrażenia Umiejętności: +6%' },
+      { level: '+2', b1: 'Silny przeciwko Ludziom: +9%', b2: 'Obrażenia Umiejętności: +9%' },
+      { level: '+3', b1: 'Silny przeciwko Ludziom: +12%', b2: 'Obrażenia Umiejętności: +12%' },
+      { level: '+4', b1: 'Silny przeciwko Ludziom: +14%', b2: 'Obrażenia Umiejętności: +14%' },
+      { level: '+5', b1: 'Silny przeciwko Ludziom: +15%', b2: 'Obrażenia Umiejętności: +15%' },
     ],
   },
   {
@@ -603,12 +603,12 @@ export const legendarySoulStoneProgression = [
     type: 'Broń',
     icon: '💥',
     levels: [
-      { level: '+0', b1: 'Silny pko Bossom: +3%', b2: 'Silny pko Metinom: +3%' },
-      { level: '+1', b1: 'Silny pko Bossom: +6%', b2: 'Silny pko Metinom: +6%' },
-      { level: '+2', b1: 'Silny pko Bossom: +9%', b2: 'Silny pko Metinom: +9%' },
-      { level: '+3', b1: 'Silny pko Bossom: +12%', b2: 'Silny pko Metinom: +12%' },
-      { level: '+4', b1: 'Silny pko Bossom: +14%', b2: 'Silny pko Metinom: +14%' },
-      { level: '+5', b1: 'Silny pko Bossom: +15%', b2: 'Silny pko Metinom: +15%' },
+      { level: '+0', b1: 'Silny przeciwko Bossom: +3%', b2: 'Silny przeciwko Metinom: +3%' },
+      { level: '+1', b1: 'Silny przeciwko Bossom: +6%', b2: 'Silny przeciwko Metinom: +6%' },
+      { level: '+2', b1: 'Silny przeciwko Bossom: +9%', b2: 'Silny przeciwko Metinom: +9%' },
+      { level: '+3', b1: 'Silny przeciwko Bossom: +12%', b2: 'Silny przeciwko Metinom: +12%' },
+      { level: '+4', b1: 'Silny przeciwko Bossom: +14%', b2: 'Silny przeciwko Metinom: +14%' },
+      { level: '+5', b1: 'Silny przeciwko Bossom: +15%', b2: 'Silny przeciwko Metinom: +15%' },
     ],
   },
   {
@@ -625,3 +625,4 @@ export const legendarySoulStoneProgression = [
     ],
   },
 ]
+

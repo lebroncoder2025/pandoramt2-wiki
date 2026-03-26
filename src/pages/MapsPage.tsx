@@ -34,7 +34,7 @@ export default function MapsPage() {
                 <p className="text-[13px] text-pandora-muted leading-relaxed">{m.description}</p>
               </div>
 
-              <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-5">
+              <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
                   <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Bonus</p>
                   <p className="text-sm font-medium text-pandora-blue/80">{m.bonus}</p>

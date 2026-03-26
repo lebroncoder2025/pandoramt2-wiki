@@ -50,12 +50,12 @@ export function Card({ children, className = '', glow = false, onClick, ...rest 
 
 export function StatBox({ label, value, icon }: { label: string; value: string; icon?: ReactNode }) {
   return (
-    <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-5 md:p-6 hover:border-pandora-gold/20 transition-all group">
+    <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-4 md:p-6 hover:border-pandora-gold/20 transition-all group">
       <div className="flex items-center gap-2.5 mb-3">
         {icon && <span className="text-pandora-gold/80 group-hover:text-pandora-gold transition-colors">{icon}</span>}
-        <span className="text-[11px] text-pandora-muted uppercase tracking-widest font-medium">{label}</span>
+        <span className="text-[10px] sm:text-[11px] text-pandora-muted uppercase tracking-widest font-medium">{label}</span>
       </div>
-      <p className="text-xl md:text-2xl font-bold text-pandora-gold font-display">{value}</p>
+      <p className="text-lg sm:text-xl md:text-2xl font-bold text-pandora-gold font-display">{value}</p>
     </div>
   )
 }
@@ -63,19 +63,19 @@ export function StatBox({ label, value, icon }: { label: string; value: string; 
 export function DataTable({ headers, rows, highlightFirst = false }: { headers: string[]; rows: string[][]; highlightFirst?: boolean }) {
   return (
     <div className="overflow-x-auto rounded-xl border border-pandora-border/40 mb-5">
-      <table className="w-full text-sm">
+      <table className="w-full text-xs sm:text-sm">
         <thead>
           <tr className="bg-pandora-dark/60">
             {headers.map((h, i) => (
-              <th key={i} className="px-5 py-4 text-left text-pandora-gold/90 font-semibold text-[11px] uppercase tracking-widest border-b border-pandora-border/40">{h}</th>
+              <th key={i} className="px-3 sm:px-5 py-3 sm:py-4 text-left text-pandora-gold/90 font-semibold text-[10px] sm:text-[11px] uppercase tracking-widest border-b border-pandora-border/40">{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {rows.map((row, ri) => (
-            <tr key={ri} className="border-b border-pandora-border/20 last:border-0">
+            <tr key={ri} className="border-b border-pandora-border/20 last:border-0 hover:bg-pandora-dark/20 transition-colors">
               {row.map((cell, ci) => (
-                <td key={ci} className={`px-5 py-4 ${ci === 0 && highlightFirst ? 'text-pandora-gold font-medium' : 'text-pandora-text/85'}`}>{cell}</td>
+                <td key={ci} className={`px-3 sm:px-5 py-3 sm:py-4 ${ci === 0 && highlightFirst ? 'text-pandora-gold font-medium' : 'text-pandora-text/85'}`}>{cell}</td>
               ))}
             </tr>
           ))}
@@ -95,7 +95,7 @@ export function Badge({ children, color = 'gold' }: { children: ReactNode; color
     orange: 'bg-pandora-orange/8 text-pandora-orange border-pandora-orange/15',
   }
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-semibold border ${colors[color]}`}>
+    <span className={`inline-flex items-center px-2.5 py-1 sm:py-1.5 rounded-md text-[10px] sm:text-[11px] font-semibold border ${colors[color]}`}>
       {children}
     </span>
   )
@@ -126,9 +126,9 @@ export function InfoBox({ children, type = 'info' }: { children: ReactNode; type
     tip: 'text-pandora-green',
   }
   return (
-    <div className={`border-l-4 rounded-xl p-5 my-5 ${styles[type]}`}>
-      <span className={`text-[11px] font-bold uppercase tracking-widest ${labelColors[type]} mb-2.5 block`}>{labels[type]}</span>
-      <div className="text-pandora-text/85">{children}</div>
+    <div className={`border-l-4 rounded-xl p-4 sm:p-5 my-5 ${styles[type]}`}>
+      <span className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-widest ${labelColors[type]} mb-2.5 block`}>{labels[type]}</span>
+      <div className="text-xs sm:text-sm text-pandora-text/85">{children}</div>
     </div>
   )
 }
