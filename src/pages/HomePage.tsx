@@ -77,7 +77,7 @@ export default function HomePage() {
           </div>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-10">
-          <a href="https://pandoramt2.pl/main/download" target="_blank" rel="noopener noreferrer"
+            <a href="https://pandoramt2.pl/main/download" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-pandora-gold/90 border border-pandora-gold text-pandora-darker font-semibold text-sm rounded-lg hover:bg-pandora-gold transition-all">
             <Download className="w-4 h-4" /> Pobierz Grę
           </a>
@@ -90,9 +90,9 @@ export default function HomePage() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {stats.map(s => (
-            <div key={s.label} className="bg-pandora-card/60 rounded-lg p-6 border border-pandora-border/40 border-t-2 border-t-pandora-gold/20 hover:border-pandora-border/60 transition-colors">
-              <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-pandora-muted/60 mb-1">{s.label}</div>
-              <div className="text-xl font-display font-bold text-pandora-gold">{s.value}</div>
+            <div key={s.label} className="bg-pandora-card/60 rounded-xl p-6 border border-pandora-border/40 border-t-2 border-t-pandora-gold/20 hover:border-pandora-border/60 transition-colors">
+              <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-pandora-muted/60 mb-2">{s.label}</div>
+              <div className="text-2xl font-display font-bold text-pandora-gold">{s.value}</div>
             </div>
           ))}
         </div>
@@ -107,7 +107,7 @@ export default function HomePage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {startingItems.map(item => (
-            <div key={item.text} className="flex items-center gap-3 bg-pandora-card/60 rounded-lg px-4 py-3.5 border border-pandora-border/40 hover:border-pandora-border/60 transition-colors">
+            <div key={item.text} className="flex items-center gap-4 bg-pandora-card/60 rounded-xl px-5 py-4 border border-pandora-border/40 hover:border-pandora-border/60 transition-colors">
               <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/50 shrink-0" />
               <div>
                 <span className="text-sm text-pandora-text/85 font-medium">{item.text}</span>
@@ -128,8 +128,8 @@ export default function HomePage() {
           {highlights.map((item, i) => {
             const accents = ['border-t-pandora-gold/30', 'border-t-pandora-blue/30', 'border-t-pandora-green/30', 'border-t-pandora-purple/30', 'border-t-pandora-red/30', 'border-t-pandora-orange/30']
             return (
-            <div key={item.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${accents[i]} rounded-lg p-6 hover:border-pandora-border/60 transition-colors`}>
-              <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">{item.title}</h3>
+            <div key={item.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${accents[i]} rounded-xl p-7 hover:border-pandora-border/60 transition-colors`}>
+              <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">{item.title}</h3>
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{item.desc}</p>
             </div>
             )
@@ -149,10 +149,10 @@ export default function HomePage() {
             { name: 'Loteria Tombola', type: 'Losowy', color: 'text-pandora-orange', accent: 'border-t-pandora-orange/30', desc: 'Kupony z Metinów i Bossów' },
             { name: 'Kosmiczna Inwazja', type: 'Community', color: 'text-pandora-purple', accent: 'border-t-pandora-purple/30', desc: '100K przedmiotów = raty' },
           ].map(e => (
-            <div key={e.name} className={`bg-pandora-card/60 rounded-lg p-5 border border-pandora-border/40 border-t-2 ${e.accent} hover:border-pandora-border/60 transition-colors`}>
-              <div className={`text-[10px] font-bold uppercase tracking-widest ${e.color} mb-2`}>{e.type}</div>
-              <h3 className="text-sm font-semibold text-pandora-text/85 mb-1">{e.name}</h3>
-              <p className="text-[12px] text-pandora-muted/60">{e.desc}</p>
+            <div key={e.name} className={`bg-pandora-card/60 rounded-xl p-7 border border-pandora-border/40 border-t-2 ${e.accent} hover:border-pandora-border/60 transition-colors`}>
+              <div className={`text-[11px] font-bold uppercase tracking-widest ${e.color} mb-3`}>{e.type}</div>
+              <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">{e.name}</h3>
+              <p className="text-[13px] leading-relaxed text-pandora-muted/60">{e.desc}</p>
             </div>
           ))}
         </div>
@@ -174,7 +174,7 @@ export default function HomePage() {
               <Link
                 key={f.path}
                 to={f.path}
-                className="group flex items-center gap-3.5 bg-pandora-card/40 border border-pandora-border/25 rounded-lg px-5 py-4 hover:border-pandora-border/60 hover:bg-pandora-card/60 transition-all"
+                className="group flex items-center gap-4 bg-pandora-card/40 border border-pandora-border/25 rounded-xl px-5 py-5 hover:border-pandora-border/60 hover:bg-pandora-card/60 transition-all"
               >
                 <Icon className="w-4 h-4 text-pandora-muted/50 group-hover:text-pandora-gold/80 shrink-0 transition-colors" strokeWidth={1.5} />
                 <div className="min-w-0">

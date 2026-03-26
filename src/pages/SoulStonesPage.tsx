@@ -14,10 +14,6 @@ export default function SoulStonesPage() {
         icon={<Gem className="w-5 h-5" />}
       />
 
-      <div className="rounded-xl overflow-hidden border border-pandora-border/30 mb-10">
-        <img src="https://i.imgur.com/IknSa7K.png" alt="Kamienie Dusz — PandoraMT2" className="w-full h-auto object-cover" loading="lazy" />
-      </div>
-
       <TabGroup tabs={['Zwykłe Kamienie', 'Legendarne Kamienie', 'Ołtarz Dusz']} activeTab={tab} onTabChange={setTab} />
 
       {tab === 0 && (
@@ -41,14 +37,14 @@ export default function SoulStonesPage() {
 
           <div className="space-y-6 mb-12">
             {legendarySoulStones.map(s => (
-              <div key={s.name} className="bg-pandora-card/60 border border-pandora-border/40 border-l-2 border-l-pandora-purple/20 rounded-lg p-6 hover:border-pandora-border/60 transition-colors">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <div key={s.name} className="bg-pandora-card/60 border border-pandora-border/40 border-l-2 border-l-pandora-purple/20 rounded-xl p-7 hover:border-pandora-border/60 transition-colors">
+                <div className="flex flex-col sm:flex-row sm:items-start gap-5">
                   <div className="sm:w-1/3">
-                    <h3 className="text-sm font-semibold text-pandora-text/85">{s.name}</h3>
+                    <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">{s.name}</h3>
                     <Badge color="purple">{s.type}</Badge>
                   </div>
                   <div className="sm:w-2/3">
-                    <p className="text-[13px] text-pandora-text/85">{s.bonus}</p>
+                    <p className="text-[13px] text-pandora-text/85 leading-relaxed">{s.bonus}</p>
                   </div>
                 </div>
               </div>
@@ -68,15 +64,15 @@ export default function SoulStonesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <Card className="border-t-2 border-t-pandora-orange/20">
-              <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Przepalanie</h3>
+              <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Przepalanie</h3>
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Wymiana zbędnych Kamieni Dusz na Odłamki Kamienia Duszy. Kamienie automatycznie wskakują do okna.</p>
             </Card>
             <Card className="border-t-2 border-t-pandora-blue/20">
-              <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Wymiana</h3>
+              <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Wymiana</h3>
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Za Odłamki możesz kupić różne przedmioty, w tym Legendarny Kamień potrzebny do tworzenia LKD.</p>
             </Card>
             <Card className="border-t-2 border-t-pandora-purple/20">
-              <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Wytwarzanie</h3>
+              <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Wytwarzanie</h3>
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Tworzenie Legendarnych Kamieni Dusz z materiałów. Wytworzony kamień to +0; ulepszaj do +5.</p>
             </Card>
           </div>

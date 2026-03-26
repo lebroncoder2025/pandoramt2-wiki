@@ -67,7 +67,7 @@ export function DataTable({ headers, rows, highlightFirst = false }: { headers: 
         <thead>
           <tr className="bg-pandora-dark/60">
             {headers.map((h, i) => (
-              <th key={i} className="px-4 py-3 text-left text-pandora-gold/90 font-semibold text-[11px] uppercase tracking-widest border-b border-pandora-border/40">{h}</th>
+              <th key={i} className="px-5 py-4 text-left text-pandora-gold/90 font-semibold text-[11px] uppercase tracking-widest border-b border-pandora-border/40">{h}</th>
             ))}
           </tr>
         </thead>
@@ -75,7 +75,7 @@ export function DataTable({ headers, rows, highlightFirst = false }: { headers: 
           {rows.map((row, ri) => (
             <tr key={ri} className="border-b border-pandora-border/20 last:border-0">
               {row.map((cell, ci) => (
-                <td key={ci} className={`px-4 py-3 ${ci === 0 && highlightFirst ? 'text-pandora-gold font-medium' : 'text-pandora-text/85'}`}>{cell}</td>
+                <td key={ci} className={`px-5 py-4 ${ci === 0 && highlightFirst ? 'text-pandora-gold font-medium' : 'text-pandora-text/85'}`}>{cell}</td>
               ))}
             </tr>
           ))}
@@ -142,7 +142,7 @@ export function TabGroup({ tabs, activeTab, onTabChange }: { tabs: string[]; act
           role="tab"
           aria-selected={i === activeTab}
           onClick={() => onTabChange(i)}
-          className={`px-5 py-3 text-sm font-medium whitespace-nowrap transition-all duration-200 border-b-2 -mb-px ${
+          className={`px-6 py-3.5 text-sm font-medium whitespace-nowrap transition-all duration-200 border-b-2 -mb-px ${
             i === activeTab
               ? 'border-pandora-gold text-pandora-gold bg-pandora-gold/5'
               : 'border-transparent text-pandora-muted hover:text-pandora-text hover:border-pandora-border'

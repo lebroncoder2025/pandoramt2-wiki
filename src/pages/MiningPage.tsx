@@ -14,11 +14,11 @@ export default function MiningPage() {
       <SectionTitle>Podstawy Górnictwa</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         <Card className="border-t-2 border-t-pandora-blue/20">
-          <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Kilof</h3>
+          <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Kilof</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Startowy na +0. Zbieraj Punkty Kilofa podczas kopania. Na maks. punktach ulepsz u Deokbae. Max: <strong className="text-pandora-text/85">+9</strong>. Każdy lvl daje +3% do +30% efektywności.</p>
         </Card>
         <Card className="border-t-2 border-t-pandora-gold/20">
-          <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Żyła Złota</h3>
+          <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Żyła Złota</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Wszystkie żyły zamienione na Żyłę Złota. Wydobywasz <strong className="text-pandora-text/85">3-5 Sztabek Złota (5KK)</strong> z każdej.</p>
         </Card>
       </div>
@@ -48,11 +48,11 @@ export default function MiningPage() {
       <SectionTitle>Bonusowe elementy</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card className="border-t-2 border-t-pandora-orange/20">
-          <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Skrzynia Górnika</h3>
+          <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Skrzynia Górnika</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Bonusowy drop podczas kopania. Szansa rośnie z każdym poziomem kilofa. Zawiera wartościowe przedmioty.</p>
         </Card>
         <Card className="border-t-2 border-t-pandora-purple/20">
-          <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Tajemniczy Kryształ</h3>
+          <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Tajemniczy Kryształ</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Losowy drop przy kopaniu. Wrzuć do <strong className="text-pandora-text/85">Ołtarza</strong> w swoim królestwie. Po zebraniu 1000 kryształów przez królestwo — <strong className="text-pandora-text/85">1h podwójny drop</strong> dla wszystkich!</p>
         </Card>
       </div>

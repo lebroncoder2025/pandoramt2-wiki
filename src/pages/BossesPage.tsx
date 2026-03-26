@@ -1,18 +1,6 @@
-import { Skull } from 'lucide-react'
+﻿import { Skull } from 'lucide-react'
 import { PageHeader, SectionTitle, InfoBox, SectionDivider } from '../components/UI.tsx'
 import { bosses } from '../data/serverData.ts'
-
-const bossImages: Record<string, string> = {
-  'Wódz Orków': 'https://i.imgur.com/lFscD7r.png',
-  'Królowa Pająków': 'https://i.imgur.com/D1EusME.png',
-  'Olbrzymi Żółw': 'https://i.imgur.com/ZPgoYf0.png',
-  'Ognisty Król': 'https://i.imgur.com/ANxV9Ls.png',
-  'Dziewięć Ogonów': 'https://i.imgur.com/BFdFWVJ.png',
-  'Zjawa Żółtego Tygrysa': 'https://i.imgur.com/kOaAdQd.png',
-  'Minotaur': 'https://i.imgur.com/OrIQqBM.png',
-  'Infernus': 'https://i.imgur.com/3RJJrpP.png',
-  'Balathor': 'https://i.imgur.com/tX4rrur.png',
-}
 
 export default function BossesPage() {
   return (
@@ -25,36 +13,30 @@ export default function BossesPage() {
 
       <SectionTitle>Bossy na Mapach</SectionTitle>
       <div className="space-y-6 mb-12">
-        {bosses.map(b => (
-          <div key={b.name} className={`bg-pandora-card/60 border border-pandora-border/40 border-l-2 rounded-lg p-6 hover:border-pandora-border/60 transition-colors group ${
-              b.respawn.includes('48') ? 'border-l-pandora-red/50' : b.respawn.includes('12') ? 'border-l-pandora-orange/50' : b.respawn.includes('60') ? 'border-l-pandora-purple/50' : 'border-l-pandora-green/50'
-            }`}>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
-              <div className="sm:w-[28%] flex items-center gap-3">
-                <div className={`w-2.5 h-2.5 rounded-full shrink-0 ${
-                  b.respawn.includes('48') ? 'bg-pandora-red/60' : b.respawn.includes('12') ? 'bg-pandora-orange/60' : b.respawn.includes('60') ? 'bg-pandora-purple/60' : 'bg-pandora-green/60'
-                }`} />
-                <div>
-                  <h3 className="text-sm font-semibold text-pandora-text/85 group-hover:text-pandora-gold/80 transition-colors">{b.name}</h3>
-                  <span className="text-[11px] text-pandora-muted/60">{b.respawn}</span>
+        {bosses.map(b => {
+          const respawnColor = b.respawn.includes('48') ? 'text-pandora-red/70 bg-pandora-red/8 border-pandora-red/20' : b.respawn.includes('12') ? 'text-pandora-orange/70 bg-pandora-orange/8 border-pandora-orange/20' : b.respawn.includes('60') ? 'text-pandora-purple/70 bg-pandora-purple/8 border-pandora-purple/20' : 'text-pandora-green/70 bg-pandora-green/8 border-pandora-green/20'
+          const accentColor = b.respawn.includes('48') ? 'border-l-pandora-red/50' : b.respawn.includes('12') ? 'border-l-pandora-orange/50' : b.respawn.includes('60') ? 'border-l-pandora-purple/50' : 'border-l-pandora-green/50'
+          return (
+            <div key={b.name} className={`bg-pandora-card/60 border border-pandora-border/40 border-l-4 ${accentColor} rounded-xl p-7 hover:border-pandora-border/60 transition-colors`}>
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <h3 className="text-base font-bold text-pandora-text/85">{b.name}</h3>
+                <span className={`text-[11px] font-semibold border px-2.5 py-1 rounded-md whitespace-nowrap shrink-0 ${respawnColor}`}>
+                  {b.respawn}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20">
+                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Lokacja</p>
+                  <p className="text-sm font-medium text-pandora-text/85">{b.map}</p>
+                </div>
+                <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20 border-l-2 border-l-pandora-gold/20">
+                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Nagroda</p>
+                  <p className="text-sm font-medium text-pandora-gold/80">{b.reward}</p>
                 </div>
               </div>
-              <div className="sm:w-[22%]">
-                <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest">Lokacja</p>
-                <p className="text-[13px] text-pandora-text/85">{b.map}</p>
-              </div>
-              <div className="sm:w-[50%]">
-                <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest">Nagroda</p>
-                <p className="text-[13px] text-pandora-gold/80">{b.reward}</p>
-              </div>
             </div>
-            {bossImages[b.name] && (
-              <div className="mt-4 rounded-lg overflow-hidden border border-pandora-border/20">
-                <img src={bossImages[b.name]} alt={b.name} className="w-full h-auto object-cover" loading="lazy" />
-              </div>
-            )}
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       <SectionDivider />

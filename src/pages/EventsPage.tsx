@@ -209,9 +209,9 @@ export default function EventsPage() {
           { value: events.filter(e => e.type === 'Losowy').length, label: 'Losowych', color: 'text-pandora-orange' },
           { value: events.filter(e => e.type === 'Królestwo').length, label: 'Królestwa', color: 'text-pandora-blue' },
         ].map(s => (
-          <div key={s.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-6 text-center hover:border-pandora-border/60 transition-colors">
-            <div className={`text-2xl font-display font-bold ${s.color}`}>{s.value}</div>
-            <div className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mt-2 font-medium">{s.label}</div>
+          <div key={s.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 text-center hover:border-pandora-border/60 transition-colors">
+            <div className={`text-3xl font-display font-bold ${s.color}`}>{s.value}</div>
+            <div className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mt-3 font-medium">{s.label}</div>
           </div>
         ))}
       </div>
@@ -266,16 +266,16 @@ export default function EventsPage() {
 
       {/* Legend */}
       <Card>
-        <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Legenda Typów Eventów</h3>
+        <h3 className="text-sm font-semibold text-pandora-text/85 mb-6">Legenda Typów Eventów</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {[
             { type: 'Stały', color: 'green' as const, desc: 'Aktywowane regularnie przez administrację' },
             { type: 'Losowy', color: 'orange' as const, desc: 'Aktywowane losowo, ogłaszane na czacie' },
             { type: 'Królestwo', color: 'blue' as const, desc: 'Aktywowane przez graczy królestwa' },
           ].map(item => (
-            <div key={item.type} className="flex items-center gap-2.5 p-3 rounded-lg bg-pandora-dark/30 border border-pandora-border/20">
+            <div key={item.type} className="flex flex-col gap-3 p-5 rounded-xl bg-pandora-dark/30 border border-pandora-border/20">
               <Badge color={item.color}>{item.type}</Badge>
-              <span className="text-[13px] text-pandora-muted/60">{item.desc}</span>
+              <span className="text-[13px] text-pandora-muted/60 leading-relaxed">{item.desc}</span>
             </div>
           ))}
         </div>

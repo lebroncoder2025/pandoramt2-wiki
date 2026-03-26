@@ -2,16 +2,6 @@ import { Castle } from 'lucide-react'
 import { PageHeader, Card, Badge, InfoBox, SectionDivider } from '../components/UI.tsx'
 import { dungeons } from '../data/serverData.ts'
 
-const dungeonImages: Record<string, string> = {
-  'Wieża Demonów': 'https://i.imgur.com/fHVkZc6.png',
-  'Komnata Pająków': 'https://i.imgur.com/tznOja0.png',
-  'Komnata Smoka': 'https://i.imgur.com/i1vd1on.png',
-  'Piekielne Katakumby': 'https://i.imgur.com/YTboKCE.png',
-  'Grota Dżinna': 'https://i.imgur.com/FFO6NmW.png',
-  'Mityczna Komnata': 'https://i.imgur.com/hQ3Fh8f.png',
-  'Świątynia Andun': 'https://i.imgur.com/pfzOKbf.png',
-}
-
 export default function DungeonsPage() {
   return (
     <div className="max-w-5xl mx-auto">
@@ -39,31 +29,25 @@ export default function DungeonsPage() {
 
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{d.description}</p>
 
-              {dungeonImages[d.name] && (
-                <div className="rounded-lg overflow-hidden border border-pandora-border/20">
-                  <img src={dungeonImages[d.name]} alt={d.name} className="w-full h-auto object-cover" loading="lazy" />
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20 border-l-2 border-l-pandora-text/10">
+                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Przepustka</p>
+                  <p className="text-sm font-medium text-pandora-text/85">{d.ticket}</p>
                 </div>
-              )}
-
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-pandora-dark/30 rounded-lg p-4 border border-pandora-border/20 border-l-2 border-l-pandora-text/10">
-                  <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-1">Przepustka</p>
-                  <p className="text-[13px] font-medium text-pandora-text/85">{d.ticket}</p>
-                </div>
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
-                  <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Bonus</p>
-                  <p className="text-[13px] font-medium text-pandora-blue/80">{d.bonus}</p>
+                <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
+                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Bonus</p>
+                  <p className="text-sm font-medium text-pandora-blue/80">{d.bonus}</p>
                 </div>
                 {d.cooldown && (
-                  <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-orange/20">
-                    <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Cooldown</p>
-                    <p className="text-[13px] font-medium text-pandora-orange/80">{d.cooldown}</p>
+                  <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20 border-l-2 border-l-pandora-orange/20">
+                    <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Cooldown</p>
+                    <p className="text-sm font-medium text-pandora-orange/80">{d.cooldown}</p>
                   </div>
                 )}
                 {d.reward && (
-                  <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-gold/20">
-                    <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Nagroda</p>
-                    <p className="text-[13px] font-medium text-pandora-gold/80">{d.reward}</p>
+                  <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20 border-l-2 border-l-pandora-gold/20">
+                    <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Nagroda</p>
+                    <p className="text-sm font-medium text-pandora-gold/80">{d.reward}</p>
                   </div>
                 )}
               </div>
@@ -75,12 +59,12 @@ export default function DungeonsPage() {
       <SectionDivider />
 
       <Card className="mt-0">
-        <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Tworzenie przepustek</h3>
-        <div className="space-y-2 text-[13px] text-pandora-muted/60">
-          <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+        <h3 className="text-sm font-semibold text-pandora-text/85 mb-5">Tworzenie przepustek</h3>
+        <div className="space-y-4 text-[13px] text-pandora-muted/60">
+          <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20">
             <span className="text-pandora-gold/80 font-medium">Klejnot Ochrony Duszy</span> (Świątynia Andun) = 10x Skamieniała Łza + 10x Kręty Klucz + 10x Mityczny Klucz
           </div>
-          <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+          <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20">
             <span className="text-pandora-gold/80 font-medium">Bransoleta Sułtana</span> (Grota Dżinna) = Złota Czaszka Demona (Wędrowca Ham) LUB 10x Złoty Pył
           </div>
         </div>

@@ -25,8 +25,8 @@ export default function ServerInfoPage() {
       <SectionTitle>Królestwa</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {serverInfo.kingdoms.map((k, i) => (
-          <div key={k} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-6 flex items-center gap-4 hover:border-pandora-border/60 transition-colors">
-            <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-base font-bold font-display ${
+          <div key={k} className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 flex items-center gap-5 hover:border-pandora-border/60 transition-colors">
+            <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-lg font-bold font-display shrink-0 ${
               i === 0 ? 'bg-pandora-red/8 text-pandora-red/80' : i === 1 ? 'bg-pandora-blue/8 text-pandora-blue/80' : 'bg-pandora-gold/8 text-pandora-gold/80'
             }`}>
               {k[0]}
@@ -60,8 +60,8 @@ export default function ServerInfoPage() {
           { title: 'Magiczny Metal+', desc: 'Daje +10% szansy na ulepszanie. Wymaga: Kamień Kowala + Magiczna Ruda Miedzi + 100.000.000 Yang. Kamienie zdobywane z silniejszych Bossów oraz Kamieni Metin.', accent: 'border-t-pandora-purple/20' },
           { title: 'Sklepy Offline & Wyszukiwarka', desc: 'Sklepy otwieramy Tobołkiem z handlarki różności. Możemy ustawiać dokładną pozycję sklepu. Wyszukiwarka sklepów na krawędzi klienta z opcją ignorowania stopnia ulepszenia. VIP pozwala na dekorowanie sklepu.', accent: 'border-t-pandora-green/20' },
         ].map(m => (
-          <div key={m.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${m.accent} rounded-lg p-6 hover:border-pandora-border/60 transition-colors`}>
-            <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">{m.title}</h3>
+          <div key={m.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${m.accent} rounded-xl p-7 hover:border-pandora-border/60 transition-colors`}>
+            <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">{m.title}</h3>
             <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{m.desc}</p>
           </div>
         ))}
@@ -80,10 +80,10 @@ export default function ServerInfoPage() {
         ].map(r => {
           const Icon = r.icon
           return (
-            <div key={r.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-6 text-center hover:border-pandora-border/60 transition-colors">
-              <Icon className="w-5 h-5 text-pandora-gold/60 mx-auto mb-3" />
-              <div className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-1">{r.label}</div>
-              <div className="text-sm font-bold text-pandora-text/85">{r.value}</div>
+            <div key={r.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 text-center hover:border-pandora-border/60 transition-colors">
+              <Icon className="w-6 h-6 text-pandora-gold/60 mx-auto mb-4" />
+              <div className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">{r.label}</div>
+              <div className="text-base font-bold text-pandora-text/85">{r.value}</div>
             </div>
           )
         })}
@@ -100,7 +100,7 @@ export default function ServerInfoPage() {
           { label: 'Instagram', url: serverInfo.instagram },
         ].map(link => (
           <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
-            className="group flex items-center gap-3 bg-pandora-card/60 border border-pandora-border/40 rounded-lg px-4 py-3 hover:border-pandora-border/60 transition-colors">
+            className="group flex items-center gap-3 bg-pandora-card/60 border border-pandora-border/40 rounded-xl px-5 py-4 hover:border-pandora-border/60 transition-colors">
             <div>
               <div className="text-sm font-medium text-pandora-text/85 group-hover:text-pandora-gold transition-colors">{link.label}</div>
               <div className="text-[11px] text-pandora-muted/60 truncate max-w-48">{link.url}</div>
