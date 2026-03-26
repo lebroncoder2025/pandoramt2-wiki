@@ -359,6 +359,14 @@ const champions = [
   { guild: 'RodzinaKraba', editions: [1],    color: 'gold' as const },
 ]
 
+// Compute finalist counts for the Top Finalistów strip
+const finalistCounts: Record<string, number> = {}
+tournaments.forEach(t => {
+  if (t.finalist && t.finalist !== '—') {
+    finalistCounts[t.finalist] = (finalistCounts[t.finalist] ?? 0) + 1
+  }
+})
+
 const allTabs = ['Wszystkie', '2026', '2025', '2024'] as const
 type TabLabel = typeof allTabs[number]
 
@@ -530,24 +538,70 @@ export default function TournamentsPage() {
 
       {/* Hall of Champions */}
       <SectionTitle>Hall of Fame — Mistrzowie Turniejów</SectionTitle>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-16">
-        {champions.map(c => (
-          <div key={c.guild} className="bg-pandora-card/60 border border-pandora-gold/15 rounded-xl p-4 text-center hover:border-pandora-gold/30 transition-all card-hover">
-            <div className="text-2xl mb-1.5">🏆</div>
-            <p className="font-display font-bold text-pandora-gold text-sm leading-tight">{c.guild}</p>
-            <p className="text-[10px] text-pandora-muted mt-1">Edycj{c.editions.length > 1 ? 'e' : 'a'} #{c.editions.join(', #')}</p>
-          </div>
-        ))}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+        {champions.map((c, idx) => {
+          const rank = idx + 1
+          const isTop3 = rank <= 3
+          return (
+            <div
+              key={c.guild}
+              className={`relative bg-pandora-card/60 border rounded-xl p-4 text-center transition-all card-hover
+                ${rank === 1
+                  ? 'border-pandora-gold/40 hover:border-pandora-gold/60 shadow-[0_0_18px_-4px_rgba(212,175,55,0.18)]'
+                  : isTop3
+                    ? 'border-pandora-gold/20 hover:border-pandora-gold/35'
+                    : 'border-pandora-border/30 hover:border-pandora-gold/20'}`}
+            >
+              {/* Rank badge */}
+              <div className={`absolute -top-2 -left-2 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold border
+                ${rank === 1 ? 'bg-pandora-gold text-pandora-dark border-pandora-gold/80' :
+                  rank === 2 ? 'bg-pandora-text/20 text-pandora-text/80 border-pandora-border/40' :
+                  rank === 3 ? 'bg-pandora-orange/20 text-pandora-orange border-pandora-orange/30' :
+                  'bg-pandora-dark/80 text-pandora-muted border-pandora-border/20'}`}
+              >
+                {rank}
+              </div>
+              <div className="text-xl mb-1.5">{rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : '🏆'}</div>
+              <p className={`font-display font-bold text-sm leading-tight mb-1
+                ${rank === 1 ? 'text-pandora-gold' : 'text-pandora-text/85'}`}>
+                {c.guild}
+              </p>
+              <p className="text-[10px] text-pandora-muted">
+                {c.editions.length > 1 ? `Edycje #${c.editions.join(', #')}` : `Edycja #${c.editions[0]}`}
+              </p>
+              {c.editions.length > 1 && (
+                <span className="inline-block mt-1.5 text-[9px] px-1.5 py-0.5 rounded bg-pandora-gold/10 text-pandora-gold border border-pandora-gold/20 font-semibold uppercase tracking-wide">
+                  {c.editions.length}× mistrz
+                </span>
+              )}
+            </div>
+          )
+        })}
       </div>
+
+      {/* Top Finalistów strip */}
+      {Object.keys(finalistCounts).length > 0 && (
+        <div className="flex flex-wrap items-center gap-2 mb-12 bg-pandora-card/30 border border-pandora-border/25 rounded-xl px-5 py-3">
+          <span className="text-[10px] uppercase tracking-widest text-pandora-muted font-semibold mr-1">Wielokrotni finaliści:</span>
+          {Object.entries(finalistCounts)
+            .filter(([, n]) => n > 1)
+            .sort((a, b) => b[1] - a[1])
+            .map(([guild, n]) => (
+              <span key={guild} className="text-[11px] px-2 py-0.5 rounded border bg-pandora-silver/5 text-pandora-text/80 border-pandora-border/30 font-medium">
+                🥈 {guild} <span className="text-pandora-muted">×{n}</span>
+              </span>
+            ))}
+        </div>
+      )}
 
       {/* Summary stats */}
       <SectionTitle>Statystyki Globalne</SectionTitle>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
         {[
-          { label: 'Edycje łącznie',    value: '9',   icon: <Trophy className="w-4 h-4" /> },
-          { label: 'Różnych gildii',    value: '60+', icon: <Shield className="w-4 h-4" /> },
-          { label: 'Walki łącznie',     value: '100+',icon: <Swords className="w-4 h-4" /> },
-          { label: 'Lata aktywności',   value: '2024–2026', icon: <Trophy className="w-4 h-4" /> },
+          { label: 'Edycje łącznie',  value: `${tournaments.length}`,                    icon: <Trophy className="w-4 h-4" /> },
+          { label: 'Różnych gildii',  value: `${new Set(tournaments.flatMap(t => t.guilds)).size}+`, icon: <Shield className="w-4 h-4" /> },
+          { label: 'Walki łącznie',   value: `${tournaments.reduce((a, t) => a + t.matches.length, 0)}`,  icon: <Swords className="w-4 h-4" /> },
+          { label: 'Lata aktywności', value: '2024–2026',                                 icon: <Trophy className="w-4 h-4" /> },
         ].map(s => (
           <div key={s.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-5 hover:border-pandora-gold/20 transition-all group">
             <div className="flex items-center gap-2 mb-2 text-pandora-gold/70 group-hover:text-pandora-gold transition-colors">

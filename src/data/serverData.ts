@@ -235,7 +235,7 @@ export const miningStats = [
 ]
 
 export const collections = [
-  { name: 'Kolekcja Kamieni', items: 'Legendarne Kamienie Duszy +0', count: 'x5', reward: 'Obrażenia Umiejętności +5%' },
+  { name: 'Kolekcja Kamieni', items: 'Legendarne Kamienie Duszy +0', count: 'x15', reward: 'Obrażenia Umiejętności +5%' },
   { name: 'Kolekcja Morza', items: 'Wszystkie Owoce Morza', count: 'x20', reward: 'Szansa na Owoce Morza +2%' },
   { name: 'Kolekcja Ulepszaczy', items: 'Wszystkie Ulepszacze', count: 'x100-200', reward: 'Średnie Obrażenia +5%' },
   { name: 'Kolekcja Bossów', items: 'Standardowe Skrzynie Bossów', count: 'x25', reward: 'Silny Przeciwko Bossom +10%' },
@@ -322,4 +322,306 @@ export const lifefruits = [
   { name: 'Owoc Życia (III)', points: 2000 },
   { name: 'Owoc Życia (IV)', points: 5000 },
   { name: 'Owoc Życia (V)', points: 10000 },
+]
+
+// ─── EQUIPMENT DATA ──────────────────────────────────────────────────────────
+
+export const equipmentTiers = [
+  { tier: 'Podstawowy', levelRange: '40–60', color: 'gray' as const },
+  { tier: 'Ulepszony', levelRange: '65–90', color: 'green' as const },
+  { tier: 'Rzadki', levelRange: '95–125', color: 'blue' as const },
+  { tier: 'Epikowy', levelRange: '130–160', color: 'purple' as const },
+  { tier: 'Legendarny', levelRange: '165–180', color: 'orange' as const },
+  { tier: 'Mityczny', levelRange: '200+', color: 'gold' as const },
+]
+
+export const equipmentWeapons = [
+  {
+    class: 'Wojownik',
+    icon: '⚔️',
+    color: 'red' as const,
+    types: [
+      {
+        name: 'Miecz jednoręczny',
+        items: [
+          { name: 'Bojowy Miecz', level: 40, tier: 'Podstawowy' },
+          { name: 'Miecz Trytona', level: 55, tier: 'Podstawowy' },
+          { name: 'Śmiercionośne Ostrze', level: 70, tier: 'Ulepszony' },
+          { name: 'Diamentowy Miecz', level: 90, tier: 'Ulepszony' },
+          { name: 'Odwieczne Ostrze', level: 105, tier: 'Rzadki' },
+          { name: 'Krwawnik', level: 120, tier: 'Rzadki' },
+          { name: 'Miecz Gromu', level: 145, tier: 'Epikowy' },
+          { name: 'Miecz Smoka', level: 175, tier: 'Legendarny' },
+          { name: 'Mityczny Miecz', level: 200, tier: 'Mityczny' },
+        ],
+      },
+      {
+        name: 'Miecz dwuręczny',
+        items: [
+          { name: 'Wielki Bojowy Miecz', level: 40, tier: 'Podstawowy' },
+          { name: 'Wielki Miecz Trytona', level: 55, tier: 'Podstawowy' },
+          { name: 'Wielkie Śmiercionośne Ostrze', level: 70, tier: 'Ulepszony' },
+          { name: 'Wielki Diamentowy Miecz', level: 90, tier: 'Ulepszony' },
+          { name: 'Wielkie Odwieczne Ostrze', level: 105, tier: 'Rzadki' },
+          { name: 'Wielki Krwawnik', level: 120, tier: 'Rzadki' },
+          { name: 'Wielki Miecz Gromu', level: 145, tier: 'Epikowy' },
+          { name: 'Wielki Miecz Smoka', level: 175, tier: 'Legendarny' },
+          { name: 'Wielki Mityczny Miecz', level: 200, tier: 'Mityczny' },
+        ],
+      },
+    ],
+  },
+  {
+    class: 'Ninja',
+    icon: '🗡️',
+    color: 'blue' as const,
+    types: [
+      {
+        name: 'Sztylet',
+        items: [
+          { name: 'Sztylet Bojowy', level: 40, tier: 'Podstawowy' },
+          { name: 'Sztylet Trytona', level: 55, tier: 'Podstawowy' },
+          { name: 'Sztylet Śmierci', level: 70, tier: 'Ulepszony' },
+          { name: 'Diamentowy Sztylet', level: 90, tier: 'Ulepszony' },
+          { name: 'Odwieczny Sztylet', level: 105, tier: 'Rzadki' },
+          { name: 'Sztylet Krwi', level: 120, tier: 'Rzadki' },
+          { name: 'Sztylet Gromu', level: 145, tier: 'Epikowy' },
+          { name: 'Sztylet Smoka', level: 175, tier: 'Legendarny' },
+          { name: 'Mityczny Sztylet', level: 200, tier: 'Mityczny' },
+        ],
+      },
+      {
+        name: 'Łuk',
+        items: [
+          { name: 'Łuk Bojowy', level: 40, tier: 'Podstawowy' },
+          { name: 'Łuk Trytona', level: 55, tier: 'Podstawowy' },
+          { name: 'Łuk Śmierci', level: 70, tier: 'Ulepszony' },
+          { name: 'Diamentowy Łuk', level: 90, tier: 'Ulepszony' },
+          { name: 'Odwieczny Łuk', level: 105, tier: 'Rzadki' },
+          { name: 'Łuk Krwi', level: 120, tier: 'Rzadki' },
+          { name: 'Łuk Gromu', level: 145, tier: 'Epikowy' },
+          { name: 'Łuk Smoka', level: 175, tier: 'Legendarny' },
+          { name: 'Mityczny Łuk', level: 200, tier: 'Mityczny' },
+        ],
+      },
+    ],
+  },
+  {
+    class: 'Sura',
+    icon: '🌑',
+    color: 'purple' as const,
+    types: [
+      {
+        name: 'Miecz runiczny',
+        items: [
+          { name: 'Runiczny Miecz Bojowy', level: 40, tier: 'Podstawowy' },
+          { name: 'Runiczny Miecz Trytona', level: 55, tier: 'Podstawowy' },
+          { name: 'Runiczna Śmiercionośna Broń', level: 70, tier: 'Ulepszony' },
+          { name: 'Runiczna Diamentowa Broń', level: 90, tier: 'Ulepszony' },
+          { name: 'Runiczna Odwieczna Broń', level: 105, tier: 'Rzadki' },
+          { name: 'Runiczna Broń Krwi', level: 120, tier: 'Rzadki' },
+          { name: 'Runiczna Broń Gromu', level: 145, tier: 'Epikowy' },
+          { name: 'Runiczna Broń Smoka', level: 175, tier: 'Legendarny' },
+          { name: 'Mityczna Runiczna Broń', level: 200, tier: 'Mityczny' },
+        ],
+      },
+      {
+        name: 'Różdżka',
+        items: [
+          { name: 'Różdżka Bojowa', level: 40, tier: 'Podstawowy' },
+          { name: 'Różdżka Trytona', level: 55, tier: 'Podstawowy' },
+          { name: 'Różdżka Śmierci', level: 70, tier: 'Ulepszony' },
+          { name: 'Diamentowa Różdżka', level: 90, tier: 'Ulepszony' },
+          { name: 'Odwieczna Różdżka', level: 105, tier: 'Rzadki' },
+          { name: 'Różdżka Krwi', level: 120, tier: 'Rzadki' },
+          { name: 'Różdżka Gromu', level: 145, tier: 'Epikowy' },
+          { name: 'Różdżka Smoka', level: 175, tier: 'Legendarny' },
+          { name: 'Mityczna Różdżka', level: 200, tier: 'Mityczny' },
+        ],
+      },
+    ],
+  },
+  {
+    class: 'Szaman',
+    icon: '🌿',
+    color: 'green' as const,
+    types: [
+      {
+        name: 'Wachlarz',
+        items: [
+          { name: 'Wachlarz Bojowy', level: 40, tier: 'Podstawowy' },
+          { name: 'Wachlarz Trytona', level: 55, tier: 'Podstawowy' },
+          { name: 'Wachlarz Śmierci', level: 70, tier: 'Ulepszony' },
+          { name: 'Diamentowy Wachlarz', level: 90, tier: 'Ulepszony' },
+          { name: 'Odwieczny Wachlarz', level: 105, tier: 'Rzadki' },
+          { name: 'Wachlarz Krwi', level: 120, tier: 'Rzadki' },
+          { name: 'Wachlarz Gromu', level: 145, tier: 'Epikowy' },
+          { name: 'Wachlarz Smoka', level: 175, tier: 'Legendarny' },
+          { name: 'Mityczny Wachlarz', level: 200, tier: 'Mityczny' },
+        ],
+      },
+      {
+        name: 'Flet',
+        items: [
+          { name: 'Flet Bojowy', level: 40, tier: 'Podstawowy' },
+          { name: 'Flet Trytona', level: 55, tier: 'Podstawowy' },
+          { name: 'Flet Śmierci', level: 70, tier: 'Ulepszony' },
+          { name: 'Diamentowy Flet', level: 90, tier: 'Ulepszony' },
+          { name: 'Odwieczny Flet', level: 105, tier: 'Rzadki' },
+          { name: 'Flet Krwi', level: 120, tier: 'Rzadki' },
+          { name: 'Flet Gromu', level: 145, tier: 'Epikowy' },
+          { name: 'Flet Smoka', level: 175, tier: 'Legendarny' },
+          { name: 'Mityczny Flet', level: 200, tier: 'Mityczny' },
+        ],
+      },
+    ],
+  },
+]
+
+export const equipmentArmors = [
+  {
+    class: 'Wojownik',
+    icon: '🛡️',
+    items: [
+      { name: 'Zbroja Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
+      { name: 'Zbroja Smoka', level: 75, tier: 'Ulepszony' },
+      { name: 'Zbroja Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
+      { name: 'Zbroja Gromu', level: 120, tier: 'Epikowy' },
+      { name: 'Zbroja Upadłego Anioła', level: 150, tier: 'Epikowy' },
+      { name: 'Zbroja Smoczego Boga', level: 175, tier: 'Legendarny' },
+      { name: 'Mityczna Zbroja Wojownika', level: 200, tier: 'Mityczny' },
+    ],
+  },
+  {
+    class: 'Ninja',
+    icon: '🥷',
+    items: [
+      { name: 'Skóra Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
+      { name: 'Skóra Smoka', level: 75, tier: 'Ulepszony' },
+      { name: 'Skóra Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
+      { name: 'Skóra Gromu', level: 120, tier: 'Epikowy' },
+      { name: 'Skóra Upadłego Anioła', level: 150, tier: 'Epikowy' },
+      { name: 'Skóra Smoczego Boga', level: 175, tier: 'Legendarny' },
+      { name: 'Mityczna Skóra Ninja', level: 200, tier: 'Mityczny' },
+    ],
+  },
+  {
+    class: 'Sura',
+    icon: '🌑',
+    items: [
+      { name: 'Szata Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
+      { name: 'Szata Smoka', level: 75, tier: 'Ulepszony' },
+      { name: 'Szata Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
+      { name: 'Szata Gromu', level: 120, tier: 'Epikowy' },
+      { name: 'Szata Upadłego Anioła', level: 150, tier: 'Epikowy' },
+      { name: 'Szata Smoczego Boga', level: 175, tier: 'Legendarny' },
+      { name: 'Mityczna Szata Sury', level: 200, tier: 'Mityczny' },
+    ],
+  },
+  {
+    class: 'Szaman',
+    icon: '🌿',
+    items: [
+      { name: 'Kimono Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
+      { name: 'Kimono Smoka', level: 75, tier: 'Ulepszony' },
+      { name: 'Kimono Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
+      { name: 'Kimono Gromu', level: 120, tier: 'Epikowy' },
+      { name: 'Kimono Upadłego Anioła', level: 150, tier: 'Epikowy' },
+      { name: 'Kimono Smoczego Boga', level: 175, tier: 'Legendarny' },
+      { name: 'Mityczne Kimono Szamana', level: 200, tier: 'Mityczny' },
+    ],
+  },
+]
+
+export const equipmentHelmets = [
+  { name: 'Hełm Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
+  { name: 'Hełm Smoka', level: 75, tier: 'Ulepszony' },
+  { name: 'Hełm Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
+  { name: 'Hełm Gromu', level: 120, tier: 'Epikowy' },
+  { name: 'Hełm Upadłego Anioła', level: 150, tier: 'Epikowy' },
+  { name: 'Hełm Smoczego Boga', level: 175, tier: 'Legendarny' },
+  { name: 'Mityczny Hełm', level: 200, tier: 'Mityczny' },
+]
+
+export const equipmentBoots = [
+  { name: 'Buty Wiatru', level: 1, tier: 'Startowe', note: 'Startowy ekwipunek' },
+  { name: 'Buty Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
+  { name: 'Buty Smoka', level: 75, tier: 'Ulepszony' },
+  { name: 'Buty Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
+  { name: 'Buty Gromu', level: 120, tier: 'Epikowy' },
+  { name: 'Buty Upadłego Anioła', level: 150, tier: 'Epikowy' },
+  { name: 'Buty Smoczego Boga', level: 175, tier: 'Legendarny' },
+  { name: 'Mityczne Buty', level: 200, tier: 'Mityczny' },
+]
+
+export const equipmentShields = [
+  { name: 'Tarcza Bojowa', level: 40, tier: 'Podstawowy', classes: 'Wojownik, Sura' },
+  { name: 'Tarcza Smoka', level: 75, tier: 'Ulepszony', classes: 'Wojownik, Sura' },
+  { name: 'Tarcza Ze Skóry Smoka', level: 100, tier: 'Rzadki', classes: 'Wojownik, Sura' },
+  { name: 'Tarcza Gromu', level: 120, tier: 'Epikowy', classes: 'Wojownik, Sura' },
+  { name: 'Tarcza Upadłego Anioła', level: 150, tier: 'Epikowy', classes: 'Wojownik, Sura' },
+  { name: 'Mityczna Tarcza', level: 200, tier: 'Mityczny', classes: 'Wojownik, Sura' },
+]
+
+export const equipmentJewelry = [
+  { type: 'Naszyjnik', name: 'Naszyjnik Z Niebańskich Łez', level: 40, tier: 'Podstawowy' },
+  { type: 'Naszyjnik', name: 'Naszyjnik Smoka', level: 85, tier: 'Ulepszony' },
+  { type: 'Naszyjnik', name: 'Diamentowy Naszyjnik', level: 115, tier: 'Rzadki' },
+  { type: 'Naszyjnik', name: 'Mityczny Naszyjnik', level: 200, tier: 'Mityczny' },
+  { type: 'Bransoletka', name: 'Bransoletka Z Niebańskich Łez', level: 40, tier: 'Podstawowy' },
+  { type: 'Bransoletka', name: 'Bransoleta Smoka', level: 85, tier: 'Ulepszony' },
+  { type: 'Bransoletka', name: 'Diamentowa Bransoleta', level: 115, tier: 'Rzadki' },
+  { type: 'Bransoletka', name: 'Mityczna Bransoleta', level: 200, tier: 'Mityczny' },
+  { type: 'Kolczyki', name: 'Kolczyki Z Niebańskich Łez', level: 40, tier: 'Podstawowy' },
+  { type: 'Kolczyki', name: 'Kolczyki Smoka', level: 85, tier: 'Ulepszony' },
+  { type: 'Kolczyki', name: 'Diamentowe Kolczyki', level: 115, tier: 'Rzadki' },
+  { type: 'Kolczyki', name: 'Mityczne Kolczyki', level: 200, tier: 'Mityczny' },
+  { type: 'Pierścień', name: 'Pierścień Doświadczenia', level: 1, tier: 'Startowe', note: 'Nagroda za quest Wódz Orków' },
+  { type: 'Pierścień', name: 'Pierścień Z Niebańskich Łez', level: 40, tier: 'Podstawowy' },
+  { type: 'Pierścień', name: 'Pierścień Smoka', level: 85, tier: 'Ulepszony' },
+  { type: 'Pierścień', name: 'Diamentowy Pierścień', level: 115, tier: 'Rzadki' },
+  { type: 'Pierścień', name: 'Mityczny Pierścień', level: 200, tier: 'Mityczny' },
+]
+
+// Legendary Soul Stone upgrade progression (+0 to +5)
+export const legendarySoulStoneProgression = [
+  {
+    name: 'Kamień Duszy Wojny',
+    type: 'Broń',
+    icon: '⚔️',
+    levels: [
+      { level: '+0', b1: 'Silny pko Ludziom: +3%', b2: 'Obrażenia Umiejętności: +3%' },
+      { level: '+1', b1: 'Silny pko Ludziom: +6%', b2: 'Obrażenia Umiejętności: +6%' },
+      { level: '+2', b1: 'Silny pko Ludziom: +9%', b2: 'Obrażenia Umiejętności: +9%' },
+      { level: '+3', b1: 'Silny pko Ludziom: +12%', b2: 'Obrażenia Umiejętności: +12%' },
+      { level: '+4', b1: 'Silny pko Ludziom: +14%', b2: 'Obrażenia Umiejętności: +14%' },
+      { level: '+5', b1: 'Silny pko Ludziom: +15%', b2: 'Obrażenia Umiejętności: +15%' },
+    ],
+  },
+  {
+    name: 'Kamień Duszy Zniszczenia',
+    type: 'Broń',
+    icon: '💥',
+    levels: [
+      { level: '+0', b1: 'Silny pko Bossom: +3%', b2: 'Silny pko Metinom: +3%' },
+      { level: '+1', b1: 'Silny pko Bossom: +6%', b2: 'Silny pko Metinom: +6%' },
+      { level: '+2', b1: 'Silny pko Bossom: +9%', b2: 'Silny pko Metinom: +9%' },
+      { level: '+3', b1: 'Silny pko Bossom: +12%', b2: 'Silny pko Metinom: +12%' },
+      { level: '+4', b1: 'Silny pko Bossom: +14%', b2: 'Silny pko Metinom: +14%' },
+      { level: '+5', b1: 'Silny pko Bossom: +15%', b2: 'Silny pko Metinom: +15%' },
+    ],
+  },
+  {
+    name: 'Kamień Duszy Mocy',
+    type: 'Zbroja',
+    icon: '🛡️',
+    levels: [
+      { level: '+0', b1: 'Odporność na Obrażenia: +3%', b2: 'Odporność na Obraż. Umiejętności: +3%' },
+      { level: '+1', b1: 'Odporność na Obrażenia: +6%', b2: 'Odporność na Obraż. Umiejętności: +6%' },
+      { level: '+2', b1: 'Odporność na Obrażenia: +9%', b2: 'Odporność na Obraż. Umiejętności: +9%' },
+      { level: '+3', b1: 'Odporność na Obrażenia: +12%', b2: 'Odporność na Obraż. Umiejętności: +12%' },
+      { level: '+4', b1: 'Odporność na Obrażenia: +14%', b2: 'Odporność na Obraż. Umiejętności: +14%' },
+      { level: '+5', b1: 'Odporność na Obrażenia: +15%', b2: 'Odporność na Obraż. Umiejętności: +15%' },
+    ],
+  },
 ]
