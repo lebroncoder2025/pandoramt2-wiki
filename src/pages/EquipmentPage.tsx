@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Shield, Sword, Gem } from 'lucide-react'
-import { PageHeader, DataTable, SectionTitle, InfoBox, TabGroup, SectionDivider, Badge, Card } from '../components/UI.tsx'
+import { Shield, Sword } from 'lucide-react'
+import { PageHeader, DataTable, InfoBox, TabGroup, SectionDivider } from '../components/UI.tsx'
 import { bonusTable, bonus67Table, costumeBonus, equipmentWeapons, equipmentArmors, equipmentHelmets, equipmentBoots, equipmentShields, equipmentJewelry, equipmentTiers } from '../data/serverData.ts'
 
 const TIER_COLORS: Record<string, string> = {
@@ -11,6 +11,16 @@ const TIER_COLORS: Record<string, string> = {
   'Epikowy':    'bg-pandora-purple/10 text-pandora-purple border-pandora-purple/25',
   'Legendarny': 'bg-pandora-orange/10 text-pandora-orange border-pandora-orange/25',
   'Mityczny':   'bg-pandora-gold/10 text-pandora-gold border-pandora-gold/30',
+}
+
+const TIER_ACCENT: Record<string, string> = {
+  'Startowe':   'border-l-pandora-border/30',
+  'Podstawowy': 'border-l-pandora-border/50',
+  'Ulepszony':  'border-l-pandora-green/50',
+  'Rzadki':     'border-l-pandora-blue/50',
+  'Epikowy':    'border-l-pandora-purple/50',
+  'Legendarny': 'border-l-pandora-orange/50',
+  'Mityczny':   'border-l-pandora-gold/60',
 }
 
 const JEWELRY_ICONS: Record<string, string> = {
@@ -30,15 +40,62 @@ function TierBadge({ tier }: { tier: string }) {
 
 function ItemRow({ name, level, tier, note }: { name: string; level: number; tier: string; note?: string }) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-pandora-border/15 last:border-0 hover:bg-pandora-card/20 px-2 rounded transition-colors">
-      <div className="flex items-center gap-2 flex-1 min-w-0">
-        <span className="text-xs text-pandora-text/85 truncate">{name}</span>
-        {note && <span className="text-[10px] text-pandora-orange/70 italic hidden sm:inline truncate">– {note}</span>}
+    <div className={`flex items-center justify-between py-2.5 px-4 border-b border-pandora-border/12 last:border-0 hover:bg-pandora-card/30 transition-colors border-l-2 ${TIER_ACCENT[tier] ?? ''}`}>
+      <div className="flex-1 min-w-0">
+        <span className="text-xs text-pandora-text/88">{name}</span>
+        {note && <span className="text-[10px] text-pandora-orange/70 italic ml-2 hidden sm:inline">– {note}</span>}
       </div>
-      <div className="flex items-center gap-2 shrink-0">
-        <span className="text-[11px] text-pandora-muted font-mono">Lvl {level}</span>
+      <div className="flex items-center gap-2.5 shrink-0 ml-4">
+        <span className="text-[11px] text-pandora-muted/70 font-mono">lv {level}</span>
         <TierBadge tier={tier} />
       </div>
+    </div>
+  )
+}
+
+function ItemList({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="bg-pandora-card/50 border border-pandora-border/35 rounded-xl overflow-hidden">
+      {children}
+    </div>
+  )
+}
+
+function ItemListHeader({ icon, title }: { icon?: React.ReactNode; title: string }) {
+  return (
+    <div className="flex items-center gap-2 px-4 py-2.5 bg-pandora-dark/50 border-b border-pandora-border/30">
+      {icon && <span className="text-pandora-gold/60">{icon}</span>}
+      <span className="text-xs font-bold text-pandora-text/85 tracking-wide">{title}</span>
+    </div>
+  )
+}
+
+function SubHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-2.5 mb-4 mt-7 first:mt-0">
+      <div className="w-0.5 h-4 rounded-full bg-pandora-gold/50 shrink-0" />
+      <h3 className="text-sm font-bold text-pandora-text/80">{children}</h3>
+    </div>
+  )
+}
+
+// Pill-style class/category switcher — used INSIDE tabs so we avoid nested tab bars
+function PillSelector({ options, active, onChange }: { options: string[]; active: number; onChange: (i: number) => void }) {
+  return (
+    <div className="flex flex-wrap gap-2 mb-5">
+      {options.map((opt, i) => (
+        <button
+          key={opt}
+          onClick={() => onChange(i)}
+          className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
+            i === active
+              ? 'bg-pandora-gold/15 text-pandora-gold border-pandora-gold/40'
+              : 'bg-transparent text-pandora-muted border-pandora-border/40 hover:text-pandora-text/80 hover:border-pandora-border/60'
+          }`}
+        >
+          {opt}
+        </button>
+      ))}
     </div>
   )
 }
@@ -52,46 +109,40 @@ export default function EquipmentPage() {
     <div className="max-w-5xl mx-auto">
       <PageHeader
         title="Ekwipunek & Bonusy"
-        description="Pełna tabela bonusów, przedmioty na serwerze — bronie, zbroje, hełmy, buty, tarcze oraz biżuteria."
+        description="Bronie, zbroje, hełmy, buty, tarcze i biżuteria — pełna progresja tierów oraz tabele bonusów."
         icon={<Shield className="w-5 h-5" />}
       />
 
-      <TabGroup tabs={['Bronie', 'Zbroje & Hełmy', 'Tarcze & Buty', 'Biżuteria', 'Bonusy Zwykłe', 'Bonusy 6-7', 'Bonusy Kostiumów']} activeTab={tab} onTabChange={setTab} />
+      {/* Tier legend — shows once, always visible above tabs */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {equipmentTiers.map(t => (
+          <TierBadge key={t.tier} tier={t.tier} />
+        ))}
+      </div>
+
+      <TabGroup
+        tabs={['Bronie', 'Zbroje & Hełmy', 'Tarcze & Buty', 'Biżuteria', 'Bonusy Zwykłe', 'Bonusy 6-7', 'Bonusy Kostiumów']}
+        activeTab={tab}
+        onTabChange={setTab}
+      />
 
       {/* ── TAB 0: Bronie ── */}
       {tab === 0 && (
         <>
-          <InfoBox type="info">
-            <p className="text-sm">Każda klasa używa dwóch typów broni. Bronie można ulepszać poprzez System Ulepszeń. Najlepszy ekwipunek dropuje z Bossów Infernusa i Balathora.</p>
-          </InfoBox>
-
-          {/* Tiers legend */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {equipmentTiers.map(t => (
-              <TierBadge key={t.tier} tier={t.tier} />
-            ))}
-          </div>
-
-          <TabGroup
-            tabs={equipmentWeapons.map(c => `${c.icon} ${c.class}`)}
-            activeTab={weaponClass}
-            onTabChange={setWeaponClass}
+          <PillSelector
+            options={equipmentWeapons.map(c => `${c.icon} ${c.class}`)}
+            active={weaponClass}
+            onChange={setWeaponClass}
           />
-
           {equipmentWeapons[weaponClass] && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {equipmentWeapons[weaponClass].types.map(wt => (
-                <Card key={wt.name}>
-                  <h3 className="text-sm font-semibold text-pandora-text/85 mb-4 flex items-center gap-2">
-                    <Sword className="w-4 h-4 text-pandora-gold/60" />
-                    {wt.name}
-                  </h3>
-                  <div>
-                    {wt.items.map(it => (
-                      <ItemRow key={it.name} name={it.name} level={it.level} tier={it.tier} />
-                    ))}
-                  </div>
-                </Card>
+                <ItemList key={wt.name}>
+                  <ItemListHeader icon={<Sword className="w-3.5 h-3.5" />} title={wt.name} />
+                  {wt.items.map(it => (
+                    <ItemRow key={it.name} name={it.name} level={it.level} tier={it.tier} />
+                  ))}
+                </ItemList>
               ))}
             </div>
           )}
@@ -101,105 +152,70 @@ export default function EquipmentPage() {
       {/* ── TAB 1: Zbroje & Hełmy ── */}
       {tab === 1 && (
         <>
-          <InfoBox type="info">
-            <p className="text-sm">Każda klasa ma własną serię zbroi. Hełmy są wspólne dla wszystkich klas w danym tierie.</p>
-          </InfoBox>
-
-          <div className="flex flex-wrap gap-2 mb-6">
-            {equipmentTiers.map(t => (
-              <TierBadge key={t.tier} tier={t.tier} />
-            ))}
-          </div>
-
-          <SectionTitle>Zbroje</SectionTitle>
-          <TabGroup
-            tabs={equipmentArmors.map(c => `${c.icon} ${c.class}`)}
-            activeTab={armorClass}
-            onTabChange={setArmorClass}
+          <SubHeading>Zbroje</SubHeading>
+          <PillSelector
+            options={equipmentArmors.map(c => `${c.icon} ${c.class}`)}
+            active={armorClass}
+            onChange={setArmorClass}
           />
           {equipmentArmors[armorClass] && (
-            <Card>
+            <ItemList>
               {equipmentArmors[armorClass].items.map(it => (
                 <ItemRow key={it.name} name={it.name} level={it.level} tier={it.tier} />
               ))}
-            </Card>
+            </ItemList>
           )}
 
-          <SectionTitle>Hełmy</SectionTitle>
-          <Card>
+          <SubHeading>Hełmy <span className="text-[10px] font-normal text-pandora-muted ml-1">(wszystkie klasy)</span></SubHeading>
+          <ItemList>
             {equipmentHelmets.map(it => (
               <ItemRow key={it.name} name={it.name} level={it.level} tier={it.tier} />
             ))}
-          </Card>
+          </ItemList>
         </>
       )}
 
       {/* ── TAB 2: Tarcze & Buty ── */}
       {tab === 2 && (
-        <>
-          <div className="flex flex-wrap gap-2 mb-6">
-            {equipmentTiers.map(t => (
-              <TierBadge key={t.tier} tier={t.tier} />
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <SubHeading>Tarcze <span className="text-[10px] font-normal text-pandora-muted ml-1">(Wojownik & Sura)</span></SubHeading>
+            <ItemList>
+              {equipmentShields.map(it => (
+                <ItemRow key={it.name} name={it.name} level={it.level} tier={it.tier} />
+              ))}
+            </ItemList>
           </div>
-
-          <SectionTitle>Tarcze</SectionTitle>
-          <InfoBox type="info">
-            <p className="text-sm">Tarcze są dostępne wyłącznie dla klas <strong>Wojownik</strong> i <strong>Sura</strong>.</p>
-          </InfoBox>
-          <Card>
-            {equipmentShields.map(it => (
-              <div key={it.name} className="flex items-center justify-between py-2 border-b border-pandora-border/15 last:border-0 hover:bg-pandora-card/20 px-2 rounded transition-colors">
-                <div className="flex items-center gap-2 flex-1">
-                  <span className="text-xs text-pandora-text/85">{it.name}</span>
-                  <span className="text-[11px] text-pandora-muted/70 hidden sm:inline">— {it.classes}</span>
-                </div>
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-[11px] text-pandora-muted font-mono">Lvl {it.level}</span>
-                  <TierBadge tier={it.tier} />
-                </div>
-              </div>
-            ))}
-          </Card>
-
-          <SectionTitle>Buty</SectionTitle>
-          <Card>
-            {equipmentBoots.map(it => (
-              <ItemRow key={it.name} name={it.name} level={it.level} tier={it.tier} note={'note' in it ? (it as { note?: string }).note : undefined} />
-            ))}
-          </Card>
-        </>
+          <div>
+            <SubHeading>Buty <span className="text-[10px] font-normal text-pandora-muted ml-1">(wszystkie klasy)</span></SubHeading>
+            <ItemList>
+              {equipmentBoots.map(it => (
+                <ItemRow key={it.name} name={it.name} level={it.level} tier={it.tier} note={'note' in it ? (it as { note?: string }).note : undefined} />
+              ))}
+            </ItemList>
+          </div>
+        </div>
       )}
 
       {/* ── TAB 3: Biżuteria ── */}
       {tab === 3 && (
         <>
           <InfoBox type="info">
-            <p className="text-sm">Biżuteria jest wspólna dla wszystkich klas. Możesz nosić <strong>naszyjnik, kolczyki, dwie bransoletki i dwa pierścienie</strong>.</p>
+            <p className="text-sm">Możesz nosić: <strong>naszyjnik, kolczyki, 2× bransoletka i 2× pierścień</strong>. Biżuteria jest wspólna dla wszystkich klas.</p>
           </InfoBox>
-
-          <div className="flex flex-wrap gap-2 mb-8">
-            {equipmentTiers.map(t => (
-              <TierBadge key={t.tier} tier={t.tier} />
-            ))}
-          </div>
-
-          {(['Naszyjnik', 'Bransoletka', 'Kolczyki', 'Pierścień'] as const).map(type => {
-            const items = equipmentJewelry.filter(j => j.type === type)
-            return (
-              <div key={type} className="mb-8">
-                <h3 className="text-sm font-semibold text-pandora-text/80 mb-3 flex items-center gap-2">
-                  <span>{JEWELRY_ICONS[type]}</span>
-                  {type}s
-                </h3>
-                <Card>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {(['Naszyjnik', 'Bransoletka', 'Kolczyki', 'Pierścień'] as const).map(type => {
+              const items = equipmentJewelry.filter(j => j.type === type)
+              return (
+                <ItemList key={type}>
+                  <ItemListHeader icon={<span className="text-sm">{JEWELRY_ICONS[type]}</span>} title={type} />
                   {items.map(it => (
                     <ItemRow key={it.name} name={it.name} level={it.level} tier={it.tier} note={'note' in it ? (it as { note?: string }).note : undefined} />
                   ))}
-                </Card>
-              </div>
-            )
-          })}
+                </ItemList>
+              )
+            })}
+          </div>
         </>
       )}
 
@@ -207,7 +223,7 @@ export default function EquipmentPage() {
       {tab === 4 && (
         <>
           <InfoBox type="info">
-            <p className="text-sm">Przedmioty mogą posiadać <strong>maksymalnie 5 bonusów</strong> zwykłych. Wartości maksymalne podświetlane są na <span className="text-pandora-gold font-bold">złoty kolor</span>. <strong>Blok Ciosów</strong> nie wchodzi jako bonus — tylko z KD lub przedmiotów wbudowanych.</p>
+            <p className="text-sm">Przedmioty mogą posiadać <strong>maks. 5 bonusów</strong> zwykłych. <strong>Blok Ciosów</strong> nie wchodzi jako bonus — tylko z KD lub przedmiotów wbudowanych.</p>
           </InfoBox>
           <DataTable
             headers={['Nazwa Bonusu', 'Maksymalna Wartość']}
@@ -235,7 +251,7 @@ export default function EquipmentPage() {
       {tab === 6 && (
         <>
           <InfoBox type="info">
-            <p className="text-sm">Kostiumy można ulepszać. Każdy poziom zwiększa bonusy. Poniżej znajdziesz wartości za poziom i max.</p>
+            <p className="text-sm">Kostiumy można ulepszać. Każdy poziom zwiększa bonusy. Poniżej znajdziesz wartości za poziom i maksimum.</p>
           </InfoBox>
           <DataTable
             headers={['Bonus', 'Sloty', 'Za Poziom', 'Maksimum']}
@@ -247,38 +263,33 @@ export default function EquipmentPage() {
 
       <SectionDivider />
 
-      <SectionTitle>System Ulepszeń</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-        <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 hover:border-pandora-border/60 transition-colors">
-          <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Magiczny Metal+</h3>
-          <p className="text-[13px] text-pandora-muted mb-4">Daje dodatkowe +10% szansy na ulepszenie przedmiotu.</p>
-          <div className="space-y-2.5 text-[13px]">
-            <p className="text-pandora-muted text-[11px] uppercase tracking-widest font-medium mb-1">Wymagane materiały:</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+        <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-5">
+          <h3 className="text-sm font-bold text-pandora-text/85 mb-2.5 flex items-center gap-2">⚒️ Magiczny Metal+</h3>
+          <p className="text-xs text-pandora-muted mb-3 leading-relaxed">Daje dodatkowe <strong className="text-pandora-text/80">+10%</strong> szansy na ulepszenie przedmiotu.</p>
+          <ul className="space-y-1.5">
             {['Kamień Kowala', 'Magiczna Ruda Miedzi', '100.000.000 Yang'].map(m => (
-              <div key={m} className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/40" />
-                <span className="text-pandora-muted">{m}</span>
-              </div>
+              <li key={m} className="flex items-center gap-2 text-xs text-pandora-muted">
+                <span className="w-1 h-1 rounded-full bg-pandora-gold/50 shrink-0" />{m}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-        <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 hover:border-pandora-border/60 transition-colors">
-          <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Bonus Switcher</h3>
-          <p className="text-[13px] text-pandora-muted mb-4">System szybkiej zamiany bonusów w Menu Gracza.</p>
-          <div className="space-y-2.5 text-[13px] text-pandora-muted">
-            {['Możliwość zapisu szablonu', 'Ustawienie alternatywnych bonusów', 'Nie działa na kostiumy'].map(m => (
-              <div key={m} className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-pandora-blue/40" />
-                <span>{m}</span>
-              </div>
+        <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-5">
+          <h3 className="text-sm font-bold text-pandora-text/85 mb-2.5 flex items-center gap-2">🔄 Bonus Switcher</h3>
+          <p className="text-xs text-pandora-muted mb-3 leading-relaxed">System szybkiej zamiany bonusów dostępny w Menu Gracza.</p>
+          <ul className="space-y-1.5">
+            {['Zapis szablonu bonusów', 'Ustawienie alternatywnych bonusów', 'Nie działa na kostiumy'].map(m => (
+              <li key={m} className="flex items-center gap-2 text-xs text-pandora-muted">
+                <span className="w-1 h-1 rounded-full bg-pandora-blue/50 shrink-0" />{m}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
 
-      <SectionTitle>Odporności</SectionTitle>
       <InfoBox type="warning">
-        <p className="text-sm">Bonusy typu <strong>Odporność na Omdlenie</strong> działają tylko w <strong>90%</strong>. Oznacza to, że istnieje niewielka szansa iż dana niewrażliwość nie zadziała.</p>
+        <p className="text-sm">Bonusy <strong>Odporność na Omdlenie</strong> działają tylko w <strong>90%</strong> — istnieje mała szansa, że dana niewrażliwość nie zadziała.</p>
       </InfoBox>
     </div>
   )
