@@ -60,22 +60,30 @@ export const dungeons = [
   {
     name: 'Wieża Demonów', level: 40, ticket: 'Brak', type: 'Solo, Grupowy',
     bonus: 'Silny przeciwko Nieumarłym',
-    description: 'Klasyczna wieża z wieloma piętrami pełnymi nieumarłych. Idealna na początek przygody z dungeonami.'
+    cooldown: '2 godz.',
+    description: 'Klasyczna wieża z wieloma piętrami pełnymi nieumarłych. Idealna na początek przygody z dungeonami.',
+    reward: 'Skrzynia Wieży'
   },
   {
     name: 'Komnata Pająków', level: 100, ticket: '5x Skamieniała Łza', type: 'Solo, Grupowy',
     bonus: 'Brak',
-    description: 'Mroczna komnata pełna pająków. Wymaga zebrania Skamieniałych Łez.'
+    cooldown: '3 godz.',
+    description: 'Mroczna komnata pełna pająków. Wymaga zebrania Skamieniałych Łez.',
+    reward: 'Skrzynia Pająków'
   },
   {
     name: 'Komnata Smoka', level: 100, ticket: '5x Kręty Klucz', type: 'Solo, Grupowy',
     bonus: 'Silny przeciwko Diabłom',
-    description: 'Ognista komnata ze smokami i diabłami. Potrzebne Kręte Klucze.'
+    cooldown: '3 godz.',
+    description: 'Ognista komnata ze smokami i diabłami. Potrzebne Kręte Klucze.',
+    reward: 'Skrzynia Smoka'
   },
   {
     name: 'Piekielne Katakumby', level: 120, ticket: 'Brak', type: 'Solo, Grupowy',
     bonus: 'Silny przeciwko Nieumarłym',
-    description: 'Podziemne katakumby pełne nieumarłych potworów. Nie wymaga przepustki.'
+    cooldown: '4 godz.',
+    description: 'Podziemne katakumby pełne nieumarłych potworów. Nie wymaga przepustki.',
+    reward: 'Skrzynia Piekła'
   },
   {
     name: 'Grota Dżinna', level: 150, ticket: 'Bransoleta Sułtana',
@@ -87,7 +95,9 @@ export const dungeons = [
   {
     name: 'Mityczna Komnata', level: 200, ticket: '5x Mityczny Klucz', type: 'Solo, Grupowy',
     bonus: 'Silny przeciwko Diabłom',
-    description: 'Najtrudniejsza komnata — wymaga Mitycznych Kluczy z endgame map.'
+    cooldown: '8 godz.',
+    description: 'Najtrudniejsza komnata — wymaga Mitycznych Kluczy z endgame map.',
+    reward: 'Skrzynia Mityczna'
   },
   {
     name: 'Świątynia Andun', level: 200, ticket: '1x Klejnot Ochrony Duszy',
@@ -498,7 +508,7 @@ export const equipmentArmors = [
     items: [
       { name: 'Skóra Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
       { name: 'Skóra Smoka', level: 75, tier: 'Ulepszony' },
-      { name: 'Skóra Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
+      { name: 'Skóra Smoka Ninja', level: 100, tier: 'Rzadki' },
       { name: 'Skóra Gromu', level: 120, tier: 'Rzadki' },
       { name: 'Skóra Upadłego Anioła', level: 150, tier: 'Epikowy' },
       { name: 'Skóra Smoczego Boga', level: 175, tier: 'Legendarny' },
