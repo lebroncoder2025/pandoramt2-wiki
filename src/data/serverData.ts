@@ -102,7 +102,7 @@ export const bosses = [
   { name: 'Wódz Orków', map: 'Dolina Orków', level: 30, respawn: '30 min', reward: '40M Yang + Pierśćień Doświadczenia', killCount: 1 },
   { name: 'Królowa Pąjaków', map: 'Loch Pąjaków', level: 40, respawn: '30 min', reward: '50M Yang + Rękawica Złodzieja', killCount: 1 },
   { name: 'Olbrzymi Żółw', map: 'Pustynia', level: 60, respawn: '30 min', reward: '60M Yang + Szczęśliwa Złota Moneta', killCount: 1 },
-  { name: 'Ognisty Król', map: 'Ognista Ziemia', level: 70, respawn: '30 min', reward: '70M Yang + Zmiana 6/7 Bon + Owoc Życia III', killCount: 1 },
+  { name: 'Ognisty Król', map: 'Ognista Ziemia', level: 70, respawn: '30 min', reward: '70M Yang + Dodanie 6/7 Bon + Owoc Życia III', killCount: 1 },
   { name: 'Dziewięć Ogońów', map: 'Góra Sohan', level: 80, respawn: '30 min', reward: '80M Yang + Dodanie 6/7 Bon + Owoc Życia III', killCount: 1 },
   { name: 'Zjawa Żółtego Tygrysa', map: 'Świątynia Hwang', level: 80, respawn: '30 min', reward: '80M Yang + Tęczowy Kamień + Owoc Życia III', killCount: 1 },
   { name: 'Minotaur', map: 'Dolina Śmierci', level: 110, respawn: '60 min', reward: '100M Yang + Bryłka Złota + Owoc Życia IV', killCount: 1 },
@@ -194,7 +194,7 @@ export const ranks = [
   { name: 'Konsul', range: '2000000 – 3999999', bonusHP: '+1750', bonusPvP: '+21%' },
   { name: 'Władca', range: '4000000 – 6999999', bonusHP: '+2000', bonusPvP: '+24%' },
   { name: 'Imperator', range: '7000000 – 9999999', bonusHP: '+2250', bonusPvP: '+27%' },
-  { name: 'Cesarz', range: '10 000 000', bonusHP: '+2500', bonusPvP: '+30%' },
+  { name: 'Cesarz', range: '10 000 000+', bonusHP: '+2500', bonusPvP: '+30%' },
 ]
 
 export const biologistQuests = [
