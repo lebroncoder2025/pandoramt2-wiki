@@ -10,6 +10,7 @@ const navGroups = [
       { path: '/classes', label: 'Klasy Postaci', icon: Sword },
       { path: '/tips', label: 'Porady & Skróty', icon: Lightbulb },
       { path: '/events', label: 'Eventy', icon: Calendar },
+      { path: '/tournaments', label: 'Turnieje Gildii', icon: Trophy },
     ]
   },
   {
