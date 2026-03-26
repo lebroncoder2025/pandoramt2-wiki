@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { Menu, X, Sword, Map, Castle, Skull, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, ChevronRight, ExternalLink, Info, Calendar } from 'lucide-react'
+import { Menu, X, Sword, Map, Castle, Skull, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, ChevronRight, ExternalLink, Info, Calendar, Sparkles } from 'lucide-react'
 
 const navGroups = [
   {
@@ -40,6 +40,7 @@ const navGroups = [
     label: 'Postęp',
     items: [
       { path: '/rank-system', label: 'System Rang', icon: Trophy },
+      { path: '/enhancement', label: 'Ulepszanie Ekwipunku', icon: Sparkles },
       { path: '/biologist', label: 'Biolog & Kolekcjoner', icon: FlaskConical },
       { path: '/calculator', label: 'Kalkulator', icon: Calculator },
     ]

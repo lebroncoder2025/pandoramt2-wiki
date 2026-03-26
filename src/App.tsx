@@ -17,6 +17,7 @@ import TipsPage from './pages/TipsPage.tsx'
 import CalculatorPage from './pages/CalculatorPage.tsx'
 import EventsPage from './pages/EventsPage.tsx'
 import TournamentsPage from './pages/TournamentsPage.tsx'
+import EnhancementPage from './pages/EnhancementPage.tsx'
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="calculator" element={<CalculatorPage />} />
         <Route path="events" element={<EventsPage />} />
         <Route path="tournaments" element={<TournamentsPage />} />
+        <Route path="enhancement" element={<EnhancementPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
