@@ -42,7 +42,7 @@ function RankCalculator() {
         </div>
       </div>
 
-      <div className="bg-pandora-dark/30 rounded-lg p-4 border border-pandora-border/20 mb-4">
+      <div className="bg-pandora-dark/40 rounded-lg p-4 border border-pandora-gold/15 border-l-2 border-l-pandora-gold/30 mb-4">
         <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-1">Potrzebne punkty</p>
         <p className="text-xl font-bold text-pandora-gold font-display">{needed.toLocaleString('pl-PL')}</p>
       </div>
@@ -149,7 +149,7 @@ function UpgradeCalculator() {
         </div>
       )}
 
-      <div className="mt-4 bg-pandora-dark/30 rounded-lg p-4 border border-pandora-border/20">
+      <div className="mt-4 bg-pandora-dark/40 rounded-lg p-4 border border-pandora-gold/15 border-l-2 border-l-pandora-gold/30">
         <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest">Łączna średnia prób od +{currentLevel} do +{targetLevel}:</p>
         <p className="text-xl font-bold text-pandora-gold font-display">{totalAvgAttempts.toFixed(1)} prób</p>
       </div>

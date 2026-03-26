@@ -30,22 +30,22 @@ export default function DungeonsPage() {
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{d.description}</p>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-text/10">
                   <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Przepustka</p>
                   <p className="text-[13px] font-medium text-pandora-text/85">{d.ticket}</p>
                 </div>
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
                   <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Bonus</p>
                   <p className="text-[13px] font-medium text-pandora-blue/80">{d.bonus}</p>
                 </div>
                 {d.cooldown && (
-                  <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                  <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-orange/20">
                     <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Cooldown</p>
                     <p className="text-[13px] font-medium text-pandora-orange/80">{d.cooldown}</p>
                   </div>
                 )}
                 {d.reward && (
-                  <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                  <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-gold/20">
                     <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Nagroda</p>
                     <p className="text-[13px] font-medium text-pandora-gold/80">{d.reward}</p>
                   </div>

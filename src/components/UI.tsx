@@ -127,7 +127,7 @@ export function TabGroup({ tabs, activeTab, onTabChange }: { tabs: string[]; act
           onClick={() => onTabChange(i)}
           className={`px-5 py-3 text-sm font-medium whitespace-nowrap transition-all duration-200 border-b-2 -mb-px ${
             i === activeTab
-              ? 'border-pandora-gold text-pandora-gold'
+              ? 'border-pandora-gold text-pandora-gold bg-pandora-gold/5'
               : 'border-transparent text-pandora-muted hover:text-pandora-text hover:border-pandora-border'
           }`}
         >

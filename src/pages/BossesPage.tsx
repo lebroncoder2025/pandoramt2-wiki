@@ -14,10 +14,12 @@ export default function BossesPage() {
       <SectionTitle>Bossy na Mapach</SectionTitle>
       <div className="space-y-2 mb-8">
         {bosses.map(b => (
-          <div key={b.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors group">
+          <div key={b.name} className={`bg-pandora-card/60 border border-pandora-border/40 border-l-2 rounded-lg p-4 hover:border-pandora-border/60 transition-colors group ${
+              b.respawn.includes('48') ? 'border-l-pandora-red/50' : b.respawn.includes('12') ? 'border-l-pandora-orange/50' : b.respawn.includes('60') ? 'border-l-pandora-purple/50' : 'border-l-pandora-green/50'
+            }`}>
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
               <div className="sm:w-[28%] flex items-center gap-2.5">
-                <div className={`w-2 h-2 rounded-full shrink-0 ${
+                <div className={`w-2.5 h-2.5 rounded-full shrink-0 ${
                   b.respawn.includes('48') ? 'bg-pandora-red/60' : b.respawn.includes('12') ? 'bg-pandora-orange/60' : b.respawn.includes('60') ? 'bg-pandora-purple/60' : 'bg-pandora-green/60'
                 }`} />
                 <div>

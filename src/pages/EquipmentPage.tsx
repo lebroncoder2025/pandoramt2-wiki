@@ -74,9 +74,12 @@ export default function EquipmentPage() {
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Bonus Switcher</h3>
           <p className="text-[13px] text-pandora-muted/60 mb-3">System szybkiej zamiany bonusów w Menu Gracza.</p>
           <div className="space-y-1.5 text-[13px] text-pandora-muted/60">
-            <p>Możliwość zapisu szablonu</p>
-            <p>Ustawienie alternatywnych bonusów</p>
-            <p>Nie działa na kostiumy</p>
+            {['Możliwość zapisu szablonu', 'Ustawienie alternatywnych bonusów', 'Nie działa na kostiumy'].map(m => (
+              <div key={m} className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-pandora-blue/40" />
+                <span>{m}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

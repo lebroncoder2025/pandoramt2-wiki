@@ -10,10 +10,10 @@ const colorMap: Record<string, string> = {
 }
 
 const bgColorMap: Record<string, string> = {
-  red: 'bg-pandora-red/8 text-pandora-red/80',
-  blue: 'bg-pandora-blue/8 text-pandora-blue/80',
-  purple: 'bg-pandora-purple/8 text-pandora-purple/80',
-  green: 'bg-pandora-green/8 text-pandora-green/80',
+  red: 'bg-pandora-red/15 text-pandora-red/90',
+  blue: 'bg-pandora-blue/15 text-pandora-blue/90',
+  purple: 'bg-pandora-purple/15 text-pandora-purple/90',
+  green: 'bg-pandora-green/15 text-pandora-green/90',
 }
 
 const badgeColorMap: Record<string, 'red' | 'blue' | 'purple' | 'green'> = {
