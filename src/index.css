@@ -60,29 +60,13 @@ body {
   to { opacity: 1; }
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
 @keyframes pulse-gold {
   0%, 100% { box-shadow: 0 0 8px rgba(200, 164, 78, 0.2); }
   50% { box-shadow: 0 0 24px rgba(200, 164, 78, 0.5); }
 }
 
-@keyframes gradient-x {
-  0%, 100% { background-size: 200% 200%; background-position: left center; }
-  50% { background-size: 200% 200%; background-position: right center; }
-}
-
 .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(200, 164, 78, 0.06), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 4s infinite;
-}
 .animate-pulse-gold { animation: pulse-gold 3s infinite; }
-.animate-gradient-x { animation: gradient-x 4s ease infinite; }
 
 /* ===== UTILITY CLASSES ===== */
 .gold-text {
@@ -152,9 +136,7 @@ main a:not([class]) {
 /* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in { animation: none; }
-  .animate-shimmer { animation: none; }
   .animate-pulse-gold { animation: none; }
-  .animate-gradient-x { animation: none; }
   a, button { transition: none; }
   .card-hover { transition: none; }
 }

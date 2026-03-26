@@ -245,7 +245,7 @@ export default function EventsPage() {
         {filteredEvents.map(event => {
           const isExpanded = expandedEvent === event.name
           return (
-            <Card key={event.name} className="cursor-pointer group" onClick={() => setExpandedEvent(isExpanded ? null : event.name)}>
+            <Card key={event.name} className="cursor-pointer group" onClick={() => setExpandedEvent(isExpanded ? null : event.name)} aria-expanded={isExpanded}>
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-lg bg-pandora-dark/60 border border-pandora-border/40 flex items-center justify-center text-xl shrink-0 group-hover:border-pandora-gold/30 transition-all">
                   {event.icon}

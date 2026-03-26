@@ -90,7 +90,7 @@ export default function ServerInfoPage() {
       </div>
 
       <SectionTitle>Oficjalne Linki</SectionTitle>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {[
           { label: 'Strona główna', url: serverInfo.website },
           { label: 'Forum', url: serverInfo.forum },
@@ -103,7 +103,7 @@ export default function ServerInfoPage() {
             className="group flex items-center gap-3 bg-pandora-card/60 border border-pandora-border/40 rounded-lg px-4 py-3 hover:border-pandora-border/60 transition-colors">
             <div>
               <div className="text-sm font-medium text-pandora-text/85 group-hover:text-pandora-gold transition-colors">{link.label}</div>
-              <div className="text-[11px] text-pandora-muted/60 truncate max-w-[200px]">{link.url}</div>
+              <div className="text-[11px] text-pandora-muted/60 truncate max-w-48">{link.url}</div>
             </div>
           </a>
         ))}

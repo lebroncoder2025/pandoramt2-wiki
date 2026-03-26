@@ -16,10 +16,11 @@ export function PageHeader({ title, description, icon }: { title: string; descri
   )
 }
 
-export function Card({ children, className = '', glow = false, onClick }: { children: ReactNode; className?: string; glow?: boolean; onClick?: () => void }) {
+export function Card({ children, className = '', glow = false, onClick, ...rest }: { children: ReactNode; className?: string; glow?: boolean; onClick?: () => void } & React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       onClick={onClick}
+      {...rest}
       className={`
         bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-5 md:p-6
         hover:border-pandora-border/60 transition-all duration-200 card-hover
@@ -117,10 +118,12 @@ export function InfoBox({ children, type = 'info' }: { children: ReactNode; type
 
 export function TabGroup({ tabs, activeTab, onTabChange }: { tabs: string[]; activeTab: number; onTabChange: (i: number) => void }) {
   return (
-    <div className="flex gap-0 border-b border-pandora-border/40 mb-6 overflow-x-auto">
+    <div role="tablist" className="flex gap-0 border-b border-pandora-border/40 mb-6 overflow-x-auto">
       {tabs.map((tab, i) => (
         <button
           key={tab}
+          role="tab"
+          aria-selected={i === activeTab}
           onClick={() => onTabChange(i)}
           className={`px-5 py-3 text-sm font-medium whitespace-nowrap transition-all duration-200 border-b-2 -mb-px ${
             i === activeTab

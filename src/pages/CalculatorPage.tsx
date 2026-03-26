@@ -18,8 +18,9 @@ function RankCalculator() {
       <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Kalkulator Rang</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div>
-          <label className="block text-[12px] text-pandora-muted/60 mb-1">Aktualne punkty rangi</label>
+          <label htmlFor="rank-points" className="block text-[12px] text-pandora-muted/60 mb-1">Aktualne punkty rangi</label>
           <input
+            id="rank-points"
             type="number"
             value={currentPoints}
             onChange={e => setCurrentPoints(Math.max(0, parseInt(e.target.value) || 0))}
@@ -27,8 +28,9 @@ function RankCalculator() {
           />
         </div>
         <div>
-          <label className="block text-[12px] text-pandora-muted/60 mb-1">Docelowa ranga</label>
+          <label htmlFor="target-rank" className="block text-[12px] text-pandora-muted/60 mb-1">Docelowa ranga</label>
           <select
+            id="target-rank"
             value={targetRank}
             onChange={e => setTargetRank(e.target.value)}
             className="w-full px-3.5 py-2 bg-pandora-dark/60 border border-pandora-border/40 rounded-lg text-sm text-pandora-text focus:border-pandora-gold/40 focus:outline-none transition-colors"
@@ -84,8 +86,9 @@ function UpgradeCalculator() {
       <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Kalkulator Ulepszeń</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <div>
-          <label className="block text-[12px] text-pandora-muted/60 mb-1">Aktualny poziom</label>
+          <label htmlFor="current-level" className="block text-[12px] text-pandora-muted/60 mb-1">Aktualny poziom</label>
           <select
+            id="current-level"
             value={currentLevel}
             onChange={e => setCurrentLevel(parseInt(e.target.value))}
             className="w-full px-3.5 py-2 bg-pandora-dark/60 border border-pandora-border/40 rounded-lg text-sm text-pandora-text focus:border-pandora-gold/40 focus:outline-none transition-colors"
@@ -96,8 +99,9 @@ function UpgradeCalculator() {
           </select>
         </div>
         <div>
-          <label className="block text-[12px] text-pandora-muted/60 mb-1">Docelowy poziom</label>
+          <label htmlFor="target-level" className="block text-[12px] text-pandora-muted/60 mb-1">Docelowy poziom</label>
           <select
+            id="target-level"
             value={targetLevel}
             onChange={e => setTargetLevel(parseInt(e.target.value))}
             className="w-full px-3.5 py-2 bg-pandora-dark/60 border border-pandora-border/40 rounded-lg text-sm text-pandora-text focus:border-pandora-gold/40 focus:outline-none transition-colors"
@@ -113,7 +117,7 @@ function UpgradeCalculator() {
               type="checkbox"
               checked={metalPlus}
               onChange={e => setMetalPlus(e.target.checked)}
-              className="w-4 h-4 accent-[#c8a44e]"
+              className="w-4 h-4 accent-pandora-gold"
             />
             <span className="text-[13px] text-pandora-muted/60">Magiczny Metal+ (+10%)</span>
           </label>
