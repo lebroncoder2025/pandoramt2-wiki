@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Shield } from 'lucide-react'
-import { PageHeader, DataTable, SectionTitle, InfoBox, TabGroup } from '../components/UI.tsx'
+import { PageHeader, DataTable, SectionTitle, InfoBox, TabGroup, SectionDivider } from '../components/UI.tsx'
 import { bonusTable, bonus67Table, costumeBonus } from '../data/serverData.ts'
 
 export default function EquipmentPage() {
@@ -55,12 +55,14 @@ export default function EquipmentPage() {
         </>
       )}
 
+      <SectionDivider />
+
       <SectionTitle>System Ulepszeń</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 hover:border-pandora-border/60 transition-colors">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Magiczny Metal+</h3>
           <p className="text-[13px] text-pandora-muted/60 mb-3">Daje dodatkowe +10% szansy na ulepszenie przedmiotu.</p>
-          <div className="space-y-1.5 text-[13px]">
+          <div className="space-y-2.5 text-[13px]">
             <p className="text-pandora-muted/60 text-[11px] uppercase tracking-widest font-medium mb-1">Wymagane materiały:</p>
             {['Kamień Kowala', 'Magiczna Ruda Miedzi', '100.000.000 Yang'].map(m => (
               <div key={m} className="flex items-center gap-2">
@@ -70,10 +72,10 @@ export default function EquipmentPage() {
             ))}
           </div>
         </div>
-        <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
+        <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 hover:border-pandora-border/60 transition-colors">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Bonus Switcher</h3>
           <p className="text-[13px] text-pandora-muted/60 mb-3">System szybkiej zamiany bonusów w Menu Gracza.</p>
-          <div className="space-y-1.5 text-[13px] text-pandora-muted/60">
+          <div className="space-y-2.5 text-[13px] text-pandora-muted/60">
             {['Możliwość zapisu szablonu', 'Ustawienie alternatywnych bonusów', 'Nie działa na kostiumy'].map(m => (
               <div key={m} className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-pandora-blue/40" />

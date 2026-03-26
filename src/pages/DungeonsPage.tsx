@@ -1,5 +1,5 @@
 import { Castle } from 'lucide-react'
-import { PageHeader, Card, Badge, InfoBox } from '../components/UI.tsx'
+import { PageHeader, Card, Badge, InfoBox, SectionDivider } from '../components/UI.tsx'
 import { dungeons } from '../data/serverData.ts'
 
 export default function DungeonsPage() {
@@ -15,9 +15,9 @@ export default function DungeonsPage() {
         <p className="text-sm"><strong>Powrót do Dungeonu:</strong> Jeśli zostaniesz wyrzucony, kliknij na NPC aby wrócić. Musisz być na tym samym channelu. Masz max. 2 minuty na powrót.</p>
       </InfoBox>
 
-      <div className="space-y-3">
+      <div className="space-y-5">
         {dungeons.map(d => (
-          <div key={d.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 hover:border-pandora-border/60 transition-colors">
+          <div key={d.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-6 hover:border-pandora-border/60 transition-colors">
             <div className="flex flex-col gap-3.5">
               <div className="flex flex-wrap items-center gap-2.5">
                 <h3 className="text-base font-bold text-pandora-text/85">{d.name}</h3>
@@ -29,7 +29,7 @@ export default function DungeonsPage() {
 
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{d.description}</p>
 
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-text/10">
                   <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Przepustka</p>
                   <p className="text-[13px] font-medium text-pandora-text/85">{d.ticket}</p>
@@ -56,7 +56,9 @@ export default function DungeonsPage() {
         ))}
       </div>
 
-      <Card className="mt-6">
+      <SectionDivider />
+
+      <Card className="mt-0">
         <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Tworzenie przepustek</h3>
         <div className="space-y-2 text-[13px] text-pandora-muted/60">
           <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">

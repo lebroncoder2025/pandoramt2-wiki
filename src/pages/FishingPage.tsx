@@ -12,7 +12,7 @@ export default function FishingPage() {
       />
 
       <SectionTitle>Podstawy łowienia</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <Card className="border-t-2 border-t-pandora-blue/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Wędka</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Startowa wędka +0. Za każde wyłowienie zdobywasz 1 Punkt Wędki. Na maks. punktach — ulepsz u Rybaka. Max poziom: <strong className="text-pandora-text/85">+9</strong>. Każdy szlach zwiększa różnorodność połowów.</p>
@@ -46,10 +46,10 @@ export default function FishingPage() {
       />
 
       <SectionTitle>Żetony Rybackie</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <Card className="border-t-2 border-t-pandora-green/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Wymiana na Żetony</h3>
-          <div className="space-y-1.5 text-[13px] text-pandora-muted/60">
+          <div className="space-y-2.5 text-[13px] text-pandora-muted/60">
             <p>Pospolite Ryby → 1x Żeton Rybacki</p>
             <p>Rzadkie Ryby → 2x Żeton Rybacki</p>
             <p>Najrzadsze Ryby → 3x Żeton Rybacki</p>

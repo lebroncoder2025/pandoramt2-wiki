@@ -1,5 +1,5 @@
 import { Sword } from 'lucide-react'
-import { PageHeader, Card, Badge } from '../components/UI.tsx'
+import { PageHeader, Card, Badge, SectionDivider } from '../components/UI.tsx'
 import { classes } from '../data/serverData.ts'
 
 const colorMap: Record<string, string> = {
@@ -29,10 +29,10 @@ export default function ClassesPage() {
         icon={<Sword className="w-5 h-5" />}
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {classes.map(cls => (
           <div key={cls.name} className={`bg-pandora-card/60 border rounded-lg overflow-hidden transition-all duration-200 ${colorMap[cls.color]}`}>
-            <div className="p-5">
+            <div className="p-6">
               <div className="flex items-center gap-3.5 mb-3">
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-base font-bold font-display ${bgColorMap[cls.color]}`}>
                   {cls.name[0]}
@@ -44,7 +44,7 @@ export default function ClassesPage() {
               </div>
               <p className="text-[13px] text-pandora-muted/60 mb-4 leading-relaxed">{cls.description}</p>
 
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {cls.subclasses.map(sub => (
                   <div key={sub.name} className="bg-pandora-dark/30 rounded-lg p-3.5 border border-pandora-border/20">
                     <div className="flex items-center justify-between mb-1.5">
@@ -60,9 +60,11 @@ export default function ClassesPage() {
         ))}
       </div>
 
-      <Card className="mt-6">
+      <SectionDivider />
+
+      <Card className="mt-0">
         <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Wskazówki przy wyborze klasy</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[13px] text-pandora-muted/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-[13px] text-pandora-muted/60">
           <div>
             <p className="font-medium text-pandora-text/85 mb-1">PvP (Gracz vs Gracz)</p>
             <p>Wojownik Umysł, Ninja Bliski, Sura Broń Magiczna — najlepsze wybory na PvP.</p>

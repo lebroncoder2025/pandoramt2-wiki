@@ -134,7 +134,7 @@ export default function Layout() {
                   {group.label}
                 </button>
                 
-                <div className={`space-y-0.5 overflow-hidden transition-all duration-200 ${expandedGroups.includes(group.label) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className={`space-y-1 overflow-hidden transition-all duration-200 ${expandedGroups.includes(group.label) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                   {group.items.map((item) => {
                     const isActive = location.pathname === item.path
                     const Icon = item.icon
@@ -145,7 +145,7 @@ export default function Layout() {
                         onClick={() => setSidebarOpen(false)}
                         aria-current={isActive ? 'page' : undefined}
                         className={`
-                          flex items-center gap-2.5 px-3 py-[7px] rounded-lg text-[13px] transition-all duration-150 relative
+                          flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] transition-all duration-150 relative
                           ${isActive
                             ? 'bg-pandora-gold/8 text-pandora-gold font-medium before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[3px] before:h-4 before:rounded-full before:bg-pandora-gold/60'
                             : 'text-pandora-text/55 hover:text-pandora-text/80 hover:bg-pandora-card/40'
@@ -164,7 +164,7 @@ export default function Layout() {
 
           {/* Links */}
           <div className="px-4 py-4 mt-auto border-t border-pandora-border/15">
-            <div className="space-y-0.5">
+            <div className="space-y-1">
               {[
                 { label: 'pandoramt2.pl', url: 'https://pandoramt2.pl' },
                 { label: 'Pobierz grę', url: 'https://pandoramt2.pl/main/download' },
@@ -172,7 +172,7 @@ export default function Layout() {
                 { label: 'Discord', url: 'https://discord.pandoramt2.pl' },
               ].map(link => (
                 <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-2 py-1.5 text-[11px] text-pandora-muted/40 hover:text-pandora-muted/70 transition-colors rounded">
+                  className="flex items-center gap-2 px-2 py-2 text-[11px] text-pandora-muted/40 hover:text-pandora-muted/70 transition-colors rounded">
                   <ExternalLink className="w-3 h-3" />
                   {link.label}
                 </a>
@@ -236,14 +236,14 @@ export default function Layout() {
         </header>
 
         {/* Content */}
-        <main id="main-content" className="flex-1 px-4 py-6 sm:px-5 sm:py-8 md:px-8 md:py-10 lg:px-12">
+        <main id="main-content" className="flex-1 px-5 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:px-14">
           <div key={location.pathname} className="max-w-5xl mx-auto animate-fade-in">
             <Outlet />
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="mt-auto border-t border-pandora-border/15 py-5 px-5">
+        <footer className="mt-auto border-t border-pandora-border/15 py-8 px-5">
           <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-[11px] text-pandora-muted/40 leading-relaxed">
               Nieoficjalny przewodnik PandoraMT2.pl © 2020–2026

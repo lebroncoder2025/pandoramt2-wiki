@@ -203,7 +203,7 @@ export default function EventsPage() {
     : events.filter(e => e.category === activeCategory)
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8">
+    <div className="max-w-5xl mx-auto space-y-10">
       <PageHeader
         title="Eventy Serwerowe"
         description="Oficjalny spis wszystkich eventów na PandoraMT2 — raty, bossy, drop i eventy społecznościowe."
@@ -219,14 +219,14 @@ export default function EventsPage() {
       </InfoBox>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
           { value: events.length, label: 'Eventów', color: 'text-pandora-gold' },
           { value: events.filter(e => e.type === 'Stały').length, label: 'Stałych', color: 'text-pandora-green' },
           { value: events.filter(e => e.type === 'Losowy').length, label: 'Losowych', color: 'text-pandora-orange' },
           { value: events.filter(e => e.type === 'Królestwo').length, label: 'Królestwa', color: 'text-pandora-blue' },
         ].map(s => (
-          <div key={s.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 text-center hover:border-pandora-border/60 transition-colors">
+          <div key={s.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 text-center hover:border-pandora-border/60 transition-colors">
             <div className={`text-2xl font-display font-bold ${s.color}`}>{s.value}</div>
             <div className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mt-1 font-medium">{s.label}</div>
           </div>
@@ -241,7 +241,7 @@ export default function EventsPage() {
       />
 
       {/* Events List */}
-      <div className="space-y-4">
+      <div className="space-y-5">
         {filteredEvents.map(event => {
           const isExpanded = expandedEvent === event.name
           return (
@@ -284,7 +284,7 @@ export default function EventsPage() {
       {/* Legend */}
       <Card>
         <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Legenda Typów Eventów</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             { type: 'Stały', color: 'green' as const, desc: 'Aktywowane regularnie przez administrację' },
             { type: 'Losowy', color: 'orange' as const, desc: 'Aktywowane losowo, ogłaszane na czacie' },

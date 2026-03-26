@@ -15,9 +15,9 @@ export default function MapsPage() {
         <p className="text-sm"><strong>Drop Sztabek Złota:</strong> Na mapach od Pustyni Wygnańców dropią najcenniejsze Sztabki (10KK). Wymagana max. 15 lvl różnicy do potwora. Od Doliny Śmierci różnica ta nie obowiązuje. VIP, Medal Szczęścia i Zwierzak zwiększają szansę.</p>
       </InfoBox>
 
-      <div className="space-y-3">
+      <div className="space-y-5">
         {maps.map((m, i) => (
-          <div key={m.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
+          <div key={m.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 hover:border-pandora-border/60 transition-colors">
             <div className="flex flex-col lg:flex-row lg:items-start gap-3.5">
               <div className="lg:w-1/3">
                 <div className="flex items-center gap-3 mb-2">
@@ -34,7 +34,7 @@ export default function MapsPage() {
                 <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{m.description}</p>
               </div>
 
-              <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
                   <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Bonus</p>
                   <p className="text-[13px] font-medium text-pandora-blue/80">{m.bonus}</p>

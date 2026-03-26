@@ -23,7 +23,7 @@ export default function PetSystemPage() {
       />
 
       <SectionTitle>Szkolenie Umiejętności</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <Card className="border-t-2 border-t-pandora-green/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Zwoje Tresury</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Od M1 szkolenie wymaga Zwojów. Szansa na wbicie: <strong className="text-pandora-text/85">50%</strong>. Zwoje losowe ze Skrzynki Tresury.</p>

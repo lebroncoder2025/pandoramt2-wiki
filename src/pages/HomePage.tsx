@@ -48,7 +48,7 @@ const highlights = [
 
 export default function HomePage() {
   return (
-    <div className="space-y-14">
+    <div className="space-y-16">
       {/* Hero */}
       <section className="py-8 md:py-12 relative">
         {/* Subtle ambient glow */}
@@ -78,9 +78,9 @@ export default function HomePage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map(s => (
-            <div key={s.label} className="bg-pandora-card/60 rounded-lg p-4 border border-pandora-border/40 border-t-2 border-t-pandora-gold/20 hover:border-pandora-border/60 transition-colors">
+            <div key={s.label} className="bg-pandora-card/60 rounded-lg p-5 border border-pandora-border/40 border-t-2 border-t-pandora-gold/20 hover:border-pandora-border/60 transition-colors">
               <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-pandora-muted/60 mb-1">{s.label}</div>
               <div className="text-xl font-display font-bold text-pandora-gold">{s.value}</div>
             </div>
@@ -91,13 +91,13 @@ export default function HomePage() {
 
       {/* Starting Equipment */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-4 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-6 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Ekwipunek Startowy
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {startingItems.map(item => (
-            <div key={item.text} className="flex items-center gap-3 bg-pandora-card/60 rounded-lg px-4 py-3 border border-pandora-border/40 hover:border-pandora-border/60 transition-colors">
+            <div key={item.text} className="flex items-center gap-3 bg-pandora-card/60 rounded-lg px-4 py-3.5 border border-pandora-border/40 hover:border-pandora-border/60 transition-colors">
               <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/50 shrink-0" />
               <div>
                 <span className="text-sm text-pandora-text/85 font-medium">{item.text}</span>
@@ -110,16 +110,16 @@ export default function HomePage() {
 
       {/* Server Highlights */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-4 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-6 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           O Serwerze
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {highlights.map((item, i) => {
             const accents = ['border-t-pandora-gold/30', 'border-t-pandora-blue/30', 'border-t-pandora-green/30', 'border-t-pandora-purple/30', 'border-t-pandora-red/30', 'border-t-pandora-orange/30']
             return (
-            <div key={item.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${accents[i]} rounded-lg p-5 hover:border-pandora-border/60 transition-colors`}>
-              <h3 className="text-sm font-semibold text-pandora-text/85 mb-1.5">{item.title}</h3>
+            <div key={item.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${accents[i]} rounded-lg p-6 hover:border-pandora-border/60 transition-colors`}>
+              <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">{item.title}</h3>
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{item.desc}</p>
             </div>
             )
@@ -129,17 +129,17 @@ export default function HomePage() {
 
       {/* Events Preview */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-4 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-6 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Eventy Serwerowe
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
           {[
             { name: 'Raty Serwerowe', type: 'Stały', color: 'text-pandora-green', accent: 'border-t-pandora-green/30', desc: 'Zwiększenie Exp, Drop i Yang' },
             { name: 'Deszcz Metinów / Zuo', type: 'Losowy', color: 'text-pandora-orange', accent: 'border-t-pandora-orange/30', desc: 'Metiny i Bossy na mapie' },
             { name: 'Kosmiczna Inwazja', type: 'Community', color: 'text-pandora-purple', accent: 'border-t-pandora-purple/30', desc: '100K przedmiotów = raty' },
           ].map(e => (
-            <div key={e.name} className={`bg-pandora-card/60 rounded-lg p-4 border border-pandora-border/40 border-t-2 ${e.accent} hover:border-pandora-border/60 transition-colors`}>
+            <div key={e.name} className={`bg-pandora-card/60 rounded-lg p-5 border border-pandora-border/40 border-t-2 ${e.accent} hover:border-pandora-border/60 transition-colors`}>
               <div className={`text-[10px] font-bold uppercase tracking-widest ${e.color} mb-2`}>{e.type}</div>
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-1">{e.name}</h3>
               <p className="text-[12px] text-pandora-muted/60">{e.desc}</p>
@@ -153,18 +153,18 @@ export default function HomePage() {
 
       {/* Guide Navigation */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-4 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-6 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Przewodnik
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {guides.map(f => {
             const Icon = f.icon
             return (
               <Link
                 key={f.path}
                 to={f.path}
-                className="group flex items-center gap-3.5 bg-pandora-card/40 border border-pandora-border/25 rounded-lg px-4 py-3.5 hover:border-pandora-border/60 hover:bg-pandora-card/60 transition-all"
+                className="group flex items-center gap-3.5 bg-pandora-card/40 border border-pandora-border/25 rounded-lg px-5 py-4 hover:border-pandora-border/60 hover:bg-pandora-card/60 transition-all"
               >
                 <Icon className="w-4 h-4 text-pandora-muted/50 group-hover:text-pandora-gold/80 shrink-0 transition-colors" strokeWidth={1.5} />
                 <div className="min-w-0">
@@ -179,7 +179,7 @@ export default function HomePage() {
       </section>
 
       {/* Download */}
-      <section className="bg-pandora-card/40 border border-pandora-border/30 rounded-xl p-6">
+      <section className="bg-pandora-card/40 border border-pandora-border/30 rounded-xl p-7 md:p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Klient gry</h3>

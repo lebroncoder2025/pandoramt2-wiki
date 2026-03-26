@@ -1,5 +1,5 @@
 import { Skull } from 'lucide-react'
-import { PageHeader, SectionTitle, InfoBox } from '../components/UI.tsx'
+import { PageHeader, SectionTitle, InfoBox, SectionDivider } from '../components/UI.tsx'
 import { bosses } from '../data/serverData.ts'
 
 export default function BossesPage() {
@@ -12,9 +12,9 @@ export default function BossesPage() {
       />
 
       <SectionTitle>Bossy na Mapach</SectionTitle>
-      <div className="space-y-2 mb-8">
+      <div className="space-y-4 mb-8">
         {bosses.map(b => (
-          <div key={b.name} className={`bg-pandora-card/60 border border-pandora-border/40 border-l-2 rounded-lg p-4 hover:border-pandora-border/60 transition-colors group ${
+          <div key={b.name} className={`bg-pandora-card/60 border border-pandora-border/40 border-l-2 rounded-lg p-5 hover:border-pandora-border/60 transition-colors group ${
               b.respawn.includes('48') ? 'border-l-pandora-red/50' : b.respawn.includes('12') ? 'border-l-pandora-orange/50' : b.respawn.includes('60') ? 'border-l-pandora-purple/50' : 'border-l-pandora-green/50'
             }`}>
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
@@ -39,6 +39,8 @@ export default function BossesPage() {
           </div>
         ))}
       </div>
+
+      <SectionDivider />
 
       <InfoBox type="info">
         <p className="text-sm">Dane o bossach pochodzą z oficjalnej <a href="https://forum.pandoramt2.pl/topic/31300-s2-prezentacja-serwera/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold underline">Prezentacji Serwera</a>. World bossy (Infernus, Balathor) wymagają dużej grupy graczy.</p>
