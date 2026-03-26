@@ -80,7 +80,7 @@ const tips = [
 
 export default function TipsPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Porady & Skróty"
         description="Przydatne wskazówki, skróty klawiszowe i porady dla nowych i zaawansowanych graczy."

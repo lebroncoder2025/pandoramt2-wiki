@@ -166,7 +166,7 @@ export default function CalculatorPage() {
   const [tab, setTab] = useState(0)
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Kalkulator"
         description="Kalkulator rang, ulepszeń i potrzebnych materiałów."

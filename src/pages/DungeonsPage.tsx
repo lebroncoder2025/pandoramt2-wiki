@@ -4,7 +4,7 @@ import { dungeons } from '../data/serverData.ts'
 
 export default function DungeonsPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Dungeony"
         description="Wszystkie instancje — wymagania wejścia, bonusy, nagrody i przepustki."

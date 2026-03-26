@@ -4,7 +4,7 @@ import { seafood } from '../data/serverData.ts'
 
 export default function FishingPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Rybołówstwo"
         description="System wędek, łowienia, Owoców Morza, Żetonów Rybackich i Pirackiej Monety."

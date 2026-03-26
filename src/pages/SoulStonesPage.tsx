@@ -7,7 +7,7 @@ export default function SoulStonesPage() {
   const [tab, setTab] = useState(0)
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Kamienie Dusz"
         description="Zwykłe i Legendarne Kamienie Dusz — bonusy, tworzenie i ulepszanie."

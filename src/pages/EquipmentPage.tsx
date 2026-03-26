@@ -106,7 +106,7 @@ export default function EquipmentPage() {
   const [armorClass, setArmorClass] = useState(0)
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Ekwipunek & Bonusy"
         description="Bronie, zbroje, hełmy, buty, tarcze i biżuteria — pełna progresja tierów oraz tabele bonusów."

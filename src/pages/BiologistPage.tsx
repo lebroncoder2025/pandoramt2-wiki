@@ -7,7 +7,7 @@ export default function BiologistPage() {
   const [tab, setTab] = useState(0)
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Biolog & Kolekcjoner"
         description="Badania Biologa, Badania Rybaka i system Kolekcjonera — wszystkie misje i nagrody."

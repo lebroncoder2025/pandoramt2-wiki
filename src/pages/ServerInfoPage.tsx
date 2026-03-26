@@ -4,7 +4,7 @@ import { serverInfo, startingEquipment } from '../data/serverData.ts'
 
 export default function ServerInfoPage() {
   return (
-    <div className="max-w-5xl mx-auto space-y-16">
+    <div className="space-y-8">
       <PageHeader
         title="Informacje o Serwerze"
         description="Podstawowe parametry serwera PandoraMT2 — typ, limity, waluty, królestwa i systemy."

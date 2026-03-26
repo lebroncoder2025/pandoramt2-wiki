@@ -7,7 +7,7 @@ export default function SkillsPage() {
   const [tab, setTab] = useState(0)
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Umiejętności"
         description="Dowodzenie, Polimorfia, szkolenie umiejętności i księgi."

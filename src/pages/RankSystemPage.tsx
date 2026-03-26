@@ -4,7 +4,7 @@ import { ranks, lifefruits } from '../data/serverData.ts'
 
 export default function RankSystemPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="System Rang"
         description="Od Parobka po Cesarza — zdobywaj punkty rangi i otrzymuj bonusy PvP."

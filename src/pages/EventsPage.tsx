@@ -186,7 +186,7 @@ export default function EventsPage() {
     : events.filter(e => e.category === activeCategory)
 
   return (
-    <div className="max-w-5xl mx-auto space-y-14">
+    <div className="space-y-8">
       <PageHeader
         title="Eventy Serwerowe"
         description="Oficjalny spis wszystkich eventów na PandoraMT2 — raty, bossy, drop i eventy społecznościowe."

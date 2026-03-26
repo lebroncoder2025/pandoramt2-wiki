@@ -4,7 +4,7 @@ import { maps } from '../data/serverData.ts'
 
 export default function MapsPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Mapy"
         description="Przegląd wszystkich unikalnych map na serwerze — wymagane poziomy, bossy, bonusy i Metiny."

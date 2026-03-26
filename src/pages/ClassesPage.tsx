@@ -22,7 +22,7 @@ const badgeColorMap: Record<string, 'red' | 'blue' | 'purple' | 'green'> = {
 
 export default function ClassesPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Klasy Postaci"
         description="Na PandoraMT2 dostępne są 4 podstawowe klasy, każda z dwoma podklasami."

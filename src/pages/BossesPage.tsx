@@ -4,7 +4,7 @@ import { bosses } from '../data/serverData.ts'
 
 export default function BossesPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Bossy & Questy"
         description="Wszyscy bossy z lokacjami, czasami respawnu i nagrodami."

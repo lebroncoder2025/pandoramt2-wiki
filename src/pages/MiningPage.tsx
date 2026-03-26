@@ -4,7 +4,7 @@ import { miningStats } from '../data/serverData.ts'
 
 export default function MiningPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="Górnictwo"
         description="System wydobycia — Kilofy, Sztabki Złota, Tajemnicze Kryształy i Żyły Złota."

@@ -4,7 +4,7 @@ import { petSkills } from '../data/serverData.ts'
 
 export default function PetSystemPage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="">
       <PageHeader
         title="System Zwierzaków"
         description="Twój pupil zdobywa poziomy, uczy się umiejętności i wzmacnia twoją postać."

@@ -538,7 +538,7 @@ export default function TournamentsPage() {
   })
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
+    <div className="">
       <PageHeader
         title="Turnieje Gildii"
         description="Kompletna historia wszystkich edycji Turnieju Gildii na serwerze PandoraMT2. Każda edycja zawiera pełną listę uczestników, wyniki walk i mistrza turnieju."
