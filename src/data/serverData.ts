@@ -31,22 +31,22 @@ export const startingEquipment = [
 export const maps = [
   {
     name: 'Atlantyda V1', level: 75, bonus: 'Silny przeciwko Diabłom',
-    bosses: 'Lodowa Wiedźma (co 4h)', metins: 'Brak',
+    bosses: 'Lodowa Wiedźma (co 4 godz.)', metins: 'Brak',
     description: 'Pierwsza wersja Atlantydy dla graczy od 75 poziomu.'
   },
   {
     name: 'Atlantyda V2', level: 95, bonus: 'Silny przeciwko Diabłom',
-    bosses: '4x Generał Yonghan (2h), Silna Lodowa Wiedźma (6h)', metins: 'Brak',
+    bosses: '4x Generał Yonghan (2 godz.), Silna Lodowa Wiedźma (6 godz.)', metins: 'Brak',
     description: 'Trudniejsza wersja Atlantydy z potężniejszymi bossami.'
   },
   {
     name: 'Dolina Śmierci', level: 110, bonus: 'Silny przeciwko Diabłom',
-    bosses: 'Minotaur (1h)', metins: '10x Metin Zagłady (1h)',
+    bosses: 'Minotaur (1 godz.)', metins: '10x Metin Zagłady (1 godz.)',
     description: 'Niebezpieczna dolina pełna potężnych diabłów.'
   },
   {
     name: 'Pustynia Wygnańców', level: 150, bonus: 'Silny przeciwko Mistykom',
-    bosses: 'Elit. Olbrzymi Żółw (1h)', metins: '4x Metin Zbawienia (1h), 4x Metin Demona (1h)',
+    bosses: 'Elit. Olbrzymi Żółw (1 godz.)', metins: '4x Metin Zbawienia (1 godz.), 4x Metin Demona (1 godz.)',
     description: 'Rozległa pustynia z Mistykami. Dropią tu najcenniejsze Sztabki.'
   },
   {
@@ -99,15 +99,15 @@ export const dungeons = [
 ]
 
 export const bosses = [
-  { name: 'Wódz Orków', map: 'Dolina Orków', respawn: '30 min', reward: '40M Yang + Pierścień Doświadczenia', killCount: 1 },
-  { name: 'Królowa Pająków', map: 'Loch Pająków', respawn: '30 min', reward: '50M Yang + Rękawica Złodzieja', killCount: 1 },
-  { name: 'Olbrzymi Żółw', map: 'Pustynia', respawn: '30 min', reward: '60M Yang + Szczęśliwa Złota Moneta', killCount: 1 },
-  { name: 'Ognisty Król', map: 'Ognista Ziemia', respawn: '30 min', reward: '70M Yang + Zmiana 6/7 Bon + Owoc Życia III', killCount: 1 },
-  { name: 'Dziewięć Ogonów', map: 'Góra Sohan', respawn: '30 min', reward: '80M Yang + Dodanie 6/7 Bon + Owoc Życia III', killCount: 1 },
-  { name: 'Zjawa Żółtego Tygrysa', map: 'Świątynia Hwang', respawn: '30 min', reward: '80M Yang + Tęczowy Kamień + Owoc Życia III', killCount: 1 },
-  { name: 'Minotaur', map: 'Dolina Śmierci', respawn: '60 min', reward: '100M Yang + Bryłka Złota + Owoc Życia IV', killCount: 1 },
-  { name: 'Infernus', map: 'Arena Infernusa', respawn: '12 godz.', reward: 'Legendarny drop (pancerze, bronie, kamienie)', killCount: 1 },
-  { name: 'Balathor', map: 'Grota Balathora', respawn: '48 godz.', reward: 'Najlepszy drop w grze', killCount: 1 },
+  { name: 'Wódz Orków', map: 'Dolina Orków', level: 30, respawn: '30 min', reward: '40M Yang + Pierśćień Doświadczenia', killCount: 1 },
+  { name: 'Królowa Pąjaków', map: 'Loch Pąjaków', level: 40, respawn: '30 min', reward: '50M Yang + Rękawica Złodzieja', killCount: 1 },
+  { name: 'Olbrzymi Żółw', map: 'Pustynia', level: 60, respawn: '30 min', reward: '60M Yang + Szczęśliwa Złota Moneta', killCount: 1 },
+  { name: 'Ognisty Król', map: 'Ognista Ziemia', level: 70, respawn: '30 min', reward: '70M Yang + Zmiana 6/7 Bon + Owoc Życia III', killCount: 1 },
+  { name: 'Dziewięć Ogońów', map: 'Góra Sohan', level: 80, respawn: '30 min', reward: '80M Yang + Dodanie 6/7 Bon + Owoc Życia III', killCount: 1 },
+  { name: 'Zjawa Żółtego Tygrysa', map: 'Świątynia Hwang', level: 80, respawn: '30 min', reward: '80M Yang + Tęczowy Kamień + Owoc Życia III', killCount: 1 },
+  { name: 'Minotaur', map: 'Dolina Śmierci', level: 110, respawn: '60 min', reward: '100M Yang + Bryłka Złota + Owoc Życia IV', killCount: 1 },
+  { name: 'Infernus', map: 'Arena Infernusa', level: 110, respawn: '12 godz.', reward: 'Legendarny drop (pancerze, bronie, kamienie)', killCount: 1 },
+  { name: 'Balathor', map: 'Grota Balathora', level: 150, respawn: '48 godz.', reward: 'Najlepszy drop w grze', killCount: 1 },
 ]
 
 export const bonusTable = [
@@ -486,7 +486,7 @@ export const equipmentArmors = [
       { name: 'Zbroja Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
       { name: 'Zbroja Smoka', level: 75, tier: 'Ulepszony' },
       { name: 'Zbroja Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
-      { name: 'Zbroja Gromu', level: 120, tier: 'Epikowy' },
+      { name: 'Zbroja Gromu', level: 120, tier: 'Rzadki' },
       { name: 'Zbroja Upadłego Anioła', level: 150, tier: 'Epikowy' },
       { name: 'Zbroja Smoczego Boga', level: 175, tier: 'Legendarny' },
       { name: 'Mityczna Zbroja Wojownika', level: 200, tier: 'Mityczny' },
@@ -499,7 +499,7 @@ export const equipmentArmors = [
       { name: 'Skóra Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
       { name: 'Skóra Smoka', level: 75, tier: 'Ulepszony' },
       { name: 'Skóra Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
-      { name: 'Skóra Gromu', level: 120, tier: 'Epikowy' },
+      { name: 'Skóra Gromu', level: 120, tier: 'Rzadki' },
       { name: 'Skóra Upadłego Anioła', level: 150, tier: 'Epikowy' },
       { name: 'Skóra Smoczego Boga', level: 175, tier: 'Legendarny' },
       { name: 'Mityczna Skóra Ninja', level: 200, tier: 'Mityczny' },
@@ -512,7 +512,7 @@ export const equipmentArmors = [
       { name: 'Szata Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
       { name: 'Szata Smoka', level: 75, tier: 'Ulepszony' },
       { name: 'Szata Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
-      { name: 'Szata Gromu', level: 120, tier: 'Epikowy' },
+      { name: 'Szata Gromu', level: 120, tier: 'Rzadki' },
       { name: 'Szata Upadłego Anioła', level: 150, tier: 'Epikowy' },
       { name: 'Szata Smoczego Boga', level: 175, tier: 'Legendarny' },
       { name: 'Mityczna Szata Sury', level: 200, tier: 'Mityczny' },
@@ -525,7 +525,7 @@ export const equipmentArmors = [
       { name: 'Kimono Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
       { name: 'Kimono Smoka', level: 75, tier: 'Ulepszony' },
       { name: 'Kimono Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
-      { name: 'Kimono Gromu', level: 120, tier: 'Epikowy' },
+      { name: 'Kimono Gromu', level: 120, tier: 'Rzadki' },
       { name: 'Kimono Upadłego Anioła', level: 150, tier: 'Epikowy' },
       { name: 'Kimono Smoczego Boga', level: 175, tier: 'Legendarny' },
       { name: 'Mityczne Kimono Szamana', level: 200, tier: 'Mityczny' },
@@ -537,7 +537,7 @@ export const equipmentHelmets = [
   { name: 'Hełm Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
   { name: 'Hełm Smoka', level: 75, tier: 'Ulepszony' },
   { name: 'Hełm Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
-  { name: 'Hełm Gromu', level: 120, tier: 'Epikowy' },
+  { name: 'Hełm Gromu', level: 120, tier: 'Rzadki' },
   { name: 'Hełm Upadłego Anioła', level: 150, tier: 'Epikowy' },
   { name: 'Hełm Smoczego Boga', level: 175, tier: 'Legendarny' },
   { name: 'Mityczny Hełm', level: 200, tier: 'Mityczny' },
@@ -548,7 +548,7 @@ export const equipmentBoots = [
   { name: 'Buty Ognistego Ptaka', level: 50, tier: 'Podstawowy' },
   { name: 'Buty Smoka', level: 75, tier: 'Ulepszony' },
   { name: 'Buty Ze Skóry Smoka', level: 100, tier: 'Rzadki' },
-  { name: 'Buty Gromu', level: 120, tier: 'Epikowy' },
+  { name: 'Buty Gromu', level: 120, tier: 'Rzadki' },
   { name: 'Buty Upadłego Anioła', level: 150, tier: 'Epikowy' },
   { name: 'Buty Smoczego Boga', level: 175, tier: 'Legendarny' },
   { name: 'Mityczne Buty', level: 200, tier: 'Mityczny' },
@@ -558,7 +558,7 @@ export const equipmentShields = [
   { name: 'Tarcza Bojowa', level: 40, tier: 'Podstawowy', classes: 'Wojownik, Sura' },
   { name: 'Tarcza Smoka', level: 75, tier: 'Ulepszony', classes: 'Wojownik, Sura' },
   { name: 'Tarcza Ze Skóry Smoka', level: 100, tier: 'Rzadki', classes: 'Wojownik, Sura' },
-  { name: 'Tarcza Gromu', level: 120, tier: 'Epikowy', classes: 'Wojownik, Sura' },
+  { name: 'Tarcza Gromu', level: 120, tier: 'Rzadki', classes: 'Wojownik, Sura' },
   { name: 'Tarcza Upadłego Anioła', level: 150, tier: 'Epikowy', classes: 'Wojownik, Sura' },
   { name: 'Mityczna Tarcza', level: 200, tier: 'Mityczny', classes: 'Wojownik, Sura' },
 ]
@@ -568,10 +568,10 @@ export const equipmentJewelry = [
   { type: 'Naszyjnik', name: 'Naszyjnik Smoka', level: 85, tier: 'Ulepszony' },
   { type: 'Naszyjnik', name: 'Diamentowy Naszyjnik', level: 115, tier: 'Rzadki' },
   { type: 'Naszyjnik', name: 'Mityczny Naszyjnik', level: 200, tier: 'Mityczny' },
-  { type: 'Bransoletka', name: 'Bransoletka Z Niebiańskich Łez', level: 40, tier: 'Podstawowy' },
-  { type: 'Bransoletka', name: 'Bransoleta Smoka', level: 85, tier: 'Ulepszony' },
-  { type: 'Bransoletka', name: 'Diamentowa Bransoleta', level: 115, tier: 'Rzadki' },
-  { type: 'Bransoletka', name: 'Mityczna Bransoleta', level: 200, tier: 'Mityczny' },
+  { type: 'Bransoleta', name: 'Bransoleta Z Niebiańskich Łez', level: 40, tier: 'Podstawowy' },
+  { type: 'Bransoleta', name: 'Bransoleta Smoka', level: 85, tier: 'Ulepszony' },
+  { type: 'Bransoleta', name: 'Diamentowa Bransoleta', level: 115, tier: 'Rzadki' },
+  { type: 'Bransoleta', name: 'Mityczna Bransoleta', level: 200, tier: 'Mityczny' },
   { type: 'Kolczyki', name: 'Kolczyki Z Niebiańskich Łez', level: 40, tier: 'Podstawowy' },
   { type: 'Kolczyki', name: 'Kolczyki Smoka', level: 85, tier: 'Ulepszony' },
   { type: 'Kolczyki', name: 'Diamentowe Kolczyki', level: 115, tier: 'Rzadki' },
