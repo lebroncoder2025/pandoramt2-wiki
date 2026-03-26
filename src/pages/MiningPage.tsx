@@ -12,7 +12,7 @@ export default function MiningPage() {
       />
 
       <SectionTitle>Podstawy Górnictwa</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         <Card className="border-t-2 border-t-pandora-blue/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Kilof</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Startowy na +0. Zbieraj Punkty Kilofa podczas kopania. Na maks. punktach ulepsz u Deokbae. Max: <strong className="text-pandora-text/85">+9</strong>. Każdy lvl daje +3% do +30% efektywności.</p>
@@ -46,7 +46,7 @@ export default function MiningPage() {
       />
 
       <SectionTitle>Bonusowe elementy</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card className="border-t-2 border-t-pandora-orange/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Skrzynia Górnika</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Bonusowy drop podczas kopania. Szansa rośnie z każdym poziomem kilofa. Zawiera wartościowe przedmioty.</p>

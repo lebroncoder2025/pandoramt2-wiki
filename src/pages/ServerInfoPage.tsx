@@ -4,14 +4,14 @@ import { serverInfo, startingEquipment } from '../data/serverData.ts'
 
 export default function ServerInfoPage() {
   return (
-    <div className="max-w-5xl mx-auto space-y-12">
+    <div className="max-w-5xl mx-auto space-y-16">
       <PageHeader
         title="Informacje o Serwerze"
         description="Podstawowe parametry serwera PandoraMT2 — typ, limity, waluty, królestwa i systemy."
         icon={<Info className="w-5 h-5" />}
       />
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
         <StatBox label="Typ serwera" value={serverInfo.type} icon={<Server className="w-4 h-4" />} />
         <StatBox label="Maks. poziom" value={String(serverInfo.maxLevel)} icon={<Crown className="w-4 h-4" />} />
         <StatBox label="Maks. statystyki" value={String(serverInfo.maxStats)} icon={<Swords className="w-4 h-4" />} />
@@ -23,9 +23,9 @@ export default function ServerInfoPage() {
       </div>
 
       <SectionTitle>Królestwa</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {serverInfo.kingdoms.map((k, i) => (
-          <div key={k} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 flex items-center gap-3.5 hover:border-pandora-border/60 transition-colors">
+          <div key={k} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-6 flex items-center gap-4 hover:border-pandora-border/60 transition-colors">
             <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-base font-bold font-display ${
               i === 0 ? 'bg-pandora-red/8 text-pandora-red/80' : i === 1 ? 'bg-pandora-blue/8 text-pandora-blue/80' : 'bg-pandora-gold/8 text-pandora-gold/80'
             }`}>
@@ -53,15 +53,15 @@ export default function ServerInfoPage() {
           Wszystkie informacje na tej stronie pochodzą z oficjalnej <a href="https://forum.pandoramt2.pl/topic/31300-s2-prezentacja-serwera/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold hover:underline font-semibold">Prezentacji Serwera</a> na forum PandoraMT2.
         </p>
       </InfoBox>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {[
           { title: 'Drop Sztabek Złota', desc: 'Losowe Sztabki Złota (2KK / 5KK / 10KK) dropią z potworów. Na mapach od Pustyni Wygnańców dropią tylko najcenniejsze. Wymagana max. 15 poziomów różnicy do potwora (nie dotyczy map od Doliny Śmierci włącznie). VIP, Medal Szczęścia i Zwierzak zwiększają szansę.', accent: 'border-t-pandora-gold/20' },
           { title: 'Bonusy 6-7', desc: 'Przedmioty mogą mieć maks. 5 bonusów zwykłych + 2 dodatkowe bonusy (6-7) o stałych wartościach. Maks. wartości wyświetlają się na złoty kolor. Bloku Ciosów nie da się wybonować — występuje tylko jako bon wbudowany w przedmioty lub Kamienie Dusz.', accent: 'border-t-pandora-blue/20' },
           { title: 'Magiczny Metal+', desc: 'Daje +10% szansy na ulepszanie. Wymaga: Kamień Kowala + Magiczna Ruda Miedzi + 100.000.000 Yang. Kamienie zdobywane z silniejszych Bossów oraz Kamieni Metin.', accent: 'border-t-pandora-purple/20' },
           { title: 'Sklepy Offline & Wyszukiwarka', desc: 'Sklepy otwieramy Tobołkiem z handlarki różności. Możemy ustawiać dokładną pozycję sklepu. Wyszukiwarka sklepów na krawędzi klienta z opcją ignorowania stopnia ulepszenia. VIP pozwala na dekorowanie sklepu.', accent: 'border-t-pandora-green/20' },
         ].map(m => (
-          <div key={m.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${m.accent} rounded-lg p-5 hover:border-pandora-border/60 transition-colors`}>
-            <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">{m.title}</h3>
+          <div key={m.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${m.accent} rounded-lg p-6 hover:border-pandora-border/60 transition-colors`}>
+            <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">{m.title}</h3>
             <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{m.desc}</p>
           </div>
         ))}
@@ -71,17 +71,17 @@ export default function ServerInfoPage() {
       <InfoBox type="info">
         <p className="text-sm leading-relaxed">Klient gry waży ok. <strong>3.56 GB</strong>. Pandora działa na większości komputerów — nawet starszych. Wymagany system: <strong>Windows 8.1</strong> lub nowszy.</p>
       </InfoBox>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
         {[
-          { label: 'Procesor', value: '1 GHz+', icon: Cpu },
+          { label: 'CPU', value: '1 GHz+', icon: Cpu },
           { label: 'RAM', value: '512 MB', icon: MemoryStick },
           { label: 'Dysk', value: '2 GB wolnego', icon: HardDrive },
           { label: 'Grafika', value: '32 MB VRAM', icon: Monitor },
         ].map(r => {
           const Icon = r.icon
           return (
-            <div key={r.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 text-center hover:border-pandora-border/60 transition-colors">
-              <Icon className="w-5 h-5 text-pandora-gold/60 mx-auto mb-2" />
+            <div key={r.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-6 text-center hover:border-pandora-border/60 transition-colors">
+              <Icon className="w-5 h-5 text-pandora-gold/60 mx-auto mb-3" />
               <div className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-1">{r.label}</div>
               <div className="text-sm font-bold text-pandora-text/85">{r.value}</div>
             </div>
@@ -90,7 +90,7 @@ export default function ServerInfoPage() {
       </div>
 
       <SectionTitle>Oficjalne Linki</SectionTitle>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         {[
           { label: 'Strona główna', url: serverInfo.website },
           { label: 'Forum', url: serverInfo.forum },

@@ -88,7 +88,7 @@ export default function TipsPage() {
       />
 
       <SectionTitle>Skróty Klawiszowe</SectionTitle>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
         {shortcuts.map(s => (
           <div key={s.key} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
             <kbd className="inline-block px-2 py-0.5 bg-pandora-dark/60 rounded text-pandora-gold/80 font-mono text-[12px] mb-1.5 border border-pandora-gold/15">
@@ -102,11 +102,11 @@ export default function TipsPage() {
       <SectionDivider />
 
       <SectionTitle>Porady</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         {tips.map(t => (
           <Card key={t.title}>
             <h3 className="text-sm font-semibold text-pandora-text/85 mb-2.5">{t.title}</h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3.5">
               {t.items.map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-[13px] text-pandora-muted/60">
                   <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/30 mt-1.5 shrink-0" />
@@ -121,7 +121,7 @@ export default function TipsPage() {
       <SectionDivider />
 
       <SectionTitle>Poradnik dla Nowych Graczy</SectionTitle>
-      <div className="space-y-5">
+      <div className="space-y-7">
         <InfoBox type="tip">
           <h3 className="font-semibold mb-2">Krok 1: Start (lvl 1–30)</h3>
           <p className="text-sm">Wykorzystaj ekwipunek startowy (+9). Rób questy, zabijaj potwory na mapach M1. Użyj Peleryn Męstwa do ochrony. Koń 21 lvl daje szybkość.</p>

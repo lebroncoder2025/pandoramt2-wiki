@@ -2,6 +2,16 @@ import { Castle } from 'lucide-react'
 import { PageHeader, Card, Badge, InfoBox, SectionDivider } from '../components/UI.tsx'
 import { dungeons } from '../data/serverData.ts'
 
+const dungeonImages: Record<string, string> = {
+  'Wieża Demonów': 'https://i.imgur.com/fHVkZc6.png',
+  'Komnata Pająków': 'https://i.imgur.com/tznOja0.png',
+  'Komnata Smoka': 'https://i.imgur.com/i1vd1on.png',
+  'Piekielne Katakumby': 'https://i.imgur.com/YTboKCE.png',
+  'Grota Dżinna': 'https://i.imgur.com/FFO6NmW.png',
+  'Mityczna Komnata': 'https://i.imgur.com/hQ3Fh8f.png',
+  'Świątynia Andun': 'https://i.imgur.com/pfzOKbf.png',
+}
+
 export default function DungeonsPage() {
   return (
     <div className="max-w-5xl mx-auto">
@@ -15,10 +25,10 @@ export default function DungeonsPage() {
         <p className="text-sm"><strong>Powrót do Dungeonu:</strong> Jeśli zostaniesz wyrzucony, kliknij na NPC aby wrócić. Musisz być na tym samym channelu. Masz max. 2 minuty na powrót.</p>
       </InfoBox>
 
-      <div className="space-y-5">
+      <div className="space-y-7">
         {dungeons.map(d => (
-          <div key={d.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-6 hover:border-pandora-border/60 transition-colors">
-            <div className="flex flex-col gap-3.5">
+          <div key={d.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-7 hover:border-pandora-border/60 transition-colors">
+            <div className="flex flex-col gap-5">
               <div className="flex flex-wrap items-center gap-2.5">
                 <h3 className="text-base font-bold text-pandora-text/85">{d.name}</h3>
                 <Badge color={d.level >= 200 ? 'red' : d.level >= 120 ? 'orange' : d.level >= 100 ? 'blue' : 'green'}>
@@ -29,9 +39,15 @@ export default function DungeonsPage() {
 
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{d.description}</p>
 
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-text/10">
-                  <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Przepustka</p>
+              {dungeonImages[d.name] && (
+                <div className="rounded-lg overflow-hidden border border-pandora-border/20">
+                  <img src={dungeonImages[d.name]} alt={d.name} className="w-full h-auto object-cover" loading="lazy" />
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-pandora-dark/30 rounded-lg p-4 border border-pandora-border/20 border-l-2 border-l-pandora-text/10">
+                  <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-1">Przepustka</p>
                   <p className="text-[13px] font-medium text-pandora-text/85">{d.ticket}</p>
                 </div>
                 <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">

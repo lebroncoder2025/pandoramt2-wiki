@@ -11,6 +11,10 @@ export default function PetSystemPage() {
         icon={<Dog className="w-5 h-5" />}
       />
 
+      <div className="rounded-xl overflow-hidden border border-pandora-border/30 mb-10">
+        <img src="https://i.imgur.com/B0V08mE.png" alt="System Zwierzaków — PandoraMT2" className="w-full h-auto object-cover" loading="lazy" />
+      </div>
+
       <InfoBox type="info">
         <p className="text-sm">Okno Zwierzaka: klawisz <strong>P</strong> lub przycisk w Menu Gracza. Maks. poziom pupila: <strong>50</strong>. Zwierzak zdobywa doświadczenie gdy zabijasz potwory (nie zmniejsza twojego XP).</p>
       </InfoBox>
@@ -23,7 +27,7 @@ export default function PetSystemPage() {
       />
 
       <SectionTitle>Szkolenie Umiejętności</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         <Card className="border-t-2 border-t-pandora-green/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Zwoje Tresury</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Od M1 szkolenie wymaga Zwojów. Szansa na wbicie: <strong className="text-pandora-text/85">50%</strong>. Zwoje losowe ze Skrzynki Tresury.</p>

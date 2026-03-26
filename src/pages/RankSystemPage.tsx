@@ -11,6 +11,10 @@ export default function RankSystemPage() {
         icon={<Trophy className="w-5 h-5" />}
       />
 
+      <div className="rounded-xl overflow-hidden border border-pandora-border/30 mb-10">
+        <img src="https://i.imgur.com/GABaI87.png" alt="System Rang — PandoraMT2" className="w-full h-auto object-cover" loading="lazy" />
+      </div>
+
       <InfoBox type="info">
         <p className="text-sm">Maks. punkty rangi: <strong>10.000.000</strong>. Zdobywasz je zabijając potwory i używając Owoców Życia. Bonusy: Maks. PŻ i Silny pko Ludziom.</p>
       </InfoBox>
@@ -34,7 +38,7 @@ export default function RankSystemPage() {
       </InfoBox>
 
       <SectionTitle>Szacunkowy czas zdobywania rang</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card className="border-t-2 border-t-pandora-green/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Rycerz (20K pkt)</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Osiągalny relatywnie szybko przez zwykły farm. Pierwszy bonus PvP.</p>

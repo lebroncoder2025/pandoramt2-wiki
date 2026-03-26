@@ -15,7 +15,7 @@ const guides = [
   { icon: FlaskConical, title: 'Biolog', desc: 'Misje i kolekcje', path: '/biologist' },
   { icon: Zap, title: 'Umiejętności', desc: 'Dowodzenie, Polimorfia', path: '/skills' },
   { icon: Calculator, title: 'Kalkulator', desc: 'Koszty ulepszeń i rang', path: '/calculator' },
-  { icon: Calendar, title: 'Eventy', desc: '18 eventów serwerowych', path: '/events' },
+  { icon: Calendar, title: 'Eventy', desc: '16 eventów serwerowych', path: '/events' },
   { icon: Lightbulb, title: 'Porady', desc: 'Skróty i wskazówki', path: '/tips' },
 ]
 
@@ -41,14 +41,14 @@ const highlights = [
   { title: 'Old School Metin2', desc: 'Wierne odwzorowanie klasycznego Metin2 urozmaicone o kilka dodatków.' },
   { title: 'PvP Zbalansowane', desc: 'Raty poddano wielu korektom aby wyważyć etapy rozwoju.' },
   { title: '5 Kanałów, 3 Królestwa', desc: 'Shinsoo, Jinno i Chunjo. Dynamiczna rozgrywka z gildiami.' },
-  { title: '18 Eventów', desc: 'Deszcz Metinów, Zuo, Kosmiczna Inwazja, Loteria Tombola i więcej.' },
+  { title: '16 Eventów', desc: 'Kosmiczna Inwazja, Loteria Tombola, Owocowe Szaleństwo i więcej.' },
   { title: '7 Dungeonów + Bossy', desc: 'Od Wieży Demonów po Świątynię Andun. Infernus i Balathor.' },
   { title: 'Aktywny Rozwój', desc: 'Ciągłe aktualizacje. Najnowsza wersja klienta: v1.0.2.' },
 ]
 
 export default function HomePage() {
   return (
-    <div className="space-y-16">
+    <div className="space-y-20">
       {/* Hero */}
       <section className="py-8 md:py-12 relative">
         {/* Subtle ambient glow */}
@@ -62,9 +62,19 @@ export default function HomePage() {
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold gold-text mb-4 tracking-tight leading-[1.1]">
             PandoraMT2
           </h1>
-          <p className="text-pandora-muted/60 text-base md:text-lg max-w-xl leading-relaxed mb-8">
+          <p className="text-pandora-muted/60 text-base md:text-lg max-w-xl leading-relaxed mb-10">
             Kompletny przewodnik po serwerze — mapy, dungeony, bossy, systemy rozgrywki i porady dla nowych oraz doświadczonych graczy.
           </p>
+
+          {/* Hero Screenshot */}
+          <div className="rounded-xl overflow-hidden border border-pandora-border/30 mb-12">
+            <img
+              src="https://i.imgur.com/gF2cU1z.png"
+              alt="PandoraMT2 — Old School Metin2"
+              className="w-full h-auto object-cover"
+              loading="eager"
+            />
+          </div>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-10">
           <a href="https://pandoramt2.pl/main/download" target="_blank" rel="noopener noreferrer"
@@ -78,9 +88,9 @@ export default function HomePage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {stats.map(s => (
-            <div key={s.label} className="bg-pandora-card/60 rounded-lg p-5 border border-pandora-border/40 border-t-2 border-t-pandora-gold/20 hover:border-pandora-border/60 transition-colors">
+            <div key={s.label} className="bg-pandora-card/60 rounded-lg p-6 border border-pandora-border/40 border-t-2 border-t-pandora-gold/20 hover:border-pandora-border/60 transition-colors">
               <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-pandora-muted/60 mb-1">{s.label}</div>
               <div className="text-xl font-display font-bold text-pandora-gold">{s.value}</div>
             </div>
@@ -91,11 +101,11 @@ export default function HomePage() {
 
       {/* Starting Equipment */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-6 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-10 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Ekwipunek Startowy
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {startingItems.map(item => (
             <div key={item.text} className="flex items-center gap-3 bg-pandora-card/60 rounded-lg px-4 py-3.5 border border-pandora-border/40 hover:border-pandora-border/60 transition-colors">
               <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/50 shrink-0" />
@@ -110,11 +120,11 @@ export default function HomePage() {
 
       {/* Server Highlights */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-6 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-10 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           O Serwerze
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {highlights.map((item, i) => {
             const accents = ['border-t-pandora-gold/30', 'border-t-pandora-blue/30', 'border-t-pandora-green/30', 'border-t-pandora-purple/30', 'border-t-pandora-red/30', 'border-t-pandora-orange/30']
             return (
@@ -129,14 +139,14 @@ export default function HomePage() {
 
       {/* Events Preview */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-6 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-10 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Eventy Serwerowe
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {[
             { name: 'Raty Serwerowe', type: 'Stały', color: 'text-pandora-green', accent: 'border-t-pandora-green/30', desc: 'Zwiększenie Exp, Drop i Yang' },
-            { name: 'Deszcz Metinów / Zuo', type: 'Losowy', color: 'text-pandora-orange', accent: 'border-t-pandora-orange/30', desc: 'Metiny i Bossy na mapie' },
+            { name: 'Loteria Tombola', type: 'Losowy', color: 'text-pandora-orange', accent: 'border-t-pandora-orange/30', desc: 'Kupony z Metinów i Bossów' },
             { name: 'Kosmiczna Inwazja', type: 'Community', color: 'text-pandora-purple', accent: 'border-t-pandora-purple/30', desc: '100K przedmiotów = raty' },
           ].map(e => (
             <div key={e.name} className={`bg-pandora-card/60 rounded-lg p-5 border border-pandora-border/40 border-t-2 ${e.accent} hover:border-pandora-border/60 transition-colors`}>
@@ -147,17 +157,17 @@ export default function HomePage() {
           ))}
         </div>
         <Link to="/events" className="inline-flex items-center gap-1.5 text-[13px] text-pandora-gold/80 hover:text-pandora-gold transition-colors">
-          Zobacz wszystkie 18 eventów <ArrowRight className="w-3.5 h-3.5" />
+          Zobacz wszystkie 16 eventów <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </section>
 
       {/* Guide Navigation */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-6 flex items-center gap-2">
+        <h2 className="font-display text-lg font-bold gold-text mb-10 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Przewodnik
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {guides.map(f => {
             const Icon = f.icon
             return (
@@ -179,8 +189,8 @@ export default function HomePage() {
       </section>
 
       {/* Download */}
-      <section className="bg-pandora-card/40 border border-pandora-border/30 rounded-xl p-7 md:p-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className="bg-pandora-card/40 border border-pandora-border/30 rounded-xl p-8 md:p-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Klient gry</h3>
             <div className="space-y-2 text-[13px]">

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 export function SectionDivider() {
   return (
-    <div className="flex items-center gap-4 my-10">
+    <div className="flex items-center gap-4 my-16">
       <div className="flex-1 h-px bg-gradient-to-r from-transparent via-pandora-border/40 to-transparent" />
       <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/30" />
       <div className="flex-1 h-px bg-gradient-to-r from-transparent via-pandora-border/40 to-transparent" />
@@ -12,7 +12,7 @@ export function SectionDivider() {
 
 export function PageHeader({ title, description, icon }: { title: string; description: string; icon?: ReactNode }) {
   return (
-    <div className="mb-12 pb-8 border-b border-pandora-border/30 animate-fade-in relative">
+    <div className="mb-16 pb-10 border-b border-pandora-border/30 animate-fade-in relative">
       {/* Decorative ambient glow */}
       <div className="absolute -top-8 -left-8 w-40 h-40 bg-pandora-gold/[0.03] rounded-full blur-3xl pointer-events-none" />
       <div className="relative">
@@ -36,7 +36,7 @@ export function Card({ children, className = '', glow = false, onClick, ...rest 
       onClick={onClick}
       {...rest}
       className={`
-        bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-6 md:p-7
+        bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 md:p-9
         hover:border-pandora-border/60 transition-all duration-200 card-hover
         ${glow ? 'animate-pulse-gold' : ''}
         ${onClick ? 'cursor-pointer' : ''}
@@ -50,7 +50,7 @@ export function Card({ children, className = '', glow = false, onClick, ...rest 
 
 export function StatBox({ label, value, icon }: { label: string; value: string; icon?: ReactNode }) {
   return (
-    <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-5 md:p-6 hover:border-pandora-gold/20 transition-all group">
+    <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-6 md:p-8 hover:border-pandora-gold/20 transition-all group">
       <div className="flex items-center gap-2 mb-1.5">
         {icon && <span className="text-pandora-gold/80 group-hover:text-pandora-gold transition-colors">{icon}</span>}
         <span className="text-[11px] text-pandora-muted/60 uppercase tracking-widest font-medium">{label}</span>
@@ -62,7 +62,7 @@ export function StatBox({ label, value, icon }: { label: string; value: string; 
 
 export function DataTable({ headers, rows, highlightFirst = false }: { headers: string[]; rows: string[][]; highlightFirst?: boolean }) {
   return (
-    <div className="overflow-x-auto rounded-lg border border-pandora-border/40 mb-8">
+    <div className="overflow-x-auto rounded-lg border border-pandora-border/40 mb-12">
       <table className="w-full text-sm">
         <thead>
           <tr className="bg-pandora-dark/60">
@@ -103,7 +103,7 @@ export function Badge({ children, color = 'gold' }: { children: ReactNode; color
 
 export function SectionTitle({ children, id }: { children: ReactNode; id?: string }) {
   return (
-    <div className="mb-6 mt-12 first:mt-0 scroll-mt-20">
+    <div className="mb-10 mt-16 first:mt-0 scroll-mt-20">
       <h2 id={id} className="font-display text-lg md:text-xl font-bold text-pandora-gold-light flex items-center gap-3">
         <div className="w-1 h-6 rounded-full bg-gradient-to-b from-pandora-gold/60 to-pandora-gold/10" />
         {children}
@@ -126,7 +126,7 @@ export function InfoBox({ children, type = 'info' }: { children: ReactNode; type
     tip: 'text-pandora-green',
   }
   return (
-    <div className={`border-l-2 rounded-lg p-5 my-6 ${styles[type]}`}>
+    <div className={`border-l-2 rounded-lg p-6 my-10 ${styles[type]}`}>
       <span className={`text-[10px] font-bold uppercase tracking-widest ${labelColors[type]} mb-1 block`}>{labels[type]}</span>
       <div className="text-pandora-text/85">{children}</div>
     </div>
@@ -135,7 +135,7 @@ export function InfoBox({ children, type = 'info' }: { children: ReactNode; type
 
 export function TabGroup({ tabs, activeTab, onTabChange }: { tabs: string[]; activeTab: number; onTabChange: (i: number) => void }) {
   return (
-    <div role="tablist" className="flex gap-0 border-b border-pandora-border/40 mb-8 overflow-x-auto">
+    <div role="tablist" className="flex gap-0 border-b border-pandora-border/40 mb-10 overflow-x-auto">
       {tabs.map((tab, i) => (
         <button
           key={tab}
