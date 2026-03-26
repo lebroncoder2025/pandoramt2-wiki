@@ -211,7 +211,7 @@ export default function EventsPage() {
         ].map(s => (
           <div key={s.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 text-center hover:border-pandora-border/60 transition-colors">
             <div className={`text-3xl font-display font-bold ${s.color}`}>{s.value}</div>
-            <div className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mt-3 font-medium">{s.label}</div>
+            <div className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mt-3 font-medium">{s.label}</div>
           </div>
         ))}
       </div>
@@ -241,7 +241,7 @@ export default function EventsPage() {
                       {event.timeLimited ? 'Ograniczony czasowo' : 'Bez limitu czasu'}
                     </Badge>
                   </div>
-                  <p className="text-[13px] text-pandora-muted/60 leading-relaxed line-clamp-2">{event.description}</p>
+                  <p className="text-[13px] text-pandora-muted leading-relaxed line-clamp-2">{event.description}</p>
                 </div>
                 <ChevronDown className={`w-5 h-5 text-pandora-muted shrink-0 mt-1 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
               </div>
@@ -251,7 +251,7 @@ export default function EventsPage() {
                 <div className="border-t border-pandora-border/40 pt-6 space-y-5">
                   <div>
                     <h4 className="text-[11px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-3">Komunikat w grze</h4>
-                    <p className="text-[13px] text-pandora-muted/60 bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 italic leading-relaxed">{event.trigger}</p>
+                    <p className="text-[13px] text-pandora-muted bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 italic leading-relaxed">{event.trigger}</p>
                   </div>
                   <div>
                     <h4 className="text-[11px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-3">Opis</h4>
@@ -275,7 +275,7 @@ export default function EventsPage() {
           ].map(item => (
             <div key={item.type} className="flex flex-col gap-3 p-5 rounded-xl bg-pandora-dark/30 border border-pandora-border/20">
               <Badge color={item.color}>{item.type}</Badge>
-              <span className="text-[13px] text-pandora-muted/60 leading-relaxed">{item.desc}</span>
+              <span className="text-[13px] text-pandora-muted leading-relaxed">{item.desc}</span>
             </div>
           ))}
         </div>
@@ -283,3 +283,5 @@ export default function EventsPage() {
     </div>
   )
 }
+
+

@@ -9,7 +9,7 @@
   --color-pandora-card-hover: #17171f;
   --color-pandora-border: #1e1e30;
   --color-pandora-text: #d8d8e4;
-  --color-pandora-muted: #6b6b88;
+  --color-pandora-muted: #9b9bb8;
   --color-pandora-red: #f87171;
   --color-pandora-green: #4ade80;
   --color-pandora-blue: #60a5fa;
@@ -34,6 +34,7 @@ html {
 body {
   font-family: var(--font-body);
   background: var(--color-pandora-darker);
+  background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(200,164,78,0.04) 0%, transparent 60%);
   color: var(--color-pandora-text);
   min-height: 100vh;
   overflow-x: hidden;
@@ -104,8 +105,8 @@ a, button {
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
 }
 .card-hover:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(200, 164, 78, 0.05);
-  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(200, 164, 78, 0.08), 0 2px 8px rgba(200, 164, 78, 0.06);
+  transform: translateY(-2px);
 }
 
 /* ===== TABLES ===== */

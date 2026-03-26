@@ -94,7 +94,7 @@ export default function TipsPage() {
             <kbd className="inline-block px-2.5 py-1 bg-pandora-dark/60 rounded text-pandora-gold/80 font-mono text-[12px] mb-3 border border-pandora-gold/15">
               {s.key}
             </kbd>
-            <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{s.desc}</p>
+            <p className="text-[13px] text-pandora-muted leading-relaxed">{s.desc}</p>
           </div>
         ))}
       </div>
@@ -108,7 +108,7 @@ export default function TipsPage() {
             <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">{t.title}</h3>
             <ul className="space-y-3.5">
               {t.items.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-[13px] text-pandora-muted/60">
+                <li key={i} className="flex items-start gap-2 text-[13px] text-pandora-muted">
                   <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/30 mt-1.5 shrink-0" />
                   {item}
                 </li>
@@ -142,3 +142,5 @@ export default function TipsPage() {
     </div>
   )
 }
+
+

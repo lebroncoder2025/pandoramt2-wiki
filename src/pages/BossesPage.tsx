@@ -26,11 +26,11 @@ export default function BossesPage() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20">
-                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Lokacja</p>
+                  <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Lokacja</p>
                   <p className="text-sm font-medium text-pandora-text/85">{b.map}</p>
                 </div>
                 <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-gold/20">
-                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Nagroda</p>
+                  <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Nagroda</p>
                   <p className="text-sm font-medium text-pandora-gold/80">{b.reward}</p>
                 </div>
               </div>
@@ -47,4 +47,5 @@ export default function BossesPage() {
     </div>
   )
 }
+
 

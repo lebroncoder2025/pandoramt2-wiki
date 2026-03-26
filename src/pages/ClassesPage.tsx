@@ -39,10 +39,10 @@ export default function ClassesPage() {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-pandora-text/85">{cls.name}</h3>
-                  <p className="text-[11px] text-pandora-muted/60">{cls.nameEn}</p>
+                  <p className="text-[11px] text-pandora-muted">{cls.nameEn}</p>
                 </div>
               </div>
-              <p className="text-[13px] text-pandora-muted/60 mb-6 leading-relaxed">{cls.description}</p>
+              <p className="text-[13px] text-pandora-muted mb-6 leading-relaxed">{cls.description}</p>
 
               <div className="space-y-5">
                 {cls.subclasses.map(sub => (
@@ -51,7 +51,7 @@ export default function ClassesPage() {
                       <h4 className="text-sm font-semibold text-pandora-text/85">{sub.name}</h4>
                       <Badge color={badgeColorMap[cls.color]}>{sub.stats}</Badge>
                     </div>
-                    <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{sub.description}</p>
+                    <p className="text-[13px] text-pandora-muted leading-relaxed">{sub.description}</p>
                   </div>
                 ))}
               </div>
@@ -64,7 +64,7 @@ export default function ClassesPage() {
 
       <Card className="mt-0">
         <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Wskazówki przy wyborze klasy</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[13px] text-pandora-muted/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[13px] text-pandora-muted">
           <div>
             <p className="font-medium text-pandora-text/85 mb-1">PvP (Gracz vs Gracz)</p>
             <p>Wojownik Umysł, Ninja Bliski, Sura Broń Magiczna — najlepsze wybory na PvP.</p>
@@ -86,3 +86,5 @@ export default function ClassesPage() {
     </div>
   )
 }
+
+

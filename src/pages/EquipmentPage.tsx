@@ -61,21 +61,21 @@ export default function EquipmentPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
         <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 hover:border-pandora-border/60 transition-colors">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Magiczny Metal+</h3>
-          <p className="text-[13px] text-pandora-muted/60 mb-4">Daje dodatkowe +10% szansy na ulepszenie przedmiotu.</p>
+          <p className="text-[13px] text-pandora-muted mb-4">Daje dodatkowe +10% szansy na ulepszenie przedmiotu.</p>
           <div className="space-y-2.5 text-[13px]">
-            <p className="text-pandora-muted/60 text-[11px] uppercase tracking-widest font-medium mb-1">Wymagane materiały:</p>
+            <p className="text-pandora-muted text-[11px] uppercase tracking-widest font-medium mb-1">Wymagane materiały:</p>
             {['Kamień Kowala', 'Magiczna Ruda Miedzi', '100.000.000 Yang'].map(m => (
               <div key={m} className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-pandora-gold/40" />
-                <span className="text-pandora-muted/60">{m}</span>
+                <span className="text-pandora-muted">{m}</span>
               </div>
             ))}
           </div>
         </div>
         <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 hover:border-pandora-border/60 transition-colors">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Bonus Switcher</h3>
-          <p className="text-[13px] text-pandora-muted/60 mb-4">System szybkiej zamiany bonusów w Menu Gracza.</p>
-          <div className="space-y-2.5 text-[13px] text-pandora-muted/60">
+          <p className="text-[13px] text-pandora-muted mb-4">System szybkiej zamiany bonusów w Menu Gracza.</p>
+          <div className="space-y-2.5 text-[13px] text-pandora-muted">
             {['Możliwość zapisu szablonu', 'Ustawienie alternatywnych bonusów', 'Nie działa na kostiumy'].map(m => (
               <div key={m} className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-pandora-blue/40" />
@@ -93,3 +93,5 @@ export default function EquipmentPage() {
     </div>
   )
 }
+
+

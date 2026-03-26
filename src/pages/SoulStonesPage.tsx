@@ -60,20 +60,20 @@ export default function SoulStonesPage() {
       {tab === 2 && (
         <>
           <SectionTitle>Ołtarz Dusz</SectionTitle>
-          <p className="text-[13px] text-pandora-muted/60 mb-4">Ołtarz Dusz znajduje się w każdym M1. Oferuje trzy główne funkcje:</p>
+          <p className="text-[13px] text-pandora-muted mb-4">Ołtarz Dusz znajduje się w każdym M1. Oferuje trzy główne funkcje:</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <Card className="border-t-2 border-t-pandora-orange/20">
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Przepalanie</h3>
-              <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Wymiana zbędnych Kamieni Dusz na Odłamki Kamienia Duszy. Kamienie automatycznie wskakują do okna.</p>
+              <p className="text-[13px] text-pandora-muted leading-relaxed">Wymiana zbędnych Kamieni Dusz na Odłamki Kamienia Duszy. Kamienie automatycznie wskakują do okna.</p>
             </Card>
             <Card className="border-t-2 border-t-pandora-blue/20">
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Wymiana</h3>
-              <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Za Odłamki możesz kupić różne przedmioty, w tym Legendarny Kamień potrzebny do tworzenia LKD.</p>
+              <p className="text-[13px] text-pandora-muted leading-relaxed">Za Odłamki możesz kupić różne przedmioty, w tym Legendarny Kamień potrzebny do tworzenia LKD.</p>
             </Card>
             <Card className="border-t-2 border-t-pandora-purple/20">
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Wytwarzanie</h3>
-              <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Tworzenie Legendarnych Kamieni Dusz z materiałów. Wytworzony kamień to +0; ulepszaj do +5.</p>
+              <p className="text-[13px] text-pandora-muted leading-relaxed">Tworzenie Legendarnych Kamieni Dusz z materiałów. Wytworzony kamień to +0; ulepszaj do +5.</p>
             </Card>
           </div>
 
@@ -85,3 +85,5 @@ export default function SoulStonesPage() {
     </div>
   )
 }
+
+

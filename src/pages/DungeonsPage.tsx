@@ -27,26 +27,26 @@ export default function DungeonsPage() {
                 <Badge color="purple">{d.type}</Badge>
               </div>
 
-              <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{d.description}</p>
+              <p className="text-[13px] text-pandora-muted leading-relaxed">{d.description}</p>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
                 <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-text/10">
-                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Przepustka</p>
+                  <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Przepustka</p>
                   <p className="text-sm font-medium text-pandora-text/85">{d.ticket}</p>
                 </div>
                 <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
-                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Bonus</p>
+                  <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Bonus</p>
                   <p className="text-sm font-medium text-pandora-blue/80">{d.bonus}</p>
                 </div>
                 {d.cooldown && (
                   <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-orange/20">
-                    <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Cooldown</p>
+                    <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Cooldown</p>
                     <p className="text-sm font-medium text-pandora-orange/80">{d.cooldown}</p>
                   </div>
                 )}
                 {d.reward && (
                   <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-gold/20">
-                    <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Nagroda</p>
+                    <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Nagroda</p>
                     <p className="text-sm font-medium text-pandora-gold/80">{d.reward}</p>
                   </div>
                 )}
@@ -60,7 +60,7 @@ export default function DungeonsPage() {
 
       <Card className="mt-0">
         <h3 className="text-sm font-semibold text-pandora-text/85 mb-5">Tworzenie przepustek</h3>
-        <div className="space-y-4 text-[13px] text-pandora-muted/60">
+        <div className="space-y-4 text-[13px] text-pandora-muted">
           <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20">
             <span className="text-pandora-gold/80 font-medium">Klejnot Ochrony Duszy</span> (Świątynia Andun) = 10x Skamieniała Łza + 10x Kręty Klucz + 10x Mityczny Klucz
           </div>
@@ -72,4 +72,6 @@ export default function DungeonsPage() {
     </div>
   )
 }
+
+
 

@@ -33,14 +33,14 @@ export default function ServerInfoPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-pandora-text/85">{k}</h3>
-              <p className="text-[11px] text-pandora-muted/60">Królestwo #{i + 1}</p>
+              <p className="text-[11px] text-pandora-muted">Królestwo #{i + 1}</p>
             </div>
           </div>
         ))}
       </div>
 
       <SectionTitle>Ekwipunek Startowy</SectionTitle>
-      <p className="text-[13px] text-pandora-muted/60 mb-4">Każdy nowy gracz rozpoczyna przygodę z następującymi przedmiotami:</p>
+      <p className="text-[13px] text-pandora-muted mb-4">Każdy nowy gracz rozpoczyna przygodę z następującymi przedmiotami:</p>
       <DataTable
         headers={['Przedmiot', 'Opis']}
         rows={startingEquipment.map(e => [e.name, e.description])}
@@ -62,7 +62,7 @@ export default function ServerInfoPage() {
         ].map(m => (
           <div key={m.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${m.accent} rounded-xl p-7 hover:border-pandora-border/60 transition-colors`}>
             <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">{m.title}</h3>
-            <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{m.desc}</p>
+            <p className="text-[13px] text-pandora-muted leading-relaxed">{m.desc}</p>
           </div>
         ))}
       </div>
@@ -82,7 +82,7 @@ export default function ServerInfoPage() {
           return (
             <div key={r.label} className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 text-center hover:border-pandora-border/60 transition-colors">
               <Icon className="w-6 h-6 text-pandora-gold/60 mx-auto mb-4" />
-              <div className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">{r.label}</div>
+              <div className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">{r.label}</div>
               <div className="text-base font-bold text-pandora-text/85">{r.value}</div>
             </div>
           )
@@ -103,7 +103,7 @@ export default function ServerInfoPage() {
             className="group flex items-center gap-3 bg-pandora-card/60 border border-pandora-border/40 rounded-xl px-5 py-4 hover:border-pandora-border/60 transition-colors">
             <div>
               <div className="text-sm font-medium text-pandora-text/85 group-hover:text-pandora-gold transition-colors">{link.label}</div>
-              <div className="text-[11px] text-pandora-muted/60 truncate max-w-48">{link.url}</div>
+              <div className="text-[11px] text-pandora-muted truncate max-w-48">{link.url}</div>
             </div>
           </a>
         ))}
@@ -111,3 +111,5 @@ export default function ServerInfoPage() {
     </div>
   )
 }
+
+

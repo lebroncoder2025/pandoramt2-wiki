@@ -18,13 +18,13 @@ export function PageHeader({ title, description, icon }: { title: string; descri
       <div className="relative">
         <div className="flex items-center gap-3 mb-4">
           {icon && (
-            <div className="w-11 h-11 rounded-lg bg-pandora-gold/8 border border-pandora-gold/15 flex items-center justify-center text-pandora-gold">
+            <div className="w-12 h-12 rounded-xl bg-pandora-gold/10 border border-pandora-gold/20 flex items-center justify-center text-pandora-gold shadow-[0_0_20px_rgba(200,164,78,0.1)]">
               {icon}
             </div>
           )}
           <h1 className="font-display text-2xl md:text-3xl font-bold gold-text tracking-tight">{title}</h1>
         </div>
-        <p className="text-pandora-muted/60 text-sm md:text-base max-w-2xl leading-relaxed">{description}</p>
+        <p className="text-pandora-muted text-sm md:text-base max-w-2xl leading-relaxed">{description}</p>
       </div>
     </div>
   )
@@ -53,7 +53,7 @@ export function StatBox({ label, value, icon }: { label: string; value: string; 
     <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 md:p-9 hover:border-pandora-gold/20 transition-all group">
       <div className="flex items-center gap-2.5 mb-3">
         {icon && <span className="text-pandora-gold/80 group-hover:text-pandora-gold transition-colors">{icon}</span>}
-        <span className="text-[11px] text-pandora-muted/60 uppercase tracking-widest font-medium">{label}</span>
+        <span className="text-[11px] text-pandora-muted uppercase tracking-widest font-medium">{label}</span>
       </div>
       <p className="text-xl md:text-2xl font-bold text-pandora-gold font-display">{value}</p>
     </div>
@@ -126,7 +126,7 @@ export function InfoBox({ children, type = 'info' }: { children: ReactNode; type
     tip: 'text-pandora-green',
   }
   return (
-    <div className={`border-l-2 rounded-xl p-7 my-12 ${styles[type]}`}>
+    <div className={`border-l-4 rounded-xl p-7 my-12 ${styles[type]}`}>
       <span className={`text-[11px] font-bold uppercase tracking-widest ${labelColors[type]} mb-2.5 block`}>{labels[type]}</span>
       <div className="text-pandora-text/85">{children}</div>
     </div>
@@ -135,7 +135,7 @@ export function InfoBox({ children, type = 'info' }: { children: ReactNode; type
 
 export function TabGroup({ tabs, activeTab, onTabChange }: { tabs: string[]; activeTab: number; onTabChange: (i: number) => void }) {
   return (
-    <div role="tablist" className="flex gap-0 border-b border-pandora-border/40 mb-10 overflow-x-auto">
+    <div role="tablist" className="flex gap-0 border-b border-pandora-border/40 mb-12 overflow-x-auto">
       {tabs.map((tab, i) => (
         <button
           key={tab}
@@ -154,3 +154,4 @@ export function TabGroup({ tabs, activeTab, onTabChange }: { tabs: string[]; act
     </div>
   )
 }
+

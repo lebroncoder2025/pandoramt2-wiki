@@ -35,7 +35,7 @@ export default function SkillsPage() {
 
           <Card className="mt-4">
             <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Przełączanie umiejętności ciągłych</h3>
-            <p className="text-[13px] text-pandora-muted/60">Umiejętności aktywne można włączać/wyłączać jak np. Ognisty Duch. Nie wyłączają się po przelogowaniu!</p>
+            <p className="text-[13px] text-pandora-muted">Umiejętności aktywne można włączać/wyłączać jak np. Ognisty Duch. Nie wyłączają się po przelogowaniu!</p>
           </Card>
         </>
       )}
@@ -43,7 +43,7 @@ export default function SkillsPage() {
       {tab === 1 && (
         <>
           <SectionTitle>Dowodzenie</SectionTitle>
-          <p className="text-[13px] text-pandora-muted/60 mb-4">Pasywna umiejętność pozwalająca na nadanie ról członkom drużyny. Lider nie może wybrać roli dla siebie.</p>
+          <p className="text-[13px] text-pandora-muted mb-4">Pasywna umiejętność pozwalająca na nadanie ról członkom drużyny. Lider nie może wybrać roli dla siebie.</p>
 
           <DataTable
             headers={['Poziom', 'Obraż. Umiejęt.', 'Szyb. Ataku', 'Obrona', 'Wart. Ataku', 'Maks. PŻ', 'Czas']}
@@ -71,7 +71,7 @@ export default function SkillsPage() {
       {tab === 2 && (
         <>
           <SectionTitle>Polimorfia</SectionTitle>
-          <p className="text-[13px] text-pandora-muted/60 mb-4">System przemiany w potwory — zwiększa obrażenia. Działanie analogiczne do serwera globalnego z ułatwieniami w zdobywaniu marmurów.</p>
+          <p className="text-[13px] text-pandora-muted mb-4">System przemiany w potwory — zwiększa obrażenia. Działanie analogiczne do serwera globalnego z ułatwieniami w zdobywaniu marmurów.</p>
 
           <DataTable
             headers={['Poziom', 'Obrażenia', 'Czas trwania']}
@@ -92,7 +92,7 @@ export default function SkillsPage() {
 
           <SectionTitle>Wymiana Marmurów</SectionTitle>
           <Card>
-            <p className="text-[13px] text-pandora-muted/60 mb-2">U <strong className="text-pandora-text/85">Uriela</strong> (każde M1) możesz wymienić:</p>
+            <p className="text-[13px] text-pandora-muted mb-2">U <strong className="text-pandora-text/85">Uriela</strong> (każde M1) możesz wymienić:</p>
             <p className="text-[13px] text-pandora-text/85"><strong>5x dowolny Marmur Polimorfii + 50M Yang</strong> → Marmur Dzikiego Sługi, Czarnego Orka lub Młodego Pająka</p>
           </Card>
 
@@ -104,3 +104,5 @@ export default function SkillsPage() {
     </div>
   )
 }
+
+

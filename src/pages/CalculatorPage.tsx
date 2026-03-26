@@ -18,7 +18,7 @@ function RankCalculator() {
       <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Kalkulator Rang</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div>
-          <label htmlFor="rank-points" className="block text-[12px] text-pandora-muted/60 mb-1">Aktualne punkty rangi</label>
+          <label htmlFor="rank-points" className="block text-[12px] text-pandora-muted mb-1">Aktualne punkty rangi</label>
           <input
             id="rank-points"
             type="number"
@@ -28,7 +28,7 @@ function RankCalculator() {
           />
         </div>
         <div>
-          <label htmlFor="target-rank" className="block text-[12px] text-pandora-muted/60 mb-1">Docelowa ranga</label>
+          <label htmlFor="target-rank" className="block text-[12px] text-pandora-muted mb-1">Docelowa ranga</label>
           <select
             id="target-rank"
             value={targetRank}
@@ -43,13 +43,13 @@ function RankCalculator() {
       </div>
 
       <div className="bg-pandora-dark/40 rounded-lg p-4 border border-pandora-gold/15 border-l-2 border-l-pandora-gold/30 mb-4">
-        <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-1">Potrzebne punkty</p>
+        <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-1">Potrzebne punkty</p>
         <p className="text-xl font-bold text-pandora-gold font-display">{needed.toLocaleString('pl-PL')}</p>
       </div>
 
       {needed > 0 && (
         <div className="space-y-2 text-sm">
-          <p className="text-[13px] text-pandora-muted/60 font-medium mb-2">Ile Owoców Życia potrzebujesz:</p>
+          <p className="text-[13px] text-pandora-muted font-medium mb-2">Ile Owoców Życia potrzebujesz:</p>
           {lifefruits.map(f => (
             <div key={f.name} className="flex justify-between py-1.5 border-b border-pandora-border/20">
               <span className="text-[13px] text-pandora-text/85">{f.name} ({f.points} pkt)</span>
@@ -86,7 +86,7 @@ function UpgradeCalculator() {
       <h3 className="text-sm font-semibold text-pandora-text/85 mb-4">Kalkulator Ulepszeń</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <div>
-          <label htmlFor="current-level" className="block text-[12px] text-pandora-muted/60 mb-1">Aktualny poziom</label>
+          <label htmlFor="current-level" className="block text-[12px] text-pandora-muted mb-1">Aktualny poziom</label>
           <select
             id="current-level"
             value={currentLevel}
@@ -99,7 +99,7 @@ function UpgradeCalculator() {
           </select>
         </div>
         <div>
-          <label htmlFor="target-level" className="block text-[12px] text-pandora-muted/60 mb-1">Docelowy poziom</label>
+          <label htmlFor="target-level" className="block text-[12px] text-pandora-muted mb-1">Docelowy poziom</label>
           <select
             id="target-level"
             value={targetLevel}
@@ -119,7 +119,7 @@ function UpgradeCalculator() {
               onChange={e => setMetalPlus(e.target.checked)}
               className="w-4 h-4 accent-pandora-gold"
             />
-            <span className="text-[13px] text-pandora-muted/60">Magiczny Metal+ (+10%)</span>
+            <span className="text-[13px] text-pandora-muted">Magiczny Metal+ (+10%)</span>
           </label>
         </div>
       </div>
@@ -150,7 +150,7 @@ function UpgradeCalculator() {
       )}
 
       <div className="mt-4 bg-pandora-dark/40 rounded-lg p-4 border border-pandora-gold/15 border-l-2 border-l-pandora-gold/30">
-        <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest">Łączna średnia prób od +{currentLevel} do +{targetLevel}:</p>
+        <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest">Łączna średnia prób od +{currentLevel} do +{targetLevel}:</p>
         <p className="text-xl font-bold text-pandora-gold font-display">{totalAvgAttempts.toFixed(1)} prób</p>
       </div>
     </Card>
@@ -175,3 +175,5 @@ export default function CalculatorPage() {
     </div>
   )
 }
+
+

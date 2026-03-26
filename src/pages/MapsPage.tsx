@@ -31,20 +31,20 @@ export default function MapsPage() {
                     </Badge>
                   </div>
                 </div>
-                <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{m.description}</p>
+                <p className="text-[13px] text-pandora-muted leading-relaxed">{m.description}</p>
               </div>
 
               <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-5">
                 <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
-                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Bonus</p>
+                  <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Bonus</p>
                   <p className="text-sm font-medium text-pandora-blue/80">{m.bonus}</p>
                 </div>
                 <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-red/20">
-                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Bossy</p>
+                  <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Bossy</p>
                   <p className="text-sm font-medium text-pandora-red/80">{m.bosses}</p>
                 </div>
                 <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-purple/20">
-                  <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Metiny</p>
+                  <p className="text-[11px] text-pandora-muted/80 uppercase tracking-widest mb-2">Metiny</p>
                   <p className="text-sm font-medium text-pandora-purple/80">{m.metins}</p>
                 </div>
               </div>
@@ -55,3 +55,4 @@ export default function MapsPage() {
     </div>
   )
 }
+
