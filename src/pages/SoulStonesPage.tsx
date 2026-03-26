@@ -37,7 +37,7 @@ export default function SoulStonesPage() {
 
           <div className="space-y-2 mb-6">
             {legendarySoulStones.map(s => (
-              <div key={s.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
+              <div key={s.name} className="bg-pandora-card/60 border border-pandora-border/40 border-l-2 border-l-pandora-purple/20 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2.5">
                   <div className="sm:w-1/3">
                     <h3 className="text-sm font-semibold text-pandora-text/85">{s.name}</h3>
@@ -63,15 +63,15 @@ export default function SoulStonesPage() {
           <p className="text-[13px] text-pandora-muted/60 mb-4">Ołtarz Dusz znajduje się w każdym M1. Oferuje trzy główne funkcje:</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
-            <Card>
+            <Card className="border-t-2 border-t-pandora-orange/20">
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Przepalanie</h3>
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Wymiana zbędnych Kamieni Dusz na Odłamki Kamienia Duszy. Kamienie automatycznie wskakują do okna.</p>
             </Card>
-            <Card>
+            <Card className="border-t-2 border-t-pandora-blue/20">
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Wymiana</h3>
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Za Odłamki możesz kupić różne przedmioty, w tym Legendarny Kamień potrzebny do tworzenia LKD.</p>
             </Card>
-            <Card>
+            <Card className="border-t-2 border-t-pandora-purple/20">
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Wytwarzanie</h3>
               <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Tworzenie Legendarnych Kamieni Dusz z materiałów. Wytworzony kamień to +0; ulepszaj do +5.</p>
             </Card>

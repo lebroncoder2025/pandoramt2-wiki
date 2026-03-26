@@ -135,11 +135,11 @@ export default function HomePage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
           {[
-            { name: 'Raty Serwerowe', type: 'Stały', color: 'text-pandora-green', desc: 'Zwiększenie Exp, Drop i Yang' },
-            { name: 'Deszcz Metinów / Zuo', type: 'Losowy', color: 'text-pandora-orange', desc: 'Metiny i Bossy na mapie' },
-            { name: 'Kosmiczna Inwazja', type: 'Community', color: 'text-pandora-purple', desc: '100K przedmiotów = raty' },
+            { name: 'Raty Serwerowe', type: 'Stały', color: 'text-pandora-green', accent: 'border-t-pandora-green/30', desc: 'Zwiększenie Exp, Drop i Yang' },
+            { name: 'Deszcz Metinów / Zuo', type: 'Losowy', color: 'text-pandora-orange', accent: 'border-t-pandora-orange/30', desc: 'Metiny i Bossy na mapie' },
+            { name: 'Kosmiczna Inwazja', type: 'Community', color: 'text-pandora-purple', accent: 'border-t-pandora-purple/30', desc: '100K przedmiotów = raty' },
           ].map(e => (
-            <div key={e.name} className="bg-pandora-card/60 rounded-lg p-4 border border-pandora-border/40 hover:border-pandora-border/60 transition-colors">
+            <div key={e.name} className={`bg-pandora-card/60 rounded-lg p-4 border border-pandora-border/40 border-t-2 ${e.accent} hover:border-pandora-border/60 transition-colors`}>
               <div className={`text-[10px] font-bold uppercase tracking-widest ${e.color} mb-2`}>{e.type}</div>
               <h3 className="text-sm font-semibold text-pandora-text/85 mb-1">{e.name}</h3>
               <p className="text-[12px] text-pandora-muted/60">{e.desc}</p>

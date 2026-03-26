@@ -13,11 +13,11 @@ export default function FishingPage() {
 
       <SectionTitle>Podstawy łowienia</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-        <Card>
+        <Card className="border-t-2 border-t-pandora-blue/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Wędka</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Startowa wędka +0. Za każde wyłowienie zdobywasz 1 Punkt Wędki. Na maks. punktach — ulepsz u Rybaka. Max poziom: <strong className="text-pandora-text/85">+9</strong>. Każdy szlach zwiększa różnorodność połowów.</p>
         </Card>
-        <Card>
+        <Card className="border-t-2 border-t-pandora-gold/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Skrzynia Rybaka</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Bonusowy drop podczas łowienia. Szansa rośnie z każdym poziomem wędki. Zawiera ciekawe przedmioty.</p>
         </Card>
@@ -47,7 +47,7 @@ export default function FishingPage() {
 
       <SectionTitle>Żetony Rybackie</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-        <Card>
+        <Card className="border-t-2 border-t-pandora-green/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Wymiana na Żetony</h3>
           <div className="space-y-1.5 text-[13px] text-pandora-muted/60">
             <p>Pospolite Ryby → 1x Żeton Rybacki</p>
@@ -56,7 +56,7 @@ export default function FishingPage() {
           </div>
           <p className="text-[11px] text-pandora-muted/50 mt-2">Przeciągnij rybę na Rybaka aby wymienić.</p>
         </Card>
-        <Card>
+        <Card className="border-t-2 border-t-pandora-orange/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Sklep Żetonów</h3>
           <p className="text-[13px] text-pandora-muted/60">Za Żetony kupisz Nakładkę na Wędkę, Skrzynie Rybaka i inne wartościowe przedmioty u Rybaka.</p>
         </Card>

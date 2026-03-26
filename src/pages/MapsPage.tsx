@@ -35,15 +35,15 @@ export default function MapsPage() {
               </div>
 
               <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-2">
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
                   <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Bonus</p>
                   <p className="text-[13px] font-medium text-pandora-blue/80">{m.bonus}</p>
                 </div>
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-red/20">
                   <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Bossy</p>
                   <p className="text-[13px] font-medium text-pandora-red/80">{m.bosses}</p>
                 </div>
-                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20">
+                <div className="bg-pandora-dark/30 rounded-lg p-3 border border-pandora-border/20 border-l-2 border-l-pandora-purple/20">
                   <p className="text-[10px] text-pandora-muted/60 uppercase tracking-widest mb-0.5">Metiny</p>
                   <p className="text-[13px] font-medium text-pandora-purple/80">{m.metins}</p>
                 </div>

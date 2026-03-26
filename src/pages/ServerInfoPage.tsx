@@ -55,12 +55,12 @@ export default function ServerInfoPage() {
       </InfoBox>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {[
-          { title: 'Drop Sztabek Złota', desc: 'Losowe Sztabki Złota (2KK / 5KK / 10KK) dropią z potworów. Na mapach od Pustyni Wygnańców dropią tylko najcenniejsze. Wymagana max. 15 poziomów różnicy do potwora (nie dotyczy map od Doliny Śmierci włącznie). VIP, Medal Szczęścia i Zwierzak zwiększają szansę.' },
-          { title: 'Bonusy 6-7', desc: 'Przedmioty mogą mieć maks. 5 bonusów zwykłych + 2 dodatkowe bonusy (6-7) o stałych wartościach. Maks. wartości wyświetlają się na złoty kolor. Bloku Ciosów nie da się wybonować — występuje tylko jako bon wbudowany w przedmioty lub Kamienie Dusz.' },
-          { title: 'Magiczny Metal+', desc: 'Daje +10% szansy na ulepszanie. Wymaga: Kamień Kowala + Magiczna Ruda Miedzi + 100.000.000 Yang. Kamienie zdobywane z silniejszych Bossów oraz Kamieni Metin.' },
-          { title: 'Sklepy Offline & Wyszukiwarka', desc: 'Sklepy otwieramy Tobołkiem z handlarki różności. Możemy ustawiać dokładną pozycję sklepu. Wyszukiwarka sklepów na krawędzi klienta z opcją ignorowania stopnia ulepszenia. VIP pozwala na dekorowanie sklepu.' },
+          { title: 'Drop Sztabek Złota', desc: 'Losowe Sztabki Złota (2KK / 5KK / 10KK) dropią z potworów. Na mapach od Pustyni Wygnańców dropią tylko najcenniejsze. Wymagana max. 15 poziomów różnicy do potwora (nie dotyczy map od Doliny Śmierci włącznie). VIP, Medal Szczęścia i Zwierzak zwiększają szansę.', accent: 'border-t-pandora-gold/20' },
+          { title: 'Bonusy 6-7', desc: 'Przedmioty mogą mieć maks. 5 bonusów zwykłych + 2 dodatkowe bonusy (6-7) o stałych wartościach. Maks. wartości wyświetlają się na złoty kolor. Bloku Ciosów nie da się wybonować — występuje tylko jako bon wbudowany w przedmioty lub Kamienie Dusz.', accent: 'border-t-pandora-blue/20' },
+          { title: 'Magiczny Metal+', desc: 'Daje +10% szansy na ulepszanie. Wymaga: Kamień Kowala + Magiczna Ruda Miedzi + 100.000.000 Yang. Kamienie zdobywane z silniejszych Bossów oraz Kamieni Metin.', accent: 'border-t-pandora-purple/20' },
+          { title: 'Sklepy Offline & Wyszukiwarka', desc: 'Sklepy otwieramy Tobołkiem z handlarki różności. Możemy ustawiać dokładną pozycję sklepu. Wyszukiwarka sklepów na krawędzi klienta z opcją ignorowania stopnia ulepszenia. VIP pozwala na dekorowanie sklepu.', accent: 'border-t-pandora-green/20' },
         ].map(m => (
-          <div key={m.title} className="bg-pandora-card/60 border border-pandora-border/40 rounded-lg p-4 hover:border-pandora-border/60 transition-colors">
+          <div key={m.title} className={`bg-pandora-card/60 border border-pandora-border/40 border-t-2 ${m.accent} rounded-lg p-4 hover:border-pandora-border/60 transition-colors`}>
             <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">{m.title}</h3>
             <p className="text-[13px] text-pandora-muted/60 leading-relaxed">{m.desc}</p>
           </div>

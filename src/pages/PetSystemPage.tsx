@@ -24,15 +24,15 @@ export default function PetSystemPage() {
 
       <SectionTitle>Szkolenie Umiejętności</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
-        <Card>
+        <Card className="border-t-2 border-t-pandora-green/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Zwoje Tresury</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Od M1 szkolenie wymaga Zwojów. Szansa na wbicie: <strong className="text-pandora-text/85">50%</strong>. Zwoje losowe ze Skrzynki Tresury.</p>
         </Card>
-        <Card>
+        <Card className="border-t-2 border-t-pandora-blue/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Kamień Zwierzaka</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Od G1 potrzebny Kamień Zwierzaka (z Dungeonów) + Zwoje Tresury. Wytwarza się u Podstarzałego Tresera. Szansa: <strong className="text-pandora-text/85">50%</strong>.</p>
         </Card>
-        <Card>
+        <Card className="border-t-2 border-t-pandora-red/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">Poziom P+</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Zwierzak musi być na 50 lvl. Wymaga Kamienia Zwierzaka+. Szansa: <strong className="text-pandora-text/85">tylko 10%</strong>!</p>
         </Card>
