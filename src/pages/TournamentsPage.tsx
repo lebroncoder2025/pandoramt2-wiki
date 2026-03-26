@@ -379,35 +379,6 @@ tournaments.forEach(t => {
 const allTabs = ['Wszystkie', '2026', '2025', '2024'] as const
 type TabLabel = typeof allTabs[number]
 
-function MatchRow({ m, index }: { m: Match, index: number }) {
-  const isFinal = m.round.includes('FINAŁ')
-  const isAlternate = index % 2 === 1
-  return (
-    <tr className={`border-b border-pandora-border/25 last:border-0 transition-colors ${
-      isFinal 
-        ? 'bg-pandora-gold/[0.08] hover:bg-pandora-gold/[0.12]' 
-        : isAlternate 
-          ? 'bg-pandora-dark/25 hover:bg-pandora-dark/35' 
-          : 'hover:bg-pandora-card/40'
-    }`}>
-      <td className="px-4 py-3.5 text-pandora-muted text-xs w-8 text-right font-medium">{m.nr}</td>
-      <td className="px-4 py-3.5 text-[11px] text-pandora-muted/80 font-medium">{m.round}</td>
-      <td className="px-4 py-3.5 text-xs font-semibold text-pandora-text/95">{m.teamA}</td>
-      <td className="px-4 py-3.5 text-center text-xs text-pandora-muted/60">vs</td>
-      <td className="px-4 py-3.5 text-xs font-semibold text-pandora-text/95">{m.teamB}</td>
-      <td className="px-4 py-3.5 text-center text-xs font-mono font-bold text-pandora-muted">{m.score}</td>
-      <td className={`px-4 py-3.5 text-xs font-bold ${
-        isFinal ? 'text-pandora-gold' : 'text-pandora-green'
-      }`}>
-        {isFinal && '🏆 '}{m.winner}
-      </td>
-      {m.note && (
-        <td className="px-4 py-3.5 text-[10px] text-pandora-orange/80 italic max-w-xs break-words">{m.note}</td>
-      )}
-    </tr>
-  )
-}
-
 function TournamentCard({ t }: { t: Tournament }) {
   const [expanded, setExpanded] = useState(false)
   const hasResults = t.status !== 'no-results'
