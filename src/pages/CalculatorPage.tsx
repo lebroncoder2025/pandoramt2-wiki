@@ -9,7 +9,7 @@ function RankCalculator() {
 
   const targetData = ranks.find(r => r.name === targetRank)
   const targetPoints = targetData
-    ? parseInt((targetData.range.split('–').pop() || targetData.range).replace(/[^0-9]/g, ''))
+    ? parseInt((targetData.range.split('–')[0] || targetData.range).replace(/[^0-9]/g, ''))
     : 10000000
   const needed = Math.max(0, targetPoints - currentPoints)
 
@@ -67,6 +67,11 @@ function UpgradeCalculator() {
   const [targetLevel, setTargetLevel] = useState(9)
   const [metalPlus, setMetalPlus] = useState(false)
 
+  function handleCurrentChange(val: number) {
+    setCurrentLevel(val)
+    if (targetLevel <= val) setTargetLevel(val + 1)
+  }
+
   const baseChances: Record<number, number> = {
     1: 100, 2: 100, 3: 90, 4: 70, 5: 50, 6: 30, 7: 20, 8: 15, 9: 10
   }
@@ -90,7 +95,7 @@ function UpgradeCalculator() {
           <select
             id="current-level"
             value={currentLevel}
-            onChange={e => setCurrentLevel(parseInt(e.target.value))}
+            onChange={e => handleCurrentChange(parseInt(e.target.value))}
             className="w-full px-3.5 py-2 bg-pandora-dark/60 border border-pandora-border/40 rounded-lg text-sm text-pandora-text focus:border-pandora-gold/40 focus:outline-none transition-colors"
           >
             {[0,1,2,3,4,5,6,7,8].map(l => (
