@@ -31,7 +31,7 @@ export default function ClassesPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
         {classes.map(cls => (
-          <div key={cls.name} className={`bg-pandora-card/60 border rounded-lg overflow-hidden transition-all duration-200 ${colorMap[cls.color]}`}>
+          <div key={cls.name} className={`bg-pandora-card/60 border rounded-xl overflow-hidden transition-all duration-200 ${colorMap[cls.color]}`}>
             <div className="p-7">
               <div className="flex items-center gap-4 mb-4">
                 <div className={`w-11 h-11 rounded-lg flex items-center justify-center text-base font-bold font-display shrink-0 ${bgColorMap[cls.color]}`}>
@@ -46,7 +46,7 @@ export default function ClassesPage() {
 
               <div className="space-y-5">
                 {cls.subclasses.map(sub => (
-                  <div key={sub.name} className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20">
+                  <div key={sub.name} className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20">
                     <div className="flex items-center justify-between mb-2.5">
                       <h4 className="text-sm font-semibold text-pandora-text/85">{sub.name}</h4>
                       <Badge color={badgeColorMap[cls.color]}>{sub.stats}</Badge>

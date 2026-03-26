@@ -58,7 +58,7 @@ export default function EquipmentPage() {
       <SectionDivider />
 
       <SectionTitle>System Ulepszeń</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
         <div className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 hover:border-pandora-border/60 transition-colors">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Magiczny Metal+</h3>
           <p className="text-[13px] text-pandora-muted/60 mb-4">Daje dodatkowe +10% szansy na ulepszenie przedmiotu.</p>

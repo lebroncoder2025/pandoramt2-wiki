@@ -15,7 +15,7 @@ export default function MapsPage() {
         <p className="text-sm"><strong>Drop Sztabek Złota:</strong> Na mapach od Pustyni Wygnańców dropią najcenniejsze Sztabki (10KK). Wymagana max. 15 lvl różnicy do potwora. Od Doliny Śmierci różnica ta nie obowiązuje. VIP, Medal Szczęścia i Zwierzak zwiększają szansę.</p>
       </InfoBox>
 
-      <div className="space-y-7">
+      <div className="space-y-8">
         {maps.map((m, i) => (
           <div key={m.name} className="bg-pandora-card/60 border border-pandora-border/40 rounded-xl p-7 hover:border-pandora-border/60 transition-colors">
             <div className="flex flex-col lg:flex-row lg:items-start gap-6">
@@ -35,15 +35,15 @@ export default function MapsPage() {
               </div>
 
               <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-5">
-                <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
+                <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-blue/20">
                   <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Bonus</p>
                   <p className="text-sm font-medium text-pandora-blue/80">{m.bonus}</p>
                 </div>
-                <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20 border-l-2 border-l-pandora-red/20">
+                <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-red/20">
                   <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Bossy</p>
                   <p className="text-sm font-medium text-pandora-red/80">{m.bosses}</p>
                 </div>
-                <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20 border-l-2 border-l-pandora-purple/20">
+                <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-purple/20">
                   <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Metiny</p>
                   <p className="text-sm font-medium text-pandora-purple/80">{m.metins}</p>
                 </div>

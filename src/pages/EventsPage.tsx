@@ -224,7 +224,7 @@ export default function EventsPage() {
       />
 
       {/* Events List */}
-      <div className="space-y-7">
+      <div className="space-y-8">
         {filteredEvents.map(event => {
           const isExpanded = expandedEvent === event.name
           return (
@@ -247,14 +247,14 @@ export default function EventsPage() {
               </div>
 
               {/* Expanded Details */}
-              <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-[500px] opacity-100 mt-5' : 'max-h-0 opacity-0'}`}>
-                <div className="border-t border-pandora-border/40 pt-5 space-y-4">
+              <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-[500px] opacity-100 mt-7' : 'max-h-0 opacity-0'}`}>
+                <div className="border-t border-pandora-border/40 pt-6 space-y-5">
                   <div>
-                    <h4 className="text-[10px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-2">Komunikat w grze</h4>
-                    <p className="text-[13px] text-pandora-muted/60 bg-pandora-dark/30 rounded-lg p-3.5 border border-pandora-border/20 italic leading-relaxed">{event.trigger}</p>
+                    <h4 className="text-[11px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-3">Komunikat w grze</h4>
+                    <p className="text-[13px] text-pandora-muted/60 bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 italic leading-relaxed">{event.trigger}</p>
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-2">Opis</h4>
+                    <h4 className="text-[11px] font-bold text-pandora-gold/80 uppercase tracking-widest mb-3">Opis</h4>
                     <p className="text-[13px] text-pandora-text/85 leading-relaxed">{event.description}</p>
                   </div>
                 </div>

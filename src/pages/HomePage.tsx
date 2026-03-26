@@ -48,7 +48,7 @@ const highlights = [
 
 export default function HomePage() {
   return (
-    <div className="space-y-20">
+    <div className="space-y-28">
       {/* Hero */}
       <section className="py-8 md:py-12 relative">
         {/* Subtle ambient glow */}
@@ -101,7 +101,7 @@ export default function HomePage() {
 
       {/* Starting Equipment */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-10 flex items-center gap-2">
+        <h2 className="font-display text-xl font-bold gold-text mb-12 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Ekwipunek Startowy
         </h2>
@@ -120,7 +120,7 @@ export default function HomePage() {
 
       {/* Server Highlights */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-10 flex items-center gap-2">
+        <h2 className="font-display text-xl font-bold gold-text mb-12 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           O Serwerze
         </h2>
@@ -139,7 +139,7 @@ export default function HomePage() {
 
       {/* Events Preview */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-10 flex items-center gap-2">
+        <h2 className="font-display text-xl font-bold gold-text mb-12 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Eventy Serwerowe
         </h2>
@@ -163,7 +163,7 @@ export default function HomePage() {
 
       {/* Guide Navigation */}
       <section>
-        <h2 className="font-display text-lg font-bold gold-text mb-10 flex items-center gap-2">
+        <h2 className="font-display text-xl font-bold gold-text mb-12 flex items-center gap-2">
           <div className="w-1 h-5 rounded-full bg-pandora-gold/40" />
           Przewodnik
         </h2>
@@ -234,3 +234,4 @@ export default function HomePage() {
     </div>
   )
 }
+

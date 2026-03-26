@@ -35,9 +35,9 @@ export default function SoulStonesPage() {
             <p className="text-sm">Legendarne KD mają <strong>kilka bonusów</strong> i są znacznie silniejsze. Tworzysz je w <strong>Ołtarzu Dusz</strong>. Mogą <strong>pęknąć</strong> podczas wkładania!</p>
           </InfoBox>
 
-          <div className="space-y-6 mb-12">
+          <div className="space-y-8 mb-14">
             {legendarySoulStones.map(s => (
-              <div key={s.name} className="bg-pandora-card/60 border border-pandora-border/40 border-l-2 border-l-pandora-purple/20 rounded-xl p-7 hover:border-pandora-border/60 transition-colors">
+              <div key={s.name} className="bg-pandora-card/60 border border-pandora-border/40 border-l-4 border-l-pandora-purple/30 rounded-xl p-7 hover:border-pandora-border/60 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-start gap-5">
                   <div className="sm:w-1/3">
                     <h3 className="text-sm font-semibold text-pandora-text/85 mb-2">{s.name}</h3>

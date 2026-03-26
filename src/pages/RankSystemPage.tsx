@@ -34,7 +34,7 @@ export default function RankSystemPage() {
       </InfoBox>
 
       <SectionTitle>Szacunkowy czas zdobywania rang</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
         <Card className="border-t-2 border-t-pandora-green/20">
           <h3 className="text-sm font-semibold text-pandora-text/85 mb-3">Rycerz (20K pkt)</h3>
           <p className="text-[13px] text-pandora-muted/60 leading-relaxed">Osiągalny relatywnie szybko przez zwykły farm. Pierwszy bonus PvP.</p>

@@ -1,4 +1,4 @@
-﻿import { Skull } from 'lucide-react'
+import { Skull } from 'lucide-react'
 import { PageHeader, SectionTitle, InfoBox, SectionDivider } from '../components/UI.tsx'
 import { bosses } from '../data/serverData.ts'
 
@@ -12,7 +12,7 @@ export default function BossesPage() {
       />
 
       <SectionTitle>Bossy na Mapach</SectionTitle>
-      <div className="space-y-6 mb-12">
+      <div className="space-y-8 mb-16">
         {bosses.map(b => {
           const respawnColor = b.respawn.includes('48') ? 'text-pandora-red/70 bg-pandora-red/8 border-pandora-red/20' : b.respawn.includes('12') ? 'text-pandora-orange/70 bg-pandora-orange/8 border-pandora-orange/20' : b.respawn.includes('60') ? 'text-pandora-purple/70 bg-pandora-purple/8 border-pandora-purple/20' : 'text-pandora-green/70 bg-pandora-green/8 border-pandora-green/20'
           const accentColor = b.respawn.includes('48') ? 'border-l-pandora-red/50' : b.respawn.includes('12') ? 'border-l-pandora-orange/50' : b.respawn.includes('60') ? 'border-l-pandora-purple/50' : 'border-l-pandora-green/50'
@@ -25,11 +25,11 @@ export default function BossesPage() {
                 </span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20">
+                <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20">
                   <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Lokacja</p>
                   <p className="text-sm font-medium text-pandora-text/85">{b.map}</p>
                 </div>
-                <div className="bg-pandora-dark/30 rounded-lg p-5 border border-pandora-border/20 border-l-2 border-l-pandora-gold/20">
+                <div className="bg-pandora-dark/30 rounded-xl p-5 border border-pandora-border/20 border-l-2 border-l-pandora-gold/20">
                   <p className="text-[11px] text-pandora-muted/60 uppercase tracking-widest mb-2">Nagroda</p>
                   <p className="text-sm font-medium text-pandora-gold/80">{b.reward}</p>
                 </div>
@@ -42,8 +42,9 @@ export default function BossesPage() {
       <SectionDivider />
 
       <InfoBox type="info">
-        <p className="text-sm">Dane o bossach pochodzą z oficjalnej <a href="https://forum.pandoramt2.pl/topic/31300-s2-prezentacja-serwera/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold underline">Prezentacji Serwera</a>. World bossy (Infernus, Balathor) wymagają dużej grupy graczy.</p>
+        <p className="text-sm">Dane o bossach pochodza z oficjalnej <a href="https://forum.pandoramt2.pl/topic/31300-s2-prezentacja-serwera/" target="_blank" rel="noopener noreferrer" className="text-pandora-gold underline">Prezentacji Serwera</a>. World bossy (Infernus, Balathor) wymagaja duzej grupy graczy.</p>
       </InfoBox>
     </div>
   )
 }
+
