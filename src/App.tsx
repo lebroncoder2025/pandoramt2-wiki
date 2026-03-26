@@ -18,6 +18,7 @@ import CalculatorPage from './pages/CalculatorPage.tsx'
 import EventsPage from './pages/EventsPage.tsx'
 import TournamentsPage from './pages/TournamentsPage.tsx'
 import EnhancementPage from './pages/EnhancementPage.tsx'
+import CostumeSystemPage from './pages/CostumeSystemPage.tsx'
 
 export default function App() {
   return (
@@ -41,6 +42,7 @@ export default function App() {
         <Route path="events" element={<EventsPage />} />
         <Route path="tournaments" element={<TournamentsPage />} />
         <Route path="enhancement" element={<EnhancementPage />} />
+        <Route path="costume-system" element={<CostumeSystemPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

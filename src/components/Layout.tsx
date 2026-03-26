@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { Menu, X, Sword, Map, Castle, Skull, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, ChevronRight, ExternalLink, Info, Calendar, Sparkles } from 'lucide-react'
+import { Menu, X, Sword, Map, Castle, Skull, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, ChevronRight, ExternalLink, Info, Calendar, Sparkles, Shirt } from 'lucide-react'
 
 const navGroups = [
   {
@@ -26,6 +26,7 @@ const navGroups = [
     items: [
       { path: '/soul-stones', label: 'Kamienie Dusz', icon: Gem },
       { path: '/pet-system', label: 'Zwierzaki', icon: Dog },
+      { path: '/costume-system', label: 'Kostiumy', icon: Shirt },
       { path: '/skills', label: 'Umiejętności', icon: Zap },
     ]
   },
