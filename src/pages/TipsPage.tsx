@@ -132,7 +132,7 @@ export default function TipsPage() {
         </InfoBox>
         <InfoBox type="tip">
           <h3 className="font-semibold mb-2">Krok 3: Mid-game (lvl 75–150)</h3>
-          <p className="text-sm">Farmuj Atlantydę V1/V2. Wchodź do Komnaty Pająków/Smoka (lvl 100). Rozwijaj Zwierzaka. Buduj rangę.</p>
+          <p className="text-sm">Farmuj Atlantydę V1/V2. Wchodź do Komnaty Pająków/Smoka (lvl 100). Od poziomu 110 farmuj Dolinę Śmierci na drogie przedmioty. Rozwijaj Zwierzaka. Buduj rangę.</p>
         </InfoBox>
         <InfoBox type="tip">
           <h3 className="font-semibold mb-2">Krok 4: End-game (lvl 150–250)</h3>

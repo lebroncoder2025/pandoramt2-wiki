@@ -236,7 +236,7 @@ export default function Layout() {
         </header>
 
         {/* Content */}
-        <main id="main-content" className="flex-1 px-6 py-10 sm:px-8 sm:py-12 md:px-10 lg:px-14">
+        <main id="main-content" className="flex-1 px-6 py-10 sm:px-8 sm:py-12 md:px-10 md:ml-4 lg:px-14 lg:ml-6">
           <div key={location.pathname} className="animate-fade-in">
             <Outlet />
           </div>
