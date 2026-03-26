@@ -500,66 +500,44 @@ function TournamentCard({ t }: { t: Tournament }) {
             {expanded ? 'Ukryj listę walk' : `Pokaż listę walk (${t.matches.length} meczów)`}
           </button>
 
-          {/* Mobile: Card layout (< 640px) */}
+          {/* Card layout (all screen sizes) */}
           {expanded && (
-            <div className="mt-4 space-y-3 sm:hidden">
+            <div className="mt-4 space-y-3">
               {t.matches.map((m) => {
                 const isFinal = m.round.includes('FINAŁ')
                 return (
-                  <div key={m.nr} className={`rounded-lg border p-3 transition-colors ${ 
+                  <div key={m.nr} className={`rounded-lg border p-3 sm:p-4 transition-colors ${ 
                     isFinal 
                       ? 'bg-pandora-gold/[0.08] border-pandora-border/40' 
                       : 'bg-pandora-card/60 border-pandora-border/25'
                   }`}>
-                    <div className="flex justify-between items-start mb-2.5">
-                      <span className="text-[10px] font-semibold text-pandora-gold/90 uppercase tracking-wide">{m.round}</span>
+                    <div className="flex justify-between items-start mb-2.5 sm:mb-3">
+                      <span className="text-[10px] sm:text-xs font-semibold text-pandora-gold/90 uppercase tracking-wide">{m.round}</span>
                       <span className="text-[10px] text-pandora-muted/70">#{m.nr}</span>
                     </div>
                     
-                    <div className="mb-3">
-                      <div className="flex items-center justify-between gap-2 mb-2">
-                        <span className="text-xs font-semibold text-pandora-text/95 flex-1 truncate">{m.teamA}</span>
+                    <div className="mb-3 sm:mb-4">
+                      <div className="flex items-center justify-between gap-2 mb-2.5 sm:mb-3">
+                        <span className="text-xs sm:text-sm font-semibold text-pandora-text/95 flex-1 truncate">{m.teamA}</span>
                         <span className="text-[10px] text-pandora-muted/60">vs</span>
-                        <span className="text-xs font-semibold text-pandora-text/95 flex-1 truncate text-right">{m.teamB}</span>
+                        <span className="text-xs sm:text-sm font-semibold text-pandora-text/95 flex-1 truncate text-right">{m.teamB}</span>
                       </div>
-                      <div className="text-center font-mono font-bold text-base text-pandora-gold">{m.score}</div>
+                      <div className="text-center font-mono font-bold text-lg sm:text-xl text-pandora-gold">{m.score}</div>
                     </div>
                     
-                    <div className="pt-2.5 border-t border-pandora-border/20">
-                      <p className="text-xs font-bold">
+                    <div className="pt-2.5 sm:pt-3 border-t border-pandora-border/20">
+                      <p className="text-xs sm:text-sm font-bold">
                         {isFinal && '🏆 '}
                         <span className={isFinal ? 'text-pandora-gold' : 'text-pandora-green'}>
                           {m.winner}
                         </span>
                       </p>
-                      {m.date && <p className="text-[10px] text-pandora-muted/60 mt-1">{m.date}</p>}
-                      {m.note && <p className="text-[9px] text-pandora-orange/70 italic mt-1 break-words">{m.note}</p>}
+                      {m.date && <p className="text-[10px] sm:text-xs text-pandora-muted/60 mt-1.5 sm:mt-2">{m.date}</p>}
+                      {m.note && <p className="text-[9px] sm:text-[10px] text-pandora-orange/70 italic mt-1.5 sm:mt-2 break-words">{m.note}</p>}
                     </div>
                   </div>
                 )
               })}
-            </div>
-          )}
-
-          {/* Desktop: Table layout (≥ 640px) */}
-          {expanded && (
-            <div className="mt-4 hidden sm:block overflow-x-auto rounded-lg border border-pandora-border/30">
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr className="bg-pandora-dark/70 border-b-2 border-pandora-border/40">
-                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold w-8">#</th>
-                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Runda</th>
-                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Gildia A</th>
-                    <th className="px-4 py-3.5 text-center w-6"></th>
-                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Gildia B</th>
-                    <th className="px-4 py-3.5 text-center text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Wynik</th>
-                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Zwycięzca</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {t.matches.map((m, idx) => <MatchRow key={m.nr} m={m} index={idx} />)}
-                </tbody>
-              </table>
             </div>
           )}
         </>
