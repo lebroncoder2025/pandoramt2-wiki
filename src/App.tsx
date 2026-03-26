@@ -5,7 +5,6 @@ import ServerInfoPage from './pages/ServerInfoPage.tsx'
 import MapsPage from './pages/MapsPage.tsx'
 import DungeonsPage from './pages/DungeonsPage.tsx'
 import BossesPage from './pages/BossesPage.tsx'
-import EquipmentPage from './pages/EquipmentPage.tsx'
 import SoulStonesPage from './pages/SoulStonesPage.tsx'
 import PetSystemPage from './pages/PetSystemPage.tsx'
 import FishingPage from './pages/FishingPage.tsx'
@@ -29,7 +28,6 @@ export default function App() {
         <Route path="maps" element={<MapsPage />} />
         <Route path="dungeons" element={<DungeonsPage />} />
         <Route path="bosses" element={<BossesPage />} />
-        <Route path="equipment" element={<EquipmentPage />} />
         <Route path="soul-stones" element={<SoulStonesPage />} />
         <Route path="pet-system" element={<PetSystemPage />} />
         <Route path="fishing" element={<FishingPage />} />

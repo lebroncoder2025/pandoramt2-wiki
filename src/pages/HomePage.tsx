@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
-import { Shield, Castle, Skull, Gem, Dog, Map, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, Calendar, Download, ArrowRight } from 'lucide-react'
+import { Castle, Skull, Gem, Dog, Map, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, Calendar, Download, ArrowRight } from 'lucide-react'
 import { serverInfo } from '../data/serverData.ts'
 
 const guides = [
-  { icon: Shield, title: 'Ekwipunek & Bonusy', desc: 'Tabela bonusów, ulepszenia, Metal+', path: '/equipment' },
   { icon: Castle, title: 'Dungeony', desc: '7 dungeonów z nagrodami', path: '/dungeons' },
   { icon: Skull, title: 'Bossy', desc: 'Respawny, lokacje, nagrody', path: '/bosses' },
   { icon: Gem, title: 'Kamienie Dusz', desc: 'Zwykłe i Legendarne KD', path: '/soul-stones' },

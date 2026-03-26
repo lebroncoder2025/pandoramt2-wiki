@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { Menu, X, Sword, Map, Castle, Skull, Shield, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, ChevronRight, ExternalLink, Info, Calendar } from 'lucide-react'
+import { Menu, X, Sword, Map, Castle, Skull, Gem, Dog, Fish, Pickaxe, Trophy, FlaskConical, Zap, Lightbulb, Calculator, ChevronRight, ExternalLink, Info, Calendar } from 'lucide-react'
 
 const navGroups = [
   {
@@ -24,7 +24,6 @@ const navGroups = [
   {
     label: 'Systemy',
     items: [
-      { path: '/equipment', label: 'Ekwipunek & Bonusy', icon: Shield },
       { path: '/soul-stones', label: 'Kamienie Dusz', icon: Gem },
       { path: '/pet-system', label: 'Zwierzaki', icon: Dog },
       { path: '/skills', label: 'Umiejętności', icon: Zap },
