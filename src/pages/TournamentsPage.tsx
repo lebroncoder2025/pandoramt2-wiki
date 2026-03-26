@@ -379,21 +379,30 @@ tournaments.forEach(t => {
 const allTabs = ['Wszystkie', '2026', '2025', '2024'] as const
 type TabLabel = typeof allTabs[number]
 
-function MatchRow({ m }: { m: Match }) {
+function MatchRow({ m, index }: { m: Match, index: number }) {
   const isFinal = m.round.includes('FINAŁ')
+  const isAlternate = index % 2 === 1
   return (
-    <tr className={`border-b border-pandora-border/15 last:border-0 transition-colors ${isFinal ? 'bg-pandora-gold/[0.04]' : 'hover:bg-pandora-card/30'}`}>
-      <td className="px-3 py-2.5 text-pandora-muted text-xs w-8 text-right">{m.nr}</td>
-      <td className="px-3 py-2.5 text-[11px] text-pandora-muted/80">{m.round}</td>
-      <td className="px-3 py-2.5 text-xs font-semibold text-pandora-text/90">{m.teamA}</td>
-      <td className="px-3 py-2.5 text-center text-xs text-pandora-muted">vs</td>
-      <td className="px-3 py-2.5 text-xs font-semibold text-pandora-text/90">{m.teamB}</td>
-      <td className="px-3 py-2.5 text-center text-xs font-mono text-pandora-muted/80">{m.score}</td>
-      <td className={`px-3 py-2.5 text-xs font-bold ${isFinal ? 'text-pandora-gold' : 'text-pandora-green'}`}>
-        {m.winner}
+    <tr className={`border-b border-pandora-border/25 last:border-0 transition-colors ${
+      isFinal 
+        ? 'bg-pandora-gold/[0.08] hover:bg-pandora-gold/[0.12]' 
+        : isAlternate 
+          ? 'bg-pandora-dark/25 hover:bg-pandora-dark/35' 
+          : 'hover:bg-pandora-card/40'
+    }`}>
+      <td className="px-4 py-3.5 text-pandora-muted text-xs w-8 text-right font-medium">{m.nr}</td>
+      <td className="px-4 py-3.5 text-[11px] text-pandora-muted/80 font-medium">{m.round}</td>
+      <td className="px-4 py-3.5 text-xs font-semibold text-pandora-text/95">{m.teamA}</td>
+      <td className="px-4 py-3.5 text-center text-xs text-pandora-muted/60">vs</td>
+      <td className="px-4 py-3.5 text-xs font-semibold text-pandora-text/95">{m.teamB}</td>
+      <td className="px-4 py-3.5 text-center text-xs font-mono font-bold text-pandora-muted">{m.score}</td>
+      <td className={`px-4 py-3.5 text-xs font-bold ${
+        isFinal ? 'text-pandora-gold' : 'text-pandora-green'
+      }`}>
+        {isFinal && '🏆 '}{m.winner}
       </td>
       {m.note && (
-        <td className="px-3 py-2.5 text-[10px] text-pandora-orange/80 italic break-words">{m.note}</td>
+        <td className="px-4 py-3.5 text-[10px] text-pandora-orange/80 italic max-w-xs break-words">{m.note}</td>
       )}
     </tr>
   )
@@ -493,20 +502,20 @@ function TournamentCard({ t }: { t: Tournament }) {
 
           {expanded && (
             <div className="mt-4 overflow-x-auto rounded-lg border border-pandora-border/30">
-              <table className="w-full text-sm">
+              <table className="w-full text-sm border-collapse">
                 <thead>
-                  <tr className="bg-pandora-dark/60">
-                    <th className="px-3 py-2.5 text-left text-pandora-gold/80 text-[10px] uppercase tracking-widest w-8">#</th>
-                    <th className="px-3 py-2.5 text-left text-pandora-gold/80 text-[10px] uppercase tracking-widest">Runda</th>
-                    <th className="px-3 py-2.5 text-left text-pandora-gold/80 text-[10px] uppercase tracking-widest">Gildia A</th>
-                    <th className="px-3 py-2.5 text-center w-6"></th>
-                    <th className="px-3 py-2.5 text-left text-pandora-gold/80 text-[10px] uppercase tracking-widest">Gildia B</th>
-                    <th className="px-3 py-2.5 text-center text-pandora-gold/80 text-[10px] uppercase tracking-widest">Wynik</th>
-                    <th className="px-3 py-2.5 text-left text-pandora-gold/80 text-[10px] uppercase tracking-widest">Zwycięzca</th>
+                  <tr className="bg-pandora-dark/70 border-b-2 border-pandora-border/40">
+                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold w-8">#</th>
+                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Runda</th>
+                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Gildia A</th>
+                    <th className="px-4 py-3.5 text-center w-6"></th>
+                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Gildia B</th>
+                    <th className="px-4 py-3.5 text-center text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Wynik</th>
+                    <th className="px-4 py-3.5 text-left text-pandora-gold/90 text-[10px] uppercase tracking-widest font-bold">Zwycięzca</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {t.matches.map(m => <MatchRow key={m.nr} m={m} />)}
+                  {t.matches.map((m, idx) => <MatchRow key={m.nr} m={m} index={idx} />)}
                 </tbody>
               </table>
             </div>
