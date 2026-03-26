@@ -20,6 +20,7 @@ import TournamentsPage from './pages/TournamentsPage.tsx'
 import EnhancementPage from './pages/EnhancementPage.tsx'
 import CostumeSystemPage from './pages/CostumeSystemPage.tsx'
 import BonusReferencePage from './pages/BonusReferencePage.tsx'
+import LifeFruitsGuidePage from './pages/LifeFruitsGuidePage.tsx'
 
 export default function App() {
   return (
@@ -45,6 +46,7 @@ export default function App() {
         <Route path="enhancement" element={<EnhancementPage />} />
         <Route path="costume-system" element={<CostumeSystemPage />} />
         <Route path="bonus-reference" element={<BonusReferencePage />} />
+        <Route path="life-fruits" element={<LifeFruitsGuidePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
