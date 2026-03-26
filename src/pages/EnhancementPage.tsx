@@ -71,7 +71,7 @@ export default function EnhancementPage() {
           <div key={bonus.name} className="bg-pandora-card/70 border border-pandora-border/30 rounded-lg p-4">
             <div className="flex items-start justify-between mb-2">
               <h4 className="text-xs font-bold text-pandora-gold/90">{bonus.name}</h4>
-              <Badge color="gold" className="text-[10px]">+6/+7</Badge>
+              <Badge color="gold">+6/+7</Badge>
             </div>
             <p className="text-xs text-pandora-muted leading-relaxed">{bonus.value}</p>
           </div>
@@ -181,7 +181,7 @@ export default function EnhancementPage() {
             <span>+</span> Jakie ulepszenie da mi największy boost?
           </summary>
           <p className="text-xs text-pandora-muted mt-2 leading-relaxed">
-            Broń +6/+7 > Zbroja +4 > Reszta. Ulepsz broń jako primum - to daje największy DPS boost.
+            Broń +6/+7 {'>'}  Zbroja +4 {'>'} Reszta. Ulepsz broń jako primum - to daje największy DPS boost.
           </p>
         </details>
       </div>
@@ -219,7 +219,7 @@ export default function EnhancementPage() {
             <span className="w-5 h-5 rounded-full bg-pandora-green/20 border border-pandora-green/40 flex items-center justify-center">
               <span className="text-[10px] text-pandora-green font-bold">✓</span>
             </span>
-            <span>+6/+7 na broni > +4-5 wszędzie - skoncentruj się na quality, nie quantity</span>
+            <span>+6/+7 na broni {'>'} +4-5 wszędzie - skoncentruj się na quality, nie quantity</span>
           </li>
         </ul>
       </div>
