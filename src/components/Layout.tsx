@@ -197,7 +197,7 @@ export default function Layout() {
       >
         {/* Header */}
         <header className="sticky top-0 z-30 bg-pandora-darker/90 backdrop-blur-lg border-b border-pandora-border/20" style={{ minHeight: 52 }}>
-          <div className="flex items-center justify-between px-5 py-2">
+          <div className="flex items-center justify-between px-6 py-2 sm:px-8 md:px-10 lg:px-16">
             {!isDesktop ? (
               <div className="flex items-center gap-2">
                 <button
@@ -236,14 +236,14 @@ export default function Layout() {
         </header>
 
         {/* Content */}
-        <main id="main-content" className="flex-1 px-6 py-10 sm:px-8 sm:py-12 md:px-10 md:ml-4 lg:px-14 lg:ml-6">
+        <main id="main-content" className="flex-1 px-8 py-10 sm:px-10 sm:py-12 md:px-12 lg:px-16">
           <div key={location.pathname} className="animate-fade-in">
             <Outlet />
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="mt-auto border-t border-pandora-border/15 py-10 px-6 md:px-10 lg:px-14">
+        <footer className="mt-auto border-t border-pandora-border/15 py-10 px-8 sm:px-10 md:px-12 lg:px-16">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-[11px] text-pandora-muted/40 leading-relaxed">
               Nieoficjalny przewodnik PandoraMT2.pl © 2020–2026
